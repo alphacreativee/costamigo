@@ -5,7 +5,7 @@ section.section-slider {
   .nav-tabs {
     border: none;
     width: max-content;
-    left: 1 / 12 * 100%;
+    left: calc(1 / 12 * 100%);
     top: 0;
     position: absolute;
     z-index: 2;
