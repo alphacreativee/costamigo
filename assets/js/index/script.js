@@ -29,9 +29,26 @@ function sectionSlider() {
   const swiper = new Swiper(".swiper", swiperOptions);
 }
 
+function animationMaskCentral() {
+  const animationImages = document.querySelectorAll(".animation-image");
+
+  animationImages.forEach((image) => {
+    gsap.to(image, {
+      scrollTrigger: {
+        trigger: image,
+        start: "top 50%",
+        end: "bottom 50%",
+        // toggleClass: "show",
+        onEnter: () => image.classList.add("show"),
+        markers: true
+      }
+    });
+  });
+}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   sectionSlider();
+  animationMaskCentral();
 };
 
 preloadImages("img").then(() => {
