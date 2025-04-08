@@ -12,14 +12,12 @@ function sectionSlider() {
     const mainSwiperEl = section.querySelector(".main-slider");
     const paginationEl = section.querySelector(".swiper-pagination");
 
-    // Tạo swiper cho phần nội dung (bên trái)
     const swiperContent = new Swiper(contentSwiperEl, {
       loop: false,
       effect: "fade",
       allowTouchMove: false
     });
 
-    // Tạo swiper chính (bên phải)
     const swiperMain = new Swiper(mainSwiperEl, {
       loop: true,
       effect: "fade",
