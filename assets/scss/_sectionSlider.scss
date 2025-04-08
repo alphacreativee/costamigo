@@ -1,0 +1,71 @@
+section.section-slider {
+  height: 100vh;
+  .swiper-slide {
+    background-color: beige;
+    width: 100%;
+    aspect-ratio: 885 / 545;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    transition: 0.5s all;
+  }
+
+  .swiper-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-pagination-bullet {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    margin: 0 12px !important;
+    background-color: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+
+    span {
+      color: #232c6a;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .progress {
+    transform: rotate(-90deg);
+    width: 41px;
+    height: 41px;
+    background-color: transparent;
+  }
+  .circle-origin {
+    fill: transparent;
+    stroke: rgb(255, 255, 255);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 125.664px;
+    stroke-dashoffset: 125.664px;
+  }
+
+  .swiper-pagination-bullet-active .circle-origin {
+    animation: progress 5s;
+  }
+
+  @keyframes progress {
+    0% {
+      stroke-dashoffset: 125.664px;
+    }
+
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+}
