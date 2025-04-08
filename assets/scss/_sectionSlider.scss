@@ -1,5 +1,28 @@
 section.section-slider {
   height: 100vh;
+  position: relative;
+
+  .nav-tabs {
+    border: none;
+    width: max-content;
+    left: 1 / 12 * 100%;
+    top: 0;
+    position: absolute;
+    z-index: 2;
+
+    .nav-item {
+      &:not(:last-child) {
+        margin-right: 32px;
+      }
+    }
+
+    .nav-link {
+      padding: 0;
+      border: none;
+      color: #000;
+    }
+  }
+
   .swiper-slide {
     background-color: #fff;
     width: 100%;
@@ -108,8 +131,8 @@ section.section-slider {
     stroke: #232c6a;
     stroke-width: 4;
     stroke-linecap: round;
-    stroke-dasharray: 125px;
-    stroke-dashoffset: 125px;
+    stroke-dasharray: 125.664px;
+    stroke-dashoffset: 125.664px;
     opacity: 0;
   }
 
