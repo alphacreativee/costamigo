@@ -1,14 +1,14 @@
 section.section-slider {
   height: 100vh;
   .swiper-slide {
-    background-color: beige;
+    background-color: #fff;
     width: 100%;
     aspect-ratio: 885 / 545;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #fff;
+    color: #000;
     transition: 0.5s all;
   }
 
@@ -16,6 +16,59 @@ section.section-slider {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .slider-swiper-content {
+    max-width: 70%;
+    margin-right: auto;
+    margin-left: 0;
+
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      text-align: left;
+      background-color: #fff;
+
+      .desc {
+        margin-top: 24px;
+      }
+
+      * {
+        transform: translateY(30px);
+        opacity: 0;
+        transition: all 0.8s ease;
+      }
+
+      &.swiper-slide-active {
+        * {
+          transform: translate(0);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .swiper-pagination {
+    top: unset;
+    bottom: unset;
+    position: relative;
+    transform: translateY(40px);
+  }
+
+  .main-slider {
+    .swiper-slide {
+      mask-image: url(../../images/mask-image-1.png);
+      mask-size: 100% 100%;
+      mask-repeat: no-repeat;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
   }
 
   .swiper-pagination-bullet {
@@ -45,27 +98,33 @@ section.section-slider {
     width: 41px;
     height: 41px;
     background-color: transparent;
+    mask-image: url(../../images/pagination-circle.svg);
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    transform: scaleX(-1) rotate(-65deg);
   }
   .circle-origin {
     fill: transparent;
-    stroke: rgb(255, 255, 255);
-    stroke-width: 2;
+    stroke: #232c6a;
+    stroke-width: 4;
     stroke-linecap: round;
-    stroke-dasharray: 125.664px;
-    stroke-dashoffset: 125.664px;
+    stroke-dasharray: 125px;
+    stroke-dashoffset: 125px;
+    opacity: 0;
   }
 
   .swiper-pagination-bullet-active .circle-origin {
     animation: progress 5s;
+    opacity: 1;
   }
 
   @keyframes progress {
     0% {
-      stroke-dashoffset: 125.664px;
+      stroke-dashoffset: -128.8px;
     }
 
     100% {
-      stroke-dashoffset: 0;
+      stroke-dashoffset: -3px;
     }
   }
 }

@@ -27,20 +27,210 @@
     <header></header>
     <main>
       <section class="section-slider">
-        <div class="container-fluild h-100">
-          <div class="row g-0">
-            <div class="col-lg-1"></div>
-            <div class="col-lg-3"></div>
-            <div class="col-lg-8">
-              <div class="swiper slider-swiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">Slide 1</div>
-                  <div class="swiper-slide">Slide 2</div>
-                  <div class="swiper-slide">Slide 3</div>
+        <div class="container-fluild">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="slider-tab-1"
+                data-bs-toggle="tab"
+                data-bs-target="#slider-content-1"
+                type="button"
+                role="tab"
+                aria-controls="slider-content-1"
+                aria-selected="true"
+              >
+                Tất cả
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="slider-tab-2"
+                data-bs-toggle="tab"
+                data-bs-target="#slider-content-2"
+                type="button"
+                role="tab"
+                aria-controls="slider-content-2"
+                aria-selected="false"
+              >
+                Khu Villas
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="slider-tab-3"
+                data-bs-toggle="tab"
+                data-bs-target="#slider-content-3"
+                type="button"
+                role="tab"
+                aria-controls="slider-content-3"
+                aria-selected="false"
+              >
+                Khu Costa
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div
+              class="tab-pane fade show active"
+              id="slider-content-1"
+              role="tabpanel"
+              aria-labelledby="slider-tab-1"
+            >
+              <div class="row g-0">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-3">
+                  <div class="swiper slider-swiper-content h-100">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <h4>Premier Ocean Villa</h4>
+                        <div class="desc">
+                          Tận hưởng những ban công hướng biển tuyệt mỹ cùng
+                          khung cảnh tuyệt đẹp.
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <h4>Premier Ocean Villa 2</h4>
+                        <div class="desc">
+                          Tận hưởng những ban công hướng biển tuyệt mỹ cùng
+                          khung cảnh tuyệt đẹp.
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <h4>Premier Ocean Villa 3</h4>
+                        <div class="desc">
+                          Tận hưởng những ban công hướng biển tuyệt mỹ cùng
+                          khung cảnh tuyệt đẹp.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-
-                <div class="swiper-pagination"></div>
+                <div class="col-lg-8">
+                  <div class="swiper main-slider">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <img src="./assets/images/img-room-1.png" alt="" />
+                      </div>
+                      <div class="swiper-slide">
+                        <img src="./assets/images/img-room-2.png" alt="" />
+                      </div>
+                      <div class="swiper-slide">
+                        <img src="./assets/images/img-room-1.png" alt="" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
+              <div class="slider-pagination-main swiper-pagination"></div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="slider-content-2"
+              role="tabpanel"
+              aria-labelledby="slider-tab-2"
+            >
+              <div class="row g-0">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-3">
+                  <div class="swiper slider-swiper-content h-100">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <h4>Premier Ocean Villa</h4>
+                        <div class="desc">
+                          Tận hưởng những ban công hướng biển tuyệt mỹ cùng
+                          khung cảnh tuyệt đẹp.
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <h4>Premier Ocean Villa 2</h4>
+                        <div class="desc">
+                          Tận hưởng những ban công hướng biển tuyệt mỹ cùng
+                          khung cảnh tuyệt đẹp.
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <h4>Premier Ocean Villa 3</h4>
+                        <div class="desc">
+                          Tận hưởng những ban công hướng biển tuyệt mỹ cùng
+                          khung cảnh tuyệt đẹp.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8">
+                  <div class="swiper main-slider">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <img src="./assets/images/img-room-1.png" alt="" />
+                      </div>
+                      <div class="swiper-slide">
+                        <img src="./assets/images/img-room-2.png" alt="" />
+                      </div>
+                      <div class="swiper-slide">
+                        <img src="./assets/images/img-room-1.png" alt="" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slider-pagination-main swiper-pagination"></div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="slider-content-3"
+              role="tabpanel"
+              aria-labelledby="slider-tab-3"
+            >
+              <div class="row g-0">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-3">
+                  <div class="swiper slider-swiper-content h-100">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <h4>Premier Ocean Villa</h4>
+                        <div class="desc">
+                          Tận hưởng những ban công hướng biển tuyệt mỹ cùng
+                          khung cảnh tuyệt đẹp.
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <h4>Premier Ocean Villa 2</h4>
+                        <div class="desc">
+                          Tận hưởng những ban công hướng biển tuyệt mỹ cùng
+                          khung cảnh tuyệt đẹp.
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <h4>Premier Ocean Villa 3</h4>
+                        <div class="desc">
+                          Tận hưởng những ban công hướng biển tuyệt mỹ cùng
+                          khung cảnh tuyệt đẹp.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8">
+                  <div class="swiper main-slider">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <img src="./assets/images/img-room-1.png" alt="" />
+                      </div>
+                      <div class="swiper-slide">
+                        <img src="./assets/images/img-room-2.png" alt="" />
+                      </div>
+                      <div class="swiper-slide">
+                        <img src="./assets/images/img-room-1.png" alt="" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slider-pagination-main swiper-pagination"></div>
             </div>
           </div>
         </div>
