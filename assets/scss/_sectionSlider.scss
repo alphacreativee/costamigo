@@ -24,7 +24,8 @@ section.section-slider {
   }
 
   .swiper-slide {
-    background-color: #fff;
+    background-color: #f8f0e2;
+
     width: 100%;
     aspect-ratio: 885 / 545;
     display: flex;
@@ -52,7 +53,7 @@ section.section-slider {
       align-items: flex-start;
       justify-content: center;
       text-align: left;
-      background-color: #fff;
+      background-color: #f8f0e2;
 
       .desc {
         margin-top: 24px;

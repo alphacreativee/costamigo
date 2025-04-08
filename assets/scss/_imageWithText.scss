@@ -1,0 +1,58 @@
+section.image-with-text {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+
+  .main-image {
+    width: 100%;
+    max-height: 100vh;
+    aspect-ratio: 1440 / 843;
+    object-position: bottom;
+    object-fit: cover;
+  }
+
+  .mask {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    height: 50vh;
+    mask-repeat: no-repeat;
+    mask-size: 100% auto;
+    background-color: #f8f0e2;
+  }
+
+  .mask.top {
+    top: 0;
+
+    &::after {
+      content: "";
+      background-image: url(../../images/mask-top.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 100%;
+      aspect-ratio: 1440 / 104;
+      height: auto;
+      position: absolute;
+      left: 0;
+      top: 93%;
+    }
+  }
+
+  .mask.bottom {
+    bottom: 0;
+
+    &::after {
+      content: "";
+      background-image: url(../../images/mask-bottom.svg);
+      width: 100%;
+      aspect-ratio: 1440 / 215;
+      height: auto;
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      left: 0;
+      bottom: 85%;
+    }
+  }
+}

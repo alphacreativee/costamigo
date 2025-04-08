@@ -46,6 +46,36 @@ function sectionSlider() {
   });
 }
 
+function imgWithText() {
+  if ($(".image-with-text").length < 1) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to(".mask.top", {
+    y: "-100%",
+    duration: 1.5,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".image-with-text",
+      start: "top top",
+      toggleActions: "play none none none"
+      // markers: true
+    }
+  });
+
+  gsap.to(".mask.bottom", {
+    y: "100%",
+    duration: 1.5,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".image-with-text",
+      start: "top top",
+      toggleActions: "play none none none"
+      // markers: true
+    }
+  });
+}
+
 function animationMaskCentral() {
   const animationImages = document.querySelectorAll(".animation-image");
 
@@ -56,8 +86,8 @@ function animationMaskCentral() {
         start: "top 50%",
         end: "bottom 50%",
         // toggleClass: "show",
-        onEnter: () => image.classList.add("show"),
-        markers: true
+        onEnter: () => image.classList.add("show")
+        // markers: true
       }
     });
   });
@@ -94,6 +124,7 @@ const init = () => {
   sectionSlider();
   animationMaskCentral();
   animationText();
+  imgWithText();
 };
 
 preloadImages("img").then(() => {
