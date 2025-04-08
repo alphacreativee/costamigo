@@ -10,7 +10,7 @@ function sectionSlider() {
     effect: "fade",
     autoplay: {
       delay: 5000,
-      disableOnInteraction: false
+      disableOnInteraction: false,
     },
     // custom pagination
     pagination: {
@@ -22,8 +22,8 @@ function sectionSlider() {
             <svg class="progress" width="41" height="41"><circle class="circle-origin" r="20" cx="20.5" cy="20.5"></circle></svg>
             <span>${i + 1}</span>
           </button>`;
-      }
-    }
+      },
+    },
   };
 
   const swiper = new Swiper(".swiper", swiperOptions);
@@ -40,8 +40,8 @@ function animationMaskCentral() {
         end: "bottom 50%",
         // toggleClass: "show",
         onEnter: () => image.classList.add("show"),
-        markers: true
-      }
+        markers: true,
+      },
     });
   });
 }
