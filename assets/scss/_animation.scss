@@ -22,18 +22,36 @@
 .animation-text {
   position: relative;
   height: 20px;
-}
-.animation-text::before {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background: url("../../images/line-wave.svg") repeat-x;
-  background-size: auto;
-  background-position: 0% 0%;
-}
-.animation-text:hover::before {
-  background: url("../../images/line-wave-active.svg") repeat-x;
+  &:hover {
+    .wave-line::before {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  }
+  .wave-line {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    overflow: hidden;
+    background-color: #000;
+    -webkit-mask-image: url("../../images/line-wave.svg");
+    mask-image: url("../../images/line-wave.svg");
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transition: transform 0.5s;
+
+      background-color: red;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+    }
+  }
 }
