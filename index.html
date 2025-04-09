@@ -27,9 +27,9 @@
   <body>
     <!-- layout -->
     <header class="header"></header>
-    <main class="d-none">
+    <main>
       <div class="animation-text d-inline-block d-none">
-        <div class="fx-title" data-splitting>Chi tiết</div>
+        <div class="fx-title" data-splitting data-effect-one>Chi tiết</div>
         <div class="wave-line"></div>
       </div>
       <section class="section-banner">
@@ -270,7 +270,7 @@
         </div>
       </section>
       <div class="spacing"></div>
-      <section>
+      <section class="d-none">
         <div class="animation-image">
           <picture>
             <img src="./assets/images/img-1.webp" alt="" />
@@ -325,6 +325,8 @@
                   </p>
                   <h2
                     class="section-restaurant__title font-heading color-secondary h0-font"
+                    data-splitting
+                    data-effect-two
                   >
                     Chiêu đãi cảm xúc,<br />
                     đánh thức vị giác
@@ -346,7 +348,7 @@
                     </a>
                   </div>
                 </div>
-                <div class="section-restaurant__content--bottom">
+                <div class="section-restaurant__content--bottom" data-fade-in>
                   <a href="">Khám Phá</a>
                 </div>
               </div>
@@ -514,6 +516,7 @@
     <script src="./assets/libs/gsap.min.js"></script>
     <script src="./assets/libs/ScrollTrigger.min.js"></script>
     <script src="./assets/libs/splitting.min.js"></script>
+    <script src="./assets/libs/splitType.min.js"></script>
     <script src="./assets/libs/bootstrap.bundle.min.js"></script>
     <script src="./assets/libs/imagesloaded.pkgd.min.js"></script>
     <script src="./assets/libs/swiper-bundle.min.js"></script>

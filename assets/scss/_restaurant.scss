@@ -1,11 +1,11 @@
 .section-restaurant {
-  padding: 0 40px;
   &__image {
     width: 100%;
     height: 100%;
     .swiper {
       width: 100%;
       height: 100%;
+      transform: translateX(-15px);
       &-image {
         width: 100%;
         aspect-ratio: 900 / 700;
@@ -44,4 +44,8 @@
   &__tag {
     margin-bottom: 24px;
   }
+}
+.split-line {
+  display: block; /* Mỗi dòng là một khối */
+  overflow: hidden; /* Ẩn phần text khi "mọc" lên */
 }

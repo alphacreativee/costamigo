@@ -93,7 +93,12 @@ function animationMaskCentral() {
   });
 }
 function animationText() {
-  const fxTitle = document.querySelectorAll("[data-splitting]");
+  const fxTitle = document.querySelectorAll(
+    "[data-splitting][data-effect-one]"
+  );
+  const fxTitleTwo = document.querySelectorAll(
+    "[data-splitting][data-effect-two]"
+  );
 
   fxTitle.forEach((element) => {
     const chars = element.querySelectorAll(".char");
@@ -115,6 +120,77 @@ function animationText() {
         color: "black",
         stagger: 0.05,
         duration: 0.2,
+      });
+    });
+  });
+  fxTitleTwo.forEach((element) => {
+    const chars = element.querySelectorAll(".char");
+    gsap.fromTo(
+      chars,
+      {
+        "will-change": "opacity, transform",
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.05,
+        scrollTrigger: {
+          trigger: element,
+          start: "top 50%",
+          end: "bottom 50%",
+          markers: true,
+        },
+      }
+    );
+  });
+
+  // fade in
+  gsap.utils.toArray("[data-fade-in]").forEach((element) => {
+    gsap.fromTo(
+      element,
+      {
+        "will-change": "opacity, transform",
+        opacity: 0,
+        y: 20,
+      },
+      {
+        scrollTrigger: {
+          trigger: element,
+          start: "top 70%",
+          end: "bottom 70%",
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "sine.out",
+        stagger: 0.1,
+      }
+    );
+  });
+
+  // description
+  const fxTitleDesc = document.querySelectorAll("[data-fade-desc]");
+  fxTitleDesc.forEach((element, elementIdx) => {
+    let myDesc = new SplitType(element, {
+      types: "lines, words",
+      lineClass: "split-line",
+      wordClass: "split-word",
+    });
+    myDesc.lines.forEach((line, index) => {
+      gsap.from(line.querySelectorAll(".split-word"), {
+        y: "100%",
+        duration: 0.8,
+        ease: "power2.out",
+        delay: index * 0.3,
+        scrollTrigger: {
+          trigger: element,
+          start: "top center",
+          end: "top center",
+          toggleActions: "play none none none",
+          // markers: true,
+        },
       });
     });
   });
