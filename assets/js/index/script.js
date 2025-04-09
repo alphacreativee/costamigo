@@ -119,14 +119,24 @@ function animationMaskCentral() {
   });
 }
 function animationText() {
-  const fxTitle = document.querySelectorAll("[data-splitting]");
+  const fxTitle = document.querySelectorAll(
+    "[data-splitting][data-effect-one]"
+  );
+  const fxTitleTwo = document.querySelectorAll(
+    "[data-splitting][data-effect-two]"
+  );
 
   fxTitle.forEach((element) => {
     const chars = element.querySelectorAll(".char");
 
+    // Lấy màu ban đầu từ CSS (màu mặc định của .char)
+    const originalColor = window.getComputedStyle(chars[0]).color || "black"; // Lấy từ phần tử đầu tiên
+    const hoverColor =
+      getComputedStyle(element).getPropertyValue("--hover-color") || "red"; // Lấy từ biến CSS hoặc mặc định là "red"
+
     // Tạo timeline cho animation
     const tl = gsap.timeline({ paused: true }).to(chars, {
-      color: "red",
+      color: hoverColor, // Dùng màu từ CSS
       stagger: 0.05, // Delay giữa các ký tự
       duration: 0.2 // Thời gian đổi màu mỗi ký tự
     });
@@ -138,9 +148,80 @@ function animationText() {
 
     element.addEventListener("mouseleave", () => {
       gsap.to(chars, {
-        color: "black",
+        color: originalColor, // Trở về màu ban đầu từ CSS
         stagger: 0.05,
         duration: 0.2
+      });
+    });
+  });
+  fxTitleTwo.forEach((element) => {
+    const chars = element.querySelectorAll(".char");
+    gsap.fromTo(
+      chars,
+      {
+        "will-change": "opacity, transform",
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.05,
+        scrollTrigger: {
+          trigger: element,
+          start: "top 50%",
+          end: "bottom 50%",
+          markers: true,
+        },
+      }
+    );
+  });
+
+  // fade in
+  gsap.utils.toArray("[data-fade-in]").forEach((element) => {
+    gsap.fromTo(
+      element,
+      {
+        "will-change": "opacity, transform",
+        opacity: 0,
+        y: 20,
+      },
+      {
+        scrollTrigger: {
+          trigger: element,
+          start: "top 70%",
+          end: "bottom 70%",
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "sine.out",
+        stagger: 0.1,
+      }
+    );
+  });
+
+  // description
+  const fxTitleDesc = document.querySelectorAll("[data-fade-desc]");
+  fxTitleDesc.forEach((element, elementIdx) => {
+    let myDesc = new SplitType(element, {
+      types: "lines, words",
+      lineClass: "split-line",
+      wordClass: "split-word",
+    });
+    myDesc.lines.forEach((line, index) => {
+      gsap.from(line.querySelectorAll(".split-word"), {
+        y: "100%",
+        duration: 0.8,
+        ease: "power2.out",
+        delay: index * 0.3,
+        scrollTrigger: {
+          trigger: element,
+          start: "top center",
+          end: "top center",
+          toggleActions: "play none none none",
+          // markers: true,
+        },
       });
     });
   });
@@ -190,3 +271,21 @@ preloadImages("img").then(() => {
 $(window).on("beforeunload", function () {
   $(window).scrollTop(0);
 });
+// document.addEventListener("DOMContentLoaded", () => {
+//   const audio = document.getElementById("backgroundMusic");
+//   // Thử phát tự động
+//   audio
+//     .play()
+//     .then(() => console.log("Nhạc phát tự động thành công"))
+//     .catch((error) => {
+//       console.log("Autoplay bị chặn:", error);
+//       // Nếu bị chặn, đợi tương tác
+//       document.addEventListener(
+//         "click",
+//         () => {
+//           if (audio.paused) audio.play();
+//         },
+//         { once: true }
+//       );
+//     });
+// });

@@ -1,3 +1,9 @@
-body {
-  background-color: #f8f0e2;
+.custom-tag {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--color-primary);
+  mask: url("../../images/bg-tag.png");
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
 }

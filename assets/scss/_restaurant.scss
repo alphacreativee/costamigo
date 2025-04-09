@@ -1,25 +1,36 @@
 .section-restaurant {
+  padding: 0 40px;
   &__image {
     width: 100%;
     height: 100%;
     .swiper {
       width: 100%;
-      height: 100%;
+      // aspect-ratio: 800 / 500;
       &-image {
         width: 100%;
-        height: 100%;
+        height: auto;
+        position: relative;
         img {
           width: 100%;
-          height: 100%;
+          aspect-ratio: 800 / 500;
           object-fit: cover;
           mask: url("../../images/bg-res.png");
           mask-size: 100% 100%;
           mask-repeat: no-repeat;
+          mask-position: center;
         }
       }
     }
   }
   &__content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: calc((1 / 12 * 100%) + 48px);
+    padding-right: calc(1 / 12 * 100%);
+
     &--title {
       a {
         &.active {
@@ -30,4 +41,11 @@
       }
     }
   }
+  &__tag {
+    margin-bottom: 24px;
+  }
+}
+.split-line {
+  display: block; /* Mỗi dòng là một khối */
+  overflow: hidden; /* Ẩn phần text khi "mọc" lên */
 }
