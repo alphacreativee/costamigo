@@ -239,3 +239,21 @@ preloadImages("img").then(() => {
 $(window).on("beforeunload", function () {
   $(window).scrollTop(0);
 });
+// document.addEventListener("DOMContentLoaded", () => {
+//   const audio = document.getElementById("backgroundMusic");
+//   // Thử phát tự động
+//   audio
+//     .play()
+//     .then(() => console.log("Nhạc phát tự động thành công"))
+//     .catch((error) => {
+//       console.log("Autoplay bị chặn:", error);
+//       // Nếu bị chặn, đợi tương tác
+//       document.addEventListener(
+//         "click",
+//         () => {
+//           if (audio.paused) audio.play();
+//         },
+//         { once: true }
+//       );
+//     });
+// });
