@@ -27,7 +27,7 @@
   <body>
     <!-- layout -->
     <header class="header"></header>
-    <main>
+    <main class="d-none">
       <div class="animation-text d-inline-block d-none">
         <div class="fx-title" data-splitting>Chi tiết</div>
         <div class="wave-line"></div>
@@ -370,11 +370,11 @@
                   <p class="title b2-font color-primary">
                     Costamigo Best Western Phan Thiết
                   </p>
-                  <p class="b2-font font-medium color-primary">
+                  <p class="b2-font-md color-primary">
                     DT719B – Lạc Long Quân trục đường ven biển xã Tiến Thành,
                     Tp. Phan Thiết, Bình Thuận
                   </p>
-                  <a href="#" class="b2-font font-medium color-primary">
+                  <a href="#" class="b2-font-md color-primary">
                     (+84) 0252 3682 999
                   </a>
                 </div>
@@ -401,11 +401,13 @@
                       Đăng ký nhận bản tin
                     </p>
                     <form action="">
-                      <input
-                        type="email"
-                        placeholder="Email"
-                        autocomplete="off"
-                      />
+                      <div class="field">
+                        <input
+                          type="email"
+                          placeholder="Email"
+                          autocomplete="off"
+                        />
+                      </div>
                       <button type="submit">
                         <svg
                           width="43"
@@ -442,31 +444,27 @@
                     <p class="title b2-font color-primary">Theo dõi</p>
                     <ul class="d-flex align-items-center">
                       <li>
-                        <a href="#" class="b2-font font-medium color-primary"
+                        <a href="#" class="b2-font-md color-primary"
                           >Facebook</a
                         >
                       </li>
                       <li>
-                        <a href="#" class="b2-font font-medium color-primary"
-                          >Tiktok</a
-                        >
+                        <a href="#" class="b2-font-md color-primary">Tiktok</a>
                       </li>
                       <li>
-                        <a href="#" class="b2-font font-medium color-primary"
+                        <a href="#" class="b2-font-md color-primary"
                           >Instagram</a
                         >
                       </li>
                       <li>
-                        <a href="#" class="b2-font font-medium color-primary"
-                          >Zalo</a
-                        >
+                        <a href="#" class="b2-font-md color-primary">Zalo</a>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
               <div class="footer-headquarter">
-                <div class="info b2-font font-medium color-primary">
+                <div class="info b2-font-md color-primary">
                   <p>
                     Tên trụ sở chính: CÔNG TY TNHH BIỂN QUÊ HƯƠNG - PHAN THIẾT
                   </p>
@@ -487,7 +485,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <div class="footer-copyright b2-font font-medium color-primary">
+          <div class="footer-copyright b2-font-md color-primary">
             ©2025 Costamigo Best Western Phan Thiết
           </div>
           <ul class="menu">
@@ -502,10 +500,7 @@
             </li>
           </ul>
           <div class="footer-alpha">
-            <a
-              href="#"
-              target="_blank"
-              class="b2-font font-medium color-primary"
+            <a href="#" target="_blank" class="b2-font-md color-primary"
               >Digital Experience Alpha Creative</a
             >
           </div>
