@@ -58,6 +58,8 @@ body {
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: auto !important;
   -moz-osx-font-smoothing: grayscale !important;
-  background-color: var(--color-black);
+  background: var(--color-pattern) url("../../images/bg-body.png");
+  background-repeat: repeat-y;
+  background-size: contain;
   font-family: var(--font-body);
 }

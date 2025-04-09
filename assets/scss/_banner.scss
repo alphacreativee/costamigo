@@ -1,0 +1,18 @@
+.section-banner {
+  &__container {
+    width: 100%;
+    height: 100vh;
+    padding: 120px 40px 0;
+  }
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    mask: url("../../images/img-bg-banner.png");
+    mask-size: 100% 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
