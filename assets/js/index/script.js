@@ -15,7 +15,7 @@ function sectionSlider() {
     const swiperContent = new Swiper(contentSwiperEl, {
       loop: false,
       effect: "fade",
-      allowTouchMove: false
+      allowTouchMove: false,
     });
 
     const swiperMain = new Swiper(mainSwiperEl, {
@@ -23,7 +23,7 @@ function sectionSlider() {
       effect: "fade",
       autoplay: {
         delay: 5000,
-        disableOnInteraction: false
+        disableOnInteraction: false,
       },
       pagination: {
         el: paginationEl,
@@ -34,14 +34,14 @@ function sectionSlider() {
               <svg class="progress" width="41" height="41"><circle class="circle-origin" r="20.5" cx="20.5" cy="20.5"></circle></svg>
               <span>${i + 1}</span>
             </button>`;
-        }
+        },
       },
       on: {
         slideChange: function () {
           const realIndex = this.realIndex;
           swiperContent.slideTo(realIndex);
-        }
-      }
+        },
+      },
     });
   });
 }
@@ -58,9 +58,9 @@ function imgWithText() {
     scrollTrigger: {
       trigger: ".image-with-text",
       start: "top top",
-      toggleActions: "play none none none"
+      toggleActions: "play none none none",
       // markers: true
-    }
+    },
   });
 
   gsap.to(".mask.bottom", {
@@ -70,9 +70,9 @@ function imgWithText() {
     scrollTrigger: {
       trigger: ".image-with-text",
       start: "top top",
-      toggleActions: "play none none none"
+      toggleActions: "play none none none",
       // markers: true
-    }
+    },
   });
 }
 
@@ -86,9 +86,9 @@ function animationMaskCentral() {
         start: "top 50%",
         end: "bottom 50%",
         // toggleClass: "show",
-        onEnter: () => image.classList.add("show")
+        onEnter: () => image.classList.add("show"),
         // markers: true
-      }
+      },
     });
   });
 }
@@ -102,7 +102,7 @@ function animationText() {
     const tl = gsap.timeline({ paused: true }).to(chars, {
       color: "red",
       stagger: 0.05, // Delay giữa các ký tự
-      duration: 0.2 // Thời gian đổi màu mỗi ký tự
+      duration: 0.2, // Thời gian đổi màu mỗi ký tự
     });
 
     // Hover events
@@ -114,9 +114,16 @@ function animationText() {
       gsap.to(chars, {
         color: "black",
         stagger: 0.05,
-        duration: 0.2
+        duration: 0.2,
       });
     });
+  });
+}
+function swiperRestaurant() {
+  var swiperRes = new Swiper(".swiper-restaurant", {
+    effect: "fade",
+    slidesPerView: "auto",
+    centeredSlides: true,
   });
 }
 const init = () => {
@@ -125,6 +132,7 @@ const init = () => {
   animationMaskCentral();
   animationText();
   imgWithText();
+  swiperRestaurant();
 };
 
 preloadImages("img").then(() => {
