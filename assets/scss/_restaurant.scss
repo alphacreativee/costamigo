@@ -1,18 +1,18 @@
 .section-restaurant {
+  padding: 0 40px;
   &__image {
     width: 100%;
     height: 100%;
     .swiper {
       width: 100%;
-      height: 100%;
-      transform: translateX(-15px);
+      // aspect-ratio: 800 / 500;
       &-image {
         width: 100%;
-        aspect-ratio: 900 / 700;
+        height: auto;
         position: relative;
         img {
           width: 100%;
-          height: 100%;
+          aspect-ratio: 800 / 500;
           object-fit: cover;
           mask: url("../../images/bg-res.png");
           mask-size: 100% 100%;

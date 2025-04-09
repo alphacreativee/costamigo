@@ -28,10 +28,6 @@
     <!-- layout -->
     <header class="header"></header>
     <main>
-      <div class="animation-text d-inline-block d-none">
-        <div class="fx-title" data-splitting data-effect-one>Chi tiết</div>
-        <div class="wave-line"></div>
-      </div>
       <section class="section-banner">
         <div class="container-fluid p-0">
           <div class="section-banner__container">
@@ -320,7 +316,9 @@
             <div class="col-lg-5">
               <div class="section-restaurant__content">
                 <div class="section-restaurant__content--top">
-                  <p class="section-restaurant__tag font-body color-primary">
+                  <p
+                    class="section-restaurant__tag font-body color-white custom-tag b2-font"
+                  >
                     Ẩm thực
                   </p>
                   <h2
@@ -348,8 +346,17 @@
                     </a>
                   </div>
                 </div>
-                <div class="section-restaurant__content--bottom" data-fade-in>
-                  <a href="">Khám Phá</a>
+                <div class="section-restaurant__content--bottom">
+                  <a href="" class="animation-text d-inline-block">
+                    <div
+                      class="fx-title b2-font color-primary"
+                      data-splitting
+                      data-effect-one
+                    >
+                      Khám phá
+                    </div>
+                    <!-- <div class="wave-line"></div> -->
+                  </a>
                 </div>
               </div>
             </div>
@@ -357,9 +364,9 @@
         </div>
       </section>
     </main>
-    <audio id="backgroundMusic" autoplay loop>
+    <!-- <audio id="backgroundMusic" autoplay loop>
       <source src="./assets/images/music.mp3" type="audio/mpeg" />
-    </audio>
+    </audio> -->
 
     <footer>
       <div class="container-fluid p-0">

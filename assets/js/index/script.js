@@ -103,9 +103,14 @@ function animationText() {
   fxTitle.forEach((element) => {
     const chars = element.querySelectorAll(".char");
 
+    // Lấy màu ban đầu từ CSS (màu mặc định của .char)
+    const originalColor = window.getComputedStyle(chars[0]).color || "black"; // Lấy từ phần tử đầu tiên
+    const hoverColor =
+      getComputedStyle(element).getPropertyValue("--hover-color") || "red"; // Lấy từ biến CSS hoặc mặc định là "red"
+
     // Tạo timeline cho animation
     const tl = gsap.timeline({ paused: true }).to(chars, {
-      color: "red",
+      color: hoverColor, // Dùng màu từ CSS
       stagger: 0.05, // Delay giữa các ký tự
       duration: 0.2, // Thời gian đổi màu mỗi ký tự
     });
@@ -117,7 +122,7 @@ function animationText() {
 
     element.addEventListener("mouseleave", () => {
       gsap.to(chars, {
-        color: "black",
+        color: originalColor, // Trở về màu ban đầu từ CSS
         stagger: 0.05,
         duration: 0.2,
       });
