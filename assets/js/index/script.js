@@ -125,6 +125,25 @@ function swiperRestaurant() {
     slidesPerView: "auto",
     centeredSlides: true,
   });
+  const contentRes = document.querySelectorAll(
+    ".section-restaurant__content--title a"
+  );
+  let activeElms = contentRes[0];
+
+  if (activeElms) {
+    activeElms.classList.add("active");
+  }
+  contentRes.forEach((el, index) => {
+    el.addEventListener("mouseover", function () {
+      swiperRes.slideTo(index);
+
+      if (activeElms) {
+        activeElms.classList.remove("active");
+      }
+      el.classList.add("active");
+      activeElms = el;
+    });
+  });
 }
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
