@@ -1,0 +1,33 @@
+.section-restaurant {
+  &__image {
+    width: 100%;
+    height: 100%;
+    .swiper {
+      width: 100%;
+      height: 100%;
+      &-image {
+        width: 100%;
+        height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          mask: url("../../images/bg-res.png");
+          mask-size: 100% 100%;
+          mask-repeat: no-repeat;
+        }
+      }
+    }
+  }
+  &__content {
+    &--title {
+      a {
+        &.active {
+          h3 {
+            color: var(--color-secondary);
+          }
+        }
+      }
+    }
+  }
+}
