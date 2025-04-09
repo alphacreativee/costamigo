@@ -4,7 +4,80 @@
   left: 0;
   right: 0;
   width: 100%;
-  background-color: var(--color-secondary);
-  height: 80px;
+  background-image: url("../../images/bg-header.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   z-index: 99;
+
+  &-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 40px;
+  }
+
+  &-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &-menu {
+    display: flex;
+    align-items: center;
+
+    .btn-hamburger {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--color-white);
+      margin-right: 48px;
+    }
+
+    .btn-music {
+      margin-left: 45px;
+      width: 32px;
+      height: 32px;
+      position: relative;
+
+      &.pause {
+        svg {
+          opacity: 0;
+          visibility: hidden;
+
+          &.icon-pause {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+
+      svg {
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .icon-pause {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    a {
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 700;
+      color: var(--color-white);
+    }
+  }
 }

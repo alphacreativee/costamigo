@@ -17,9 +17,8 @@ section.image-with-text {
     width: 100%;
     z-index: 2;
     height: 50vh;
-    mask-repeat: no-repeat;
-    mask-size: 100% auto;
-    background-color: #f8f0e2;
+    background: var(--color-pattern) url(../../images/bg-body.png);
+    background-size: contain;
   }
 
   .mask.top {
@@ -27,7 +26,7 @@ section.image-with-text {
 
     &::after {
       content: "";
-      background-image: url(../../images/mask-top.svg);
+      background-image: url(../../images/mask-top.png);
       background-size: contain;
       background-repeat: no-repeat;
       width: 100%;
@@ -44,9 +43,9 @@ section.image-with-text {
 
     &::after {
       content: "";
-      background-image: url(../../images/mask-bottom.svg);
+      background-image: url(../../images/mask-bottom.png);
       width: 100%;
-      aspect-ratio: 1440 / 215;
+      aspect-ratio: 1440 / 190;
       height: auto;
       background-size: contain;
       background-repeat: no-repeat;

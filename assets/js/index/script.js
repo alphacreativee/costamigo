@@ -2,6 +2,32 @@ import { preloadImages } from "../../libs/utils.js";
 let lenis;
 Splitting();
 
+function togglePlayMusic() {
+  const thisTarget = $("header .btn-music");
+  const audio = $("#player")[0];
+
+  thisTarget.on("click", function (e) {
+    e.preventDefault();
+    thisTarget.toggleClass("pause");
+    if (!audio) {
+      console.error("Không tìm thấy phần tử audio");
+      return;
+    }
+
+    try {
+      if (audio.paused) {
+        audio.play().catch((error) => {
+          console.error("Lỗi phát nhạc:", error);
+        });
+      } else {
+        audio.pause();
+      }
+    } catch (error) {
+      console.error("Lỗi điều khiển âm thanh:", error);
+    }
+  });
+}
+
 function sectionSlider() {
   if ($(".section-slider").length < 1) return;
 
@@ -15,7 +41,7 @@ function sectionSlider() {
     const swiperContent = new Swiper(contentSwiperEl, {
       loop: false,
       effect: "fade",
-      allowTouchMove: false,
+      allowTouchMove: false
     });
 
     const swiperMain = new Swiper(mainSwiperEl, {
@@ -23,7 +49,7 @@ function sectionSlider() {
       effect: "fade",
       autoplay: {
         delay: 5000,
-        disableOnInteraction: false,
+        disableOnInteraction: false
       },
       pagination: {
         el: paginationEl,
@@ -34,14 +60,14 @@ function sectionSlider() {
               <svg class="progress" width="41" height="41"><circle class="circle-origin" r="20.5" cx="20.5" cy="20.5"></circle></svg>
               <span>${i + 1}</span>
             </button>`;
-        },
+        }
       },
       on: {
         slideChange: function () {
           const realIndex = this.realIndex;
           swiperContent.slideTo(realIndex);
-        },
-      },
+        }
+      }
     });
   });
 }
@@ -58,9 +84,9 @@ function imgWithText() {
     scrollTrigger: {
       trigger: ".image-with-text",
       start: "top top",
-      toggleActions: "play none none none",
+      toggleActions: "play none none none"
       // markers: true
-    },
+    }
   });
 
   gsap.to(".mask.bottom", {
@@ -70,9 +96,9 @@ function imgWithText() {
     scrollTrigger: {
       trigger: ".image-with-text",
       start: "top top",
-      toggleActions: "play none none none",
+      toggleActions: "play none none none"
       // markers: true
-    },
+    }
   });
 }
 
@@ -86,9 +112,9 @@ function animationMaskCentral() {
         start: "top 50%",
         end: "bottom 50%",
         // toggleClass: "show",
-        onEnter: () => image.classList.add("show"),
+        onEnter: () => image.classList.add("show")
         // markers: true
-      },
+      }
     });
   });
 }
@@ -102,7 +128,7 @@ function animationText() {
     const tl = gsap.timeline({ paused: true }).to(chars, {
       color: "red",
       stagger: 0.05, // Delay giữa các ký tự
-      duration: 0.2, // Thời gian đổi màu mỗi ký tự
+      duration: 0.2 // Thời gian đổi màu mỗi ký tự
     });
 
     // Hover events
@@ -114,7 +140,7 @@ function animationText() {
       gsap.to(chars, {
         color: "black",
         stagger: 0.05,
-        duration: 0.2,
+        duration: 0.2
       });
     });
   });
@@ -123,7 +149,7 @@ function swiperRestaurant() {
   var swiperRes = new Swiper(".swiper-restaurant", {
     effect: "fade",
     slidesPerView: "auto",
-    centeredSlides: true,
+    centeredSlides: true
   });
   const contentRes = document.querySelectorAll(
     ".section-restaurant__content--title a"
@@ -152,6 +178,7 @@ const init = () => {
   animationText();
   imgWithText();
   swiperRestaurant();
+  togglePlayMusic();
 };
 
 preloadImages("img").then(() => {
