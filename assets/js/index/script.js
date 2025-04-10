@@ -37,6 +37,7 @@ function sectionSlider() {
     const contentSwiperEl = section.querySelector(".slider-swiper-content");
     const mainSwiperEl = section.querySelector(".main-slider");
     const paginationEl = section.querySelector(".swiper-pagination");
+    const swiperButton = section.querySelector(".swiper-btn-custom"); // Nút duy nhất
 
     const swiperContent = new Swiper(contentSwiperEl, {
       loop: false,
@@ -45,23 +46,16 @@ function sectionSlider() {
     });
 
     const swiperMain = new Swiper(mainSwiperEl, {
-      loop: true,
       effect: "fade",
-      // autoplay: {
-      //   delay: 5000,
-      //   disableOnInteraction: false,
-      // },
+      loop: true,
+      navigation: {
+        nextEl: swiperButton, // Gắn nút cho next
+        prevEl: swiperButton, // Gắn nút cho prev
+      },
       pagination: {
         el: paginationEl,
         clickable: true,
         type: "fraction",
-        renderBullet: function (i, className) {
-          return `
-            <button class="${className}">
-              <svg class="progress" width="41" height="41"><circle class="circle-origin" r="20.5" cx="20.5" cy="20.5"></circle></svg>
-              <span>${i + 1}</span>
-            </button>`;
-        },
       },
       on: {
         slideChange: function () {
@@ -69,6 +63,64 @@ function sectionSlider() {
           swiperContent.slideTo(realIndex);
         },
       },
+    });
+
+    mainSwiperEl.addEventListener("mousemove", (e) => {
+      const rect = mainSwiperEl.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+      const halfWidth = rect.width / 2;
+
+      const buttonWidth = swiperButton.offsetWidth;
+      const buttonHeight = swiperButton.offsetHeight;
+
+      // Hiển thị nút
+      swiperButton.style.opacity = "1";
+
+      // Tính toán vị trí
+      let buttonPosX = mouseX - buttonWidth / 2;
+      let buttonPosY = mouseY - buttonHeight / 2;
+
+      // Xác định góc xoay dựa trên vị trí chuột
+      const transitionZone = 50; // Vùng chuyển tiếp
+      let rotateDeg;
+
+      if (mouseX <= halfWidth - transitionZone) {
+        // Bên trái hoàn toàn: prev (giả sử mũi tên hướng trái là 180deg)
+        rotateDeg = 180;
+        buttonPosX = Math.max(0, Math.min(halfWidth - buttonWidth, buttonPosX));
+      } else if (mouseX >= halfWidth + transitionZone) {
+        // Bên phải hoàn toàn: next (giả sử mũi tên hướng phải là 0deg)
+        rotateDeg = 0;
+        buttonPosX = Math.max(
+          halfWidth,
+          Math.min(rect.width - buttonWidth, buttonPosX)
+        );
+      } else {
+        // Vùng chuyển tiếp: xoay dần từ 180deg (prev) sang 0deg (next)
+        const progress =
+          (mouseX - (halfWidth - transitionZone)) / (transitionZone * 2);
+        rotateDeg = 180 - progress * 180; // Từ 180deg -> 0deg
+        buttonPosX = Math.max(
+          0,
+          Math.min(rect.width - buttonWidth, buttonPosX)
+        );
+      }
+
+      // Giới hạn vị trí Y
+      buttonPosY = Math.max(
+        0,
+        Math.min(rect.height - buttonHeight, buttonPosY)
+      );
+
+      // Áp dụng vị trí và xoay
+      swiperButton.style.left = `${buttonPosX}px`;
+      swiperButton.style.top = `${buttonPosY}px`;
+      swiperButton.style.transform = `rotate(${rotateDeg}deg)`;
+    });
+
+    mainSwiperEl.addEventListener("mouseleave", () => {
+      swiperButton.style.opacity = "0";
     });
   });
 }
@@ -213,9 +265,9 @@ function animationText() {
     myDesc.lines.forEach((line, index) => {
       gsap.from(line.querySelectorAll(".split-word"), {
         y: "100%",
-        duration: 0.8,
+        duration: 0.5,
         ease: "power2.out",
-        delay: index * 0.3,
+        delay: index * 0.1,
         scrollTrigger: {
           trigger: element,
           start: "top center",

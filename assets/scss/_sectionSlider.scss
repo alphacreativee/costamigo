@@ -1,10 +1,16 @@
 .section-slider {
-  height: 100vh;
   position: relative;
 
   &__content {
     margin-bottom: 80px;
     padding: 0 40px;
+    position: relative;
+  }
+  &__bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(80px);
   }
   &__box {
     text-align: center;
@@ -41,6 +47,15 @@
       padding: 0;
       border: none;
       color: #000;
+      &.active {
+        background-color: transparent;
+        .fx-title span {
+          color: var(--color-secondary) !important;
+        }
+        &::before {
+          transform: scaleX(1) !important;
+        }
+      }
     }
   }
 
@@ -65,10 +80,11 @@
     bottom: 32px;
     left: unset;
     color: var(--color-white);
-    background-image: url("../../images/img-circle.png");
+    background-image: url("../../images/img-circle.svg");
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
+    pointer-events: none;
     span {
       font-size: 13px;
       line-height: 20px;
@@ -87,9 +103,18 @@
       align-items: flex-start;
       justify-content: center;
       text-align: left;
-
+      h4 {
+        color: var(--color-secondary);
+        font-size: 24px;
+        line-height: 40px;
+        font-weight: 400;
+      }
       .desc {
         margin-top: 24px;
+        margin-bottom: 40px;
+        font-size: 16px;
+        line-height: 28px;
+        color: var(--color-primary);
       }
 
       * {
@@ -107,13 +132,6 @@
     }
   }
 
-  .swiper-pagination {
-    // top: unset;
-    // bottom: unset;
-    // position: relative;
-    // transform: translateY(40px);
-  }
-
   .main-slider {
     .swiper-slide {
       mask-image: url(../../images/bg-slider.png);
@@ -128,38 +146,38 @@
     }
   }
 
-  .swiper-pagination-bullet {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: auto;
-    margin: 0 12px !important;
-    background-color: transparent;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.3s;
+  // .swiper-pagination-bullet {
+  //   position: relative;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   width: auto;
+  //   height: auto;
+  //   margin: 0 12px !important;
+  //   background-color: transparent;
+  //   border-radius: 50%;
+  //   cursor: pointer;
+  //   transition: 0.3s;
 
-    span {
-      color: #232c6a;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
+  //   span {
+  //     color: #232c6a;
+  //     position: absolute;
+  //     top: 50%;
+  //     left: 50%;
+  //     transform: translate(-50%, -50%);
+  //   }
+  // }
 
-  .progress {
-    transform: rotate(-90deg);
-    width: 41px;
-    height: 41px;
-    background-color: transparent;
-    mask-image: url(../../images/pagination-circle.svg);
-    mask-size: 100% 100%;
-    mask-repeat: no-repeat;
-    transform: scaleX(-1) rotate(-65deg);
-  }
+  // .progress {
+  //   transform: rotate(-90deg);
+  //   width: 41px;
+  //   height: 41px;
+  //   background-color: transparent;
+  //   mask-image: url(../../images/pagination-circle.svg);
+  //   mask-size: 100% 100%;
+  //   mask-repeat: no-repeat;
+  //   transform: scaleX(-1) rotate(-65deg);
+  // }
   .circle-origin {
     fill: transparent;
     stroke: #232c6a;
@@ -183,5 +201,37 @@
     100% {
       stroke-dashoffset: -3px;
     }
+  }
+  .swiper-btn-custom {
+    margin: 0;
+    width: 80px;
+    height: 80px;
+    background: var(--color-pattern) url(../../images/bg-body.png);
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    cursor: none;
+    &::after {
+      content: unset;
+      font-size: 0;
+    }
+    svg {
+      width: auto;
+      height: auto;
+    }
+  }
+  .swiper-button-prev {
+    right: unset;
+  }
+
+  .swiper-button-next {
+    right: unset;
+    transform: translate(0);
   }
 }
