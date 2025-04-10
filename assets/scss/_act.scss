@@ -1,6 +1,13 @@
 .section-act {
   &__box {
     margin-bottom: 64px;
+    position: relative;
+  }
+  &__bg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(-50%);
   }
   &__tag {
     margin-bottom: 24px;

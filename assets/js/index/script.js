@@ -136,9 +136,9 @@ function imgWithText() {
     ease: "power2.out",
     scrollTrigger: {
       trigger: ".image-with-text",
-      start: "top top",
+      start: "top 80px",
       toggleActions: "play none none none",
-      // markers: true
+      markers: true,
     },
   });
 
@@ -148,7 +148,7 @@ function imgWithText() {
     ease: "power2.out",
     scrollTrigger: {
       trigger: ".image-with-text",
-      start: "top top",
+      start: "top 80px",
       toggleActions: "play none none none",
       // markers: true
     },
@@ -224,7 +224,7 @@ function animationText() {
           trigger: element,
           start: "top 50%",
           end: "bottom 50%",
-          markers: true,
+          // markers: true,
         },
       }
     );

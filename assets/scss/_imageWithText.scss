@@ -59,4 +59,19 @@ section.image-with-text {
       bottom: 100%;
     }
   }
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: calc(6 / 12 * 100%);
+    width: 100%;
+    padding: 0 48px;
+    h1 {
+      margin-bottom: 24px;
+    }
+    .desc {
+      text-align: center;
+    }
+  }
 }
