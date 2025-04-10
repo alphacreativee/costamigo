@@ -15,26 +15,29 @@ section.image-with-text {
     position: absolute;
     left: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 9;
     height: 50vh;
     background: var(--color-pattern) url(../../images/bg-body.png);
     background-size: contain;
   }
 
   .mask.top {
-    top: 0;
+    top: 0%;
 
     &::after {
       content: "";
-      background-image: url(../../images/mask-top.png);
+      background: var(--color-pattern) url(../../images/bg-body.png);
+      mask: url(../../images/mask-top.png);
+      mask-size: 100% 100%;
       background-size: contain;
-      background-repeat: no-repeat;
+      background-repeat: repeat-y;
       width: 100%;
       aspect-ratio: 1440 / 104;
       height: auto;
       position: absolute;
       left: 0;
-      top: 93%;
+      top: 95%;
+      transform: translateY(-10px);
     }
   }
 
@@ -43,15 +46,17 @@ section.image-with-text {
 
     &::after {
       content: "";
-      background-image: url(../../images/mask-bottom.png);
+      background: var(--color-pattern) url(../../images/bg-body.png);
+      mask: url(../../images/mask-bottom.png);
+      mask-size: 100% 100%;
       width: 100%;
       aspect-ratio: 1440 / 190;
       height: auto;
       background-size: contain;
-      background-repeat: no-repeat;
+      background-repeat: repeat-y;
       position: absolute;
       left: 0;
-      bottom: 85%;
+      bottom: 100%;
     }
   }
 }
