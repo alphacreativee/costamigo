@@ -306,6 +306,107 @@ function swiperRestaurant() {
     });
   });
 }
+function swiperAct() {
+  if (!document.querySelector(".act-slider")) return;
+
+  const swiperBtnAct = document.querySelector(".act-slider .swiper-btn-act");
+  const container = document.querySelector(".act-slider");
+
+  // Khởi tạo Swiper
+  var swiperAct = new Swiper(".act-slider", {
+    slidesPerView: 1.45,
+    // spaceBetween: 32,
+    // slidesOffsetAfter: 200,
+    pagination: {
+      el: ".section-act__slider .swiper-pagination",
+      clickable: true,
+      type: "fraction",
+    },
+    // Không dùng navigation mặc định vì chúng ta sẽ tự xử lý
+  });
+
+  // Đổi hướng sang rtl
+  swiperAct.changeLanguageDirection("rtl");
+
+  // Kiểm tra xem swiperBtnAct và container có tồn tại không
+  if (swiperBtnAct && container) {
+    container.addEventListener("mousemove", (e) => {
+      const rect = container.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+      const halfWidth = rect.width / 2;
+
+      const buttonWidth = swiperBtnAct.offsetWidth;
+      const buttonHeight = swiperBtnAct.offsetHeight;
+
+      // Hiển thị nút
+      swiperBtnAct.style.opacity = "1";
+
+      // Tính toán vị trí
+      let buttonPosX = mouseX - buttonWidth / 2;
+      let buttonPosY = mouseY - buttonHeight / 2;
+
+      // Xác định góc xoay dựa trên vị trí chuột
+      const transitionZone = 0;
+      let rotateDeg;
+
+      if (mouseX <= halfWidth - transitionZone) {
+        // Bên trái: prev (mũi tên hướng trái, 180deg)
+        rotateDeg = 0;
+        buttonPosX = Math.max(0, Math.min(halfWidth - buttonWidth, buttonPosX));
+      } else if (mouseX >= halfWidth + transitionZone) {
+        // Bên phải: next (mũi tên hướng phải, 0deg)
+        rotateDeg = 180;
+        buttonPosX = Math.max(
+          halfWidth,
+          Math.min(rect.width - buttonWidth, buttonPosX)
+        );
+      } else {
+        // Vùng chuyển tiếp
+        const progress =
+          (mouseX - (halfWidth - transitionZone)) / (transitionZone * 2);
+        rotateDeg = 180 - progress * 180;
+        buttonPosX = Math.max(
+          0,
+          Math.min(rect.width - buttonWidth, buttonPosX)
+        );
+      }
+
+      // Giới hạn vị trí Y
+      buttonPosY = Math.max(
+        0,
+        Math.min(rect.height - buttonHeight, buttonPosY)
+      );
+
+      // Áp dụng vị trí và xoay
+      swiperBtnAct.style.left = `${buttonPosX}px`;
+      swiperBtnAct.style.top = `${buttonPosY}px`;
+      swiperBtnAct.style.transform = `rotate(${rotateDeg}deg)`;
+    });
+
+    // Thêm sự kiện click để chuyển slide
+    swiperBtnAct.addEventListener("click", (e) => {
+      const rect = container.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const halfWidth = rect.width / 2;
+
+      if (mouseX <= halfWidth) {
+        // Bên trái: prev
+        // swiperAct.slidePrev();
+        swiperAct.slideNext();
+      } else {
+        // Bên phải: next
+        swiperAct.slidePrev();
+      }
+    });
+
+    container.addEventListener("mouseleave", () => {
+      swiperBtnAct.style.opacity = "0";
+    });
+  } else {
+    console.error("Không tìm thấy .swiper-btn-act hoặc .act-slider");
+  }
+}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   sectionSlider();
@@ -314,6 +415,7 @@ const init = () => {
   imgWithText();
   swiperRestaurant();
   togglePlayMusic();
+  swiperAct();
 };
 
 preloadImages("img").then(() => {
