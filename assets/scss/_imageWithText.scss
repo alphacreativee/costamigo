@@ -50,13 +50,15 @@ section.image-with-text {
       mask: url(../../images/mask-bottom.png);
       mask-size: 100% 100%;
       width: 100%;
-      aspect-ratio: 1440 / 190;
-      height: auto;
+      aspect-ratio: 1440 / 210;
+      // height: auto;
       background-size: contain;
       background-repeat: repeat-y;
       position: absolute;
       left: 0;
       bottom: 100%;
+      transform: translateY(1px);
+      pointer-events: none;
     }
   }
   .content {
@@ -69,10 +71,26 @@ section.image-with-text {
     padding: 0 48px;
     h1 {
       margin-bottom: 24px;
+      text-align: center;
     }
     .desc {
       text-align: center;
       margin-bottom: 40px;
+    }
+  }
+
+  &.reverse-mask {
+    .mask.top::after {
+      transform: translateY(-10px) scaleX(-1);
+    }
+    .mask.bottom::after {
+      transform: translateY(1px) scaleX(-1);
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.4);
     }
   }
 }

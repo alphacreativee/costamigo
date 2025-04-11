@@ -130,28 +130,30 @@ function imgWithText() {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.to(".mask.top", {
-    y: "-100%",
-    duration: 1.5,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: ".image-with-text",
-      start: "top 80px",
-      toggleActions: "play none none none",
-      markers: true,
-    },
-  });
+  $(".image-with-text").each(function () {
+    const section = this;
 
-  gsap.to(".mask.bottom", {
-    y: "100%",
-    duration: 1.5,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: ".image-with-text",
-      start: "top 80px",
-      toggleActions: "play none none none",
-      // markers: true
-    },
+    gsap.to($(section).find(".mask.top"), {
+      y: "-100%",
+      duration: 1.5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80px",
+        toggleActions: "play none none none",
+      },
+    });
+
+    gsap.to($(section).find(".mask.bottom"), {
+      y: "100%",
+      duration: 1.5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80px",
+        toggleActions: "play none none none",
+      },
+    });
   });
 }
 
@@ -407,10 +409,22 @@ function swiperAct() {
     console.error("Không tìm thấy .swiper-btn-act hoặc .act-slider");
   }
 }
+function swiperOffer() {
+  if (!document.querySelector(".swiper-offer")) return;
+  var swiperOffer = new Swiper(".swiper-offer", {
+    slidesPerView: 3,
+    spaceBetween: 40,
+    navigation: {
+      nextEl: ".section-offer__slider .swiper-button-next",
+      prevEl: ".section-offer__slider .swiper-button-prev",
+    },
+  });
+}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   sectionSlider();
   animationMaskCentral();
+  swiperOffer();
   animationText();
   imgWithText();
   swiperRestaurant();
