@@ -26,3 +26,41 @@
     color: var(--color-white);
   }
 }
+
+.cta-group {
+  position: fixed;
+  bottom: 60px;
+  right: 40px;
+  z-index: 19;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .cta-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 49px;
+    height: 49px;
+
+    transition: background-color 0.3s ease;
+
+    &.mess {
+      background-color: var(--color-secondary);
+      mask: url("../../images/cta-mess.png");
+      mask-size: 100% 100%;
+      &:hover {
+        background-color: var(--color-primary);
+      }
+    }
+    &.phone {
+      background-color: var(--color-primary);
+      mask: url("../../images/cta-phone.png");
+      mask-size: 100% 100%;
+      &:hover {
+        background-color: var(--color-secondary);
+      }
+    }
+  }
+}
