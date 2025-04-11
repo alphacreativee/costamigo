@@ -6,21 +6,29 @@ function togglePlayMusic() {
   const thisTarget = $("header .btn-music");
   const audio = $("#player")[0];
 
+  // Kiểm tra xem phần tử audio có tồn tại không
+  if (!audio) {
+    console.error("Không tìm thấy phần tử audio");
+    return;
+  }
+
   thisTarget.on("click", function (e) {
     e.preventDefault();
+
+    // Chuyển đổi class để cập nhật giao diện nút
     thisTarget.toggleClass("pause");
-    if (!audio) {
-      console.error("Không tìm thấy phần tử audio");
-      return;
-    }
 
     try {
       if (audio.paused) {
+        // Đảm bảo âm thanh không bị mute
+        audio.muted = false;
         audio.play().catch((error) => {
           console.error("Lỗi phát nhạc:", error);
         });
       } else {
         audio.pause();
+        // Tùy chọn: Đặt lại thời gian về 0 nếu muốn phát lại từ đầu lần sau
+        // audio.currentTime = 0;
       }
     } catch (error) {
       console.error("Lỗi điều khiển âm thanh:", error);
@@ -429,9 +437,10 @@ const init = () => {
   animationText();
   imgWithText();
   swiperRestaurant();
-  togglePlayMusic();
+
   swiperAct();
 };
+togglePlayMusic();
 
 preloadImages("img").then(() => {
   // Once images are preloaded, remove the 'loading' indicator/class from the body
