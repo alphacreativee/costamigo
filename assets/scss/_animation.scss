@@ -23,6 +23,31 @@
 .animation-text {
   position: relative;
   height: 20px;
+  &-v2 {
+    display: inline-block;
+    position: relative;
+    &:hover {
+      &::before {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 10px;
+      background-color: var(--color-white);
+      bottom: -8px;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      mask: url("../../images/line-white.svg");
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      mask-repeat: no-repeat;
+      mask-size: 100% 100%;
+    }
+  }
   &:hover {
     &::before {
       transform: scaleX(1);

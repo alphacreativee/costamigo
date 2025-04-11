@@ -40,7 +40,13 @@
       width: 32px;
       height: 32px;
       position: relative;
-
+      //   mask: url("../../images/mask-music.png");
+      //   mask-size: 100% 100%;
+      // &:hover {
+      //   background-color: var(--color-primary);
+      //   mask: url("../../images/mask-music.png");
+      //   mask-size: 100% 100%;
+      // }
       &.pause {
         svg {
           opacity: 0;
