@@ -420,6 +420,7 @@ function swiperOffer() {
     },
   });
 }
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   sectionSlider();

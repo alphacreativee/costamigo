@@ -31,12 +31,12 @@
   }
   &__leaf {
     position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 585px;
-    aspect-ratio: 585 / 600;
+    right: 0%;
+    bottom: -100%;
+    width: 365px;
+    // aspect-ratio: 585 / 600;
     z-index: -1;
-    transform: translate(50%, 50%);
-    overflow: hidden;
+    // transform: translate(50%, 50%);
+    // overflow: hidden;
   }
 }
