@@ -180,6 +180,17 @@ function animationMaskCentral() {
       },
     });
   });
+  const animationImagesBanner = document.querySelectorAll(
+    ".animation-image-banner"
+  );
+
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      animationImagesBanner.forEach((image) => {
+        image.classList.add("show");
+      });
+    }, 300); // delay 0.3s sau khi load
+  });
 }
 function animationText() {
   const fxTitle = document.querySelectorAll(

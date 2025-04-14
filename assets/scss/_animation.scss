@@ -5,6 +5,17 @@
   mask-repeat: no-repeat;
   opacity: 0;
 }
+.animation-image-banner {
+  mask: url("../../images/sprite-central.png");
+  mask-size: 3000% 100%;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  opacity: 0;
+}
+.animation-image-banner.show {
+  animation: maskCentral 1.3s steps(29) forwards;
+  opacity: 1;
+}
 .animation-image.show img {
   animation: maskCentral 1.3s steps(29) forwards;
   opacity: 1;
