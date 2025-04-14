@@ -86,6 +86,31 @@
 .animation-art-reverse {
   overflow: hidden;
   will-change: clip-path, opacity;
+  clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  transition: clip-path 1s ease-out, opacity 1s ease-out;
+
+  &.show {
+    clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+    opacity: 1;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.animation-art {
+  overflow: hidden;
+  will-change: clip-path, opacity;
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  transition: clip-path 1s ease-out, opacity 1s ease-out;
+
+  &.show {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+  }
+
   img {
     display: block;
     width: 100%;

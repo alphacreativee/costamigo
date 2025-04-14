@@ -485,23 +485,17 @@ function animationArt() {
 
   animationArt.forEach((image) => {
     // Initial animation (fade and clip-path reveal)
-    gsap.fromTo(
-      image,
-      {
-        opacity: 0,
-        clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
+    gsap.to(image, {
+      scrollTrigger: {
+        trigger: image,
+        start: "top 60%",
+        end: "bottom 60%",
+        onEnter: () => image.classList.add("show"),
+        // optional: if you want it to reverse too
+
+        markers: true,
       },
-      {
-        opacity: 1,
-        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-        scrollTrigger: {
-          trigger: image,
-          start: "top 70%",
-          end: "bottom 70%",
-          markers: true, // Remove in production
-        },
-      }
-    );
+    });
 
     // Parallax effect
     gsap.to(image, {
@@ -523,27 +517,17 @@ function animationArt() {
 
   animationArtReverse.forEach((imageR) => {
     // Initial animation (slide in from right)
-    gsap.fromTo(
-      imageR,
-      {
-        opacity: 0,
-        // xPercent: 100,
-        clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
+    gsap.to(imageR, {
+      scrollTrigger: {
+        trigger: imageR,
+        start: "top 60%",
+        end: "bottom 60%",
+        onEnter: () => imageR.classList.add("show"),
+        // optional: if you want it to reverse too
+
+        markers: true,
       },
-      {
-        opacity: 1,
-        xPercent: 0,
-        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-        ease: "power2.out",
-        duration: 1.2,
-        scrollTrigger: {
-          trigger: imageR,
-          start: "top 80%",
-          // toggleActions: "play none none reverse",
-          markers: true, // Remove in production
-        },
-      }
-    );
+    });
 
     // Parallax effect
     gsap.to(imageR, {
