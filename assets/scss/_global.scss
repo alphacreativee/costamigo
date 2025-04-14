@@ -84,6 +84,10 @@
   }
 }
 .animation-art-reverse {
-  will-change: clip-path, opacity; /* Tối ưu hóa hiệu suất */
-  clip-path: initial; /* Tránh xung đột ban đầu */
+  overflow: hidden;
+  will-change: clip-path, opacity;
+  img {
+    display: block;
+    width: 100%;
+  }
 }
