@@ -460,33 +460,14 @@ function animationLineMap() {
   );
 }
 function scrollHeader() {
-  let heightHeader = document.querySelector(".header").offsetHeight * -1;
-  let navTop;
-  function initializeScrollTrigger() {
-    navTop = gsap
-      .from("header", {
-        y: heightHeader,
-        paused: true,
-        duration: 0.3,
-        ease: "none",
-        trigger: "header",
-      })
-      .progress(1);
-
-    ScrollTrigger.create({
-      start: "top top",
-      end: 99999,
-      onUpdate: (self) => {
-        // Shrink navTop
-        self.direction === -1 ? navTop.play() : navTop.reverse();
-        // self.refresh();
-      },
-    });
-  }
-
-  initializeScrollTrigger();
-
-  $(window).on("load", initializeScrollTrigger);
+  gsap.to(".header", {
+    scrollTrigger: {
+      trigger: "body",
+      start: "top+=100 top",
+      toggleClass: { targets: ".header", className: "scrolled" }, //
+      once: false,
+    },
+  });
 }
 
 const init = () => {
