@@ -428,6 +428,66 @@ function swiperOffer() {
     },
   });
 }
+function animationLineMap() {
+  gsap.registerPlugin(ScrollTrigger);
+
+  let svg = document.querySelector(".svg-container svg");
+  let svgPath = document.querySelector(".svg-container path");
+
+  const pathLength = svgPath.getTotalLength();
+  gsap.set(svgPath, {
+    strokeDasharray: pathLength,
+  });
+
+  gsap.fromTo(
+    svgPath,
+    {
+      strokeDashoffset: pathLength,
+    },
+    {
+      strokeDashoffset: 0,
+      duration: 10,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".svg-container",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1,
+        markers: true,
+        //   toggleActions: "play pause reverse pause",
+      },
+    }
+  );
+}
+function scrollHeader() {
+  let heightHeader = document.querySelector(".header").offsetHeight * -1;
+  let navTop;
+  function initializeScrollTrigger() {
+    navTop = gsap
+      .from("header", {
+        y: heightHeader,
+        paused: true,
+        duration: 0.3,
+        ease: "none",
+        trigger: "header",
+      })
+      .progress(1);
+
+    ScrollTrigger.create({
+      start: "top top",
+      end: 99999,
+      onUpdate: (self) => {
+        // Shrink navTop
+        self.direction === -1 ? navTop.play() : navTop.reverse();
+        // self.refresh();
+      },
+    });
+  }
+
+  initializeScrollTrigger();
+
+  $(window).on("load", initializeScrollTrigger);
+}
 
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -437,7 +497,8 @@ const init = () => {
   animationText();
   imgWithText();
   swiperRestaurant();
-
+  scrollHeader();
+  // animationLineMap();
   swiperAct();
 };
 togglePlayMusic();
