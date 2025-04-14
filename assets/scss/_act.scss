@@ -7,9 +7,10 @@
     position: absolute;
     right: 0;
     top: 0;
-    transform: translateY(-50%);
+    transform: translate(40%, -51%) rotate(-27deg);
     width: 640px;
     height: 640px;
+    z-index: -1;
   }
   &__tag {
     margin-bottom: 24px;

@@ -471,12 +471,26 @@ function animationLineMap() {
   // );
 }
 function scrollHeader() {
-  gsap.to(".header", {
-    scrollTrigger: {
-      trigger: "body",
-      start: "top+=100 top",
-      toggleClass: { targets: ".header", className: "scrolled" }, //
-      once: false,
+  ScrollTrigger.refresh();
+
+  ScrollTrigger.create({
+    start: "top top",
+    end: 99999,
+    onUpdate: (self) => {
+      const header = document.querySelector("header");
+      console.log(self.progress);
+
+      // Remove scrolled class when progress is exactly 0
+      if (self.progress === 0) {
+        header.classList.remove("scrolled");
+      }
+
+      // Toggle scrolled class based on progress threshold
+      if (self.progress > 0.004) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
     },
   });
 }
@@ -493,7 +507,7 @@ function animationArt() {
         onEnter: () => image.classList.add("show"),
         // optional: if you want it to reverse too
 
-        markers: true,
+        // markers: true,
       },
     });
 
@@ -525,20 +539,19 @@ function animationArt() {
         onEnter: () => imageR.classList.add("show"),
         // optional: if you want it to reverse too
 
-        markers: true,
+        // markers: true,
       },
     });
 
     // Parallax effect
     gsap.to(imageR, {
-      yPercent: -20, // Move element downward by 20% of its height
+      yPercent: -15, // Move element downward by 20% of its height
       ease: "none",
       scrollTrigger: {
         trigger: imageR,
         start: "top bottom",
         end: "bottom top",
         scrub: true,
-        markers: false, // Set to true for debugging
       },
     });
   });
@@ -557,6 +570,7 @@ const init = () => {
   // scrollMap();
   // animationLineMap();
   swiperAct();
+  ScrollTrigger.refresh();
 };
 togglePlayMusic();
 
