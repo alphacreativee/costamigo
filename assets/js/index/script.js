@@ -149,7 +149,6 @@ function imgWithText() {
         trigger: section,
         start: "top top",
         toggleActions: "play none none none",
-        // markers: true,
       },
     });
 
@@ -173,11 +172,11 @@ function animationMaskCentral() {
     gsap.to(image, {
       scrollTrigger: {
         trigger: image,
-        start: "top 50%",
-        end: "bottom 50%",
+        start: "top 70%",
+        end: "bottom 70%",
         // toggleClass: "show",
         onEnter: () => image.classList.add("show"),
-        // markers: true
+        // markers: true,
       },
     });
   });
@@ -436,29 +435,40 @@ function animationLineMap() {
   let svgPath = document.querySelector(".svg-container path");
 
   const pathLength = svgPath.getTotalLength();
-  gsap.set(svgPath, {
-    strokeDasharray: pathLength,
-  });
+  svgPath.style.strokeDasharray = pathLength + "" + pathLength;
+  svgPath.style.strokeDashoffset = pathLength;
+  window.addEventListener("scroll", () => {
+    var scrollPercentage =
+      (document.documentElement.scrollTop + document.body.scrollTop) /
+      (document.documentElement.scrollHeight -
+        document.documentElement.clientHeight);
 
-  gsap.fromTo(
-    svgPath,
-    {
-      strokeDashoffset: pathLength,
-    },
-    {
-      strokeDashoffset: 0,
-      duration: 10,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".svg-container",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 1,
-        markers: true,
-        //   toggleActions: "play pause reverse pause",
-      },
-    }
-  );
+    var drawLength = pathLength * scrollPercentage;
+    svgPath.style.strokeDashoffset = pathLength - drawLength;
+  });
+  // gsap.set(svgPath, {
+  //   strokeDasharray: pathLength,
+  // });
+
+  // gsap.fromTo(
+  //   svgPath,
+  //   {
+  //     strokeDashoffset: pathLength,
+  //   },
+  //   {
+  //     strokeDashoffset: 0,
+  //     duration: 10,
+  //     ease: "none",
+  //     scrollTrigger: {
+  //       trigger: ".svg-container",
+  //       start: "top top",
+  //       end: "bottom bottom",
+  //       scrub: 1,
+  //       markers: true,
+  //       //   toggleActions: "play pause reverse pause",
+  //     },
+  //   }
+  // );
 }
 function scrollHeader() {
   gsap.to(".header", {
@@ -470,9 +480,61 @@ function scrollHeader() {
     },
   });
 }
+function animationArt() {
+  const animationArt = document.querySelectorAll(".animation-art");
+
+  animationArt.forEach((image) => {
+    gsap.fromTo(
+      image,
+      {
+        opacity: 0,
+        // scale: 0.5,
+        clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
+      },
+      {
+        opacity: 1,
+        // scale: 1,
+        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+        scrollTrigger: {
+          trigger: image,
+          start: "top 70%",
+          end: "bottom 70%",
+          // toggleClass: "show",
+          markers: true,
+        },
+      }
+    );
+  });
+  // reverse
+  const animationArtReverse = document.querySelectorAll(
+    ".animation-art-reverse"
+  );
+
+  animationArtReverse.forEach((imageR) => {
+    gsap.fromTo(
+      imageR,
+      {
+        opacity: 0,
+
+        clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)",
+      },
+      {
+        opacity: 1,
+        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+        scrollTrigger: {
+          trigger: imageR,
+          start: "top 30%",
+          end: "bottom 30%",
+          markers: true,
+        },
+      }
+    );
+  });
+}
 
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
+  animationArt();
   sectionSlider();
   animationMaskCentral();
   swiperOffer();
@@ -480,6 +542,7 @@ const init = () => {
   imgWithText();
   swiperRestaurant();
   scrollHeader();
+  // scrollMap();
   // animationLineMap();
   swiperAct();
 };

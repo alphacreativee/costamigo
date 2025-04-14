@@ -1,10 +1,15 @@
 .animation-image img {
   mask: url("../../images/sprite-central.png");
   mask-size: 3000% 100%;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  opacity: 0;
 }
 .animation-image.show img {
-  animation: maskCentral 2s steps(29) forwards;
+  animation: maskCentral 1.3s steps(29) forwards;
+  opacity: 1;
 }
+
 @keyframes maskCentral {
   0% {
     mask-position: 0% 0%;
