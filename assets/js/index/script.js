@@ -232,8 +232,8 @@ function animationText() {
         stagger: 0.05,
         scrollTrigger: {
           trigger: element,
-          start: "top 50%",
-          end: "bottom 50%",
+          start: "top 60%",
+          end: "bottom 60%",
           // markers: true,
         },
       }
