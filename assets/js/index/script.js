@@ -569,6 +569,7 @@ function headerMenu() {
 
   btnMenu.addEventListener("click", () => {
     containerMenu.classList.toggle("show");
+    btnMenu.classList.toggle("change");
     if (containerMenu.classList.contains("show")) {
       tl.restart();
       document.body.classList.add("overflow-hidden");
