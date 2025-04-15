@@ -440,34 +440,15 @@ function swiperOffer() {
   });
 }
 function animationLineMap() {
-  // gsap.registerPlugin(ScrollTrigger);
-
-  // gsap.to("#maskRect", {
-  //   height: 5989, // bằng chiều cao SVG
-  //   ease: "none",
-  //   scrollTrigger: {
-  //     trigger: ".svg-container",
-  //     start: "top center",
-  //     end: "bottom bottom",
-  //     scrub: true,
-  //     markers: true,
-  //   },
-  // });
   gsap.registerPlugin(ScrollTrigger);
 
-  const path = document.getElementById("svgPath");
-  const pathLength = path.getTotalLength();
-
-  // Đặt stroke-dashoffset ban đầu để ẩn toàn bộ path
-  path.style.strokeDashoffset = pathLength;
-
-  gsap.to(path, {
-    strokeDashoffset: 0,
+  gsap.to("#maskRect", {
+    height: 5989, // bằng chiều cao SVG
     ease: "none",
     scrollTrigger: {
       trigger: ".svg-container",
-      start: "top bottom", // khi phần đầu svg vào viewport
-      end: "bottom top", // khi toàn bộ svg ra khỏi viewport
+      start: "top center",
+      end: "bottom bottom",
       scrub: true,
       markers: true,
     },
