@@ -32,6 +32,10 @@
   bottom: 40px;
   right: 40px;
   z-index: 19;
+  transition: right 0.3s ease;
+  &.hide {
+    right: -50px;
+  }
   &__container {
     display: flex;
     flex-direction: column;

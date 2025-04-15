@@ -162,6 +162,16 @@ function imgWithText() {
         toggleActions: "play none none none",
       },
     });
+    gsap.to($(section).find(".content-box "), {
+      yPercent: -10, // Move element upward by 20% of its height
+      ease: "none",
+      scrollTrigger: {
+        trigger: $(section).find(".content-box"),
+        start: "top 30%", // Start when the top of the image hits the bottom of the viewport
+        end: "bottom top", // End when the bottom of the image hits the top of the viewport
+        scrub: true, // Smoothly tie the animation to scroll
+      },
+    });
   });
 }
 
@@ -450,7 +460,7 @@ function animationLineMap() {
       start: "top center",
       end: "bottom bottom",
       scrub: true,
-      markers: true,
+      // markers: true,
     },
   });
 }
@@ -475,6 +485,10 @@ function scrollHeader() {
       } else {
         header.classList.remove("scrolled");
       }
+
+      self.direction === 1
+        ? $(".cta-group").addClass("hide")
+        : $(".cta-group").removeClass("hide");
     },
   });
 }
