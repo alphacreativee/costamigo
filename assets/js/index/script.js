@@ -554,9 +554,33 @@ function animationArt() {
     });
   });
 }
+function headerMenu() {
+  let btnMenu = document.querySelector(".btn-hamburger");
+  let containerMenu = document.querySelector(".header-sub-menu");
+  let tl = gsap.timeline({ paused: true });
 
+  tl.from(".sub-menu ul li", {
+    opacity: 0,
+    y: 20,
+    stagger: 0.1,
+    duration: 0.3,
+    ease: "power2.out",
+  });
+
+  btnMenu.addEventListener("click", () => {
+    containerMenu.classList.toggle("show");
+    if (containerMenu.classList.contains("show")) {
+      tl.restart();
+      document.body.classList.add("overflow-hidden");
+    } else {
+      tl.reverse();
+      document.body.classList.remove("overflow-hidden");
+    }
+  });
+}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
+  headerMenu();
   scrollHeader();
   animationArt();
   sectionSlider();
@@ -582,21 +606,8 @@ preloadImages("img").then(() => {
 $(window).on("beforeunload", function () {
   $(window).scrollTop(0);
 });
-// document.addEventListener("DOMContentLoaded", () => {
-//   const audio = document.getElementById("backgroundMusic");
-//   // Thử phát tự động
-//   audio
-//     .play()
-//     .then(() => console.log("Nhạc phát tự động thành công"))
-//     .catch((error) => {
-//       console.log("Autoplay bị chặn:", error);
-//       // Nếu bị chặn, đợi tương tác
-//       document.addEventListener(
-//         "click",
-//         () => {
-//           if (audio.paused) audio.play();
-//         },
-//         { once: true }
-//       );
-//     });
-// });
+// window.onpageshow = function (event) {
+//   if (event.persisted) {
+//     window.location.reload();
+//   }
+// };
