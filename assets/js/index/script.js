@@ -440,46 +440,38 @@ function swiperOffer() {
   });
 }
 function animationLineMap() {
+  // gsap.registerPlugin(ScrollTrigger);
+
+  // gsap.to("#maskRect", {
+  //   height: 5989, // bằng chiều cao SVG
+  //   ease: "none",
+  //   scrollTrigger: {
+  //     trigger: ".svg-container",
+  //     start: "top center",
+  //     end: "bottom bottom",
+  //     scrub: true,
+  //     markers: true,
+  //   },
+  // });
   gsap.registerPlugin(ScrollTrigger);
 
-  let svg = document.querySelector(".svg-container svg");
-  let svgPath = document.querySelector(".svg-container path");
+  const path = document.getElementById("svgPath");
+  const pathLength = path.getTotalLength();
 
-  const pathLength = svgPath.getTotalLength();
-  svgPath.style.strokeDasharray = pathLength + "" + pathLength;
-  svgPath.style.strokeDashoffset = pathLength;
-  window.addEventListener("scroll", () => {
-    var scrollPercentage =
-      (document.documentElement.scrollTop + document.body.scrollTop) /
-      (document.documentElement.scrollHeight -
-        document.documentElement.clientHeight);
+  // Đặt stroke-dashoffset ban đầu để ẩn toàn bộ path
+  path.style.strokeDashoffset = pathLength;
 
-    var drawLength = pathLength * scrollPercentage;
-    svgPath.style.strokeDashoffset = pathLength - drawLength;
+  gsap.to(path, {
+    strokeDashoffset: 0,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".svg-container",
+      start: "top bottom", // khi phần đầu svg vào viewport
+      end: "bottom top", // khi toàn bộ svg ra khỏi viewport
+      scrub: true,
+      markers: true,
+    },
   });
-  // gsap.set(svgPath, {
-  //   strokeDasharray: pathLength,
-  // });
-
-  // gsap.fromTo(
-  //   svgPath,
-  //   {
-  //     strokeDashoffset: pathLength,
-  //   },
-  //   {
-  //     strokeDashoffset: 0,
-  //     duration: 10,
-  //     ease: "none",
-  //     scrollTrigger: {
-  //       trigger: ".svg-container",
-  //       start: "top top",
-  //       end: "bottom bottom",
-  //       scrub: 1,
-  //       markers: true,
-  //       //   toggleActions: "play pause reverse pause",
-  //     },
-  //   }
-  // );
 }
 function scrollHeader() {
   ScrollTrigger.refresh();
@@ -570,6 +562,7 @@ function animationArt() {
 
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
+  scrollHeader();
   animationArt();
   sectionSlider();
   animationMaskCentral();
@@ -577,9 +570,9 @@ const init = () => {
   animationText();
   imgWithText();
   swiperRestaurant();
-  scrollHeader();
+
   // scrollMap();
-  // animationLineMap();
+  animationLineMap();
   swiperAct();
   ScrollTrigger.refresh();
 };

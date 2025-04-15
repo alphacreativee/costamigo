@@ -74,12 +74,16 @@
   align-items: center;
   width: 100%;
   height: 5989px;
-  z-index: -1;
-
+  z-index: 1;
+  overflow: hidden;
   svg {
     height: 100%;
     path {
       // stroke-dasharray: 8 8 !important;
+      stroke: var(--color-primary);
+      // stroke-width: 1.2;
+      // fill: none;
+      // stroke-dasharray: 8, 8; /* Độ dài nét và khoảng cách */
     }
   }
 }
@@ -118,3 +122,10 @@
     height: 100%;
   }
 }
+// #svgPath {
+//   stroke-dasharray: 8 8;
+//   stroke: #232c6a;
+//   stroke-width: 1.2;
+//   stroke-linecap: round;
+//   mask: url(#revealMask);
+// }
