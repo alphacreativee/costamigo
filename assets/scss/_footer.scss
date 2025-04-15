@@ -91,6 +91,11 @@ footer {
 
           li {
             display: flex;
+            a {
+              &:hover {
+                color: var(--color-primary);
+              }
+            }
           }
         }
       }
