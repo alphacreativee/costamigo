@@ -147,7 +147,7 @@ function imgWithText() {
       ease: "power2.out",
       scrollTrigger: {
         trigger: section,
-        start: "top top",
+        start: "top 80px",
         toggleActions: "play none none none",
       },
     });
@@ -158,7 +158,7 @@ function imgWithText() {
       ease: "power2.out",
       scrollTrigger: {
         trigger: section,
-        start: "top top",
+        start: "top 80px",
         toggleActions: "play none none none",
       },
     });
