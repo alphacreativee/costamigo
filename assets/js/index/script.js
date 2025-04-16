@@ -463,23 +463,24 @@ function animationLineMap() {
       // markers: true,
     },
   });
-
-  gsap.to("#rect", {
-    ease: "none",
-    motionPath: {
-      path: "#path",
-      align: "#path",
-      autoRotate: true,
-      alignOrigin: [0.5, 0.5],
-    },
-    scrollTrigger: {
-      trigger: ".svg-container",
-      start: "top center",
-      end: "bottom bottom",
-      scrub: true,
-      markers: true,
-    },
-  });
+  // gsap.to("#rect", {
+  //   ease: "none",
+  //   motionPath: {
+  //     path: "#path",
+  //     align: "#path",
+  //     autoRotate: true,
+  //     alignOrigin: [0.5, 0.5],
+  //     start: 1,
+  //     end: 0, // đảo hướng
+  //   },
+  //   scrollTrigger: {
+  //     trigger: ".svg-container",
+  //     start: "top 55%",
+  //     end: "bottom bottom",
+  //     scrub: true,
+  //     markers: true,
+  //   },
+  // });
 }
 function scrollHeader() {
   ScrollTrigger.refresh();

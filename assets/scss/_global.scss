@@ -83,6 +83,7 @@
 
   svg {
     height: 100%;
+    position: relative;
     path {
       stroke-dasharray: 8 8;
       stroke: var(--color-primary);
@@ -129,4 +130,9 @@
 }
 .scroll-hidden {
   overflow: hidden;
+}
+#rect {
+  left: 50%;
+  position: absolute;
+  transform: rotate(45deg);
 }
