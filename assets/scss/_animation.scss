@@ -29,6 +29,7 @@
     mask-position: 100% 100%;
   }
 }
+
 .spacing {
   height: 100vh;
 }
@@ -42,6 +43,12 @@
   &-v2 {
     display: inline-block;
     position: relative;
+    &.active {
+      &::before {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+    }
     &:hover {
       &::before {
         transform: scaleX(1);

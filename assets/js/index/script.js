@@ -311,7 +311,7 @@ function animationText() {
   });
 }
 function swiperRestaurant() {
-  if (document.querySelector(".swiper-restaurant").length < 1) return;
+  if (!document.querySelector(".swiper-restaurant")) return;
   var swiperRes = new Swiper(".swiper-restaurant", {
     effect: "fade",
     slidesPerView: "auto",
@@ -580,57 +580,80 @@ function headerMenu() {
   });
 }
 function toggleDropdown() {
-  const dropdowns = document.querySelectorAll(".dropdown-custom");
+  const $dropdowns = jQuery(".dropdown-custom");
 
-  dropdowns.forEach((dropdown) => {
-    const btnDropdown = dropdown.querySelector(".dropdown-custom__btn");
-    const dropdownMenu = dropdown.querySelector(".dropdown-custom__menu");
-    const dropdownItems = dropdown.querySelectorAll(".dropdown-custom__item");
-    const textDropdown = dropdown.querySelector(".dropdown-custom__text");
+  $dropdowns.each(function () {
+    const $dropdown = jQuery(this);
+    const $btnDropdown = $dropdown.find(".dropdown-custom__btn");
+    const $dropdownMenu = $dropdown.find(".dropdown-custom__menu");
+    const $dropdownItems = $dropdown.find(".dropdown-custom__item");
+    const $textDropdown = $dropdown.find(".dropdown-custom__text");
 
-    btnDropdown.addEventListener("click", (e) => {
+    $btnDropdown.on("click", function (e) {
       e.stopPropagation();
-      closeAllDropdowns(dropdown);
-      dropdownMenu.classList.toggle("dropdown--active");
+      closeAllDropdowns($dropdown);
+      $dropdownMenu.toggleClass("dropdown--active");
+      // jQuery(".language__head").toggleClass("--active");
+      // jQuery(".destination-head").toggleClass("--active");
 
       const clickYPosition = e.clientY;
-      const viewportHeight = window.innerHeight;
+      const viewportHeight = jQuery(window).height();
 
       if (clickYPosition > viewportHeight / 2) {
-        dropdownMenu.classList.remove("dropdown-up");
+        $dropdownMenu.removeClass("dropdown-up");
       } else {
-        dropdownMenu.classList.add("dropdown-up");
+        $dropdownMenu.addClass("dropdown-up");
       }
     });
 
-    document.addEventListener("click", () => {
+    jQuery(document).on("click", function () {
+      closeAllDropdowns();
+      // jQuery(".language__head").removeClass("--active");
+      // jQuery(".destination-head").removeClass("--active");
+    });
+
+    $dropdownItems.on("click", function (e) {
+      e.stopPropagation();
+      const $item = jQuery(this);
+      const tmp = $textDropdown.text();
+      $textDropdown.text($item.text());
+      if ($item.hasClass("language__item")) {
+        $item.text(tmp);
+      }
       closeAllDropdowns();
     });
 
-    dropdownItems.forEach((item) => {
-      item.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const tmp = textDropdown.textContent;
-        textDropdown.textContent = item.textContent;
-        if (item.classList.contains("language__item")) {
-          item.textContent = tmp;
-        }
-        closeAllDropdowns();
-      });
-    });
-
     function closeAllDropdowns(exception) {
-      dropdowns.forEach((d) => {
-        const menu = d.querySelector(".dropdown-custom__menu");
-        if (!exception || d !== exception) {
-          menu.classList.remove("dropdown--active");
+      $dropdowns.each(function () {
+        const $menu = jQuery(this).find(".dropdown-custom__menu");
+        if (!exception || !jQuery(this).is(exception)) {
+          $menu.removeClass("dropdown--active");
+          // jQuery(".language__head").removeClass("--active");
+          // jQuery(".destination-head").removeClass("--active");
         }
       });
     }
   });
 }
+function loading() {
+  const loading = document.querySelector(".loading");
+  loading.classList.add("loading-out");
+  document.body.classList.remove("scroll-hidden");
+  setTimeout(() => {
+    document.querySelectorAll(".loading").forEach((element) => {
+      element.style.display = "none";
+    });
+  }, 2000);
+}
+// loading();
+$(window).on("DOMContentLoaded", function () {
+  setTimeout(() => {
+    loading();
+  }, 2000);
+});
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
+
   headerMenu();
   scrollHeader();
   animationArt();
@@ -653,7 +676,11 @@ preloadImages("img").then(() => {
 
   init();
 });
-
+window.onpageshow = function (event) {
+  if (event.persisted) {
+    window.location.reload();
+  }
+};
 $(window).on("beforeunload", function () {
   $(window).scrollTop(0);
 });
