@@ -75,9 +75,9 @@
     }
 
     .btn-music {
-      margin-left: 45px;
-      width: 32px;
+      margin-left: 32px;
       height: 32px;
+      width: 32px;
       position: relative;
       // border: 1px solid var(--color-white);
       border-radius: 50%;
@@ -171,6 +171,31 @@
     }
     .sub-menu-overlay {
       background-color: #464344;
+    }
+  }
+  .lang {
+    margin-left: 32px;
+    transform: translateY(1px);
+    .dropdown-custom {
+      position: relative;
+    }
+    .dropdown-custom__btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .dropdown-custom__menu {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: translateY(100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      &.dropdown--active {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 }

@@ -579,6 +579,62 @@ function headerMenu() {
     }
   });
 }
+function toggleDropdown() {
+  const $dropdowns = jQuery(".dropdown-custom");
+
+  $dropdowns.each(function () {
+    const $dropdown = jQuery(this);
+    const $btnDropdown = $dropdown.find(".dropdown-custom__btn");
+    const $dropdownMenu = $dropdown.find(".dropdown-custom__menu");
+    const $dropdownItems = $dropdown.find(".dropdown-custom__item");
+    const $textDropdown = $dropdown.find(".dropdown-custom__text");
+
+    $btnDropdown.on("click", function (e) {
+      e.stopPropagation();
+      closeAllDropdowns($dropdown);
+      $dropdownMenu.toggleClass("dropdown--active");
+      // jQuery(".language__head").toggleClass("--active");
+      // jQuery(".destination-head").toggleClass("--active");
+
+      const clickYPosition = e.clientY;
+      const viewportHeight = jQuery(window).height();
+
+      if (clickYPosition > viewportHeight / 2) {
+        $dropdownMenu.removeClass("dropdown-up");
+      } else {
+        $dropdownMenu.addClass("dropdown-up");
+      }
+    });
+
+    jQuery(document).on("click", function () {
+      closeAllDropdowns();
+      // jQuery(".language__head").removeClass("--active");
+      // jQuery(".destination-head").removeClass("--active");
+    });
+
+    $dropdownItems.on("click", function (e) {
+      e.stopPropagation();
+      const $item = jQuery(this);
+      const tmp = $textDropdown.text();
+      $textDropdown.text($item.text());
+      if ($item.hasClass("language__item")) {
+        $item.text(tmp);
+      }
+      closeAllDropdowns();
+    });
+
+    function closeAllDropdowns(exception) {
+      $dropdowns.each(function () {
+        const $menu = jQuery(this).find(".dropdown-custom__menu");
+        if (!exception || !jQuery(this).is(exception)) {
+          $menu.removeClass("dropdown--active");
+          // jQuery(".language__head").removeClass("--active");
+          // jQuery(".destination-head").removeClass("--active");
+        }
+      });
+    }
+  });
+}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   headerMenu();
@@ -590,7 +646,7 @@ const init = () => {
   animationText();
   imgWithText();
   swiperRestaurant();
-
+  toggleDropdown();
   // scrollMap();
   animationLineMap();
   swiperAct();
