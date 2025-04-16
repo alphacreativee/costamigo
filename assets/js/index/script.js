@@ -450,7 +450,7 @@ function swiperOffer() {
   });
 }
 function animationLineMap() {
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
   gsap.to("#maskRect", {
     height: 5989, // bằng chiều cao SVG
@@ -461,6 +461,23 @@ function animationLineMap() {
       end: "bottom bottom",
       scrub: true,
       // markers: true,
+    },
+  });
+
+  gsap.to("#rect", {
+    ease: "none",
+    motionPath: {
+      path: "#path",
+      align: "#path",
+      autoRotate: true,
+      alignOrigin: [0.5, 0.5],
+    },
+    scrollTrigger: {
+      trigger: ".svg-container",
+      start: "top center",
+      end: "bottom bottom",
+      scrub: true,
+      markers: true,
     },
   });
 }
