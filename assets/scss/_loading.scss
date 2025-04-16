@@ -23,17 +23,18 @@
   }
   &-transition {
     position: relative;
-    width: 100%;
+    width: 110%;
+    left: -10%;
     height: 100%;
     mask: url("../../images/sprite-out.png");
-    mask-size: 2100% 100%;
+    mask-size: 2200% 100%;
     mask-repeat: no-repeat;
 
     .bg-intro {
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
+      width: 110%;
       height: 100%;
       background: var(--color-pattern) url("../../images/bg-body.png");
       background-repeat: repeat-y;
