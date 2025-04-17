@@ -34,7 +34,10 @@
   z-index: 19;
   transition: right 0.3s ease;
   &.hide {
-    right: -50px;
+    .cta-item {
+      transform: translateX(calc(100% + 50px));
+      opacity: 0;
+    }
   }
   &__container {
     display: flex;
@@ -48,7 +51,8 @@
     width: 49px;
     height: 49px;
 
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.5s ease,
+      opacity 0.4s ease;
 
     &.mess {
       background-color: var(--color-secondary);
@@ -60,6 +64,7 @@
     }
     &.phone {
       background-color: var(--color-primary);
+      transition: transform 0.7s ease, opacity 0.4s ease;
       mask: url("../../images/cta-phone.png");
       mask-size: 100% 100%;
       &:hover {
