@@ -1,0 +1,18 @@
+.desc-page {
+  position: relative;
+  &__container {
+    text-align: center;
+    padding: 0 88px;
+  }
+  &__title {
+    margin-bottom: 40px;
+  }
+  &__bg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 370px;
+    height: 470px;
+    transform: translateX(50%);
+  }
+}
