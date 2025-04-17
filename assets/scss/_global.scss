@@ -11,7 +11,7 @@
   display: inline-block;
   padding: 10px 20px;
   background-color: var(--color-primary);
-  mask: url("../../images/bg-tag.png");
+  mask: url("../../images/bg-tag.svg");
   mask-size: 100% 100%;
   mask-repeat: no-repeat;
   mask-position: center;
@@ -33,6 +33,9 @@
   right: 40px;
   z-index: 19;
   transition: right 0.3s ease;
+  &:hover {
+    cursor: pointer;
+  }
   &.hide {
     .cta-item {
       transform: translateX(calc(100% + 50px));
@@ -88,6 +91,7 @@
 
   svg {
     height: 100%;
+    position: relative;
     path {
       stroke-dasharray: 8 8;
       stroke: var(--color-primary);
@@ -98,16 +102,6 @@
   }
 }
 .animation-art-reverse {
-  overflow: hidden;
-  will-change: clip-path, opacity;
-  clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
-  transition: clip-path 1s ease-out, opacity 1s ease-out;
-
-  &.show {
-    clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
-    opacity: 1;
-  }
-
   img {
     display: block;
     width: 100%;
@@ -117,13 +111,15 @@
 
 .animation-art {
   overflow: hidden;
-  will-change: clip-path, opacity;
-  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-  transition: clip-path 1s ease-out, opacity 1s ease-out;
+  mask: url("../../images/sprite-central.png");
+  mask-size: 3000% 100%;
+  mask-position: center;
+  mask-repeat: no-repeat;
 
   &.show {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    opacity: 1;
+    img {
+      animation: maskCentral 1.3s steps(29) forwards;
+    }
   }
 
   img {
@@ -134,4 +130,9 @@
 }
 .scroll-hidden {
   overflow: hidden;
+}
+#rect {
+  left: 50%;
+  position: absolute;
+  transform: rotate(45deg);
 }

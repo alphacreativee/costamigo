@@ -463,23 +463,24 @@ function animationLineMap() {
       // markers: true,
     }
   });
-
-  gsap.to("#rect", {
-    ease: "none",
-    motionPath: {
-      path: "#path",
-      align: "#path",
-      autoRotate: true,
-      alignOrigin: [0.5, 0.5]
-    },
-    scrollTrigger: {
-      trigger: ".svg-container",
-      start: "top center",
-      end: "bottom bottom",
-      scrub: true,
-      markers: true
-    }
-  });
+  // gsap.to("#rect", {
+  //   ease: "none",
+  //   motionPath: {
+  //     path: "#path",
+  //     align: "#path",
+  //     autoRotate: true,
+  //     alignOrigin: [0.5, 0.5],
+  //     start: 1,
+  //     end: 0, // đảo hướng
+  //   },
+  //   scrollTrigger: {
+  //     trigger: ".svg-container",
+  //     start: "top 55%",
+  //     end: "bottom bottom",
+  //     scrub: true,
+  //     markers: true,
+  //   },
+  // });
 }
 function scrollHeader() {
   ScrollTrigger.refresh();
@@ -513,19 +514,6 @@ function animationArt() {
   const animationArt = document.querySelectorAll(".animation-art");
 
   animationArt.forEach((image) => {
-    // Initial animation (fade and clip-path reveal)
-    gsap.to(image, {
-      scrollTrigger: {
-        trigger: image,
-        start: "top 60%",
-        end: "bottom 60%",
-        onEnter: () => image.classList.add("show")
-        // optional: if you want it to reverse too
-
-        // markers: true,
-      }
-    });
-
     // Parallax effect
     gsap.to(image, {
       yPercent: 20, // Move element upward by 20% of its height
@@ -545,22 +533,22 @@ function animationArt() {
   );
 
   animationArtReverse.forEach((imageR) => {
-    // Initial animation (slide in from right)
-    gsap.to(imageR, {
-      scrollTrigger: {
-        trigger: imageR,
-        start: "top 60%",
-        end: "bottom 60%",
-        onEnter: () => imageR.classList.add("show")
-        // optional: if you want it to reverse too
+    // // Initial animation (slide in from right)
+    // gsap.to(imageR, {
+    //   scrollTrigger: {
+    //     trigger: imageR,
+    //     start: "top 60%",
+    //     end: "bottom 60%",
+    //     onEnter: () => imageR.classList.add("show"),
+    //     // optional: if you want it to reverse too
 
-        // markers: true,
-      }
-    });
+    //     // markers: true,
+    //   },
+    // });
 
     // Parallax effect
     gsap.to(imageR, {
-      yPercent: -15, // Move element downward by 20% of its height
+      yPercent: -30, // Move element downward by 20% of its height
       ease: "none",
       scrollTrigger: {
         trigger: imageR,
@@ -660,7 +648,7 @@ function loading() {
     document.querySelectorAll(".loading").forEach((element) => {
       element.style.display = "none";
     });
-  }, 2000);
+  }, 1500);
 }
 // loading();
 $(window).on("DOMContentLoaded", function () {

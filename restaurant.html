@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant</title>
+    <!-- import favicon -->
+    <link rel="icon" href="./assets/images/favicon.svg" type="image/x-icon" />
+    <!-- meta -->
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <!-- meta -->
+    <link rel="stylesheet" href="./assets/libs/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/libs/splitting.min.css" />
+    <link rel="stylesheet" href="./assets/libs/lenis.css" />
+    <link rel="stylesheet" href="./assets/libs/swiper-bundle.min.css" />
+    <!-- end meta -->
+    <!-- link custom css page -->
+    <link rel="stylesheet" href="./assets/font/helloSerattine/stylesheet.css" />
+    <link rel="stylesheet" href="./assets/font/plusJakarta/stylesheet.css" />
+    <link rel="stylesheet" href="./assets/main/css/style.min.css" />
+    <!-- end link custom css page -->
+  </head>
+  <body>
+    <!-- loading -->
+    <div class="loading">
+      <div class="loading-logo">
+        <img src="./assets/images/logo-header.svg" alt="" />
+      </div>
+      <div class="loading-transition">
+        <div class="bg-intro"></div>
+      </div>
+    </div>
+    <!-- loading -->
+    <!-- svg container -->
+    <div class="svg-container d-none">
+      <svg
+        width="1402"
+        height="5989"
+        viewBox="0 0 1402 5989"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <mask id="revealMask">
+            <rect
+              id="maskRect"
+              x="0"
+              y="0"
+              width="100%"
+              height="0"
+              fill="white"
+            />
+          </mask>
+        </defs>
+
+        <path
+          d="M635.5 5988C275.5 5525.5 436.5 5458.5 1101.5 5231C1297.36 5163.99 1389 4792 809 4607.5C338.413 4457.8 889.501 4141.02 1246.79 3703.5C1546.16 3336.9 1711.5 2881.08 1007 2997C28.4999 3158 -129.5 2140.18 119 1999C335.5 1876 819.5 1921.5 1004.5 1642.5C1134.62 1446.26 1454 801.581 1050.5 710.999C767.501 647.469 1 939.765 1 750.5C1 650 29.8 353 501 179C529.5 168 689.5 138 680.5 1"
+          stroke-width="1.2"
+          stroke-linecap="round"
+          stroke-dasharray="8 8"
+          id="svgPath"
+        />
+      </svg>
+    </div>
+    <!-- svg container -->
+    <!-- cta -->
+    <div class="cta-group">
+      <div class="cta-group__container">
+        <div class="cta-item mess">
+          <img src="./assets/images/ic-mess.svg" alt="" />
+        </div>
+        <div class="cta-item phone">
+          <img src="./assets/images/ic-phone.svg" alt="" />
+        </div>
+      </div>
+    </div>
+    <!-- end cta -->
+    <!-- layout -->
+    <header class="header">
+      <div class="container-fluid p-0">
+        <div class="header-wrapper">
+          <div class="header-menu left">
+            <button type="button" class="btn-hamburger b2-font">
+              <div class="group-ic">
+                <div class="ic ic-default">
+                  <img src="./assets/images/ic-open.svg" alt="" />
+                </div>
+                <div class="ic ic-active">
+                  <img src="./assets/images/ic-close.svg" alt="" />
+                </div>
+              </div>
+
+              <span>Menu</span>
+            </button>
+            <ul class="menu">
+              <li>
+                <a href="./accomodation.html" class="animation-text-v2"
+                  >Phòng nghỉ</a
+                >
+              </li>
+              <li>
+                <a href="./restaurant.html" class="animation-text-v2 active"
+                  >Ẩm thực</a
+                >
+              </li>
+              <li>
+                <a href="./facilities.html" class="animation-text-v2"
+                  >Tiện ích</a
+                >
+              </li>
+              <li>
+                <a href="./offer.html" class="animation-text-v2">Ưu đãi</a>
+              </li>
+            </ul>
+          </div>
+          <div class="header-logo">
+            <a href="./index.html">
+              <img src="./assets/images/logo-header.svg" alt="" />
+            </a>
+          </div>
+          <div class="header-menu right">
+            <ul class="menu">
+              <li>
+                <a href="#" class="animation-text-v2">360 Virtual</a>
+              </li>
+              <li>
+                <a href="#" class="animation-text-v2"> Đặt phòng </a>
+              </li>
+            </ul>
+            <div class="lang">
+              <div class="dropdown-custom">
+                <div class="dropdown-custom__btn">
+                  <div
+                    class="value-select dropdown-custom__text b2-font color-white"
+                  >
+                    VI
+                  </div>
+                  <img src="./assets/images/ic-arrow-down.svg" alt="" />
+                </div>
+                <div class="dropdown-custom__menu">
+                  <div
+                    class="dropdown-custom__item language__item b2-font color-white"
+                  >
+                    EN
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn-music pause">
+              <svg
+                width="11"
+                height="16"
+                viewBox="0 0 11 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M9.72704 7.25934C8.90035 7.08367 8.57484 6.44815 8.37334 5.71447C8.31134 5.49746 8.32684 5.26496 8.28033 5.04279C8.21833 4.71728 8.022 4.55194 7.69649 4.53644C7.63965 4.53644 7.58282 4.54678 7.52598 4.54678C6.74063 4.55194 5.94495 4.61911 5.13376 4.22643C5.12343 4.50544 5.07692 4.70178 5.11826 4.87228C5.4231 6.20015 5.5626 7.54351 5.64527 8.90238C5.68144 9.49139 5.84678 10.0701 5.95528 10.6488C6.16712 10.7779 6.35312 10.8968 6.53913 11.0104C6.54946 11.1138 6.58046 11.2016 6.56496 11.2791C6.41512 12.0593 6.15678 12.8085 5.82094 13.5267C5.73827 13.7075 5.64527 13.8832 5.55744 14.0588C5.21987 14.7615 4.76347 15.3436 4.18824 15.8052C3.9764 15.9757 3.75423 16.0532 3.48039 15.9602C3.18071 15.8569 2.97404 15.6657 2.99471 15.3505C3.02571 14.8752 3.03604 14.3792 3.17038 13.9297C3.44939 12.979 3.81623 12.0541 4.56541 11.3514C4.75142 11.1809 4.77208 10.9691 4.74625 10.7314C4.56541 8.99021 4.43624 7.23867 4.19857 5.50263C4.03323 4.31944 4.04873 3.13624 3.97123 1.95305C3.95573 1.70504 3.90406 1.45187 3.80589 1.22453C3.67156 0.924855 3.70256 0.682016 3.90923 0.444344C4.0384 0.294507 4.1624 0.14467 4.28641 0C4.76175 0.113669 4.90125 0.428844 5.02009 0.785352C5.24226 1.45187 5.49027 2.10805 5.73311 2.76423C5.77961 2.8934 5.85711 3.01224 5.94495 3.17758C6.45129 3.19308 6.95247 3.20341 7.45365 3.21891C7.68099 3.22408 7.90833 3.21891 8.1305 3.24474C8.78151 3.31708 9.24652 3.65292 9.4377 4.28844C9.5772 4.74311 9.6857 5.21329 9.7632 5.68864C9.81487 5.98831 9.8097 6.28798 9.95438 6.58249C10.0629 6.7995 10.0112 7.08884 9.7167 7.25934H9.72704Z"
+                  fill="white"
+                />
+                <path
+                  d="M3.88677 5.0145C3.76496 4.87078 1.1033 0.944411 1.03021 0.766201C0.9084 0.553499 0.847493 0.300556 0.701315 0.105099C0.640408 0.0131202 0.40896 -0.0213722 0.287145 0.0131201C0.16533 0.0476123 0.0252431 0.197079 0.00697091 0.312053C-0.017392 0.50176 0.0252431 0.708714 0.0861505 0.892672C0.591682 2.37584 1.28603 3.79577 2.25445 5.02599C4.61766 8.02682 6.84078 11.1311 9.6547 13.787C10.0628 14.1722 10.4526 14.5861 10.8302 15C11.1069 14.9786 11.247 14.3093 9.59379 11.8037C7.4864 9.69394 5.75054 7.30248 3.88677 5.0145Z"
+                  fill="white"
+                  class="line-muted"
+                />
+              </svg>
+
+              <audio
+                autoplay
+                loop
+                muted
+                id="player"
+                src="./assets/audio/Tequila.mp3"
+                type="audio/mpeg"
+              ></audio>
+            </button>
+          </div>
+        </div>
+        <div class="header-sub-menu">
+          <div class="header-sub-menu__container">
+            <div class="sub-menu-container">
+              <div class="sub-menu">
+                <ul>
+                  <li>
+                    <a
+                      href=""
+                      class="h1-font font-heading color-white animation-text-v3"
+                      >Costamigo Wellness Spa</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href=""
+                      class="h1-font font-heading color-white animation-text-v3"
+                      >Hội nghị & tiệc cưới</a
+                    >
+                  </li>
+
+                  <li>
+                    <a
+                      href=""
+                      class="h1-font font-heading color-white animation-text-v3"
+                      >Thư viện</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href=""
+                      class="h1-font font-heading color-white animation-text-v3"
+                      >Tin tức & Giải thưởng</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href=""
+                      class="h1-font font-heading color-white animation-text-v3"
+                      >Liên hệ</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="sub-menu-overlay"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="section-banner">
+        <div class="container-fluid p-0">
+          <div class="section-banner__container animation-image-banner show">
+            <div class="section-banner__wrapper">
+              <!-- <video autoplay loop muted>
+                <source src="./assets/images/costa.mp4" type="video/mp4" />
+              </video> -->
+              <picture>
+                <img src="./assets/images/img-room-2.png" alt="" />
+              </picture>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="spacing-240"></div>
+      <section class="desc-page">
+        <div class="container-fluid p-0">
+          <div class="row g-0">
+            <div class="col-lg-6 offset-lg-3">
+              <div class="desc-page__container">
+                <h1
+                  class="desc-page__title h0-font font-heading color-secondary"
+                >
+                  Chiêu đãi cảm xúc, <br />
+                  đánh thức vị giác
+                </h1>
+                <div class="desc-page__desc h2-font color-primary">
+                  Có những bữa ăn không chỉ để thưởng thức, mà để nhớ mãi. Mỗi
+                  món ăn ở Costamigo đều mang trong mình câu chuyện của biển cả
+                  và những tinh hoa ẩm thực.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="desc-page__bg">
+          <img src="./assets/images/leaf-2.png" alt="" />
+        </div>
+      </section>
+    </main>
+    <!-- <audio id="backgroundMusic" autoplay loop>
+      <source src="./assets/images/music.mp3" type="audio/mpeg" />
+    </audio> -->
+
+    <footer>
+      <div class="container-fluid p-0">
+        <div class="footer-top">
+          <div class="row g-0">
+            <div class="col-lg-3">
+              <a class="footer-logo" href="./index.html">
+                <img src="./assets/images/logo-footer.svg" alt="" />
+              </a>
+            </div>
+            <div class="col-lg-9">
+              <div class="footer-main">
+                <div class="footer-location">
+                  <p class="title b2-font color-primary">
+                    Costamigo Best Western Phan Thiết
+                  </p>
+                  <p class="b2-font-md color-primary">
+                    DT719B – Lạc Long Quân trục đường ven biển xã Tiến Thành,
+                    Tp. Phan Thiết, Bình Thuận
+                  </p>
+                  <a
+                    href="#"
+                    class="b2-font-md color-primary animation-text-v3"
+                  >
+                    (+84) 0252 3682 999
+                  </a>
+                </div>
+                <div class="footer-menu">
+                  <p class="title b2-font color-primary">Thông tin</p>
+                  <ul class="menu">
+                    <li>
+                      <a href="#" class="animation-text-v3">Điểm đến</a>
+                    </li>
+                    <li>
+                      <a href="#" class="animation-text-v3">Thư viện</a>
+                    </li>
+                    <li>
+                      <a href="#" class="animation-text-v3"
+                        >Tin tức & Giải thưởng</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="animation-text-v3">Liên hệ</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="footer-contact">
+                  <div class="form">
+                    <p class="title b2-font color-primary">
+                      Đăng ký nhận bản tin
+                    </p>
+                    <form action="">
+                      <div class="field">
+                        <input
+                          type="email"
+                          placeholder="Email"
+                          autocomplete="off"
+                        />
+                      </div>
+                      <button type="submit">
+                        <svg
+                          width="43"
+                          height="44"
+                          viewBox="0 0 43 44"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M14.3562 2.0302C9.76222 2.89192 6.0296 6.33879 3.73261 10.0729C1.1485 14.3815 0 19.5518 0 24.4348C0.287124 29.0307 2.00987 33.6265 5.16823 37.0734C8.3266 40.5202 12.3463 42.8181 16.9403 43.3926C21.5343 43.9671 26.4154 43.3926 30.7223 40.8075C34.742 38.5095 37.9004 35.0627 39.9102 31.0413C43.93 23.2859 44.5042 12.9453 38.7617 5.76431C35.6034 2.0302 31.0094 0.30677 26.4154 0.0195312C23.8313 0.0195312 21.5343 0.0195312 18.9502 0.0195312C16.6532 0.0195312 14.0691 0.594009 11.7721 1.74296C10.6236 2.31744 9.76222 2.89192 8.90085 3.75364C8.61372 4.32811 8.90085 4.90259 9.47509 4.61535C13.4948 2.31744 18.0888 1.74296 22.3957 1.45573C26.7025 1.45573 31.5836 2.0302 35.0291 4.90259C41.3459 10.0729 41.9201 19.839 39.336 27.3072C37.9004 31.3286 35.6034 34.7754 32.1579 37.6478C28.7124 40.5202 24.4055 41.9564 20.0987 42.2437C15.7918 42.2437 11.485 41.0947 8.03947 38.2223C4.88111 35.6372 2.58412 31.9031 1.43562 27.5945C0.287124 22.9986 0.861372 18.1156 2.87124 13.807C4.59398 9.78566 7.1781 6.05155 11.1978 3.75364C12.0592 3.17916 13.2077 2.89192 14.3562 2.60468C14.9305 2.60468 14.6433 1.74296 14.3562 1.74296V2.0302Z"
+                            fill="#232C6A"
+                          />
+                          <g clip-path="url(#clip0_489_3373)">
+                            <path
+                              d="M29.6998 14.1057C29.6706 13.948 29.5493 13.8048 29.3785 13.812C28.5667 13.92 27.8136 14.2794 27.0352 14.5154C25.9657 14.8636 24.8578 15.0889 23.767 15.3691C20.0106 16.1517 16.0965 16.9622 12.5544 17.5252C11.7417 17.6725 11.2646 17.7114 10.3851 17.8795C10.1536 17.9589 10.0212 18.2595 10.1667 18.4909C10.3445 18.7301 10.6124 18.8736 10.8458 19.0457C11.9626 19.8614 13.1956 20.9319 14.4297 21.782C14.8764 22.0934 15.0694 22.2212 15.3949 22.4959C15.3938 22.5566 15.408 22.6232 15.4504 22.6845C16.6863 24.489 17.6179 26.5022 18.786 28.3562C18.9982 28.7267 19.2165 29.0952 19.4398 29.4585C19.5469 29.6417 19.749 29.8093 19.9583 29.7333C19.9704 29.7295 19.9815 29.7225 19.9926 29.7155C20.12 29.7396 20.2524 29.6947 20.3151 29.5544C20.8713 28.6494 22.032 27.3994 22.8267 26.2672C23.4766 26.5897 24.1225 26.9205 24.743 27.3089C25.1786 27.5847 25.6153 27.8637 26.058 28.1302C26.3228 28.3173 26.6948 28.2402 26.7949 27.9107C27.3108 25.9816 27.5902 23.9773 28.0324 22.0251C28.4128 20.2909 28.7457 18.5432 29.1666 16.8213C29.3628 16.0109 29.6299 15.2246 29.7857 14.402C29.813 14.2869 29.7726 14.1789 29.6988 14.1025L29.6998 14.1057ZM15.0534 21.4239C13.6961 20.52 12.5793 19.5019 11.0987 18.4378C13.177 18.1331 15.2301 17.7795 17.4479 17.3248C20.8222 16.6509 24.2329 16.0935 27.5183 15.071C25.6723 16.1836 23.8636 17.3732 22.0136 18.4835C20.0422 19.6849 18.0183 20.7927 16.0156 21.9364C16.0126 21.9374 16.0096 21.9383 16.0035 21.9402C15.9499 21.9711 15.8903 21.9933 15.8306 22.0155C15.582 21.8056 15.3182 21.611 15.0534 21.4239ZM17.8708 25.5321C17.315 24.5518 16.8139 23.5013 16.159 22.5875C20.1674 20.4908 24.003 18.0433 27.8548 15.6582C27.9306 15.6132 28.0054 15.565 28.0842 15.5191C26.7749 17.0286 25.412 18.4944 24.0006 19.9008C22.6144 21.4094 21.0443 22.7872 19.9735 24.5808C19.7367 25.6026 19.8063 26.3903 19.6909 27.2997C19.6524 27.6667 19.6543 28.1525 19.6492 28.5624C19.1157 27.6746 18.4073 26.4402 17.8718 25.5353L17.8708 25.5321ZM20.92 27.6437C20.7279 27.9131 20.4994 28.1726 20.2861 28.4381C20.2881 28.338 20.2901 28.238 20.2912 28.1347C20.3288 26.9975 20.4068 26.3626 20.5051 25.1745C20.5101 25.1374 20.5132 25.1045 20.5152 25.079C20.9731 25.2769 21.3996 25.5449 21.8382 25.7877C21.9676 25.8503 22.0929 25.9106 22.2223 25.9731C21.7956 26.5359 21.3507 27.0831 20.92 27.6437ZM27.9652 19.2094C27.4775 21.5806 26.9554 23.9483 26.5112 26.3307C26.4333 26.7101 26.3412 27.1933 26.2552 27.4828C25.5396 27.046 24.257 26.2217 23.3312 25.783C22.8774 25.5449 22.3993 25.3569 21.9506 25.103C21.5736 24.887 21.1946 24.6539 20.7994 24.4862C21.0582 24.1107 21.4353 23.6237 21.7639 23.2584C23.5313 21.2438 25.5028 19.4459 27.256 17.4179C27.8029 16.8886 28.2933 16.3059 28.7867 15.7222C28.4731 16.871 28.2232 18.0425 27.9612 19.2071L27.9652 19.2094Z"
+                              fill="#232C6A"
+                            />
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_489_3373">
+                              <rect
+                                width="20"
+                                height="14.6667"
+                                fill="white"
+                                transform="translate(10 18) rotate(-17.3429)"
+                              />
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </button>
+                    </form>
+                  </div>
+                  <div class="social">
+                    <p class="title b2-font color-primary">Theo dõi</p>
+                    <ul class="d-flex align-items-center">
+                      <li>
+                        <a
+                          href="#"
+                          class="b2-font-md color-primary animation-text-v3"
+                          >Facebook</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="b2-font-md color-primary animation-text-v3"
+                          >Tiktok</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="b2-font-md color-primary animation-text-v3"
+                          >Instagram</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="b2-font-md color-primary animation-text-v3"
+                          >Zalo</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="footer-headquarter">
+                <div class="info b2-font-md color-primary">
+                  <p>
+                    Tên trụ sở chính: CÔNG TY TNHH BIỂN QUÊ HƯƠNG - PHAN THIẾT
+                  </p>
+                  <p>
+                    Địa chỉ trụ sở chính: 123 Nguyễn Tương, P. Phú Thủy, Tp.
+                    Phan Thiết, Tỉnh Bình Thuận, Việt Nam
+                  </p>
+                  <p>
+                    Số GPKD: 3401139808 do Sở KHĐT Tỉnh Bình Thuận cấp ngày
+                    15/12/2016.
+                  </p>
+                </div>
+                <div class="logo-bct">
+                  <img src="./assets/images/footer-bct.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-copyright b2-font-md color-primary">
+            ©2025 Costamigo Best Western Phan Thiết
+          </div>
+          <ul class="menu">
+            <li>
+              <a href="#" class="animation-text-v3">Quy định chung</a>
+            </li>
+            <li>
+              <a href="#" class="animation-text-v3">Chính sách bảo mật</a>
+            </li>
+            <li>
+              <a href="#" class="animation-text-v3">Phương thức thanh toán</a>
+            </li>
+          </ul>
+          <div class="footer-alpha">
+            <a
+              href="#"
+              target="_blank"
+              class="b2-font-md color-primary animation-text-v3"
+              >Digital Experience Alpha Creative</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- end layout -->
+    <script src="./assets/libs/jquery-3.7.1.js"></script>
+    <script src="./assets/libs/lenis.min.js"></script>
+    <script src="./assets/libs/gsap.min.js"></script>
+    <script src="./assets/libs/ScrollTrigger.min.js"></script>
+    <script src="./assets/libs/splitting.min.js"></script>
+    <script src="./assets/libs/splitType.min.js"></script>
+    <script src="./assets/libs/bootstrap.bundle.min.js"></script>
+    <script src="./assets/libs/imagesloaded.pkgd.min.js"></script>
+    <script src="./assets/libs/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/MotionPathPlugin.min.js"></script>
+    <!-- import custom js -->
+    <script type="module" src="./assets/main/js/script.min.js"></script>
+
+    <!-- end import custom js -->
+  </body>
+</html>

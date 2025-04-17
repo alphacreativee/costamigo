@@ -26,9 +26,6 @@
     width: 110%;
     left: -10%;
     height: 100%;
-    mask: url("../../images/sprite-out.png");
-    mask-size: 2200% 100%;
-    mask-repeat: no-repeat;
 
     .bg-intro {
       position: absolute;
@@ -46,8 +43,10 @@
 
 .loading-out {
   .loading-transition {
-    animation: maskCentral 0.5s steps(20) forwards;
-    animation-delay: 0.5s;
+    mask: url("../../images/sprite-central.png");
+    mask-size: 3100% 100%;
+    mask-repeat: no-repeat;
+    animation: maskCentralR 1.3s steps(29) forwards;
   }
   .loading-logo {
     opacity: 0;

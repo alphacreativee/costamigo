@@ -29,7 +29,14 @@
     mask-position: 100% 100%;
   }
 }
-
+@keyframes maskCentralR {
+  0% {
+    mask-position: 100% 100%;
+  }
+  100% {
+    mask-position: 0% 0%;
+  }
+}
 .spacing {
   height: 100vh;
 }
