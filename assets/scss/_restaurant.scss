@@ -49,3 +49,9 @@
   display: block; /* Mỗi dòng là một khối */
   overflow: hidden; /* Ẩn phần text khi "mọc" lên */
 }
+[data-fade-desc],
+[data-fade-desc-v2] {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  font-kerning: none;
+}
