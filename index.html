@@ -106,10 +106,18 @@
               <span>Menu</span>
             </button>
             <ul class="menu">
-              <li>
+              <li class="menu-has-children">
                 <a href="./accomodation.html" class="animation-text-v2"
                   >Phòng nghỉ</a
                 >
+
+                <ul class="sub-menu d-none">
+                  <li>
+                    <a href="#" class="b1-font color-primary"
+                      >Premier Ocean Villa</a
+                    >
+                  </li>
+                </ul>
               </li>
               <li>
                 <a href="./restaurant.html" class="animation-text-v2"
@@ -152,7 +160,7 @@
                 </div>
                 <div class="dropdown-custom__menu">
                   <div
-                    class="dropdown-custom__item language__item b2-font color-white"
+                    class="dropdown-custom__item language__item b2-font color-primary"
                   >
                     EN
                   </div>
@@ -249,7 +257,7 @@
         <div class="container-fluid p-0">
           <div class="section-banner__container">
             <div class="section-banner__wrapper">
-              <video autoplay loop muted>
+              <video autoplay loop muted class="w-100 h-100">
                 <source src="./assets/images/costa.mp4" type="video/mp4" />
               </video>
               <!-- <picture>

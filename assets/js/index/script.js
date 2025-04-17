@@ -271,7 +271,7 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20,
+        y: 20
       },
       {
         opacity: 1,
@@ -280,9 +280,9 @@ function animationText() {
         scrollTrigger: {
           trigger: element,
           start: "top 30%",
-          end: "bottom 30%",
+          end: "bottom 30%"
           // markers: true,
-        },
+        }
       }
     );
   });
@@ -340,7 +340,7 @@ function animationText() {
     let myDesc = new SplitType(element, {
       types: "lines, words",
       lineClass: "split-line",
-      wordClass: "split-word",
+      wordClass: "split-word"
     });
     myDesc.lines.forEach((line, index) => {
       gsap.from(line.querySelectorAll(".split-word"), {
@@ -353,8 +353,8 @@ function animationText() {
           start: "top 20%",
           end: "top 20%",
           toggleActions: "play none none none",
-          markers: true,
-        },
+          markers: true
+        }
       });
     });
   });
@@ -612,6 +612,7 @@ function headerMenu() {
   let btnMenu = document.querySelector(".btn-hamburger");
   let containerMenu = document.querySelector(".header-sub-menu");
   let tl = gsap.timeline({ paused: true });
+  const sub_menu_overlay = document.querySelector(".sub-menu-overlay");
 
   tl.from(".sub-menu ul li", {
     opacity: 0,
@@ -631,6 +632,13 @@ function headerMenu() {
       tl.reverse();
       document.body.classList.remove("overflow-hidden");
     }
+  });
+
+  sub_menu_overlay.addEventListener("click", () => {
+    tl.reverse();
+    btnMenu.classList.remove("change");
+    containerMenu.classList.remove("show");
+    document.body.classList.remove("overflow-hidden");
   });
 }
 function toggleDropdown() {
