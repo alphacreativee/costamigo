@@ -271,7 +271,7 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20
+        y: 20,
       },
       {
         opacity: 1,
@@ -279,10 +279,10 @@ function animationText() {
         stagger: 0.05,
         scrollTrigger: {
           trigger: element,
-          start: "top 30%",
-          end: "bottom 30%"
+          start: "top 40%",
+          end: "bottom 40%",
           // markers: true,
-        }
+        },
       }
     );
   });
@@ -310,7 +310,28 @@ function animationText() {
       }
     );
   });
-
+  gsap.utils.toArray("[data-fade-in-v2]").forEach((element) => {
+    gsap.fromTo(
+      element,
+      {
+        "will-change": "opacity, transform",
+        opacity: 0,
+        y: 20,
+      },
+      {
+        scrollTrigger: {
+          trigger: element,
+          start: "top 55%",
+          end: "bottom 55%",
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "sine.out",
+        stagger: 0.1,
+      }
+    );
+  });
   // description
   const fxTitleDesc = document.querySelectorAll("[data-fade-desc]");
   fxTitleDesc.forEach((element, elementIdx) => {
@@ -340,7 +361,7 @@ function animationText() {
     let myDesc = new SplitType(element, {
       types: "lines, words",
       lineClass: "split-line",
-      wordClass: "split-word"
+      wordClass: "split-word",
     });
     myDesc.lines.forEach((line, index) => {
       gsap.from(line.querySelectorAll(".split-word"), {
@@ -350,11 +371,11 @@ function animationText() {
         delay: index * 0.1,
         scrollTrigger: {
           trigger: element,
-          start: "top 20%",
-          end: "top 20%",
+          start: "top 50%",
+          end: "top 50%",
           toggleActions: "play none none none",
-          markers: true
-        }
+          // markers: true,
+        },
       });
     });
   });
@@ -539,15 +560,12 @@ function scrollHeader() {
     end: 99999,
     onUpdate: (self) => {
       const header = document.querySelector("header");
-      console.log(self.progress);
+      const scrollY = window.scrollY;
 
-      // Remove scrolled class when progress is exactly 0
-      if (self.progress === 0) {
+      // Sử dụng window.scrollY thay vì chỉ self.progress
+      if (scrollY === 0) {
         header.classList.remove("scrolled");
-      }
-
-      // Toggle scrolled class based on progress threshold
-      if (self.progress > 0.004) {
+      } else if (scrollY > 5) {
         header.classList.add("scrolled");
       } else {
         header.classList.remove("scrolled");
@@ -559,6 +577,7 @@ function scrollHeader() {
     },
   });
 }
+
 function animationArt() {
   const animationArt = document.querySelectorAll(".animation-art");
 
