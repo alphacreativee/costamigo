@@ -68,6 +68,11 @@ footer {
           border: 0;
           height: 44px;
 
+          font-size: 13px;
+          line-height: 20px;
+          font-weight: 500;
+          color: var(--color-primary);
+
           &::placeholder {
             font-size: 13px;
             line-height: 20px;
@@ -80,6 +85,20 @@ footer {
           width: 44px;
           height: 44px;
           min-width: 44px;
+
+          path {
+            transition: all 0.3s ease;
+          }
+
+          &:hover {
+            path {
+              fill: var(--color-white);
+            }
+
+            .icon {
+              fill: #232c6a;
+            }
+          }
         }
       }
 
@@ -193,6 +212,10 @@ footer {
       .logo-bct {
         width: 134px;
         height: auto;
+      }
+
+      .info {
+        max-width: 78%;
       }
     }
 
