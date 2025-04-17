@@ -514,19 +514,6 @@ function animationArt() {
   const animationArt = document.querySelectorAll(".animation-art");
 
   animationArt.forEach((image) => {
-    // Initial animation (fade and clip-path reveal)
-    gsap.to(image, {
-      scrollTrigger: {
-        trigger: image,
-        start: "top 60%",
-        end: "bottom 60%",
-        onEnter: () => image.classList.add("show"),
-        // optional: if you want it to reverse too
-
-        // markers: true,
-      },
-    });
-
     // Parallax effect
     gsap.to(image, {
       yPercent: 20, // Move element upward by 20% of its height
@@ -546,22 +533,22 @@ function animationArt() {
   );
 
   animationArtReverse.forEach((imageR) => {
-    // Initial animation (slide in from right)
-    gsap.to(imageR, {
-      scrollTrigger: {
-        trigger: imageR,
-        start: "top 60%",
-        end: "bottom 60%",
-        onEnter: () => imageR.classList.add("show"),
-        // optional: if you want it to reverse too
+    // // Initial animation (slide in from right)
+    // gsap.to(imageR, {
+    //   scrollTrigger: {
+    //     trigger: imageR,
+    //     start: "top 60%",
+    //     end: "bottom 60%",
+    //     onEnter: () => imageR.classList.add("show"),
+    //     // optional: if you want it to reverse too
 
-        // markers: true,
-      },
-    });
+    //     // markers: true,
+    //   },
+    // });
 
     // Parallax effect
     gsap.to(imageR, {
-      yPercent: -15, // Move element downward by 20% of its height
+      yPercent: -30, // Move element downward by 20% of its height
       ease: "none",
       scrollTrigger: {
         trigger: imageR,
