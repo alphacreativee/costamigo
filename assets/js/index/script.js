@@ -147,8 +147,9 @@ function imgWithText() {
       ease: "power2.out",
       scrollTrigger: {
         trigger: section,
-        start: "top 80px",
+        start: "top 20%",
         toggleActions: "play none none none"
+        // markers: true
       }
     });
 
@@ -158,7 +159,7 @@ function imgWithText() {
       ease: "power2.out",
       scrollTrigger: {
         trigger: section,
-        start: "top 80px",
+        start: "top 20%",
         toggleActions: "play none none none"
       }
     });
