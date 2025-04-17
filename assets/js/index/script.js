@@ -203,11 +203,15 @@ function animationMaskCentral() {
   });
 }
 function animationText() {
+  gsap.registerPlugin(ScrollTrigger);
   const fxTitle = document.querySelectorAll(
     "[data-splitting][data-effect-one]"
   );
   const fxTitleTwo = document.querySelectorAll(
     "[data-splitting][data-effect-two]"
+  );
+  const fxTitleThree = document.querySelectorAll(
+    "[data-splitting][data-effect-three]"
   );
 
   fxTitle.forEach((element) => {
@@ -260,6 +264,28 @@ function animationText() {
       }
     );
   });
+  fxTitleThree.forEach((element) => {
+    const chars = element.querySelectorAll(".char");
+    gsap.fromTo(
+      chars,
+      {
+        "will-change": "opacity, transform",
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.05,
+        scrollTrigger: {
+          trigger: element,
+          start: "top 30%",
+          end: "bottom 30%",
+          // markers: true,
+        },
+      }
+    );
+  });
 
   // fade in
   gsap.utils.toArray("[data-fade-in]").forEach((element) => {
@@ -306,6 +332,29 @@ function animationText() {
           toggleActions: "play none none none"
           // markers: true,
         }
+      });
+    });
+  });
+  const fxTitleDescv2 = document.querySelectorAll("[data-fade-desc-v2]");
+  fxTitleDescv2.forEach((element, elementIdx) => {
+    let myDesc = new SplitType(element, {
+      types: "lines, words",
+      lineClass: "split-line",
+      wordClass: "split-word",
+    });
+    myDesc.lines.forEach((line, index) => {
+      gsap.from(line.querySelectorAll(".split-word"), {
+        y: "100%",
+        duration: 0.5,
+        ease: "power2.out",
+        delay: index * 0.1,
+        scrollTrigger: {
+          trigger: element,
+          start: "top 20%",
+          end: "top 20%",
+          toggleActions: "play none none none",
+          markers: true,
+        },
       });
     });
   });
