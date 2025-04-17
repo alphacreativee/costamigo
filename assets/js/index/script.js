@@ -689,6 +689,66 @@ function toggleDropdown() {
     }
   });
 }
+
+function magicCursor() {
+  var circle = document.querySelector(".magic-cursor");
+
+  gsap.set(circle, {
+    xPercent: -50,
+    yPercent: -50
+  });
+
+  let mouseX = 0,
+    mouseY = 0;
+
+  window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    // Di chuyển circle trực tiếp đến vị trí con chuột
+    gsap.to(circle, {
+      x: mouseX,
+      y: mouseY,
+      duration: 0.1 // Không có độ trễ
+    });
+  });
+
+  const items = document.querySelectorAll(".modal, [data-cursor-text]");
+  var cursorDot = document.querySelector(".magic-cursor .cursor");
+  var cursorText = document.querySelector(".magic-cursor .cursor .text");
+
+  items.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      let text = "";
+      if (item.classList.contains("modal")) {
+        text = "Đóng";
+      } else {
+        text = item.getAttribute("data-cursor-text");
+      }
+
+      // const text = item.getAttribute("data-cursor-text");
+      cursorText.innerHTML = `<span class="b2-regular color-white">${text}</span>`;
+      cursorDot.classList.add("show-text");
+    });
+
+    item.addEventListener("mouseleave", () => {
+      cursorText.innerHTML = "";
+      cursorDot.classList.remove("show-text");
+    });
+  });
+
+  const itemsContent = document.querySelectorAll(".modal-dialog");
+  itemsContent.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      cursorDot.classList.remove("show-text");
+    });
+    item.addEventListener("mouseleave", () => {
+      cursorText.innerHTML = `<span class="b2-regular color-white">Đóng</span>`;
+      cursorDot.classList.add("show-text");
+    });
+  });
+}
+
 function loading() {
   const loading = document.querySelector(".loading");
   loading.classList.add("loading-out");
@@ -721,6 +781,7 @@ const init = () => {
   // scrollMap();
   animationLineMap();
   swiperAct();
+  magicCursor();
   ScrollTrigger.refresh();
 };
 togglePlayMusic();
