@@ -33,6 +33,9 @@
   right: 40px;
   z-index: 19;
   transition: right 0.3s ease;
+  &:hover {
+    cursor: pointer;
+  }
   &.hide {
     right: -50px;
   }

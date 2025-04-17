@@ -661,7 +661,7 @@ function loading() {
     document.querySelectorAll(".loading").forEach((element) => {
       element.style.display = "none";
     });
-  }, 2000);
+  }, 1500);
 }
 // loading();
 $(window).on("DOMContentLoaded", function () {
