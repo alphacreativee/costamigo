@@ -54,4 +54,8 @@
   word-break: break-word;
   overflow-wrap: break-word;
   font-kerning: none;
+  width: auto;
+}
+.split-line {
+  white-space: nowrap;
 }

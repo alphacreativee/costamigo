@@ -785,17 +785,19 @@ const init = () => {
   ScrollTrigger.refresh();
 };
 togglePlayMusic();
-
+window.addEventListener("resize", () => {
+  animationText();
+});
 preloadImages("img").then(() => {
   // Once images are preloaded, remove the 'loading' indicator/class from the body
 
   init();
 });
-window.onpageshow = function (event) {
-  if (event.persisted) {
-    window.location.reload();
-  }
-};
+// window.onpageshow = function (event) {
+//   if (event.persisted) {
+//     window.location.reload();
+//   }
+// };
 $(window).on("beforeunload", function () {
   $(window).scrollTop(0);
 });
