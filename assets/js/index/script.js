@@ -602,19 +602,6 @@ function animationArt() {
   );
 
   animationArtReverse.forEach((imageR) => {
-    // // Initial animation (slide in from right)
-    // gsap.to(imageR, {
-    //   scrollTrigger: {
-    //     trigger: imageR,
-    //     start: "top 60%",
-    //     end: "bottom 60%",
-    //     onEnter: () => imageR.classList.add("show"),
-    //     // optional: if you want it to reverse too
-
-    //     // markers: true,
-    //   },
-    // });
-
     // Parallax effect
     gsap.to(imageR, {
       yPercent: -50, // Move element downward by 20% of its height
@@ -624,7 +611,7 @@ function animationArt() {
         start: "top bottom",
         end: "bottom top",
         scrub: true,
-        markers: true,
+        // markers: true,
       },
     });
   });
