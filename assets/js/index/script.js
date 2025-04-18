@@ -422,10 +422,10 @@ function swiperAct() {
     spaceBetween: 30,
     creativeEffect: {
       prev: {
-        translate: ["-140%", 0, -500],
+        translate: [0, "-140%", -500],
       },
       next: {
-        translate: ["140%", 0, -500],
+        translate: [0, "140%", -500],
       },
     },
     allowTouchMove: false,
@@ -609,7 +609,7 @@ function animationArt() {
         start: "top bottom", // Start when the top of the image hits the bottom of the viewport
         end: "bottom top", // End when the bottom of the image hits the top of the viewport
         scrub: true, // Smoothly tie the animation to scroll
-        // markers: false, // Set to true for debugging
+        // markers: true,
       },
     });
   });
@@ -621,7 +621,7 @@ function animationArt() {
   animationArtReverse.forEach((imageR) => {
     // Parallax effect
     gsap.to(imageR, {
-      yPercent: -50, // Move element downward by 20% of its height
+      yPercent: 30, // Move element downward by 20% of its height
       ease: "none",
       scrollTrigger: {
         trigger: imageR,

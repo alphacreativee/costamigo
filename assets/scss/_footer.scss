@@ -1,6 +1,13 @@
 footer {
   padding: 0 40px;
-
+  position: relative;
+  overflow: hidden;
+  .footer__bg {
+    position: absolute;
+    bottom: -50px;
+    left: -80px;
+    transform: rotate(27deg);
+  }
   .footer {
     &-top {
       padding-top: 40px;
