@@ -1,6 +1,10 @@
 .accomodation-list {
   .nav-tabs {
     border: none;
+
+    .nav-link {
+      background-color: transparent;
+    }
   }
 
   .tab-content {
@@ -13,10 +17,17 @@
       flex-direction: column;
       gap: 24px;
 
+      &:nth-child(even) {
+        transform: translateY(80px);
+      }
+
       .card {
         &-top {
           width: 100%;
           aspect-ratio: 540 / 420;
+          overflow: hidden;
+          mask: url(../../images/bg-offer.png);
+          mask-size: 100% 100%;
 
           img {
             width: 100%;
@@ -40,11 +51,31 @@
             gap: 8px;
           }
         }
+
+        &-title {
+          margin-bottom: 16px;
+          transition: all 0.4s ease;
+
+          &:hover {
+            color: var(--color-secondary);
+          }
+        }
+
+        &-desc {
+          margin-top: 24px;
+          max-width: 75%;
+        }
+
+        &-cta {
+          margin-top: 40px;
+        }
       }
     }
   }
 
   &__wrapper {
     display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px 50px;
   }
 }

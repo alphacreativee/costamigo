@@ -708,6 +708,8 @@ function toggleDropdown() {
 }
 
 function magicCursor() {
+  if ($(".magic-cursor").length < 1) return;
+
   var circle = document.querySelector(".magic-cursor");
 
   gsap.set(circle, {
