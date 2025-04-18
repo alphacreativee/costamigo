@@ -617,7 +617,7 @@ function animationArt() {
 
     // Parallax effect
     gsap.to(imageR, {
-      yPercent: -30, // Move element downward by 20% of its height
+      yPercent: -50, // Move element downward by 20% of its height
       ease: "none",
       scrollTrigger: {
         trigger: imageR,
