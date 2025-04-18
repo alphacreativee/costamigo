@@ -4,9 +4,10 @@
   &__bg {
     position: absolute;
     right: 0;
-    top: 0;
-    transform: translateY(-50%);
+    top: -50%;
     z-index: 10;
+    width: 373px;
+    height: 505px;
   }
   &__top {
     margin-bottom: 56px;
