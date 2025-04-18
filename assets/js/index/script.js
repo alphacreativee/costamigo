@@ -322,8 +322,8 @@ function animationText() {
       {
         scrollTrigger: {
           trigger: element,
-          start: "top 60%",
-          end: "bottom 60%",
+          start: "top 65%",
+          end: "bottom 65%",
         },
         opacity: 1,
         y: 0,
@@ -624,6 +624,7 @@ function animationArt() {
         start: "top bottom",
         end: "bottom top",
         scrub: true,
+        markers: true,
       },
     });
   });
