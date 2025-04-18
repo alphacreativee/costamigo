@@ -32,10 +32,16 @@
       flex-direction: column;
       justify-content: center;
       padding-right: calc(1 / 12 * 100% + 40px);
+      overflow: hidden;
+      width: 100%;
     }
     &--title {
       margin-bottom: 24px;
     }
+  }
+  .swiper-act-content {
+    overflow: hidden;
+    width: 100%;
   }
   .act-slider {
     margin-right: 40px;
