@@ -9,7 +9,7 @@
 }
 .btn-general {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 10px 24px;
   background-color: var(--color-primary);
   mask: url("../../images/bg-tag.svg");
   mask-size: 100% 100%;
@@ -19,8 +19,25 @@
   font-family: var(--font-body);
   font-size: 13px;
   line-height: 20px;
-  font-weight: 400;
+  font-weight: 500;
   transition: all 0.4s;
+
+  &.secondary {
+    background-image: url("../../images/culinary-detail/bg-btn-phone.svg");
+    mask: unset;
+    color: var(--color-primary);
+    background-color: transparent;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    min-width: 180px;
+
+    &:hover {
+      background-color: transparent;
+      color: var(--color-primary);
+    }
+  }
   &:hover {
     background-color: var(--color-white);
     color: var(--color-primary);
