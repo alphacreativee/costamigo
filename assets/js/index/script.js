@@ -538,6 +538,8 @@ function swiperOffer() {
   });
 }
 function animationLineMap() {
+  if ($("#maskRect").length < 1) return;
+
   gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
   gsap.to("#maskRect", {

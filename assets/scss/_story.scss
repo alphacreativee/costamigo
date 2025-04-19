@@ -3,11 +3,20 @@
   position: relative;
   &__content {
     text-align: center;
+
+    .room-info {
+      margin-top: 16px;
+      gap: 24px;
+
+      li {
+        gap: 8px;
+      }
+    }
   }
   &__title {
-    margin-bottom: 40px;
   }
   &__description {
+    margin-top: 40px;
     text-align: center;
   }
   &__bg {
