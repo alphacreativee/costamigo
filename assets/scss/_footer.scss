@@ -2,6 +2,10 @@ footer {
   padding: 0 40px;
   position: relative;
   overflow: hidden;
+  z-index: 2;
+  background: var(--color-pattern) url("../../images/bg-body.png");
+  background-repeat: repeat-y;
+  background-size: contain;
   .footer__bg {
     position: absolute;
     bottom: -50px;
