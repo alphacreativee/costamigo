@@ -1,4 +1,6 @@
 .accomodation-list {
+  position: relative;
+
   .nav-tabs {
     border: none;
     gap: 32px;
@@ -8,6 +10,11 @@
       padding: 0;
       margin: 0;
       border: none;
+      &.active {
+        .animation-text-v3::before {
+          transform: scale(1);
+        }
+      }
     }
   }
 
@@ -16,6 +23,15 @@
   }
 
   .accomodation {
+    &-bg {
+      position: absolute;
+      right: -60px;
+      top: -100px;
+      transform: rotate(-16deg);
+      width: 395px;
+      height: 530px;
+      z-index: -1;
+    }
     &-card {
       display: flex;
       flex-direction: column;

@@ -841,6 +841,7 @@ function detailSlider() {
 }
 
 function loading() {
+  if (!document.querySelector(".loading")) return;
   const loading = document.querySelector(".loading");
   loading.classList.add("loading-out");
   document.body.classList.remove("scroll-hidden");
@@ -875,7 +876,8 @@ function updateSvgHeight() {
   const bodyHeight = document.body.clientHeight;
   const viewportHeight = window.innerHeight; // 100vh
   const footerHeight = footer.clientHeight; // Chiều cao của footer
-  const adjustedHeight = bodyHeight - viewportHeight - (footerHeight - 100);
+  const adjustedHeight = bodyHeight - viewportHeight - (footerHeight - 140);
+  console.log(adjustedHeight);
 
   // Đảm bảo chiều cao không âm
   if (adjustedHeight > 0) {
@@ -884,7 +886,7 @@ function updateSvgHeight() {
     svg.setAttribute("height", viewportHeight); // Hoặc giá trị mặc định
   }
 }
-window.addEventListener("resize", updateSvgHeight);
+// window.addEventListener("resize", updateSvgHeight);
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   updateSvgHeight();
