@@ -243,9 +243,9 @@
     .dropdown-custom__menu {
       position: absolute;
       background-image: url("../../images/bg-sub-menu.svg");
-      background-size: 100% 100%;
+      // background-size: 100% 100%;
       background-repeat: no-repeat;
-      padding: 24px;
+      padding: 12px 24px;
       bottom: 0;
       left: -24px;
       transform: translateY(100%);

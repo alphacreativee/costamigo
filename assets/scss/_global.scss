@@ -80,6 +80,15 @@
     }
   }
 }
+.out-home {
+  .svg-container {
+    height: auto;
+    top: 90vh;
+  }
+  main {
+    overflow-x: hidden;
+  }
+}
 .svg-container {
   position: absolute;
   top: 70vh;
