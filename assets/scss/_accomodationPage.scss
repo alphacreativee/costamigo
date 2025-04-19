@@ -1,6 +1,8 @@
 .accomodation-list {
   position: relative;
-
+  &.news {
+    padding: 0 40px;
+  }
   .nav-tabs {
     border: none;
     gap: 32px;
