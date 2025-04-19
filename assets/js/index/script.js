@@ -800,9 +800,38 @@ $(window).on("DOMContentLoaded", function () {
     loading();
   }, 2000);
 });
+function updateSvgHeight() {
+  const svg = document.querySelector(".svg-container svg");
+  const footer = document.querySelector("footer"); // Giả sử footer có thẻ <footer>
+
+  // Kiểm tra xem svg và footer có tồn tại không
+  if (!svg) {
+    console.error(
+      'SVG element not found. Check if ".svg-container svg" exists.'
+    );
+    return;
+  }
+  if (!footer) {
+    console.error('Footer element not found. Check if "footer" exists.');
+    return;
+  }
+
+  const bodyHeight = document.body.clientHeight;
+  const viewportHeight = window.innerHeight; // 100vh
+  const footerHeight = footer.clientHeight; // Chiều cao của footer
+  const adjustedHeight = bodyHeight - viewportHeight - (footerHeight - 100);
+
+  // Đảm bảo chiều cao không âm
+  if (adjustedHeight > 0) {
+    svg.setAttribute("height", adjustedHeight);
+  } else {
+    svg.setAttribute("height", viewportHeight); // Hoặc giá trị mặc định
+  }
+}
+window.addEventListener("resize", updateSvgHeight);
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
-
+  updateSvgHeight();
   headerMenu();
   scrollHeader();
   animationArt();
