@@ -787,6 +787,7 @@ function magicCursor() {
 }
 
 function loading() {
+  if (!document.querySelector(".loading")) return;
   const loading = document.querySelector(".loading");
   loading.classList.add("loading-out");
   document.body.classList.remove("scroll-hidden");
