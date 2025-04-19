@@ -336,6 +336,9 @@
                   nghỉ trong không gian sang trọng, đón trọn vẻ đẹp thiên nhiên
                   với tầm nhìn hướng biển tuyệt mỹ.
                 </div>
+                <div class="btn-wrapper">
+                  <a href="#" class="btn-general">Đặt phòng</a>
+                </div>
               </div>
             </div>
           </div>
@@ -414,6 +417,33 @@
                     </div>
                     <div class="text color-primary b1-font">Master bed</div>
                   </li>
+                  <li>
+                    <div class="icon">
+                      <img
+                        src="./assets/images/accomodation-detail/amenitie-icon-bed.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="text color-primary b1-font">Master bed</div>
+                  </li>
+                  <li>
+                    <div class="icon">
+                      <img
+                        src="./assets/images/accomodation-detail/amenitie-icon-bed.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="text color-primary b1-font">Master bed</div>
+                  </li>
+                  <li>
+                    <div class="icon">
+                      <img
+                        src="./assets/images/accomodation-detail/amenitie-icon-bed.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="text color-primary b1-font">Master bed</div>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -426,11 +456,64 @@
           <div class="section-wrapper">
             <div class="mask top"></div>
             <div class="mask bottom"></div>
-            <img
-              src="./assets/images/accomodation-detail/detail-room.png"
-              alt="Image Reveal"
-              class="main-image"
-            />
+            <div
+              class="swiper detail-slider"
+              data-loop="false"
+              data-speed="2000"
+              data-autoplay="false"
+            >
+              <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide overflow-hidden">
+                  <div
+                    class="position-relative w-100 h-100 detail-slider__image"
+                  >
+                    <picture>
+                      <source
+                        media="(max-width: 767px)"
+                        srcset="
+                          ./assets/images/accomodation-detail/detail-room.png
+                        "
+                      />
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="./assets/images/accomodation-detail/detail-room.png"
+                        alt="img"
+                      />
+                    </picture>
+                  </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="swiper-slide overflow-hidden">
+                  <div
+                    class="position-relative w-100 h-100 detail-slider__image"
+                  >
+                    <picture>
+                      <source
+                        media="(max-width: 767px)"
+                        srcset="
+                          ./assets/images/accomodation-detail/detail-room.png
+                        "
+                      />
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="./assets/images/accomodation-detail/detail-room.png"
+                        alt="img"
+                      />
+                    </picture>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-arrows">
+                <div class="swiper-button-prev">
+                  <img src="./assets/images/ic-arrow-prev.svg" alt="" />
+                </div>
+                <div class="swiper-button-next">
+                  <img src="./assets/images/ic-arrow-next.svg" alt="" />
+                </div>
+              </div>
+            </div>
             <div class="content">
               <div class="content-box">
                 <h1
@@ -461,9 +544,6 @@
                   </h2>
                 </div>
               </div>
-            </div>
-            <div class="section-slider__bg animation-art-reverse">
-              <img src="./assets/images/img-flower.png" alt="" />
             </div>
           </div>
           <div class="row g-0">
