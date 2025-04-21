@@ -48,6 +48,28 @@
       padding-right: calc(1 / 12 * 100% + 40px);
       overflow: hidden;
       width: 100%;
+
+      .section-act__slider--title,
+      .section-act__slider--desc {
+        transform: translateY(30px);
+        opacity: 0;
+        transition: all 0.4s ease;
+      }
+
+      .swiper-slide {
+        &.swiper-slide-thumb-active {
+          .section-act__slider--title,
+          .section-act__slider--desc {
+            transform: translate(0);
+            opacity: 1;
+            transition: all 0.8s ease;
+          }
+
+          .section-act__slider--desc {
+            transition-delay: 0.2s;
+          }
+        }
+      }
     }
     &--title {
       margin-bottom: 24px;

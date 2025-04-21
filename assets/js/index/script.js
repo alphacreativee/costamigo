@@ -418,19 +418,14 @@ function swiperAct() {
   const container = document.querySelector(".act-slider");
   const swiperActContent = document.querySelector(".swiper-act-content");
   var swiperActC = new Swiper(".swiper-act-content", {
-    slidesPerView: "auto",
+    slidesPerView: 1,
     watchSlidesProgress: true,
     watchSlidesVisibility: true,
-    effect: "creative",
-    spaceBetween: 30,
-    creativeEffect: {
-      prev: {
-        translate: [0, "-140%", -500]
-      },
-      next: {
-        translate: [0, "140%", -500]
-      }
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true
     },
+    spaceBetween: 30,
     allowTouchMove: false
   });
 
