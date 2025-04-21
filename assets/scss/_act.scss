@@ -1,4 +1,13 @@
 .section-act {
+  &.section-chef {
+    .swiper-box {
+      aspect-ratio: 1 !important;
+    }
+
+    .section-act__slider--title {
+      line-height: 62px;
+    }
+  }
   &__box {
     margin-bottom: 64px;
     position: relative;
@@ -24,6 +33,10 @@
   &__desc {
     margin-bottom: 40px;
     margin-top: 44px;
+
+    &.not-has-tag {
+      margin-top: 20px;
+    }
   }
   &__slider {
     &--content {
@@ -37,6 +50,9 @@
       width: 100%;
     }
     &--title {
+      margin-bottom: 24px;
+    }
+    &--tag {
       margin-bottom: 24px;
     }
   }
