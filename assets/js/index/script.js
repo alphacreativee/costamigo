@@ -884,7 +884,7 @@ function updateSvgHeight() {
 // window.addEventListener("resize", updateSvgHeight);
 function gallery() {
   console.log("animated-thumb");
-
+  if (!document.querySelector(".animated-thumb")) return;
   lightGallery(document.querySelector(".animated-thumb"), {
     selector: ".thumb-img",
     thumbnail: true,
