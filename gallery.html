@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Destination</title>
+    <title>Gallery</title>
     <!-- import favicon -->
     <link rel="icon" href="./assets/images/logo.ico" type="image/x-icon" />
     <!-- meta -->
@@ -36,11 +36,11 @@
     </div>
     <!-- loading -->
     <!-- svg container -->
-    <div class="svg-container">
+    <div class="svg-container d-none">
       <svg
-        width="1200"
-        height="2738"
-        viewBox="0 0 1200 2738"
+        width="1140"
+        height="2014"
+        viewBox="0 0 1140 2014"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -58,7 +58,7 @@
         </defs>
 
         <path
-          d="M588.528 1C598.026 114.946 486.549 115.455 405.566 143.432C180.944 202.271 -190.814 389.434 119.123 667.381C506.545 1014.81 987.5 1009.5 827 1295.5C764.954 1406.06 300 1729.5 284 2090.5C270.127 2403.5 1285.5 2322.5 588.5 2737.5"
+          d="M588.529 1C598.028 114.946 486.55 115.455 405.567 143.432C180.945 202.271 -190.813 389.434 119.124 667.381C506.546 1014.81 990.987 1462.14 926 1571C861.013 1679.86 589.5 1812 589.5 2013.5"
           stroke="#232C6A"
           stroke-linecap="round"
           stroke-dasharray="10 10"
@@ -209,14 +209,14 @@
                   </li>
                   <li>
                     <a
-                      href="./gallery.html"
+                      href=""
                       class="h1-font font-heading color-white animation-text-v3"
                       >Thư viện</a
                     >
                   </li>
                   <li>
                     <a
-                      href="./news.html"
+                      href=""
                       class="h1-font font-heading color-white animation-text-v3"
                       >Tin tức & Giải thưởng</a
                     >
@@ -245,7 +245,7 @@
                 <source src="./assets/images/costa.mp4" type="video/mp4" />
               </video> -->
               <picture>
-                <img src="./assets/images/img-des.png" alt="" />
+                <img src="./assets/images/img-fac.png" alt="" />
               </picture>
             </div>
           </div>
@@ -260,187 +260,272 @@
                 <h1
                   class="desc-page__title h0-font font-heading color-secondary"
                 >
-                  Du ngoạn Phan Thiết
+                  Tin tức & Giải thưởng
                 </h1>
                 <div class="desc-page__desc h2-font color-primary">
-                  Du ngoạn Phan Thiết là hành trình đưa bạn đến với thiên nhiên
-                  tươi đẹp và văn hóa đặc sắc của miền biển miền Trung. Những
-                  con người thân thiện, mọi khoảnh khắc nơi đây đều là sự kết
-                  hợp hoàn hảo giữa thư giãn và khám phá.
+                  Costamigo tự hào là điểm đến nghỉ dưỡng được yêu thích, không
+                  ngừng đổi mới và nâng cao chất lượng dịch vụ. Những tin tức
+                  nổi bật cùng các giải thưởng uy tín trong ngành là minh chứng
+                  cho sự nỗ lực và cam kết mang đến trải nghiệm tốt nhất cho du
+                  khách.
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="desc-page__bg animation-art-reverse">
-          <img src="./assets/images/leaf-2.png" alt="" />
+          <img src="./assets/images/leaf-full.png" alt="" />
         </div>
       </section>
-
-      <section class="list-destination">
-        <div class="list-destination__list">
-          <a href="" class="list-destination__item d-block">
-            <div class="list-destination__img">
-              <img src="./assets/images/img-des.png" alt="" />
-            </div>
-            <div class="list-destination__content">
-              <div
-                class="list-destination__content--title h2-font color-primary"
-              >
-                Kê Gà Bình Thuận
+      <section class="accomodation-list news">
+        <div class="container-fluid p-0">
+          <div class="row g-0">
+            <div class="col-lg-12">
+              <div class="accomodation-wrapper">
+                <ul class="nav nav-tabs justify-content-center" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link active"
+                      id="slider-tab-1"
+                      data-bs-toggle="tab"
+                      data-bs-target="#slider-content-1"
+                      type="button"
+                      role="tab"
+                      aria-controls="slider-content-1"
+                      aria-selected="true"
+                    >
+                      <div
+                        class="fx-title b2-font color-primary animation-text-v3"
+                      >
+                        Tất cả
+                      </div>
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="slider-tab-2"
+                      data-bs-toggle="tab"
+                      data-bs-target="#slider-content-2"
+                      type="button"
+                      role="tab"
+                      aria-controls="slider-content-2"
+                      aria-selected="false"
+                    >
+                      <div
+                        class="fx-title b2-font color-primary animation-text-v3"
+                      >
+                        Tin tức
+                      </div>
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="slider-tab-3"
+                      data-bs-toggle="tab"
+                      data-bs-target="#slider-content-3"
+                      type="button"
+                      role="tab"
+                      aria-controls="slider-content-3"
+                      aria-selected="false"
+                    >
+                      <div
+                        class="fx-title b2-font color-primary animation-text-v3"
+                      >
+                        Giải thưởng
+                      </div>
+                    </button>
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div
+                    class="tab-pane fade show active"
+                    id="slider-content-1"
+                    role="tabpanel"
+                    aria-labelledby="slider-tab-1"
+                  >
+                    <div class="list-destination__list">
+                      <a href="" class="list-destination__item d-block">
+                        <div class="list-destination__img">
+                          <img src="./assets/images/img-des.png" alt="" />
+                        </div>
+                        <div class="list-destination__content">
+                          <div
+                            class="list-destination__content--title h2-font color-primary"
+                          >
+                            Kê Gà Bình Thuận
+                          </div>
+                          <div
+                            class="list-destination__content--desc b1-font color-primary"
+                          >
+                            Ngọn hải đăng cổ kính giữa biển xanh, nơi ngắm hoàng
+                            hôn tuyệt đẹp và yên bình.
+                          </div>
+                        </div>
+                      </a>
+                      <a href="" class="list-destination__item d-block">
+                        <div class="list-destination__img">
+                          <img src="./assets/images/img-des.png" alt="" />
+                        </div>
+                        <div class="list-destination__content">
+                          <div
+                            class="list-destination__content--title h2-font color-primary"
+                          >
+                            Kê Gà Bình Thuận
+                          </div>
+                          <div
+                            class="list-destination__content--desc b1-font color-primary"
+                          >
+                            Ngọn hải đăng cổ kính giữa biển xanh, nơi ngắm hoàng
+                            hôn tuyệt đẹp và yên bình.
+                          </div>
+                        </div>
+                      </a>
+                      <a href="" class="list-destination__item d-block">
+                        <div class="list-destination__img">
+                          <img src="./assets/images/img-des.png" alt="" />
+                        </div>
+                        <div class="list-destination__content">
+                          <div
+                            class="list-destination__content--title h2-font color-primary"
+                          >
+                            Kê Gà Bình Thuận
+                          </div>
+                          <div
+                            class="list-destination__content--desc b1-font color-primary"
+                          >
+                            Ngọn hải đăng cổ kính giữa biển xanh, nơi ngắm hoàng
+                            hôn tuyệt đẹp và yên bình.
+                          </div>
+                        </div>
+                      </a>
+                      <a href="" class="list-destination__item d-block">
+                        <div class="list-destination__img">
+                          <img src="./assets/images/img-des.png" alt="" />
+                        </div>
+                        <div class="list-destination__content">
+                          <div
+                            class="list-destination__content--title h2-font color-primary"
+                          >
+                            Kê Gà Bình Thuận
+                          </div>
+                          <div
+                            class="list-destination__content--desc b1-font color-primary"
+                          >
+                            Ngọn hải đăng cổ kính giữa biển xanh, nơi ngắm hoàng
+                            hôn tuyệt đẹp và yên bình.
+                          </div>
+                        </div>
+                      </a>
+                      <a href="" class="list-destination__item d-block">
+                        <div class="list-destination__img">
+                          <img src="./assets/images/img-des.png" alt="" />
+                        </div>
+                        <div class="list-destination__content">
+                          <div
+                            class="list-destination__content--title h2-font color-primary"
+                          >
+                            Kê Gà Bình Thuận
+                          </div>
+                          <div
+                            class="list-destination__content--desc b1-font color-primary"
+                          >
+                            Ngọn hải đăng cổ kính giữa biển xanh, nơi ngắm hoàng
+                            hôn tuyệt đẹp và yên bình.
+                          </div>
+                        </div>
+                      </a>
+                      <a href="" class="list-destination__item d-block">
+                        <div class="list-destination__img">
+                          <img src="./assets/images/img-des.png" alt="" />
+                        </div>
+                        <div class="list-destination__content">
+                          <div
+                            class="list-destination__content--title h2-font color-primary"
+                          >
+                            Kê Gà Bình Thuận
+                          </div>
+                          <div
+                            class="list-destination__content--desc b1-font color-primary"
+                          >
+                            Ngọn hải đăng cổ kính giữa biển xanh, nơi ngắm hoàng
+                            hôn tuyệt đẹp và yên bình.
+                          </div>
+                        </div>
+                      </a>
+                      <a href="" class="list-destination__item d-block">
+                        <div class="list-destination__img">
+                          <img src="./assets/images/img-des.png" alt="" />
+                        </div>
+                        <div class="list-destination__content">
+                          <div
+                            class="list-destination__content--title h2-font color-primary"
+                          >
+                            Kê Gà Bình Thuận
+                          </div>
+                          <div
+                            class="list-destination__content--desc b1-font color-primary"
+                          >
+                            Ngọn hải đăng cổ kính giữa biển xanh, nơi ngắm hoàng
+                            hôn tuyệt đẹp và yên bình.
+                          </div>
+                        </div>
+                      </a>
+                      <a href="" class="list-destination__item d-block">
+                        <div class="list-destination__img">
+                          <img src="./assets/images/img-des.png" alt="" />
+                        </div>
+                        <div class="list-destination__content">
+                          <div
+                            class="list-destination__content--title h2-font color-primary"
+                          >
+                            Kê Gà Bình Thuận
+                          </div>
+                          <div
+                            class="list-destination__content--desc b1-font color-primary"
+                          >
+                            Ngọn hải đăng cổ kính giữa biển xanh, nơi ngắm hoàng
+                            hôn tuyệt đẹp và yên bình.
+                          </div>
+                        </div>
+                      </a>
+                      <a href="" class="list-destination__item d-block">
+                        <div class="list-destination__img">
+                          <img src="./assets/images/img-des.png" alt="" />
+                        </div>
+                        <div class="list-destination__content">
+                          <div
+                            class="list-destination__content--title h2-font color-primary"
+                          >
+                            Kê Gà Bình Thuận
+                          </div>
+                          <div
+                            class="list-destination__content--desc b1-font color-primary"
+                          >
+                            Ngọn hải đăng cổ kính giữa biển xanh, nơi ngắm hoàng
+                            hôn tuyệt đẹp và yên bình.
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="slider-content-2"
+                    role="tabpanel"
+                    aria-labelledby="slider-tab-2"
+                  ></div>
+                  <div
+                    class="tab-pane fade"
+                    id="slider-content-3"
+                    role="tabpanel"
+                    aria-labelledby="slider-tab-3"
+                  ></div>
+                </div>
               </div>
-              <div
-                class="list-destination__content--desc b1-font color-primary"
-              >
-                Ngọn hải đăng cổ kính giữa biển xanh, nơi ngắm hoàng hôn tuyệt
-                đẹp và yên bình.
-              </div>
             </div>
-          </a>
-          <a href="" class="list-destination__item d-block">
-            <div class="list-destination__img">
-              <img src="./assets/images/img-des.png" alt="" />
-            </div>
-            <div class="list-destination__content">
-              <div
-                class="list-destination__content--title h2-font color-primary"
-              >
-                Kê Gà Bình Thuận
-              </div>
-              <div
-                class="list-destination__content--desc b1-font color-primary"
-              >
-                Ngọn hải đăng cổ kính giữa biển xanh, nơi ngắm hoàng hôn tuyệt
-                đẹp và yên bình.
-              </div>
-            </div>
-          </a>
-          <a href="" class="list-destination__item d-block">
-            <div class="list-destination__img">
-              <img src="./assets/images/img-des.png" alt="" />
-            </div>
-            <div class="list-destination__content">
-              <div
-                class="list-destination__content--title h2-font color-primary"
-              >
-                Kê Gà Bình Thuận
-              </div>
-              <div
-                class="list-destination__content--desc b1-font color-primary"
-              >
-                Ngọn hải đăng cổ kính giữa biển xanh, nơi ngắm hoàng hôn tuyệt
-                đẹp và yên bình.
-              </div>
-            </div>
-          </a>
-          <a href="" class="list-destination__item d-block">
-            <div class="list-destination__img">
-              <img src="./assets/images/img-des.png" alt="" />
-            </div>
-            <div class="list-destination__content">
-              <div
-                class="list-destination__content--title h2-font color-primary"
-              >
-                Kê Gà Bình Thuận
-              </div>
-              <div
-                class="list-destination__content--desc b1-font color-primary"
-              >
-                Ngọn hải đăng cổ kính giữa biển xanh, nơi ngắm hoàng hôn tuyệt
-                đẹp và yên bình.
-              </div>
-            </div>
-          </a>
-          <a href="" class="list-destination__item d-block">
-            <div class="list-destination__img">
-              <img src="./assets/images/img-des.png" alt="" />
-            </div>
-            <div class="list-destination__content">
-              <div
-                class="list-destination__content--title h2-font color-primary"
-              >
-                Kê Gà Bình Thuận
-              </div>
-              <div
-                class="list-destination__content--desc b1-font color-primary"
-              >
-                Ngọn hải đăng cổ kính giữa biển xanh, nơi ngắm hoàng hôn tuyệt
-                đẹp và yên bình.
-              </div>
-            </div>
-          </a>
-          <a href="" class="list-destination__item d-block">
-            <div class="list-destination__img">
-              <img src="./assets/images/img-des.png" alt="" />
-            </div>
-            <div class="list-destination__content">
-              <div
-                class="list-destination__content--title h2-font color-primary"
-              >
-                Kê Gà Bình Thuận
-              </div>
-              <div
-                class="list-destination__content--desc b1-font color-primary"
-              >
-                Ngọn hải đăng cổ kính giữa biển xanh, nơi ngắm hoàng hôn tuyệt
-                đẹp và yên bình.
-              </div>
-            </div>
-          </a>
-          <a href="" class="list-destination__item d-block">
-            <div class="list-destination__img">
-              <img src="./assets/images/img-des.png" alt="" />
-            </div>
-            <div class="list-destination__content">
-              <div
-                class="list-destination__content--title h2-font color-primary"
-              >
-                Kê Gà Bình Thuận
-              </div>
-              <div
-                class="list-destination__content--desc b1-font color-primary"
-              >
-                Ngọn hải đăng cổ kính giữa biển xanh, nơi ngắm hoàng hôn tuyệt
-                đẹp và yên bình.
-              </div>
-            </div>
-          </a>
-          <a href="" class="list-destination__item d-block">
-            <div class="list-destination__img">
-              <img src="./assets/images/img-des.png" alt="" />
-            </div>
-            <div class="list-destination__content">
-              <div
-                class="list-destination__content--title h2-font color-primary"
-              >
-                Kê Gà Bình Thuận
-              </div>
-              <div
-                class="list-destination__content--desc b1-font color-primary"
-              >
-                Ngọn hải đăng cổ kính giữa biển xanh, nơi ngắm hoàng hôn tuyệt
-                đẹp và yên bình.
-              </div>
-            </div>
-          </a>
-          <a href="" class="list-destination__item d-block">
-            <div class="list-destination__img">
-              <img src="./assets/images/img-des.png" alt="" />
-            </div>
-            <div class="list-destination__content">
-              <div
-                class="list-destination__content--title h2-font color-primary"
-              >
-                Kê Gà Bình Thuận
-              </div>
-              <div
-                class="list-destination__content--desc b1-font color-primary"
-              >
-                Ngọn hải đăng cổ kính giữa biển xanh, nơi ngắm hoàng hôn tuyệt
-                đẹp và yên bình.
-              </div>
-            </div>
-          </a>
+          </div>
         </div>
       </section>
       <div class="spacing-140"></div>
