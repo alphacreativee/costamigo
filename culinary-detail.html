@@ -888,20 +888,22 @@
                   >
                     <input
                       type="text"
-                      id="culinary-startday"
+                      id="booking-startday"
                       class="b1-font color-primary"
                       autocomplete="off"
                       placeholder="Ngày đến"
-                      name="culinary-startday"
+                      name="booking-startday"
+                      readonly
                     />
                     -
                     <input
                       type="text"
-                      id="culinary-hour"
+                      id="booking-hour"
                       class="b1-font color-primary"
                       autocomplete="off"
                       placeholder="Giờ đến"
-                      name="culinary-hour"
+                      name="booking-hour"
+                      readonly
                     />
                   </div>
                   <img
@@ -910,67 +912,71 @@
                   />
                 </div>
                 <div class="field people d-flex justify-content-between w-100">
-                  <div class="d-flex align-items-center field-border-bottom">
+                  <div
+                    class="d-flex align-items-center field-border-bottom adult"
+                  >
                     <input
                       type="number"
-                      id="culinary-adult"
+                      id="booking-adult"
                       class="b1-font color-primary"
                       autocomplete="off"
                       required
                       placeholder="Người lớn*"
-                      name="culinary-adult"
+                      name="booking-adult"
                     />
                   </div>
-                  <div class="d-flex align-items-center field-border-bottom">
+                  <div
+                    class="d-flex align-items-center field-border-bottom child"
+                  >
                     <input
                       type="number"
-                      id="culinary-child"
+                      id="booking-child"
                       class="b1-font color-primary"
                       autocomplete="off"
                       placeholder="Trẻ em (<6 tuổi)"
-                      name="culinary-child"
+                      name="booking-child"
                     />
                   </div>
                 </div>
-                <div class="field name field-border-bottom">
+                <div class="field name field-border-bottom name">
                   <input
                     type="text"
-                    id="culinary-name"
+                    id="booking-name"
                     class="b1-font color-primary"
                     autocomplete="off"
                     required
                     placeholder="Họ và tên*"
-                    name="culinary-name"
+                    name="booking-name"
                   />
                 </div>
                 <div class="field phone field-border-bottom">
                   <input
                     type="tel"
-                    id="culinary-phone"
+                    id="booking-phone"
                     class="b1-font color-primary"
                     autocomplete="off"
                     pattern="[0-9]{10,11}"
                     required
                     placeholder="Số điện thoại*"
-                    name="culinary-phone"
+                    name="booking-phone"
                   />
                 </div>
                 <div class="field email field-border-bottom">
                   <input
                     type="email"
-                    id="culinary-email"
+                    id="booking-email"
                     class="b1-font color-primary"
                     placeholder="Email"
-                    name="culinary-email"
+                    name="booking-email"
                   />
                 </div>
                 <div class="field message field-border-bottom">
                   <input
                     type="text"
-                    id="culinary-message"
+                    id="booking-message"
                     class="b1-font color-primary"
                     placeholder="Lời nhắn"
-                    name="culinary-message"
+                    name="booking-message"
                   />
                 </div>
                 <div
@@ -982,6 +988,35 @@
                   <button type="submit" class="btn-general">Gửi yêu cầu</button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade modal-booking-success"
+      id="modalBookingSuccess"
+      aria-hidden="true"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="content-logo">
+              <img
+                src="./assets/images/culinary-detail/logo-modal.svg"
+                alt=""
+              />
+            </div>
+            <div class="content-box">
+              <h4 class="title color-primary h1-font font-heading text-center">
+                Cám ơn bạn
+              </h4>
+              <div class="desc color-primary b1-font text-center">
+                Chúng tôi đã nhận được thông tin, đội ngũ tư vấn sẽ liên hệ Quý
+                khách sớm
+              </div>
             </div>
           </div>
         </div>
