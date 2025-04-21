@@ -17,6 +17,11 @@
           transform: scale(1);
         }
       }
+      &.active {
+        .animation-text-v4::before {
+          transform: scale(1);
+        }
+      }
     }
   }
 
