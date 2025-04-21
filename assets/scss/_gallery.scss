@@ -54,6 +54,7 @@
   mask-image: url("../../images/g-hori.png");
   mask-size: 100% 100%;
   mask-repeat: no-repeat;
+  aspect-ratio: 16 / 9;
 }
 .lg-content {
   top: 0 !important;
@@ -119,5 +120,32 @@
   padding: 0 40px;
   .lg-counter {
     display: none;
+  }
+}
+.lg-show-in .lg-backdrop {
+  animation: fadeInBackdrop 0.3s ease both;
+}
+
+.lg-show-in .lg-outer {
+  animation: zoomInPopup 0.4s ease both;
+}
+
+@keyframes fadeInBackdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomInPopup {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
 }
