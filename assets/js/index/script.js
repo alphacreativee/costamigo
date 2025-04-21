@@ -723,6 +723,86 @@ function toggleDropdown() {
   });
 }
 
+function modalBooking() {
+  if ($(".modal-booking").length < 1) return;
+
+  const picker = new Lightpick({
+    field: document.querySelector('[name="booking-startday"]'),
+    secondField: document.querySelector('[name="booking-hour"]'),
+    singleDate: false,
+    numberOfMonths: 1,
+    format: "DD/MM/YYYY HH:mm",
+    minDate: moment(),
+    onSelect: function (start, end) {
+      if (start) {
+        $('[name="booking-startday"]').val(start.format("DD/MM/YYYY"));
+      }
+      if (end) {
+        $('[name="booking-hour"]').val(end.format("HH:mm"));
+      }
+    }
+  });
+
+  // Form submission handler
+  $("form").on("submit", function (e) {
+    e.preventDefault();
+
+    // Validate required fields
+    let isValid = true;
+    $(".error").removeClass("error");
+
+    const requiredFields = [
+      {
+        name: "booking-adult",
+        errorField: ".people .field-border-bottom:first"
+      },
+      { name: "booking-name", errorField: ".name.field-border-bottom" },
+      { name: "booking-phone", errorField: ".phone.field-border-bottom" }
+    ];
+
+    requiredFields.forEach((field) => {
+      const input = $(`[name="${field.name}"]`);
+      if (!input.val() || input.val().trim() === "") {
+        $(field.errorField).addClass("error");
+        isValid = false;
+      }
+    });
+
+    // Validate phone number format
+    const phone = $('[name="booking-phone"]').val();
+    if (phone && !/^[0-9]{10,11}$/.test(phone)) {
+      $(".phone.field-border-bottom").addClass("error");
+      isValid = false;
+    }
+
+    // If validation passes, show success modal
+    if (isValid) {
+      $("#modalBookingSuccess").modal("show");
+      this.reset();
+      $(".error").removeClass("error");
+    }
+  });
+
+  // Remove error class when user starts typing in required fields
+  $('[name="booking-adult"], [name="booking-name"], [name="booking-phone"]').on(
+    "input",
+    function () {
+      const parent = $(this).closest(".field-border-bottom");
+      if (parent.hasClass("error")) {
+        parent.removeClass("error");
+      }
+    }
+  );
+
+  // Show date picker when clicking date inputs
+  $('[name="booking-startday"], [name="booking-hour"]').on(
+    "click",
+    function () {
+      picker.show();
+    }
+  );
+}
+
 function magicCursor() {
   if ($(".magic-cursor").length < 1) return;
 
@@ -900,6 +980,7 @@ const init = () => {
   swiperAct();
   magicCursor();
   detailSlider();
+  modalBooking();
   ScrollTrigger.refresh();
 };
 togglePlayMusic();
