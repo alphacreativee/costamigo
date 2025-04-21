@@ -53,7 +53,7 @@ function sectionSlider() {
     const swiperContent = new Swiper(contentSwiperEl, {
       loop: false,
       effect: "fade",
-      allowTouchMove: false
+      allowTouchMove: false,
     });
 
     const swiperMain = new Swiper(mainSwiperEl, {
@@ -61,19 +61,19 @@ function sectionSlider() {
       loop: true,
       navigation: {
         nextEl: swiperButton, // Gắn nút cho next
-        prevEl: swiperButton // Gắn nút cho prev
+        prevEl: swiperButton, // Gắn nút cho prev
       },
       pagination: {
         el: paginationEl,
         clickable: true,
-        type: "fraction"
+        type: "fraction",
       },
       on: {
         slideChange: function () {
           const realIndex = this.realIndex;
           swiperContent.slideTo(realIndex);
-        }
-      }
+        },
+      },
     });
 
     mainSwiperEl.addEventListener("mousemove", (e) => {
@@ -151,9 +151,9 @@ function imgWithText() {
       scrollTrigger: {
         trigger: section,
         start: "top 20%",
-        toggleActions: "play none none none"
+        toggleActions: "play none none none",
         // markers: true
-      }
+      },
     });
 
     gsap.to($(section).find(".mask.bottom"), {
@@ -163,8 +163,8 @@ function imgWithText() {
       scrollTrigger: {
         trigger: section,
         start: "top 20%",
-        toggleActions: "play none none none"
-      }
+        toggleActions: "play none none none",
+      },
     });
     gsap.to($(section).find(".content-box "), {
       yPercent: -10, // Move element upward by 20% of its height
@@ -173,8 +173,8 @@ function imgWithText() {
         trigger: $(section).find(".content-box"),
         start: "top 30%", // Start when the top of the image hits the bottom of the viewport
         end: "bottom top", // End when the bottom of the image hits the top of the viewport
-        scrub: true // Smoothly tie the animation to scroll
-      }
+        scrub: true, // Smoothly tie the animation to scroll
+      },
     });
   });
 }
@@ -189,9 +189,9 @@ function animationMaskCentral() {
         start: "top 70%",
         end: "bottom 70%",
         // toggleClass: "show",
-        onEnter: () => image.classList.add("show")
+        onEnter: () => image.classList.add("show"),
         // markers: true,
-      }
+      },
     });
   });
   const animationImagesBanner = document.querySelectorAll(
@@ -230,7 +230,7 @@ function animationText() {
     const tl = gsap.timeline({ paused: true }).to(chars, {
       color: hoverColor, // Dùng màu từ CSS
       stagger: 0.05, // Delay giữa các ký tự
-      duration: 0.2 // Thời gian đổi màu mỗi ký tự
+      duration: 0.2, // Thời gian đổi màu mỗi ký tự
     });
 
     // Hover events
@@ -242,7 +242,7 @@ function animationText() {
       gsap.to(chars, {
         color: originalColor, // Trở về màu ban đầu từ CSS
         stagger: 0.05,
-        duration: 0.2
+        duration: 0.2,
       });
     });
   });
@@ -253,7 +253,7 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20
+        y: 20,
       },
       {
         opacity: 1,
@@ -262,9 +262,9 @@ function animationText() {
         scrollTrigger: {
           trigger: element,
           start: "top 60%",
-          end: "bottom 60%"
+          end: "bottom 60%",
           // markers: true,
-        }
+        },
       }
     );
   });
@@ -275,7 +275,7 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20
+        y: 20,
       },
       {
         opacity: 1,
@@ -284,9 +284,9 @@ function animationText() {
         scrollTrigger: {
           trigger: element,
           start: "top 40%",
-          end: "bottom 40%"
+          end: "bottom 40%",
           // markers: true,
-        }
+        },
       }
     );
   });
@@ -298,19 +298,19 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20
+        y: 20,
       },
       {
         scrollTrigger: {
           trigger: element,
           start: "top 70%",
-          end: "bottom 70%"
+          end: "bottom 70%",
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
         ease: "sine.out",
-        stagger: 0.1
+        stagger: 0.1,
       }
     );
   });
@@ -320,19 +320,19 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20
+        y: 20,
       },
       {
         scrollTrigger: {
           trigger: element,
           start: "top 65%",
-          end: "bottom 65%"
+          end: "bottom 65%",
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
         ease: "sine.out",
-        stagger: 0.1
+        stagger: 0.1,
       }
     );
   });
@@ -342,7 +342,7 @@ function animationText() {
     let myDesc = new SplitType(element, {
       types: "lines, words",
       lineClass: "split-line",
-      wordClass: "split-word"
+      wordClass: "split-word",
     });
     myDesc.lines.forEach((line, index) => {
       gsap.from(line.querySelectorAll(".split-word"), {
@@ -354,9 +354,9 @@ function animationText() {
           trigger: element,
           start: "top center",
           end: "top center",
-          toggleActions: "play none none none"
+          toggleActions: "play none none none",
           // markers: true,
-        }
+        },
       });
     });
   });
@@ -365,7 +365,7 @@ function animationText() {
     let myDesc = new SplitType(element, {
       types: "lines, words",
       lineClass: "split-line",
-      wordClass: "split-word"
+      wordClass: "split-word",
     });
     myDesc.lines.forEach((line, index) => {
       gsap.from(line.querySelectorAll(".split-word"), {
@@ -377,9 +377,9 @@ function animationText() {
           trigger: element,
           start: "top 50%",
           end: "top 50%",
-          toggleActions: "play none none none"
+          toggleActions: "play none none none",
           // markers: true,
-        }
+        },
       });
     });
   });
@@ -389,7 +389,7 @@ function swiperRestaurant() {
   var swiperRes = new Swiper(".swiper-restaurant", {
     effect: "fade",
     slidesPerView: "auto",
-    centeredSlides: true
+    centeredSlides: true,
   });
   const contentRes = document.querySelectorAll(
     ".section-restaurant__content--title a"
@@ -423,10 +423,10 @@ function swiperAct() {
     watchSlidesVisibility: true,
     effect: "fade",
     fadeEffect: {
-      crossFade: true
+      crossFade: true,
     },
     spaceBetween: 30,
-    allowTouchMove: false
+    allowTouchMove: false,
   });
 
   var swiperAct = new Swiper(".act-slider", {
@@ -435,11 +435,11 @@ function swiperAct() {
     pagination: {
       el: ".section-act__slider .swiper-pagination",
       clickable: true,
-      type: "fraction"
+      type: "fraction",
     },
     thumbs: {
-      swiper: swiperActC
-    }
+      swiper: swiperActC,
+    },
   });
 
   // Đổi hướng sang rtl
@@ -531,8 +531,8 @@ function swiperOffer() {
     spaceBetween: 40,
     navigation: {
       nextEl: ".section-offer__slider .swiper-button-next",
-      prevEl: ".section-offer__slider .swiper-button-prev"
-    }
+      prevEl: ".section-offer__slider .swiper-button-prev",
+    },
   });
 }
 function animationLineMap() {
@@ -547,9 +547,9 @@ function animationLineMap() {
       trigger: ".svg-container",
       start: "top center",
       end: "bottom bottom",
-      scrub: true
+      scrub: true,
       // markers: true,
-    }
+    },
   });
   // gsap.to("#rect", {
   //   ease: "none",
@@ -592,7 +592,7 @@ function scrollHeader() {
       self.direction === 1
         ? $(".cta-group").addClass("hide")
         : $(".cta-group").removeClass("hide");
-    }
+    },
   });
 }
 
@@ -608,9 +608,9 @@ function animationArt() {
         trigger: image,
         start: "top bottom", // Start when the top of the image hits the bottom of the viewport
         end: "bottom top", // End when the bottom of the image hits the top of the viewport
-        scrub: true // Smoothly tie the animation to scroll
+        scrub: true, // Smoothly tie the animation to scroll
         // markers: true,
-      }
+      },
     });
   });
 
@@ -627,9 +627,9 @@ function animationArt() {
         trigger: imageR,
         start: "top bottom",
         end: "bottom top",
-        scrub: true
+        scrub: true,
         // markers: true,
-      }
+      },
     });
   });
 }
@@ -644,7 +644,7 @@ function headerMenu() {
     y: 20,
     stagger: 0.1,
     duration: 0.3,
-    ease: "power2.out"
+    ease: "power2.out",
   });
 
   btnMenu.addEventListener("click", () => {
@@ -730,7 +730,7 @@ function magicCursor() {
 
   gsap.set(circle, {
     xPercent: -50,
-    yPercent: -50
+    yPercent: -50,
   });
 
   let mouseX = 0,
@@ -744,7 +744,7 @@ function magicCursor() {
     gsap.to(circle, {
       x: mouseX,
       y: mouseY,
-      duration: 0.1 // Không có độ trễ
+      duration: 0.1, // Không có độ trễ
     });
   });
 
@@ -799,7 +799,7 @@ function detailSlider() {
     autoplay: false,
     navigation: {
       nextEl: ".detail-slider .swiper-button-next",
-      prevEl: ".detail-slider .swiper-button-prev"
+      prevEl: ".detail-slider .swiper-button-prev",
     },
     on: {
       progress: function (swiper) {
@@ -830,8 +830,8 @@ function detailSlider() {
             slideInner.style.transition = speed + "ms " + easing;
           }
         });
-      }
-    }
+      },
+    },
   });
 }
 
@@ -882,6 +882,20 @@ function updateSvgHeight() {
   }
 }
 // window.addEventListener("resize", updateSvgHeight);
+function gallery() {
+  console.log("animated-thumb");
+
+  lightGallery(document.querySelector(".animated-thumb"), {
+    selector: ".thumb-img",
+    thumbnail: true,
+    download: false,
+    height: "100%", // Height of the gallery (ex: '100%' or '300px').
+    width: "100%", // Width of the gallery (ex: '100%' or '300px').
+    iframeMaxWidth: "100%", // Set maximum width for iframe.
+    // mode: "lg-fade",
+    subHtmlSelectorRelative: true,
+  });
+}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   updateSvgHeight();
@@ -895,6 +909,7 @@ const init = () => {
   imgWithText();
   swiperRestaurant();
   toggleDropdown();
+  gallery();
   // scrollMap();
   animationLineMap();
   swiperAct();
