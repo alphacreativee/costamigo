@@ -740,7 +740,7 @@ function modalBooking() {
       if (end) {
         $('[name="booking-hour"]').val(end.format("HH:mm"));
       }
-    }
+    },
   });
 
   // Form submission handler
@@ -754,10 +754,10 @@ function modalBooking() {
     const requiredFields = [
       {
         name: "booking-adult",
-        errorField: ".people .field-border-bottom:first"
+        errorField: ".people .field-border-bottom:first",
       },
       { name: "booking-name", errorField: ".name.field-border-bottom" },
-      { name: "booking-phone", errorField: ".phone.field-border-bottom" }
+      { name: "booking-phone", errorField: ".phone.field-border-bottom" },
     ];
 
     requiredFields.forEach((field) => {
