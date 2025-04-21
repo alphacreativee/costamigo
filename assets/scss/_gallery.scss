@@ -1,0 +1,123 @@
+.gallery {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    width: 100%;
+  }
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 330px;
+    cursor: pointer;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+.media-large {
+  grid-column: span 2;
+
+  .thumb-img {
+    width: 100%;
+    height: 100%;
+    mask-image: url("../../images/g-hori.png");
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+  }
+}
+.media-small {
+  grid-column: span 1;
+
+  .thumb-img {
+    width: 100%;
+    height: 100%;
+    mask-image: url("../../images/g-vertical.png");
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+  }
+}
+.media-empty {
+  grid-column: span 1;
+
+  .thumb-img {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.lg-image {
+  mask-image: url("../../images/g-hori.png");
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+.lg-content {
+  top: 0 !important;
+}
+.lg-img-wrap {
+  padding: 7% 0 !important;
+}
+.lg-backdrop {
+  background: var(--color-pattern) url("../../images/bg-body.png");
+  background-repeat: repeat-y;
+  background-size: contain;
+}
+.lg-sub-html {
+  h4 {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 28px;
+    color: var(--color-primary);
+    font-weight: 400;
+  }
+}
+.lg-components {
+  bottom: 5%;
+}
+.lg-prev {
+  background-color: transparent;
+  left: 40px;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-image: url("../../images/ic-arrow-prev.svg");
+    background-color: transparent;
+  }
+}
+.lg-next {
+  background-color: transparent;
+  right: 120px;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-image: url("../../images/ic-arrow-next.svg");
+    background-color: transparent;
+  }
+}
+.lg-close {
+  background-color: transparent;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-image: url("../../images/ic_close.svg");
+    background-color: transparent;
+  }
+}
+.lg-toolbar {
+  top: 40px;
+  padding: 0 40px;
+  .lg-counter {
+    display: none;
+  }
+}
