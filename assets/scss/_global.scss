@@ -28,15 +28,17 @@
     mask: unset;
     color: var(--color-primary);
     background-color: transparent;
-    background-size: 100% 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
     min-width: 180px;
+    transition: all 0.4s ease;
 
     &:hover {
       background-color: transparent;
       color: var(--color-primary);
+      background-image: url("../../images/culinary-detail/bg-btn-phone-white.svg");
     }
   }
   &:hover {
@@ -218,6 +220,10 @@
   cursor: none;
 }
 
+input[type="time"]::-webkit-calendar-picker-indicator {
+  background: none;
+}
+
 .modal-backdrop.show {
   opacity: 0.8;
 }
@@ -235,6 +241,14 @@
 
   .modal-dialog {
     max-width: 440px;
+    gap: 24px;
+  }
+
+  .modal-close {
+    button {
+      width: 24px;
+      height: 24px;
+    }
   }
 
   .modal-body {
@@ -289,7 +303,7 @@
       padding-bottom: 12px;
 
       &.error {
-        input {
+        input:not([name="booking-hour"]) {
           color: rgba($color: #aa0000, $alpha: 0.6);
 
           &::placeholder {
@@ -327,6 +341,7 @@
 
         &:nth-child(2) {
           margin-left: 10px;
+          max-width: 110px;
         }
       }
     }

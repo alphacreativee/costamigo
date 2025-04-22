@@ -746,6 +746,7 @@ function modalBooking() {
           return;
         }
         $('[name="booking-startday"]').val(start.format("DD/MM/YYYY"));
+        $(".field.date .field-border-bottom").removeClass("error");
       } catch (error) {
         console.error("Error in Lightpick onSelect:", error);
       }
@@ -768,6 +769,10 @@ function modalBooking() {
     $(".error").removeClass("error");
 
     const requiredFields = [
+      {
+        name: "booking-startday",
+        errorField: ".field.date .field-border-bottom"
+      },
       { name: "booking-adult", errorField: ".adult.field-border-bottom" },
       { name: "booking-name", errorField: ".name.field-border-bottom" },
       { name: "booking-phone", errorField: ".phone.field-border-bottom" }
@@ -775,7 +780,6 @@ function modalBooking() {
 
     requiredFields.forEach((field) => {
       const input = $(`[name="${field.name}"]`);
-      console.log(field.errorField);
 
       if (!input.val() || input.val().trim() === "") {
         $(field.errorField).addClass("error");
