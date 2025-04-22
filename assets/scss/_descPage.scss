@@ -28,6 +28,11 @@
       transform: translateX(0);
     }
   }
+  &.page-destination-detail {
+    .desc-page__bg {
+      transform: translateX(0);
+    }
+  }
   &__container {
     text-align: center;
     padding: 0 40px;
