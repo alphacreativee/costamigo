@@ -895,8 +895,12 @@ function detailSlider() {
     keyboardControl: true,
     autoplay: false,
     navigation: {
-      nextEl: ".detail-slider .swiper-button-next",
-      prevEl: ".detail-slider .swiper-button-prev"
+      nextEl: document
+        .querySelector(".detail-slider")
+        .parentElement.querySelector(".swiper-button-next"),
+      prevEl: document
+        .querySelector(".detail-slider")
+        .parentElement.querySelector(".swiper-button-prev")
     },
     on: {
       progress: function (swiper) {
@@ -929,6 +933,57 @@ function detailSlider() {
         });
       }
     }
+  });
+
+  // arrowSliderDetails
+  const arrowSliderDetails = document.querySelectorAll(
+    ".detail-slider__arrows .swiper-button-next,.detail-slider__arrows .swiper-button-prev"
+  );
+
+  arrowSliderDetails.forEach((arrowSliderDetail) => {
+    const img = arrowSliderDetail.querySelector("img");
+    if (!img) return;
+
+    gsap.set(img, {
+      opacity: 0,
+      scale: 0.8,
+      pointerEvents: "none"
+    });
+
+    arrowSliderDetail.addEventListener("mouseenter", () => {
+      if (arrowSliderDetail.getAttribute("disabled") === "true") return;
+
+      gsap.to(img, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    });
+
+    arrowSliderDetail.addEventListener("mousemove", (e) => {
+      if (arrowSliderDetail.getAttribute("disabled") === "true") return;
+
+      const rect = arrowSliderDetail.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      gsap.to(img, {
+        x: x,
+        y: y,
+        duration: 0.3,
+        ease: "power3.out"
+      });
+    });
+
+    arrowSliderDetail.addEventListener("mouseleave", () => {
+      gsap.to(img, {
+        opacity: 0,
+        scale: 0.8,
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    });
   });
 }
 
@@ -1024,16 +1079,7 @@ preloadImages("img").then(() => {
 
   init();
 });
-// window.onpageshow = function (event) {
-//   if (event.persisted) {
-//     window.location.reload();
-//   }
-// };
+
 $(window).on("beforeunload", function () {
   $(window).scrollTop(0);
 });
-// window.onpageshow = function (event) {
-//   if (event.persisted) {
-//     window.location.reload();
-//   }
-// };
