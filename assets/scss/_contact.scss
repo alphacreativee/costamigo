@@ -77,3 +77,145 @@
     transform: translateX(-100%);
   }
 }
+.form-contact {
+  &__container {
+    padding: 80px 24px;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 24px;
+      width: calc(100% - 48px);
+      height: 10px;
+      background-color: var(--color-primary);
+      mask: url("../../images/line-full.svg");
+      mask-repeat: no-repeat;
+      mask-size: 100% 100%;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 24px;
+      width: calc(100% - 48px);
+      height: 10px;
+      background-color: var(--color-primary);
+      mask: url("../../images/line-full.svg");
+      mask-repeat: no-repeat;
+      mask-size: 100% 100%;
+    }
+    .group-form {
+      margin-bottom: 24px;
+      &.cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+      input {
+        border: none;
+        padding-bottom: 12px;
+        width: 100%;
+        color: var(--color-primary);
+        font-size: 16px;
+        line-height: 28px;
+        &::placeholder {
+          color: #a1a0b0;
+          font-size: 16px;
+          line-height: 28px;
+        }
+      }
+      textarea {
+        border: none;
+        padding-bottom: 12px;
+        width: 100%;
+        color: var(--color-primary);
+        font-size: 16px;
+        line-height: 28px;
+        resize: none;
+        &::placeholder {
+          color: #a1a0b0;
+          font-size: 16px;
+          line-height: 28px;
+        }
+      }
+      .form-input {
+        position: relative;
+        &.full {
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-color: var(--color-primary);
+            mask: url("../../images/line-full.svg");
+            mask-repeat: no-repeat;
+            mask-size: 100% 100%;
+          }
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 10px;
+          background-color: var(--color-primary);
+          mask: url("../../images/line-contact.svg");
+          mask-repeat: no-repeat;
+          mask-size: 100% 100%;
+        }
+      }
+    }
+    .group-check {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+      padding-top: 56px;
+      .check-box {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        label {
+          font-size: 13px;
+          line-height: 20px;
+          color: var(--color-primary);
+        }
+        input {
+          appearance: none;
+          width: 24px;
+          height: 24px;
+
+          border-radius: 4px;
+          transition: all 0.3s ease;
+          position: relative;
+          cursor: pointer;
+          background-image: url("../../images/ic-check.svg");
+          background-size: 100% 100%;
+          &:checked {
+            &::before {
+              opacity: 1;
+              visibility: visible;
+            }
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background-image: url("../../images/ic-tick.svg");
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+          }
+        }
+      }
+    }
+  }
+}
