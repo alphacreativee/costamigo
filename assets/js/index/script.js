@@ -726,22 +726,38 @@ function toggleDropdown() {
 function modalBooking() {
   if ($(".modal-booking").length < 1) return;
 
-  var pickerBooking = new Lightpick({
-    field: document.querySelector('[name="booking-startday"]'),
-    secondField: document.querySelector('[name="booking-hour"]'),
-    singleDate: false,
+  const dateField = document.querySelector('[name="booking-startday"]');
+  if (!dateField) {
+    console.error('Input field [name="booking-startday"] not found');
+    return;
+  }
+
+  // Initialize Lightpick for date picker
+  const pickerBooking = new Lightpick({
+    field: dateField,
+    singleDate: true, // Changed to true for single date
     numberOfMonths: 1,
-    format: "DD/MM/YYYY HH:mm",
+    format: "DD/MM/YYYY",
     minDate: moment(),
-    onSelect: function (start, end) {
-      if (start) {
+    onSelect: function (start) {
+      try {
+        if (!start) {
+          console.warn("start is undefined in onSelect");
+          return;
+        }
         $('[name="booking-startday"]').val(start.format("DD/MM/YYYY"));
-      }
-      if (end) {
-        $('[name="booking-hour"]').val(end.format("HH:mm"));
+      } catch (error) {
+        console.error("Error in Lightpick onSelect:", error);
       }
     }
   });
+
+  // Verify time input field exists
+  const timeField = $('[name="booking-hour"]');
+  if (timeField.length === 0) {
+    console.error('Input field [name="booking-hour"] not found');
+    return;
+  }
 
   // Form submission handler
   $("form").on("submit", function (e) {
@@ -752,16 +768,15 @@ function modalBooking() {
     $(".error").removeClass("error");
 
     const requiredFields = [
-      {
-        name: "booking-adult",
-        errorField: ".adult.field-border-bottom"
-      },
+      { name: "booking-adult", errorField: ".adult.field-border-bottom" },
       { name: "booking-name", errorField: ".name.field-border-bottom" },
       { name: "booking-phone", errorField: ".phone.field-border-bottom" }
     ];
 
     requiredFields.forEach((field) => {
       const input = $(`[name="${field.name}"]`);
+      console.log(field.errorField);
+
       if (!input.val() || input.val().trim() === "") {
         $(field.errorField).addClass("error");
         isValid = false;
@@ -777,6 +792,7 @@ function modalBooking() {
 
     // If validation passes, show success modal
     if (isValid) {
+      $("#modalBooking").modal("hide");
       $("#modalBookingSuccess").modal("show");
       this.reset();
       $(".error").removeClass("error");
@@ -794,13 +810,10 @@ function modalBooking() {
     }
   );
 
-  // Show date picker when clicking date inputs
-  $('[name="booking-startday"], [name="booking-hour"]').on(
-    "click",
-    function () {
-      picker.show();
-    }
-  );
+  // Show date picker when clicking date input
+  $('[name="booking-startday"]').on("click", function () {
+    pickerBooking.show();
+  });
 }
 
 function magicCursor() {

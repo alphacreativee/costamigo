@@ -50,7 +50,8 @@
       width: 100%;
 
       .section-act__slider--title,
-      .section-act__slider--desc {
+      .section-act__slider--desc,
+      .section-act__slider--tag {
         transform: translateY(30px);
         opacity: 0;
         transition: all 0.4s ease;
@@ -59,7 +60,8 @@
       .swiper-slide {
         &.swiper-slide-thumb-active {
           .section-act__slider--title,
-          .section-act__slider--desc {
+          .section-act__slider--desc,
+          .section-act__slider--tag {
             transform: translate(0);
             opacity: 1;
             transition: all 0.8s ease;
