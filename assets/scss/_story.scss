@@ -4,8 +4,8 @@
   &__ilus {
     position: absolute;
     right: 0;
-    top: 0;
-    transform: translate(0, 20%);
+    top: -40%;
+    transform: translate(0);
     width: var(--w-ilus);
     height: var(--h-ilus);
     z-index: -1;

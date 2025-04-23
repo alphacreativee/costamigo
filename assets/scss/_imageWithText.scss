@@ -3,6 +3,15 @@ section.image-with-text {
   overflow: hidden;
   height: 100vh;
 
+  .ilus-right {
+    width: 365px;
+    height: auto;
+    position: absolute;
+    right: 0;
+    top: -25%;
+    z-index: -1;
+  }
+
   .main-image {
     width: 100%;
     max-height: 100vh;
