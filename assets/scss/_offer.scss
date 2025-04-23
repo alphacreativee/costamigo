@@ -41,6 +41,7 @@
   &__content {
     text-align: center;
     &--title {
+      display: block;
       margin-bottom: 24px;
       transition: color 0.3s ease;
     }

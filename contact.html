@@ -26,7 +26,7 @@
   </head>
   <body class="scroll-hidden">
     <!-- loading -->
-    <div class="loading">
+    <div class="loading d-none">
       <div class="loading-logo">
         <img src="./assets/images/logo-footer.svg" alt="" />
       </div>
@@ -295,13 +295,15 @@
               </div>
               <div class="group-form">
                 <div class="form-input full">
-                  <textarea placeholder="Lời nhắn"> </textarea>
+                  <textarea placeholder="Lời nhắn"></textarea>
                 </div>
               </div>
               <div class="group-check">
                 <div class="check-box">
-                  <input type="checkbox" name="check" />
-                  <label for="check">Đăng ký nhận bản tin của chúng tôi</label>
+                  <input type="checkbox" name="check" id="contact_checkbox" />
+                  <label for="contact_checkbox"
+                    >Đăng ký nhận bản tin của chúng tôi</label
+                  >
                 </div>
                 <button class="btn-general">Gửi yêu cầu</button>
               </div>
@@ -343,7 +345,7 @@
         </div>
       </section>
 
-      <div class="spacing-180"></div>
+      <div class="spacing-80"></div>
       <div class="section-map">
         <div class="container-fluid p-0">
           <div class="row g-0">
