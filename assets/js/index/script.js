@@ -1048,6 +1048,7 @@ function gallery() {
     subHtmlSelectorRelative: true
   });
 }
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   updateSvgHeight();

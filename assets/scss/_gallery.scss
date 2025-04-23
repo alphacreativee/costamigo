@@ -13,6 +13,15 @@
     width: 100%;
     height: 330px;
     cursor: pointer;
+
+    &.media-empty {
+      cursor: default;
+    }
+
+    @media (min-width: 1441px) {
+      height: 450px;
+    }
+
     img {
       width: 100%;
       height: 100%;
@@ -124,6 +133,19 @@
 }
 .lg-show-in .lg-backdrop {
   animation: fadeInBackdrop 0.3s ease both;
+}
+
+.lg-show-in .lg-backdrop:before {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: -80px;
+  width: 400px;
+  height: 400px;
+  background-image: url("../../images/img-flower-f.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotate(27deg);
 }
 
 .lg-show-in .lg-outer {
