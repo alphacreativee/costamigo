@@ -25,26 +25,21 @@
   text-align: center;
 
   &.secondary {
-    background-image: url("../../images/culinary-detail/bg-btn-phone.svg");
-    mask: unset;
     color: var(--color-primary);
     background-color: transparent;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
     position: relative;
     min-width: 180px;
     transition: all 0.4s ease;
+    border: 1px solid var(--color-primary);
 
     &:hover {
-      background-color: transparent;
-      color: var(--color-primary);
-      background-image: url("../../images/culinary-detail/bg-btn-phone-white.svg");
+      background-color: var(--color-primary);
+      color: var(--color-white);
     }
   }
   &:hover {
-    background-color: var(--color-white);
-    color: var(--color-primary);
+    background-color: var(--color-secondary);
+    color: var(--color-white);
   }
 }
 

@@ -21,10 +21,11 @@
       .item {
         &-image {
           width: 100%;
-          aspect-ratio: 426 / 400;
+          margin: 0 auto;
+          aspect-ratio: 500 / 320;
           margin-bottom: 24px;
           overflow: hidden;
-          mask: url(../../images/bg-offer.png);
+          // mask: url(../../images/bg-offer.png);
           mask-size: 100% 100%;
 
           img {
