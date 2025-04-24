@@ -72,13 +72,38 @@
   }
   figure {
     width: 100%;
-    height: 440px;
+    max-height: 440px;
     mask: url("../../images/img-bg-banner.png");
     mask-size: 100% 100%;
+
+    @media (min-width: 1441px) {
+      max-height: 500px;
+    }
+
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+  }
+
+  .wrapper-share {
+    margin-top: 80px;
+    gap: 48px;
+
+    ul {
+      gap: 24px;
+      list-style: none;
+
+      li {
+        margin-top: 0;
+
+        a {
+          &:hover {
+            color: var(--color-primary);
+          }
+        }
+      }
     }
   }
 }
