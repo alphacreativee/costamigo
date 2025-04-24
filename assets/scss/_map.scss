@@ -42,8 +42,6 @@
   &__destination {
     width: 100%;
     aspect-ratio: 221 / 148;
-    mask: url("../../images/bg-map.png");
-    mask-size: 100% 100%;
     img {
       width: 100%;
       height: 100%;
@@ -54,8 +52,7 @@
     position: absolute;
     left: 20px;
     bottom: 20px;
-    background-image: url("../../images/mask-border-s.svg");
-    background-size: 100% 100%;
+    border: 1px solid var(--color-primary);
     background-color: var(--color-white);
     z-index: 2;
     width: 28px;
@@ -64,8 +61,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    mask: url("../../images/mask-border-s.svg");
-    mask-size: 100% 100%;
     color: var(--color-primary);
     font-size: 13px;
     line-height: 20px;
@@ -73,8 +68,6 @@
   &__desc {
     background: var(--color-white) url(../../images/bg-body.png);
     background-size: contain;
-    mask: url("../../images/bg-map.png");
-    mask-size: 100% 100%;
     padding-left: 45px;
     padding-top: 15px;
     padding-bottom: 22px;
