@@ -76,14 +76,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    right: 46px;
-    bottom: 32px;
+    right: 30px;
+    bottom: 30px;
     left: unset;
     color: var(--color-white);
-    background-image: url("../../images/img-circle.svg");
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+    // background-image: url("../../images/img-circle.svg");
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid var(--color-white);
     pointer-events: none;
     span {
       font-size: 13px;
@@ -207,7 +207,9 @@
     margin: 0;
     width: 80px;
     height: 80px;
-    background: url("../../images/img-frame-circle.svg");
+    // background: url("../../images/img-frame-circle.svg");
+    background-color: var(--color-pattern);
+    border: 1px solid var(--color-primary);
     border-radius: 50%;
     display: flex;
     justify-content: center;

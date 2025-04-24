@@ -149,9 +149,6 @@
         opacity: 0;
         visibility: hidden;
         background-color: var(--color-pattern);
-        mask-image: url(../../images/bg-sub-menu.svg);
-        mask-size: 100% 100%;
-        mask-repeat: no-repeat;
         padding: 24px;
         position: absolute;
         left: -24px;
@@ -212,8 +209,8 @@
               }
               &::before {
                 background-color: var(--color-white);
-                height: 5px;
-                bottom: -5px;
+                height: 1px;
+                bottom: -4px;
                 mask-size: 100% auto;
               }
             }

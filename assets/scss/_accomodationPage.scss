@@ -44,23 +44,28 @@
       flex-direction: column;
       gap: 24px;
 
+      &:hover {
+        .card-top img {
+          transform: scale(1.05);
+        }
+
+        .card-title {
+          color: var(--color-secondary);
+        }
+      }
+
       &:nth-child(even) {
         transform: translateY(80px);
       }
 
       .card {
         &-top {
-          width: 100%;
-          aspect-ratio: 540 / 420;
+          width: calc(100% - 40px);
+          aspect-ratio: 500 / 320;
           overflow: hidden;
-          mask: url(../../images/bg-offer.png);
-          mask-size: 100% 100%;
-
-          &:hover {
-            img {
-              transform: scale(1.05);
-            }
-          }
+          margin: 0 auto;
+          // mask: url(../../images/bg-offer.png);
+          // mask-size: 100% 100%;
 
           img {
             width: 100%;
@@ -79,6 +84,7 @@
 
         &-info {
           gap: 24px;
+          margin-bottom: 24px;
 
           li {
             display: flex;
@@ -97,7 +103,6 @@
         }
 
         &-desc {
-          margin-top: 24px;
           max-width: 75%;
         }
 
