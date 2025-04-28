@@ -135,9 +135,9 @@ section.image-with-text {
   .content {
     position: absolute;
     z-index: 2;
-    top: 50%;
+    top: 160px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     max-width: calc(6 / 12 * 100%);
     width: 100%;
     padding: 0 40px;
@@ -157,12 +157,6 @@ section.image-with-text {
     }
     .mask.bottom::after {
       transform: translateY(1px) scaleX(-1);
-    }
-    &::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-color: rgba(0, 0, 0, 0.4);
     }
   }
 }
