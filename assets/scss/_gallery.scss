@@ -112,7 +112,8 @@
 }
 .lg-prev {
   background-color: transparent;
-  left: 40px;
+  transform: translate(-200%, -150%);
+  cursor: none !important;
   &::after {
     content: "";
     position: absolute;
@@ -124,7 +125,9 @@
 }
 .lg-next {
   background-color: transparent;
-  right: 120px;
+  transform: scale(1) translate(-200%, -150%);
+  right: unset;
+  cursor: none !important;
   &::before {
     content: "";
     position: absolute;
@@ -149,6 +152,7 @@
     background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;
+    z-index: 2001;
   }
   &::after {
     content: unset;
@@ -157,6 +161,7 @@
 .lg-toolbar {
   top: 40px;
   padding: 0 40px;
+  z-index: 2000;
   .lg-counter {
     display: none;
   }
@@ -164,7 +169,9 @@
 .lg-show-in .lg-backdrop {
   animation: fadeInBackdrop 0.3s ease both;
 }
-
+.lg-container {
+  cursor: none !important;
+}
 .lg-show-in .lg-backdrop:before {
   content: "";
   position: absolute;
@@ -183,6 +190,9 @@
 }
 .lg-close {
   position: relative;
+}
+.lg-toolbar .lg-close:after {
+  content: unset !important;
 }
 @keyframes fadeInBackdrop {
   from {
