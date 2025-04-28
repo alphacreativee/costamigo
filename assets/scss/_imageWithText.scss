@@ -1,7 +1,6 @@
 section.image-with-text {
   position: relative;
   overflow: hidden;
-  height: 100vh;
 
   .ilus-right {
     width: 365px;
@@ -110,6 +109,7 @@ section.image-with-text {
 
   .section-wrapper {
     position: relative;
+    height: 100vh;
   }
 
   .mask.bottom {
@@ -138,7 +138,7 @@ section.image-with-text {
     top: 160px;
     left: 50%;
     transform: translateX(-50%);
-    max-width: calc(6 / 12 * 100%);
+    max-width: 52%;
     width: 100%;
     padding: 0 40px;
     h1 {

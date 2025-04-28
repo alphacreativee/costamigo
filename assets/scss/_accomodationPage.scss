@@ -1,5 +1,6 @@
 .accomodation-list {
   position: relative;
+  padding-bottom: 80px;
   &.news {
     padding: 0 40px;
   }
@@ -110,6 +111,6 @@
   &__wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 80px 50px;
+    gap: 120px 50px;
   }
 }

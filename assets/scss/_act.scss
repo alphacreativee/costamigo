@@ -30,9 +30,13 @@
   &__tag {
     margin-bottom: 24px;
   }
+  &__title {
+    max-width: 90%;
+  }
   &__desc {
     margin-bottom: 40px;
     margin-top: 44px;
+    max-width: 90%;
 
     &.not-has-tag {
       margin-top: 20px;
