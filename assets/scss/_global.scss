@@ -86,7 +86,8 @@
     }
     &.phone {
       background-color: var(--color-primary);
-      transition: transform 0.7s ease, opacity 0.4s ease;
+      transition: background-color 0.3s ease, transform 0.7s ease,
+        opacity 0.4s ease;
       &:hover {
         background-color: var(--color-secondary);
       }
