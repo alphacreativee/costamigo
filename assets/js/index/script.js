@@ -1100,9 +1100,39 @@ function gallery() {
   });
 }
 
+function fadeTextFooter() {
+  gsap.set("data-text-footer", {
+    opacity: 0,
+    y: 20,
+  });
+  let tlf = gsap.timeline({ paused: true });
+
+  tlf.fromTo(
+    "[data-text-footer]",
+    {
+      opacity: 0,
+      y: 20,
+    },
+    {
+      opacity: 1,
+      y: 0,
+      stagger: 0.1,
+      duration: 0.6,
+      ease: "power2.out",
+    }
+  );
+  ScrollTrigger.create({
+    trigger: "footer",
+    start: "top 80%",
+    // markers: true,
+    animation: tlf,
+    toggleActions: "play none none none",
+  });
+}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   updateSvgHeight();
+  fadeTextFooter();
   headerMenu();
   scrollHeader();
   animationArt();
