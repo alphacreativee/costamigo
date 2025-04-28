@@ -12,10 +12,8 @@
       left: 0;
       top: 0;
       width: 100%;
-      height: 4px;
-      background-color: rgba($color: #232c6a, $alpha: 1);
-      mask-image: url("../../images/offer-detail/offer-detail-line.png");
-      mask-size: 100% 100%;
+      height: 1px;
+      background-color: rgba($color: #232c6a, $alpha: 0.1);
       position: absolute;
     }
 
@@ -24,10 +22,8 @@
       left: 0;
       bottom: 0;
       width: 100%;
-      height: 4px;
-      background-color: rgba($color: #232c6a, $alpha: 1);
-      mask-image: url("../../images/offer-detail/offer-detail-line.png");
-      mask-size: 100% 100%;
+      height: 1px;
+      background-color: rgba($color: #232c6a, $alpha: 0.1);
       position: absolute;
     }
   }
