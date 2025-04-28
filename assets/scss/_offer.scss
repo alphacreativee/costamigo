@@ -27,21 +27,20 @@
   &__img {
     width: 100%;
     aspect-ratio: 426 / 400;
-    margin-bottom: 24px;
+    margin-bottom: 40px;
     overflow: hidden;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease-out;
     }
   }
   &__content {
     text-align: center;
     &--title {
       display: block;
-      margin-bottom: 24px;
+      margin-bottom: 12px;
       transition: color 0.3s ease;
     }
     &--desc {
