@@ -13,7 +13,56 @@
     width: 100%;
     height: 330px;
     cursor: pointer;
-
+    overflow: hidden;
+    &:hover {
+      // .thumb-img {
+      //   transform: scale(0.95);
+      // }
+      img {
+        transform: scale(1.05);
+      }
+    }
+    .thumb-img {
+      width: 100%;
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+    &:nth-child(12n + 1) {
+      grid-column: span 2;
+    }
+    &:nth-child(12n + 2) {
+      grid-column: span 1;
+    }
+    &:nth-child(12n + 3) {
+      grid-column: span 2;
+    }
+    &:nth-child(12n + 4) {
+      grid-column: span 1;
+    }
+    &:nth-child(12n + 5) {
+      grid-column: span 2;
+    }
+    &:nth-child(12n + 6) {
+      grid-column: span 2;
+    }
+    &:nth-child(12n + 7) {
+      grid-column: span 2;
+    }
+    &:nth-child(12n + 8) {
+      grid-column: span 1;
+    }
+    &:nth-child(12n + 9) {
+      grid-column: span 2;
+    }
+    &:nth-child(12n + 10) {
+      grid-column: span 2;
+    }
+    &:nth-child(12n + 11) {
+      grid-column: span 2;
+    }
+    &:nth-child(12n + 12) {
+      grid-column: span 1;
+    }
     &.media-empty {
       cursor: default;
     }
@@ -26,6 +75,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: all 0.3s ease;
     }
   }
 }
