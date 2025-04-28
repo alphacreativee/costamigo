@@ -1,6 +1,7 @@
 .section-contact {
   padding-top: 80px;
   position: relative;
+
   &__bg {
     position: absolute;
     right: 0;
@@ -97,6 +98,8 @@
   &__container {
     padding: 80px 24px 40px;
     position: relative;
+    z-index: 2;
+
     &::before {
       content: "";
       position: absolute;
@@ -228,4 +231,9 @@
       }
     }
   }
+}
+.form-contact {
+  background: var(--color-pattern) url("../../images/bg-body.png");
+  background-repeat: repeat;
+  background-size: contain;
 }
