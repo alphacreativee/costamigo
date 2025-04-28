@@ -590,14 +590,17 @@ function swiperOffer() {
 function animationLineMap() {
   if ($("#maskRect").length < 1) return;
 
-  gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
+  gsap.registerPlugin(ScrollTrigger);
+
+  const svgContainer = document.querySelector(".svg-container");
+  const hasNotBanner = svgContainer.classList.contains("not-banner");
 
   gsap.to("#maskRect", {
     height: 5989, // bằng chiều cao SVG
     ease: "none",
     scrollTrigger: {
-      trigger: ".svg-container",
-      start: "top center",
+      trigger: svgContainer,
+      start: hasNotBanner ? "top top" : "top center",
       end: "bottom bottom",
       scrub: true,
       // markers: true,
