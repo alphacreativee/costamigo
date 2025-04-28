@@ -2410,6 +2410,7 @@ section.image-with-text.reverse-mask .mask.bottom::after {
   background-color: transparent;
   transform: translate(-200%, -150%);
   cursor: none !important;
+  display: none;
 }
 .lg-prev::after {
   content: "";
@@ -2423,6 +2424,7 @@ section.image-with-text.reverse-mask .mask.bottom::after {
   background-color: transparent;
   transform: scale(1) translate(-200%, -150%);
   right: unset;
+  display: none;
   cursor: none !important;
 }
 .lg-next::before {
