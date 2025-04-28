@@ -15,6 +15,8 @@
   &__item {
     &:hover {
       .section-offer__img {
+        clip-path: inset(3%);
+
         img {
           transform: scale(1.05);
         }
