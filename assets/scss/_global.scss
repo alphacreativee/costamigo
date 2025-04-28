@@ -229,10 +229,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     border: none;
     border-radius: unset;
     background-color: var(--color-pattern);
-    mask-image: url("../../images/wellness-spa/bg-modal-booking.png");
-    mask-repeat: no-repeat;
-    mask-size: 100% 100%;
-    mask-position: center;
   }
 
   .modal-dialog {
@@ -244,6 +240,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     button {
       width: 24px;
       height: 24px;
+      background: transparent;
+      color: transparent;
     }
   }
 
@@ -262,9 +260,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 4px;
-      background-color: rgba($color: #232c6a, $alpha: 1);
-      mask-image: url("../../images/culinary-detail/mask-border-bottom.svg");
+      height: 1px;
+      background-color: rgba($color: #232c6a, $alpha: 0.1);
     }
   }
 
@@ -314,9 +311,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 4px;
-        background-color: rgba($color: #232c6a, $alpha: 1);
-        mask-image: url("../../images/culinary-detail/mask-border-bottom.svg");
+        height: 1px;
+        background-color: rgba($color: #232c6a, $alpha: 0.1);
       }
     }
 
@@ -372,6 +368,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
       button {
         width: 24px;
         height: 24px;
+        background: transparent;
       }
     }
 
@@ -379,10 +376,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
       border: none;
       border-radius: unset;
       background-color: var(--color-pattern);
-      mask-image: url("../../images/culinary-detail/bg-modal-success.png");
-      mask-repeat: no-repeat;
-      mask-size: 100% 100%;
-      mask-position: center;
       position: relative;
 
       .content {
