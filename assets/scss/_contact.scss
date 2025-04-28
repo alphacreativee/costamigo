@@ -91,7 +91,7 @@
 }
 .form-contact {
   &__container {
-    padding: 80px 24px;
+    padding: 80px 24px 40px;
     position: relative;
     &::before {
       content: "";
@@ -99,11 +99,9 @@
       top: 0;
       left: 24px;
       width: calc(100% - 48px);
-      height: 10px;
+      height: 1px;
       background-color: var(--color-primary);
-      mask: url("../../images/line-full.svg");
-      mask-repeat: no-repeat;
-      mask-size: 100% 100%;
+      opacity: 0.1;
     }
     &::after {
       content: "";
@@ -111,11 +109,9 @@
       bottom: 0;
       left: 24px;
       width: calc(100% - 48px);
-      height: 10px;
+      height: 1px;
       background-color: var(--color-primary);
-      mask: url("../../images/line-full.svg");
-      mask-repeat: no-repeat;
-      mask-size: 100% 100%;
+      opacity: 0.1;
     }
     .group-form {
       margin-bottom: 24px;
@@ -160,11 +156,9 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 10px;
+            height: 1px;
             background-color: var(--color-primary);
-            mask: url("../../images/line-full.svg");
-            mask-repeat: no-repeat;
-            mask-size: 100% 100%;
+            opacity: 0.1;
           }
         }
         &::before {
@@ -173,11 +167,9 @@
           bottom: 0;
           left: 0;
           width: 100%;
-          height: 10px;
+          height: 1px;
           background-color: var(--color-primary);
-          mask: url("../../images/line-contact.svg");
-          mask-repeat: no-repeat;
-          mask-size: 100% 100%;
+          opacity: 0.1;
         }
       }
     }
@@ -225,6 +217,8 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.2s ease;
+            background-repeat: no-repeat;
+            background-position: center;
           }
         }
       }

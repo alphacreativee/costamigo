@@ -1,6 +1,6 @@
 .desc-page {
   position: relative;
-  margin-bottom: 140px;
+  margin-bottom: 120px;
   &.page-contact {
     .desc-page__container {
       padding: 0;
@@ -9,13 +9,14 @@
       margin-bottom: 16px;
     }
     .desc-page__add {
-      margin-bottom: 40px;
+      margin-bottom: 12px;
     }
 
     .desc-page__contact {
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 12px;
       li {
         a {
           &:hover {
