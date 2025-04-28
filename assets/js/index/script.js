@@ -196,6 +196,7 @@ function animationMaskCentral() {
       },
     });
   });
+
   const animationImagesBanner = document.querySelectorAll(
     ".animation-image-banner"
   );

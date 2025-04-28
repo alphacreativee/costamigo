@@ -68,6 +68,12 @@
     text-align: center;
     color: #000;
     transition: 0.5s all;
+
+    .btn-wrapper {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
   }
 
   .swiper-pagination {
@@ -103,6 +109,7 @@
       align-items: flex-start;
       justify-content: center;
       text-align: left;
+      position: relative;
       h4 {
         color: var(--color-secondary);
         font-size: 24px;
