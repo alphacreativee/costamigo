@@ -251,19 +251,16 @@
     }
     .dropdown-custom__menu {
       position: absolute;
-      background-image: url("../../images/bg-sub-menu.svg");
-      // background-size: 100% 100%;
-      background-repeat: no-repeat;
+      background-color: var(--color-pattern);
       padding: 12px 24px;
-      bottom: 0;
+      bottom: -30px;
       left: -24px;
       transform: translateY(100%);
-      opacity: 0;
-      visibility: hidden;
       transition: all 0.3s ease;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      will-change: clip-path;
       &.dropdown--active {
-        opacity: 1;
-        visibility: visible;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
       }
     }
   }
