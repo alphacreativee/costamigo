@@ -6,6 +6,17 @@
     padding: 0 88px;
     position: relative;
   }
+
+  &__container {
+    position: relative;
+
+    .nav-tabs {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
   &__bg {
     position: absolute;
     bottom: 0;
@@ -32,7 +43,7 @@
   .nav-tabs {
     border: none;
     width: max-content;
-    left: calc(1 / 12 * 100%);
+    left: 0;
     top: 0;
     // position: absolute;
     z-index: 2;
