@@ -14,6 +14,7 @@
     height: 330px;
     cursor: pointer;
     overflow: hidden;
+    grid-column: span 2;
     &:hover {
       // .thumb-img {
       //   transform: scale(0.95);
@@ -27,39 +28,10 @@
       height: 100%;
       transition: all 0.3s ease;
     }
-    &:nth-child(12n + 1) {
-      grid-column: span 2;
-    }
-    &:nth-child(12n + 2) {
-      grid-column: span 1;
-    }
-    &:nth-child(12n + 3) {
-      grid-column: span 2;
-    }
-    &:nth-child(12n + 4) {
-      grid-column: span 1;
-    }
-    &:nth-child(12n + 5) {
-      grid-column: span 2;
-    }
-    &:nth-child(12n + 6) {
-      grid-column: span 2;
-    }
-    &:nth-child(12n + 7) {
-      grid-column: span 2;
-    }
-    &:nth-child(12n + 8) {
-      grid-column: span 1;
-    }
-    &:nth-child(12n + 9) {
-      grid-column: span 2;
-    }
-    &:nth-child(12n + 10) {
-      grid-column: span 2;
-    }
-    &:nth-child(12n + 11) {
-      grid-column: span 2;
-    }
+
+    &:nth-child(12n + 2),
+    &:nth-child(12n + 4),
+    &:nth-child(12n + 8),
     &:nth-child(12n + 12) {
       grid-column: span 1;
     }
@@ -168,10 +140,18 @@
   &::before {
     content: "";
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 24px;
     height: 24px;
     background-image: url("../../images/ic_close.svg");
     background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  &::after {
+    content: unset;
   }
 }
 .lg-toolbar {
@@ -201,7 +181,9 @@
 .lg-show-in .lg-outer {
   animation: zoomInPopup 0.4s ease both;
 }
-
+.lg-close {
+  position: relative;
+}
 @keyframes fadeInBackdrop {
   from {
     opacity: 0;
