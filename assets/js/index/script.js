@@ -688,10 +688,10 @@ function animationArt() {
   });
 }
 function headerMenu() {
-  let btnMenu = document.querySelector(".btn-hamburger");
-  let containerMenu = document.querySelector(".header-sub-menu");
+  let $btnMenu = $(".btn-hamburger");
+  let $containerMenu = $(".header-sub-menu");
+  let $subMenuOverlay = $(".sub-menu-overlay");
   let tl = gsap.timeline({ paused: true });
-  const sub_menu_overlay = document.querySelector(".sub-menu-overlay");
 
   tl.from(".sub-menu ul li", {
     opacity: 0,
@@ -701,25 +701,27 @@ function headerMenu() {
     ease: "power2.out",
   });
 
-  btnMenu.addEventListener("click", () => {
-    containerMenu.classList.toggle("show");
-    btnMenu.classList.toggle("change");
-    if (containerMenu.classList.contains("show")) {
+  $btnMenu.on("click", function () {
+    $containerMenu.toggleClass("show");
+    $btnMenu.toggleClass("change");
+
+    if ($containerMenu.hasClass("show")) {
       tl.restart();
-      document.body.classList.add("overflow-hidden");
+      $("body").addClass("overflow-hidden");
     } else {
       tl.reverse();
-      document.body.classList.remove("overflow-hidden");
+      $("body").removeClass("overflow-hidden");
     }
   });
 
-  sub_menu_overlay.addEventListener("click", () => {
+  $subMenuOverlay.on("click", function () {
     tl.reverse();
-    btnMenu.classList.remove("change");
-    containerMenu.classList.remove("show");
-    document.body.classList.remove("overflow-hidden");
+    $btnMenu.removeClass("change");
+    $containerMenu.removeClass("show");
+    $("body").removeClass("overflow-hidden");
   });
 }
+
 function toggleDropdown() {
   const $dropdowns = jQuery(".dropdown-custom");
 

@@ -19,6 +19,9 @@
     background-image: url("../../images/bg-header.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    @media (max-width: 991px) {
+      padding: 12px 24px;
+    }
   }
 
   &-logo {
@@ -26,6 +29,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    img {
+      @media (max-width: 991px) {
+        height: 48px;
+        width: auto;
+      }
+    }
   }
 
   &-menu {
@@ -196,6 +205,9 @@
     opacity: 0;
     visibility: hidden;
     z-index: 94;
+    @media (max-width: 991px) {
+      top: 55px;
+    }
     &.show {
       opacity: 1;
       visibility: visible;
@@ -204,11 +216,23 @@
       display: grid;
       grid-template-columns: 4fr 8fr;
       height: 100%;
+      @media (max-width: 991px) {
+        grid-template-columns: 1fr;
+        position: relative;
+      }
       .sub-menu {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100%;
+        @media (max-width: 991px) {
+          overflow-y: scroll;
+          height: calc(100vh - 55px);
+          padding-bottom: 50px;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
         ul {
           display: flex;
           align-items: center;
@@ -266,6 +290,47 @@
       &.dropdown--active {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
       }
+    }
+  }
+  &-sub-menu__bottom {
+    background-image: url("../../images/bg-sub-menu.png");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    .bottom-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 100%;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      width: calc(100% - 48px);
+    }
+    .lang {
+      margin-left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .dropdown-custom__menu {
+        top: -16px;
+        bottom: unset;
+        transform: translateY(-100%);
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+      }
+      .dropdown-custom__btn {
+        img {
+          transform: rotate(180deg);
+        }
+      }
+    }
+    .virtual-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
     }
   }
 }
