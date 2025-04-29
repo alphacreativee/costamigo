@@ -18,7 +18,9 @@
 
   &__content {
     text-align: center;
-
+    @media (max-width: 991px) {
+      padding: 0 24px;
+    }
     .room-info {
       margin-top: 16px;
       gap: 24px;
@@ -84,7 +86,13 @@
     aspect-ratio: 683 / 505;
     z-index: -1;
     overflow: hidden;
-
+    @media (max-width: 991px) {
+      position: static;
+      transform: translate(0);
+      width: calc(100% - 48px);
+      margin: 48px auto 0;
+      aspect-ratio: 327 / 210;
+    }
     img {
       width: 100%;
       height: 100%;
@@ -101,6 +109,11 @@
     z-index: -1;
     // transform: translate(50%, 50%);
     // overflow: hidden;
+    @media (max-width: 991px) {
+      bottom: 0;
+      width: 200px;
+      z-index: 1;
+    }
   }
 
   .btn-wrapper {
