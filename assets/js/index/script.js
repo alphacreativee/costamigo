@@ -53,27 +53,27 @@ function sectionSlider() {
     const swiperContent = new Swiper(contentSwiperEl, {
       loop: false,
       effect: "fade",
-      allowTouchMove: false,
+      allowTouchMove: false
     });
 
     const swiperMain = new Swiper(mainSwiperEl, {
       effect: "fade",
-      loop: true,
+      loop: false,
       navigation: {
         nextEl: swiperButton, // Gắn nút cho next
-        prevEl: swiperButton, // Gắn nút cho prev
+        prevEl: swiperButton // Gắn nút cho prev
       },
       pagination: {
         el: paginationEl,
         clickable: true,
-        type: "fraction",
+        type: "fraction"
       },
       on: {
         slideChange: function () {
           const realIndex = this.realIndex;
           swiperContent.slideTo(realIndex);
-        },
-      },
+        }
+      }
     });
 
     mainSwiperEl.addEventListener("mousemove", (e) => {
@@ -153,8 +153,8 @@ function imgWithText() {
         trigger: $(section).find(".content-box"),
         start: "top 30%", // Start when the top of the image hits the bottom of the viewport
         end: "bottom top", // End when the bottom of the image hits the top of the viewport
-        scrub: true, // Smoothly tie the animation to scroll
-      },
+        scrub: true // Smoothly tie the animation to scroll
+      }
     });
   });
 
@@ -168,13 +168,13 @@ function imgWithText() {
     gsap.fromTo(
       wrapper,
       {
-        clipPath: "inset(0% 0% 0% 0%)",
+        clipPath: "inset(0% 0% 0% 0%)"
       },
       {
         scrollTrigger: {
           trigger: section,
           start: "top 70%",
-          end: "bottom 70%",
+          end: "bottom 70%"
           // scrub: 1
         },
         clipPath: () => {
@@ -200,7 +200,7 @@ function imgWithText() {
           return `inset(${heightClipPercentage}% ${widthClipPercentage}% ${heightClipPercentage}% ${widthClipPercentage}%)`;
         },
         duration: 1,
-        ease: "power2.out",
+        ease: "power2.out"
       }
     );
 
@@ -208,18 +208,18 @@ function imgWithText() {
     gsap.fromTo(
       image,
       {
-        scale: 1,
+        scale: 1
       },
       {
         scrollTrigger: {
           trigger: wrapper,
           start: "top 70%",
-          end: "bottom 70%",
+          end: "bottom 70%"
           // scrub: 1
         },
         scale: 1.1,
         duration: 1,
-        ease: "power2.out",
+        ease: "power2.out"
       }
     );
   });
@@ -237,9 +237,9 @@ function animationMaskCentral() {
         start: "top 70%",
         end: "bottom 70%",
         // toggleClass: "show",
-        onEnter: () => image.classList.add("show"),
+        onEnter: () => image.classList.add("show")
         // markers: true,
-      },
+      }
     });
   });
 
@@ -280,7 +280,7 @@ function animationText() {
     const tl = gsap.timeline({ paused: true }).to(chars, {
       color: hoverColor, // Dùng màu từ CSS
       stagger: 0.05, // Delay giữa các ký tự
-      duration: 0.2, // Thời gian đổi màu mỗi ký tự
+      duration: 0.2 // Thời gian đổi màu mỗi ký tự
     });
 
     // Hover events
@@ -292,7 +292,7 @@ function animationText() {
       gsap.to(chars, {
         color: originalColor, // Trở về màu ban đầu từ CSS
         stagger: 0.05,
-        duration: 0.2,
+        duration: 0.2
       });
     });
   });
@@ -303,7 +303,7 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20,
+        y: 20
       },
       {
         opacity: 1,
@@ -312,9 +312,9 @@ function animationText() {
         scrollTrigger: {
           trigger: element,
           start: "top 60%",
-          end: "bottom 60%",
+          end: "bottom 60%"
           // markers: true,
-        },
+        }
       }
     );
   });
@@ -325,7 +325,7 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20,
+        y: 20
       },
       {
         opacity: 1,
@@ -334,9 +334,9 @@ function animationText() {
         scrollTrigger: {
           trigger: element,
           start: "top 40%",
-          end: "bottom 40%",
+          end: "bottom 40%"
           // markers: true,
-        },
+        }
       }
     );
   });
@@ -348,19 +348,19 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20,
+        y: 20
       },
       {
         scrollTrigger: {
           trigger: element,
           start: "top 70%",
-          end: "bottom 70%",
+          end: "bottom 70%"
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
         ease: "sine.out",
-        stagger: 0.1,
+        stagger: 0.1
       }
     );
   });
@@ -370,19 +370,19 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20,
+        y: 20
       },
       {
         scrollTrigger: {
           trigger: element,
           start: "top 65%",
-          end: "bottom 65%",
+          end: "bottom 65%"
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
         ease: "sine.out",
-        stagger: 0.1,
+        stagger: 0.1
       }
     );
   });
@@ -392,7 +392,7 @@ function animationText() {
     let myDesc = new SplitType(element, {
       types: "lines, words",
       lineClass: "split-line",
-      wordClass: "split-word",
+      wordClass: "split-word"
     });
     myDesc.lines.forEach((line, index) => {
       gsap.from(line.querySelectorAll(".split-word"), {
@@ -404,9 +404,9 @@ function animationText() {
           trigger: element,
           start: "top center",
           end: "top center",
-          toggleActions: "play none none none",
+          toggleActions: "play none none none"
           // markers: true,
-        },
+        }
       });
     });
   });
@@ -415,7 +415,7 @@ function animationText() {
     let myDesc = new SplitType(element, {
       types: "lines, words",
       lineClass: "split-line",
-      wordClass: "split-word",
+      wordClass: "split-word"
     });
     myDesc.lines.forEach((line, index) => {
       gsap.from(line.querySelectorAll(".split-word"), {
@@ -427,9 +427,9 @@ function animationText() {
           trigger: element,
           start: "top 50%",
           end: "top 50%",
-          toggleActions: "play none none none",
+          toggleActions: "play none none none"
           // markers: true,
-        },
+        }
       });
     });
   });
@@ -439,7 +439,7 @@ function swiperRestaurant() {
   var swiperRes = new Swiper(".swiper-restaurant", {
     effect: "fade",
     slidesPerView: "auto",
-    centeredSlides: true,
+    centeredSlides: true
   });
   const contentRes = document.querySelectorAll(
     ".section-restaurant__content--title a"
@@ -473,10 +473,10 @@ function swiperAct() {
     watchSlidesVisibility: true,
     effect: "fade",
     fadeEffect: {
-      crossFade: true,
+      crossFade: true
     },
     spaceBetween: 30,
-    allowTouchMove: false,
+    allowTouchMove: false
   });
 
   var swiperAct = new Swiper(".act-slider", {
@@ -485,11 +485,11 @@ function swiperAct() {
     pagination: {
       el: ".section-act__slider .swiper-pagination",
       clickable: true,
-      type: "fraction",
+      type: "fraction"
     },
     thumbs: {
-      swiper: swiperActC,
-    },
+      swiper: swiperActC
+    }
   });
 
   // Đổi hướng sang rtl
@@ -583,8 +583,8 @@ function swiperOffer() {
     spaceBetween: 40,
     navigation: {
       nextEl: ".section-offer__slider .swiper-button-next",
-      prevEl: ".section-offer__slider .swiper-button-prev",
-    },
+      prevEl: ".section-offer__slider .swiper-button-prev"
+    }
   });
 }
 function animationLineMap() {
@@ -602,9 +602,9 @@ function animationLineMap() {
       trigger: svgContainer,
       start: hasNotBanner ? "top top" : "top center",
       end: "bottom bottom",
-      scrub: true,
+      scrub: true
       // markers: true,
-    },
+    }
   });
   // gsap.to("#rect", {
   //   ease: "none",
@@ -646,7 +646,7 @@ function scrollHeader() {
       self.direction === 1
         ? $(".cta-group").addClass("hide")
         : $(".cta-group").removeClass("hide");
-    },
+    }
   });
 }
 
@@ -662,9 +662,9 @@ function animationArt() {
         trigger: image,
         start: "top bottom", // Start when the top of the image hits the bottom of the viewport
         end: "bottom top", // End when the bottom of the image hits the top of the viewport
-        scrub: true, // Smoothly tie the animation to scroll
+        scrub: true // Smoothly tie the animation to scroll
         // markers: true,
-      },
+      }
     });
   });
 
@@ -681,9 +681,9 @@ function animationArt() {
         trigger: imageR,
         start: "top bottom",
         end: "bottom top",
-        scrub: true,
+        scrub: true
         // markers: true,
-      },
+      }
     });
   });
 }
@@ -698,7 +698,7 @@ function headerMenu() {
     y: 20,
     stagger: 0.1,
     duration: 0.3,
-    ease: "power2.out",
+    ease: "power2.out"
   });
 
   $btnMenu.on("click", function () {
@@ -806,7 +806,7 @@ function modalBooking() {
       } catch (error) {
         console.error("Error in Lightpick onSelect:", error);
       }
-    },
+    }
   });
 
   // Verify time input field exists
@@ -827,11 +827,11 @@ function modalBooking() {
     const requiredFields = [
       {
         name: "booking-startday",
-        errorField: ".field.date .field-border-bottom",
+        errorField: ".field.date .field-border-bottom"
       },
       { name: "booking-adult", errorField: ".adult.field-border-bottom" },
       { name: "booking-name", errorField: ".name.field-border-bottom" },
-      { name: "booking-phone", errorField: ".phone.field-border-bottom" },
+      { name: "booking-phone", errorField: ".phone.field-border-bottom" }
     ];
 
     requiredFields.forEach((field) => {
@@ -883,7 +883,7 @@ function magicCursor() {
 
   gsap.set(circle, {
     xPercent: -50,
-    yPercent: -50,
+    yPercent: -50
   });
 
   let mouseX = 0,
@@ -897,7 +897,7 @@ function magicCursor() {
     gsap.to(circle, {
       x: mouseX,
       y: mouseY,
-      duration: 0.1, // Không có độ trễ
+      duration: 0.1 // Không có độ trễ
     });
   });
 
@@ -945,10 +945,10 @@ function detailSlider() {
   var detailSlider = new Swiper(".detail-slider", {
     loop: false,
     speed: 1500,
-    grabCursor: true,
     watchSlidesProgress: true,
-    mousewheelControl: true,
-    keyboardControl: true,
+    mousewheelControl: false,
+    keyboardControl: false,
+    allowTouchMove: false,
     autoplay: false,
     navigation: {
       nextEl: document
@@ -956,7 +956,7 @@ function detailSlider() {
         .parentElement.querySelector(".swiper-button-next"),
       prevEl: document
         .querySelector(".detail-slider")
-        .parentElement.querySelector(".swiper-button-prev"),
+        .parentElement.querySelector(".swiper-button-prev")
     },
     on: {
       progress: function (swiper) {
@@ -987,8 +987,8 @@ function detailSlider() {
             slideInner.style.transition = speed + "ms " + easing;
           }
         });
-      },
-    },
+      }
+    }
   });
 
   // arrowSliderDetails
@@ -1003,7 +1003,7 @@ function detailSlider() {
     gsap.set(img, {
       opacity: 0,
       scale: 0.8,
-      pointerEvents: "none",
+      pointerEvents: "none"
     });
 
     arrowSliderDetail.addEventListener("mouseenter", () => {
@@ -1013,7 +1013,7 @@ function detailSlider() {
         opacity: 1,
         scale: 1,
         duration: 0.3,
-        ease: "power2.out",
+        ease: "power2.out"
       });
     });
 
@@ -1028,7 +1028,7 @@ function detailSlider() {
         x: x,
         y: y,
         duration: 0.3,
-        ease: "power3.out",
+        ease: "power3.out"
       });
     });
 
@@ -1037,7 +1037,7 @@ function detailSlider() {
         opacity: 0,
         scale: 0.8,
         duration: 0.3,
-        ease: "power2.out",
+        ease: "power2.out"
       });
     });
   });
@@ -1101,7 +1101,7 @@ function gallery() {
     width: "100%", // Width of the gallery (ex: '100%' or '300px').
     iframeMaxWidth: "100%", // Set maximum width for iframe.
     // mode: "lg-fade",
-    subHtmlSelectorRelative: true,
+    subHtmlSelectorRelative: true
   });
   const prevCursor = document.querySelector(".lg-prev");
   const nextCursor = document.querySelector(".lg-next");
@@ -1150,7 +1150,7 @@ function gallery() {
 function fadeTextFooter() {
   gsap.set("data-text-footer", {
     opacity: 0,
-    y: 20,
+    y: 20
   });
   let tlf = gsap.timeline({ paused: true });
 
@@ -1158,14 +1158,14 @@ function fadeTextFooter() {
     "[data-text-footer]",
     {
       opacity: 0,
-      y: 20,
+      y: 20
     },
     {
       opacity: 1,
       y: 0,
       stagger: 0.1,
       duration: 0.6,
-      ease: "power2.out",
+      ease: "power2.out"
     }
   );
   ScrollTrigger.create({
@@ -1173,7 +1173,7 @@ function fadeTextFooter() {
     start: "top 80%",
     // markers: true,
     animation: tlf,
-    toggleActions: "play none none none",
+    toggleActions: "play none none none"
   });
 }
 const init = () => {
