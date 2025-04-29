@@ -253,7 +253,10 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   .modal-content {
     border: none;
     border-radius: unset;
-    background-color: var(--color-pattern);
+    // background-color: var(--color-pattern);
+    background-image: url("../../images/culinary-detail/bg-modal.png");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .modal-dialog {
@@ -262,6 +265,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   }
 
   .modal-close {
+    cursor: pointer;
     button {
       width: 24px;
       height: 24px;
@@ -353,9 +357,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
       }
 
       input {
-        width: max-content;
-        max-width: 105px;
-
         &:nth-child(2) {
           margin-left: 10px;
           max-width: 110px;
@@ -390,6 +391,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     }
 
     .modal-close {
+      cursor: pointer;
       button {
         width: 24px;
         height: 24px;
@@ -400,8 +402,11 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     .modal-content {
       border: none;
       border-radius: unset;
-      background-color: var(--color-pattern);
+      // background-color: var(--color-pattern);
       position: relative;
+      background-image: url("../../images/culinary-detail/bg-modal.png");
+      background-repeat: no-repeat;
+      background-size: cover;
 
       .content {
         &-logo {

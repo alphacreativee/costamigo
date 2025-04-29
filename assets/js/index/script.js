@@ -789,13 +789,6 @@ function modalBooking() {
     }
   });
 
-  // Verify time input field exists
-  const timeField = $('[name="booking-hour"]');
-  if (timeField.length === 0) {
-    console.error('Input field [name="booking-hour"] not found');
-    return;
-  }
-
   // Form submission handler
   $("form").on("submit", function (e) {
     e.preventDefault();
@@ -881,18 +874,14 @@ function magicCursor() {
     });
   });
 
-  const items = document.querySelectorAll(".modal, [data-cursor-text]");
+  const items = document.querySelectorAll("[data-cursor-text]");
   var cursorDot = document.querySelector(".magic-cursor .cursor");
   var cursorText = document.querySelector(".magic-cursor .cursor .text");
 
   items.forEach((item) => {
     item.addEventListener("mouseenter", () => {
       let text = "";
-      if (item.classList.contains("modal")) {
-        text = "Đóng";
-      } else {
-        text = item.getAttribute("data-cursor-text");
-      }
+      text = item.getAttribute("data-cursor-text");
 
       // const text = item.getAttribute("data-cursor-text");
       cursorText.innerHTML = `<span class="b2-regular color-white">${text}</span>`;
@@ -902,17 +891,6 @@ function magicCursor() {
     item.addEventListener("mouseleave", () => {
       cursorText.innerHTML = "";
       cursorDot.classList.remove("show-text");
-    });
-  });
-
-  const itemsContent = document.querySelectorAll(".modal-dialog");
-  itemsContent.forEach((item) => {
-    item.addEventListener("mouseenter", () => {
-      cursorDot.classList.remove("show-text");
-    });
-    item.addEventListener("mouseleave", () => {
-      cursorText.innerHTML = `<span class="b2-regular color-white">Đóng</span>`;
-      cursorDot.classList.add("show-text");
     });
   });
 }
