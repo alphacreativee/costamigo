@@ -83,6 +83,10 @@
     // mask: url("../../images/img-bg-banner.png");
     // mask-size: 100% 100%;
 
+    &:first-child {
+      margin-top: 0;
+    }
+
     @media (min-width: 1441px) {
       height: 600px;
     }
@@ -112,6 +116,115 @@
           }
         }
       }
+    }
+  }
+}
+
+.wrapper-cta__share {
+  position: sticky;
+  top: 120px;
+  left: 40px;
+  width: max-content;
+  height: max-content;
+
+  .main-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid var(--color-black);
+    cursor: pointer;
+    transition: all 0.4s ease;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 24px;
+
+    li {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--color-primary);
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      z-index: 1;
+      transform: translateY(0);
+      transition: all 0.4s cubic-bezier(0.15, 0.2, 0.1, 1);
+      background-color: transparent;
+
+      path {
+        transition: all 0.4s cubic-bezier(0.15, 0.2, 0.1, 1);
+      }
+
+      &:hover {
+        background-color: var(--color-primary);
+
+        svg:not(.icon-copy) {
+          path {
+            fill: var(--color-white);
+          }
+        }
+
+        .icon-copy {
+          path {
+            stroke: var(--color-white);
+          }
+        }
+      }
+
+      a {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 1px solid var(--color-black);
+        background-color: var(--color-gray-10);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s ease;
+      }
+    }
+  }
+
+  &:hover {
+    .main-icon {
+      transform: scale(1.05);
+    }
+
+    li {
+      opacity: 1;
+      visibility: visible;
+
+      &:first-child {
+        transform: translateY(25px);
+      }
+
+      &:nth-child(2) {
+        transform: translateY(calc(100% + 48px));
+        transition: all 0.45s cubic-bezier(0.15, 0.2, 0.1, 1);
+      }
+
+      &:nth-child(3) {
+        transform: translateY(calc(100% + 120px));
+      }
+    }
+
+    &::after {
+      content: "";
+      background-color: transparent;
+      width: 100%;
+      height: 192px;
+      position: absolute;
+      top: 100%;
+      left: 0;
     }
   }
 }
