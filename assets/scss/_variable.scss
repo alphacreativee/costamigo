@@ -78,9 +78,15 @@
 }
 .spacing-120 {
   height: 120px;
+  @media (max-width: 991px) {
+    height: 80px;
+  }
 }
 .spacing-180 {
   height: 180px;
+  @media (max-width: 991px) {
+    height: 80px;
+  }
 }
 .spacing-240 {
   height: 240px;
