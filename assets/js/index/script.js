@@ -59,7 +59,7 @@ function sectionSlider() {
 
     const swiperMain = new Swiper(mainSwiperEl, {
       effect: "fade",
-      loop: true,
+      loop: false,
       navigation: {
         nextEl: nextBtn,
         prevEl: prevBtn,
@@ -944,10 +944,10 @@ function detailSlider() {
   var detailSlider = new Swiper(".detail-slider", {
     loop: false,
     speed: 1500,
-    grabCursor: true,
     watchSlidesProgress: true,
-    mousewheelControl: true,
-    keyboardControl: true,
+    mousewheelControl: false,
+    keyboardControl: false,
+    allowTouchMove: false,
     autoplay: false,
     navigation: {
       nextEl: document
