@@ -346,14 +346,13 @@ function animationText() {
       {
         scrollTrigger: {
           trigger: element,
-          start: "top 70%",
-          end: "bottom 70%",
+          start: "top 75%",
+          end: "bottom 75%",
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
         ease: "sine.out",
-        stagger: 0.1,
       }
     );
   });
@@ -375,7 +374,27 @@ function animationText() {
         y: 0,
         duration: 0.5,
         ease: "sine.out",
-        stagger: 0.1,
+      }
+    );
+  });
+  gsap.utils.toArray("[data-fade-in-v3]").forEach((element) => {
+    gsap.fromTo(
+      element,
+      {
+        "will-change": "opacity, transform",
+        opacity: 0,
+        y: 20,
+      },
+      {
+        scrollTrigger: {
+          trigger: element,
+          start: "top 85%",
+          end: "bottom 85%",
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "sine.out",
       }
     );
   });
