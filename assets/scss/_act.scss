@@ -1,4 +1,7 @@
 .section-act {
+  @media (max-width: 991px) {
+    padding: 0 24px;
+  }
   &.section-chef {
     .swiper-box {
       aspect-ratio: 1 !important;
@@ -21,6 +24,11 @@
     width: 600px;
     height: 600px;
     z-index: -1;
+    @media (max-width: 991px) {
+      width: 230px;
+      height: auto;
+      right: -10%;
+    }
     img {
       width: 100%;
       height: 100%;
@@ -32,11 +40,17 @@
   }
   &__title {
     max-width: 90%;
+    @media (max-width: 991px) {
+      max-width: 100%;
+    }
   }
   &__desc {
     margin-bottom: 40px;
     margin-top: 44px;
     max-width: 90%;
+    @media (max-width: 991px) {
+      max-width: 100%;
+    }
 
     &.not-has-tag {
       margin-top: 20px;
@@ -91,11 +105,16 @@
   .act-slider {
     margin-right: 40px;
     // overflow: hidden;
+    @media (max-width: 991px) {
+      margin-right: 0;
+    }
     .swiper-box {
       width: 100%;
       aspect-ratio: 550 / 435;
       padding: 0 20px;
-
+      @media (max-width: 991px) {
+        padding: 0;
+      }
       &-img {
         height: 100%;
         width: 100%;
@@ -125,6 +144,11 @@
     transition: opacity 0.2s ease, transform 0.2s ease;
 
     cursor: none;
+    @media (max-width: 991px) {
+      opacity: 1;
+      transform: scale(1);
+      cursor: pointer;
+    }
     &::after {
       content: unset;
       font-size: 0;
