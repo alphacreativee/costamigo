@@ -285,6 +285,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
       height: 24px;
       background: transparent;
       color: transparent;
+      opacity: 1;
     }
   }
 
@@ -361,6 +362,10 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
     &.date {
       position: relative;
+      .field-border-bottom {
+        position: relative;
+        z-index: 2;
+      }
       img {
         position: absolute;
         top: 12px;
@@ -494,7 +499,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .lightpick__month-title > .lightpick__select-months,
 .lightpick__day-of-the-week {
-  font-weight: 900;
+  font-weight: 600;
 }
 .lightpick__month-title {
   padding: 0;
