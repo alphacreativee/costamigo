@@ -20,7 +20,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    transform: translate(0%, -51%);
+    transform: translate(0%, -70%);
     width: 600px;
     height: 600px;
     z-index: -1;
@@ -103,8 +103,8 @@
     width: 100%;
   }
   .act-slider {
-    margin-right: 40px;
-    // overflow: hidden;
+    margin-right: 95px;
+
     @media (max-width: 991px) {
       margin-right: 0;
     }
@@ -112,6 +112,7 @@
       width: 100%;
       aspect-ratio: 550 / 435;
       padding: 0 20px;
+
       @media (max-width: 991px) {
         padding: 0;
       }

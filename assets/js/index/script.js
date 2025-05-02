@@ -536,9 +536,18 @@ function swiperAct() {
   if (!document.querySelector(".act-slider")) return;
 
   const container = document.querySelector(".act-slider");
-  const btnPrev = container.querySelector(".swiper-button-prev");
-  const btnNext = container.querySelector(".swiper-button-next");
+  const swiperButton = container.querySelector(".swiper-btn-act");
   const swiperActContent = document.querySelector(".swiper-act-content");
+
+  // Kiểm tra xem các phần tử có tồn tại không
+  if (!container || !swiperButton || !swiperActContent) {
+    console.error("Missing required elements:", {
+      container,
+      swiperButton,
+      swiperActContent,
+    });
+    return;
+  }
 
   const swiperActC = new Swiper(".swiper-act-content", {
     slidesPerView: 1,
@@ -557,12 +566,14 @@ function swiperAct() {
   const swiperAct = new Swiper(".act-slider", {
     slidesPerView: 1,
     effect: isMobile ? "fade" : "slide",
+    slidesOffsetAfter: 76,
     breakpoints: {
       991: {
-        slidesPerView: 1.45,
+        slidesPerView: 1.4,
       },
     },
     speed: 1000,
+    loop: false,
     pagination: {
       el: ".section-act__slider .swiper-pagination",
       clickable: true,
@@ -577,60 +588,129 @@ function swiperAct() {
     thumbs: {
       swiper: swiperActC,
     },
+    on: {
+      slideChange: function () {
+        console.log(
+          "Current slide index:",
+          this.activeIndex,
+          "Total slides:",
+          this.slides.length
+        );
+      },
+    },
   });
 
   swiperAct.changeLanguageDirection("rtl");
 
-  // Hover effect cho desktop
-  if (!isMobile && btnPrev && btnNext && container) {
+  // Hover effect và click cho desktop
+  if (!isMobile) {
+    let lastMouseX = 0;
+
     container.addEventListener("mousemove", (e) => {
       const rect = container.getBoundingClientRect();
       const mouseX = e.clientX - rect.left;
       const mouseY = e.clientY - rect.top;
       const halfWidth = rect.width / 2;
+      const buttonWidth = swiperButton.offsetWidth;
+      const buttonHeight = swiperButton.offsetHeight;
 
-      const buttonW = btnPrev.offsetWidth;
-      const buttonH = btnPrev.offsetHeight;
+      // Cập nhật lastMouseX
+      lastMouseX = mouseX;
+      console.log(
+        "Mouse moved - lastMouseX:",
+        lastMouseX,
+        "halfWidth:",
+        halfWidth
+      );
 
-      const posX = mouseX - buttonW / 2;
-      const posY = mouseY - buttonH / 2;
+      // Hiển thị nút
+      swiperButton.style.opacity = "1";
+      swiperButton.style.transform = "scale(1)";
 
-      const clampedX = Math.max(0, Math.min(rect.width - buttonW, posX));
-      const clampedY = Math.max(0, Math.min(rect.height - buttonH, posY));
+      // Tính toán vị trí
+      let buttonPosX = mouseX - buttonWidth / 2;
+      let buttonPosY = mouseY - buttonHeight / 2;
 
-      // Reset ẩn trước
-      btnPrev.style.opacity = "0";
-      btnNext.style.opacity = "0";
-      btnPrev.style.transform = "scale(0)";
-      btnNext.style.transform = "scale(0)";
+      // Xác định góc xoay dựa trên vị trí chuột
+      const transitionZone = 50;
+      let rotateDeg;
 
-      if (mouseX <= halfWidth) {
-        btnPrev.style.left = `${clampedX}px`;
-        btnPrev.style.top = `${clampedY}px`;
-        btnPrev.style.transform = "scale(1) rotate(180deg)";
-        btnPrev.style.opacity = "1";
-        btnPrev.style.zIndex = "2";
-        btnNext.style.zIndex = "1";
+      if (mouseX <= halfWidth - transitionZone) {
+        // Nửa trái: prev, mũi tên hướng trái (180deg)
+        rotateDeg = 180;
+        buttonPosX = Math.max(
+          -50,
+          Math.min(halfWidth - buttonWidth, buttonPosX)
+        );
+      } else if (mouseX >= halfWidth + transitionZone) {
+        // Nửa phải: next, mũi tên hướng phải (0deg)
+        rotateDeg = 0;
+        buttonPosX = Math.max(
+          halfWidth,
+          Math.min(rect.width - buttonWidth + 50, buttonPosX)
+        );
       } else {
-        btnNext.style.left = `${clampedX}px`;
-        btnNext.style.top = `${clampedY}px`;
-        btnNext.style.transform = "scale(1) rotate(0deg)";
-        btnNext.style.opacity = "1";
-        btnNext.style.zIndex = "2";
-        btnPrev.style.zIndex = "1";
+        // Vùng chuyển tiếp: xoay từ 180deg qua 90deg đến 0deg (lên trên)
+        const progress =
+          (mouseX - (halfWidth - transitionZone)) / (transitionZone * 2);
+        rotateDeg = 180 - progress * 90; // Từ 180deg -> 90deg -> 0deg
+        buttonPosX = Math.max(
+          -50,
+          Math.min(rect.width - buttonWidth + 50, buttonPosX)
+        );
       }
+
+      // Giới hạn vị trí Y
+      buttonPosY = Math.max(
+        -50,
+        Math.min(rect.height - buttonHeight + 50, buttonPosY)
+      );
+
+      // Áp dụng vị trí và xoay
+      swiperButton.style.left = `${buttonPosX}px`;
+      swiperButton.style.top = `${buttonPosY}px`;
+      swiperButton.style.transform = `scale(1) rotate(${rotateDeg}deg)`;
     });
 
     container.addEventListener("mouseleave", () => {
-      btnPrev.style.opacity = "0";
-      btnPrev.style.transform = "scale(0)";
-      btnNext.style.opacity = "0";
-      btnNext.style.transform = "scale(0)";
+      swiperButton.style.opacity = "0";
+      swiperButton.style.transform = "scale(0)";
     });
 
-    // Click handlers
-    btnPrev.addEventListener("click", () => swiperAct.slidePrev());
-    btnNext.addEventListener("click", () => swiperAct.slideNext());
+    // Click handler
+    swiperButton.addEventListener("click", () => {
+      const rect = container.getBoundingClientRect();
+      const halfWidth = rect.width / 2;
+      const currentIndex = swiperAct.activeIndex;
+      const totalSlides = swiperAct.slides.length;
+
+      console.log(
+        "Button clicked - lastMouseX:",
+        lastMouseX,
+        "currentIndex:",
+        currentIndex,
+        "totalSlides:",
+        totalSlides
+      );
+
+      if (lastMouseX <= halfWidth) {
+        // Nửa trái: gọi slidePrev nếu không ở slide đầu
+        if (currentIndex > 0) {
+          swiperAct.slidePrev();
+          console.log("slidePrev called");
+        } else {
+          console.log("Cannot slidePrev: at first slide");
+        }
+      } else {
+        // Nửa phải: gọi slideNext nếu không ở slide cuối
+        if (currentIndex < totalSlides - 1) {
+          swiperAct.slideNext();
+          console.log("slideNext called");
+        } else {
+          console.log("Cannot slideNext: at last slide");
+        }
+      }
+    });
   }
 }
 
