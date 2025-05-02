@@ -98,7 +98,8 @@
     }
   }
 }
-.out-home {
+.out-home,
+.page-template:not(.page-template-template-home) {
   .svg-container {
     height: auto;
     top: 90vh;
@@ -114,7 +115,8 @@
     height: 1700px;
   }
 }
-.page-restaurant {
+.page-restaurant,
+.page-template-template-accommodation {
   .svg-container {
     left: 35%;
 
