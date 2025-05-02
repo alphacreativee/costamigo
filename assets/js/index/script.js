@@ -490,8 +490,8 @@ function animationText() {
         delay: index * 0.1,
         scrollTrigger: {
           trigger: element,
-          start: "top 50%",
-          end: "top 50%",
+          start: "top 70%",
+          end: "top 70%",
           toggleActions: "play none none none",
           // markers: true,
         },
