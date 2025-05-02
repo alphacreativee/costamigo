@@ -420,8 +420,8 @@ function animationText() {
       {
         scrollTrigger: {
           trigger: element,
-          start: "top 65%",
-          end: "bottom 65%",
+          start: "top 70%",
+          end: "bottom 70%",
         },
         opacity: 1,
         y: 0,
@@ -441,8 +441,8 @@ function animationText() {
       {
         scrollTrigger: {
           trigger: element,
-          start: "top 85%",
-          end: "bottom 85%",
+          start: "top 90%",
+          end: "bottom 90%",
         },
         opacity: 1,
         y: 0,
