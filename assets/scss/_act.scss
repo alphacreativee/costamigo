@@ -180,5 +180,17 @@
     align-items: center;
     width: 48px;
     height: 48px;
+
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 500;
+    letter-spacing: 0.39px;
+
+    span {
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 500;
+      letter-spacing: 0.39px;
+    }
   }
 }
