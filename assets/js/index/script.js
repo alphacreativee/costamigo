@@ -75,59 +75,74 @@ function sectionSlider() {
         },
       },
     });
+    if (window.innerWidth > 991) {
+      let lastSide = null;
 
-    mainSwiperEl.addEventListener("mousemove", (e) => {
-      const rect = mainSwiperEl.getBoundingClientRect();
-      const mouseX = e.clientX - rect.left;
-      const mouseY = e.clientY - rect.top;
-      const halfWidth = rect.width / 2;
+      mainSwiperEl.addEventListener("mousemove", (e) => {
+        const rect = mainSwiperEl.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+        const halfWidth = rect.width / 2;
 
-      const buttonWidth = prevBtn.offsetWidth;
-      const buttonHeight = prevBtn.offsetHeight;
+        const buttonWidth = prevBtn.offsetWidth;
+        const buttonHeight = prevBtn.offsetHeight;
 
-      // Tính vị trí chung
-      const posX = mouseX - buttonWidth / 2;
-      const posY = mouseY - buttonHeight / 2;
+        const posX = mouseX - buttonWidth / 2;
+        const posY = mouseY - buttonHeight / 2;
 
-      // Reset ẩn
-      prevBtn.style.opacity = "0";
-      nextBtn.style.opacity = "0";
-      prevBtn.style.transform = "scale(0)";
-      nextBtn.style.transform = "scale(0)";
+        // Reset hide
+        prevBtn.style.opacity = "0";
+        nextBtn.style.opacity = "0";
+        prevBtn.style.transform = "scale(1)";
+        nextBtn.style.transform = "scale(1)";
 
-      if (mouseX <= halfWidth) {
-        // Hover bên trái -> Hiện prev
-        prevBtn.style.opacity = "1";
-        prevBtn.style.left = `${Math.max(
-          0,
-          Math.min(rect.width - buttonWidth, posX)
-        )}px`;
-        prevBtn.style.top = `${Math.max(
-          0,
-          Math.min(rect.height - buttonHeight, posY)
-        )}px`;
-        prevBtn.style.transform = "scale(1) rotate(180deg)";
-      } else {
-        // Hover bên phải -> Hiện next
-        nextBtn.style.opacity = "1";
-        nextBtn.style.left = `${Math.max(
-          0,
-          Math.min(rect.width - buttonWidth, posX)
-        )}px`;
-        nextBtn.style.top = `${Math.max(
-          0,
-          Math.min(rect.height - buttonHeight, posY)
-        )}px`;
-        nextBtn.style.transform = "scale(1) rotate(0deg)";
-      }
-    });
+        if (mouseX <= halfWidth) {
+          // Moved to left
+          if (lastSide !== "left") {
+            prevBtn.style.transition = "transform 0.4s ease, opacity 0.3s ease";
+            prevBtn.style.transform = "scale(1) rotate(-360deg)";
+            lastSide = "left";
+          } else {
+            prevBtn.style.transform = "scale(1) rotate(180deg)";
+          }
+          prevBtn.style.opacity = "1";
+          prevBtn.style.left = `${Math.max(
+            0,
+            Math.min(rect.width - buttonWidth, posX)
+          )}px`;
+          prevBtn.style.top = `${Math.max(
+            0,
+            Math.min(rect.height - buttonHeight, posY)
+          )}px`;
+        } else {
+          // Moved to right
+          if (lastSide !== "right") {
+            nextBtn.style.transition = "transform 0.4s ease, opacity 0.3s ease";
+            nextBtn.style.transform = "scale(1) rotate(360deg)";
+            lastSide = "right";
+          } else {
+            nextBtn.style.transform = "scale(1) rotate(0deg)";
+          }
+          nextBtn.style.opacity = "1";
+          nextBtn.style.left = `${Math.max(
+            0,
+            Math.min(rect.width - buttonWidth, posX)
+          )}px`;
+          nextBtn.style.top = `${Math.max(
+            0,
+            Math.min(rect.height - buttonHeight, posY)
+          )}px`;
+        }
+      });
 
-    mainSwiperEl.addEventListener("mouseleave", () => {
-      prevBtn.style.opacity = "0";
-      prevBtn.style.transform = "scale(0)";
-      nextBtn.style.opacity = "0";
-      nextBtn.style.transform = "scale(0)";
-    });
+      mainSwiperEl.addEventListener("mouseleave", () => {
+        lastSide = null;
+        prevBtn.style.opacity = "0";
+        prevBtn.style.transform = "scale(0)";
+        nextBtn.style.opacity = "0";
+        nextBtn.style.transform = "scale(0)";
+      });
+    }
   });
 }
 
