@@ -41,7 +41,6 @@ function togglePlayMusic() {
 
 function sectionSlider() {
   if ($(".section-slider").length < 1) return;
-
   const sections = document.querySelectorAll(".tab-content .tab-pane");
 
   sections.forEach((section) => {
@@ -49,7 +48,8 @@ function sectionSlider() {
     const mainSwiperEl = section.querySelector(".main-slider");
     const paginationEl = section.querySelector(".swiper-pagination");
     const swiperButton = section.querySelector(".swiper-btn-custom");
-
+    const btnNext = section.querySelector(".swiper-button-next");
+    const btnPrev = section.querySelector(".swiper-button-prev");
     // Kiểm tra xem các phần tử có tồn tại không
     if (!contentSwiperEl || !mainSwiperEl || !paginationEl || !swiperButton) {
       console.error("Missing required elements:", {
@@ -75,6 +75,10 @@ function sectionSlider() {
         clickable: true,
         type: "fraction",
       },
+      navigation: {
+        nextEl: btnNext,
+        prevEl: btnPrev,
+      },
       on: {
         slideChange: function () {
           swiperContent.slideTo(this.realIndex);
@@ -82,7 +86,7 @@ function sectionSlider() {
       },
     });
 
-    if (window.innerWidth > 991) {
+    if (document.documentElement.clientWidth > 991) {
       let lastMouseX = 0;
 
       mainSwiperEl.addEventListener("mousemove", (e) => {
