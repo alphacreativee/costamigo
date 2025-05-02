@@ -30,6 +30,10 @@
 
     &--title {
       a {
+        &:not(:last-child) {
+          display: block;
+          margin-bottom: 16px;
+        }
         &.active {
           h3 {
             color: var(--color-secondary);
