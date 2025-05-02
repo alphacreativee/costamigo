@@ -68,9 +68,8 @@
   &__desc {
     background: var(--color-white) url(../../images/bg-body.png);
     background-size: contain;
-    padding-left: 45px;
-    padding-top: 15px;
-    padding-bottom: 22px;
+
+    padding: 16px 24px 16px 34px;
     transform: translateX(-10px);
     display: flex;
     flex-direction: column;
