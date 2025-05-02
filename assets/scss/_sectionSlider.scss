@@ -98,10 +98,10 @@
     color: #000;
     transition: 0.5s all;
     @media (max-width: 991px) {
-      width: 100% !important;
+      // width: 100% !important;
       align-items: center !important;
       justify-content: flex-start !important;
-      aspect-ratio: unset;
+      height: auto;
     }
     .btn-wrapper {
       position: absolute;
@@ -133,7 +133,7 @@
       right: unset;
       left: 50%;
       transform: translateX(-50%);
-      bottom: -96px;
+      bottom: -85px;
       border: none;
       color: var(--color-primary);
     }
@@ -188,11 +188,11 @@
         * {
           transform: translate(0);
           opacity: 1;
-          transition: all 0.8s ease;
+          transition: all 0.4s ease;
 
-          .btn-wrapper {
-            transition-delay: 0.2s;
-          }
+          // .btn-wrapper {
+          //   transition-delay: 0.s;
+          // }
         }
       }
     }
@@ -288,8 +288,10 @@
       opacity: 1;
       border: 1px solid var(--color-primary);
       top: unset;
-      bottom: -100px;
+      bottom: -350px;
       cursor: pointer;
+      width: 48px;
+      height: 48px;
     }
     &::after {
       content: unset;
@@ -302,14 +304,24 @@
   }
   .swiper-button-prev {
     right: unset;
+
+    transform: translate(0);
+    @media (max-width: 991px) {
+      left: 50%;
+      transform: translateX(-150%);
+      svg {
+        transform: rotate(180deg);
+      }
+    }
   }
 
   .swiper-button-next {
     right: unset;
     transform: translate(0);
     @media (max-width: 991px) {
-      right: 10px;
+      right: 50%;
       left: unset;
+      transform: translateX(150%);
     }
   }
   .main-slider {
