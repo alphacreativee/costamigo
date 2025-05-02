@@ -454,6 +454,8 @@ function animationText() {
   // description
   const fxTitleDesc = document.querySelectorAll("[data-fade-desc]");
   fxTitleDesc.forEach((element, elementIdx) => {
+    const startValue = element.dataset.start || "50%";
+
     let myDesc = new SplitType(element, {
       types: "lines, words",
       lineClass: "split-line",
@@ -467,10 +469,10 @@ function animationText() {
         delay: index * 0.1,
         scrollTrigger: {
           trigger: element,
-          start: "top center",
-          end: "top center",
+          start: `top ${startValue}`,
+          end: `top ${startValue}`,
           toggleActions: "play none none none",
-          // markers: true,
+          // markers: true
         },
       });
     });
