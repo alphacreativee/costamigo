@@ -78,12 +78,6 @@ function sectionSlider() {
       on: {
         slideChange: function () {
           swiperContent.slideTo(this.realIndex);
-          console.log(
-            "Current slide index:",
-            this.activeIndex,
-            "Total slides:",
-            this.slides.length
-          );
         },
       },
     });
