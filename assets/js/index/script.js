@@ -455,6 +455,27 @@ function animationText() {
       }
     );
   });
+  gsap.utils.toArray("[data-fade-in-v4]").forEach((element) => {
+    gsap.fromTo(
+      element,
+      {
+        "will-change": "opacity, transform",
+        opacity: 0,
+        y: 20,
+      },
+      {
+        scrollTrigger: {
+          trigger: element,
+          start: "top 60%",
+          end: "bottom 60%",
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "sine.out",
+      }
+    );
+  });
   // description
   const fxTitleDesc = document.querySelectorAll("[data-fade-desc]");
   fxTitleDesc.forEach((element, elementIdx) => {
@@ -476,7 +497,7 @@ function animationText() {
           start: `top ${startValue}`,
           end: `top ${startValue}`,
           toggleActions: "play none none none",
-          // markers: true
+          // markers: true,
         },
       });
     });
