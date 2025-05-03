@@ -76,8 +76,17 @@ function sectionSlider() {
         type: "fraction",
       },
       navigation: {
-        nextEl: btnNext,
+        nextEl: btnNext, // Sử dụng nút tùy chỉnh
         prevEl: btnPrev,
+      },
+      breakpoints: {
+        // Trên hoặc bằng 992px
+        991: {
+          navigation: {
+            nextEl: swiperButton, // Sử dụng nút mặc định của Swiper
+            prevEl: swiperButton,
+          },
+        },
       },
       on: {
         slideChange: function () {
@@ -99,12 +108,6 @@ function sectionSlider() {
 
         // Cập nhật lastMouseX
         lastMouseX = mouseX;
-        console.log(
-          "Mouse moved - lastMouseX:",
-          lastMouseX,
-          "halfWidth:",
-          halfWidth
-        );
 
         // Hiển thị nút
         swiperButton.style.opacity = "1";
@@ -161,6 +164,7 @@ function sectionSlider() {
         const halfWidth = rect.width / 2;
         const currentIndex = swiperMain.activeIndex;
         const totalSlides = swiperMain.slides.length;
+        console.log("123");
 
         if (lastMouseX <= halfWidth) {
           // Nửa trái: gọi slidePrev nếu không ở slide đầu
