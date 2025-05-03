@@ -43,7 +43,11 @@ footer {
         margin-bottom: 24px;
       }
     }
-
+    &-copyright,
+    &-alpha {
+      display: flex;
+      align-items: center;
+    }
     &-logo {
       width: 233px;
       height: 120px;
