@@ -794,14 +794,17 @@ function scrollHeader() {
     paused: true,
     onUpdate: (self) => {
       const header = document.querySelector("header");
+      const navSticky = document.querySelector(".nav-tabs");
       const scrollY = window.scrollY;
       if (scrollY === 0) {
         header.classList.remove("scrolled");
       }
       if (self.direction === 1) {
         header.classList.add("scrolled");
+        navSticky.classList.add("scrolled");
       } else {
         header.classList.remove("scrolled");
+        navSticky.classList.remove("scrolled");
       }
       self.direction === 1
         ? $(".cta-group").addClass("hide")
@@ -835,7 +838,7 @@ function animationArt() {
   animationArtReverse.forEach((imageR) => {
     // Parallax effect
     gsap.to(imageR, {
-      yPercent: 30, // Move element downward by 20% of its height
+      yPercent: 25, // Move element downward by 20% of its height
       ease: "none",
       scrollTrigger: {
         trigger: imageR,
