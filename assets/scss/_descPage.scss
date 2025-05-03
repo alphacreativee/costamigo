@@ -5,6 +5,9 @@
   &.page-contact {
     .desc-page__container {
       padding: 0;
+      @media (max-width: 991px) {
+        padding: 0 24px;
+      }
     }
     .desc-page__desc {
       margin-bottom: 16px;

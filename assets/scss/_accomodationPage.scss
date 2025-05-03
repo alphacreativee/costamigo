@@ -3,6 +3,28 @@
   padding-bottom: 80px;
   &.news {
     padding: 0;
+    .nav-tabs {
+      @media (max-width: 991px) {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        gap: 32px;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        li {
+          &:first-child {
+            margin-left: 24px;
+          }
+          &:last-child {
+            margin-right: 24px;
+          }
+          .nav-link {
+            width: max-content;
+          }
+        }
+      }
+    }
   }
   .nav-tabs {
     border: none;
@@ -16,6 +38,10 @@
     background-size: contain;
     transition: top 0.4s ease;
     padding: 12px 0;
+    @media (max-width: 991px) {
+      top: 56px;
+      justify-content: unset !important;
+    }
     &.scrolled {
       top: 0;
     }

@@ -140,6 +140,9 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 24px;
+        @media (max-width: 991px) {
+          grid-template-columns: 1fr;
+        }
       }
       input {
         border: none;
@@ -200,6 +203,15 @@
       width: 100%;
       justify-content: space-between;
       padding-top: 56px;
+      @media (max-width: 991px) {
+        flex-direction: column;
+        gap: 32px;
+        padding-top: 8px;
+        align-items: flex-start;
+        button {
+          margin: 0 auto;
+        }
+      }
       .check-box {
         display: flex;
         align-items: center;

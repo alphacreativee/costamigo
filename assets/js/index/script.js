@@ -827,16 +827,30 @@ function scrollHeader() {
       const header = document.querySelector("header");
       const navSticky = document.querySelector(".nav-tabs");
       const scrollY = window.scrollY;
+
+      // Kiểm tra scrollY để xóa lớp 'scrolled' khi ở đầu trang
       if (scrollY === 0) {
         header.classList.remove("scrolled");
       }
+
+      // Kiểm tra hướng cuộn (self.direction)
       if (self.direction === 1) {
+        // Cuộn xuống
         header.classList.add("scrolled");
-        navSticky.classList.add("scrolled");
+        if (navSticky) {
+          // Chỉ thêm lớp 'scrolled' nếu navSticky tồn tại
+          navSticky.classList.add("scrolled");
+        }
       } else {
+        // Cuộn lên
         header.classList.remove("scrolled");
-        navSticky.classList.remove("scrolled");
+        if (navSticky) {
+          // Chỉ xóa lớp 'scrolled' nếu navSticky tồn tại
+          navSticky.classList.remove("scrolled");
+        }
       }
+
+      // Xử lý lớp 'hide' cho .cta-group
       self.direction === 1
         ? $(".cta-group").addClass("hide")
         : $(".cta-group").removeClass("hide");
@@ -1274,6 +1288,12 @@ function gallery() {
     iframeMaxWidth: "100%", // Set maximum width for iframe.
     // mode: "lg-fade",
     subHtmlSelectorRelative: true,
+    showCloseIcon: true,
+    mobileSettings: {
+      controls: true, // Hiển thị nút điều hướng
+      showCloseIcon: true, // Hiển thị nút đóng trên mobile
+      download: false,
+    },
   });
   const prevCursor = document.querySelector(".lg-prev");
   const nextCursor = document.querySelector(".lg-next");

@@ -99,7 +99,13 @@
 }
 .spacing-140 {
   height: 140px;
+  @media (max-width: 991px) {
+    height: 80px;
+  }
 }
 .spacing-200 {
   height: 200px;
+  @media (max-width: 991px) {
+    height: 88px;
+  }
 }
