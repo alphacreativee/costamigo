@@ -578,6 +578,7 @@ function swiperAct() {
     fadeEffect: {
       crossFade: true,
     },
+
     spaceBetween: 30,
     allowTouchMove: false,
   });
@@ -587,10 +588,11 @@ function swiperAct() {
   const swiperAct = new Swiper(".act-slider", {
     slidesPerView: 1,
     effect: isMobile ? "fade" : "slide",
-    slidesOffsetAfter: 76,
+    slidesOffsetAfter: 0,
     breakpoints: {
       991: {
         slidesPerView: 1.4,
+        slidesOffsetAfter: 76,
       },
     },
     speed: 1000,
@@ -620,7 +622,12 @@ function swiperAct() {
       },
     },
   });
-
+  $(".swiper-button-prev-mobile").on("click", function () {
+    swiperAct.slidePrev();
+  });
+  $(".swiper-button-next-mobile").on("click", function () {
+    swiperAct.slideNext();
+  });
   swiperAct.changeLanguageDirection("rtl");
 
   // Hover effect và click cho desktop
