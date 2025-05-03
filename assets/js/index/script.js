@@ -556,6 +556,16 @@ function swiperRestaurant() {
       activeElms = el;
     });
   });
+
+  if (document.documentElement.clientWidth < 991) {
+    if (!document.querySelector(".swiper-res-mobile")) return;
+    var swiperRes = new Swiper(".swiper-res-mobile", {
+      slidesPerView: 1.25,
+      spaceBetween: 24,
+      slidesOffsetAfter: 24,
+      slidesOffsetBefore: 24,
+    });
+  }
 }
 function swiperAct() {
   if (!document.querySelector(".act-slider")) return;
@@ -750,11 +760,21 @@ function swiperAct() {
 function swiperOffer() {
   if (!document.querySelector(".swiper-offer")) return;
   var swiperOffer = new Swiper(".swiper-offer", {
-    slidesPerView: 3,
-    spaceBetween: 40,
+    spaceBetween: 24,
+    slidesPerView: 1.25,
     navigation: {
       nextEl: ".section-offer__slider .swiper-button-next",
       prevEl: ".section-offer__slider .swiper-button-prev",
+    },
+    slidesOffsetAfter: 24,
+    slidesOffsetBefore: 24,
+    breakpoints: {
+      991: {
+        slidesPerView: 3,
+        spaceBetween: 40,
+        slidesOffsetAfter: 0,
+        slidesOffsetBefore: 0,
+      },
     },
   });
 }

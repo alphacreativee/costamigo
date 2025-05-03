@@ -63,6 +63,10 @@
 .h1-font {
   font-size: 40px;
   line-height: 48px;
+  @media (max-width: 991px) {
+    font-size: 32px;
+    line-height: 40px;
+  }
 }
 .h1-font-md {
   font-size: 32px;

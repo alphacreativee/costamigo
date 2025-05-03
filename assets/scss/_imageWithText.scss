@@ -17,6 +17,9 @@ section.image-with-text {
     aspect-ratio: 1440 / 843;
     object-position: bottom;
     object-fit: cover;
+    @media (max-width: 991px) {
+      aspect-ratio: 375 / 800;
+    }
   }
 
   .detail-slider {
@@ -141,6 +144,11 @@ section.image-with-text {
     max-width: 52%;
     width: 100%;
     padding: 0 40px;
+    @media (max-width: 991px) {
+      top: 164px;
+      max-width: 100%;
+      padding: 0 40px;
+    }
     h1 {
       margin-bottom: 24px;
       text-align: center;
