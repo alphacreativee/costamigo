@@ -79,6 +79,7 @@
     </div>
     <!-- end cta -->
     <!-- layout -->
+    <!-- layout -->
     <header class="header">
       <div class="container-fluid p-0">
         <div class="header-wrapper">
@@ -91,7 +92,7 @@
                 </div>
               </div>
             </button>
-            <ul class="menu">
+            <ul class="menu d-none d-lg-flex">
               <li class="menu-item-has-children d-flex align-items-center">
                 <a href="./accomodation.html" class="animation-text-v2"
                   >Phòng nghỉ</a
@@ -138,7 +139,7 @@
                 >
               </li>
               <li>
-                <a href="./facilities.html" class="animation-text-v2 active"
+                <a href="./facilities.html" class="animation-text-v2"
                   >Tiện ích</a
                 >
               </li>
@@ -153,7 +154,7 @@
             </a>
           </div>
           <div class="header-menu right">
-            <ul class="menu">
+            <ul class="menu d-none d-lg-flex">
               <li>
                 <a href="#" class="animation-text-v2">360 Virtual</a>
               </li>
@@ -161,7 +162,7 @@
                 <a href="#" class="animation-text-v2"> Đặt phòng </a>
               </li>
             </ul>
-            <div class="lang">
+            <div class="lang d-none d-lg-flex">
               <div class="dropdown-custom">
                 <div class="dropdown-custom__btn">
                   <div
@@ -173,7 +174,7 @@
                 </div>
                 <div class="dropdown-custom__menu">
                   <div
-                    class="dropdown-custom__item language__item b2-font color-white animation-text-v3"
+                    class="dropdown-custom__item language__item b2-font color-primary animation-text-v3"
                   >
                     EN
                   </div>
@@ -213,7 +214,7 @@
             </button>
           </div>
         </div>
-        <div class="header-sub-menu">
+        <div class="header-sub-menu desktop d-none d-lg-block">
           <div class="header-sub-menu__container">
             <div class="sub-menu-container">
               <div class="sub-menu">
@@ -263,11 +264,126 @@
                 </ul>
               </div>
             </div>
-            <div class="sub-menu-overlay"></div>
+            <div class="sub-menu-overlay d-none d-lg-flex"></div>
+          </div>
+        </div>
+        <div class="header-sub-menu mobile d-block d-lg-none">
+          <div class="header-sub-menu__container">
+            <div class="sub-menu-container">
+              <div class="sub-menu">
+                <ul>
+                  <li>
+                    <a
+                      href="./accomodation.html"
+                      class="h1-font-md font-heading color-white animation-text-v3"
+                      >Phòng nghỉ</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./restaurant.html"
+                      class="h1-font-md font-heading color-white animation-text-v3"
+                      >Ẩm thực</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./facilities.html"
+                      class="h1-font-md font-heading color-white animation-text-v3"
+                      >Tiện ích</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./offer.html"
+                      class="h1-font-md font-heading color-white animation-text-v3"
+                      >Ưu đãi</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./wellness-spa.html"
+                      class="h1-font-md font-heading color-white animation-text-v3"
+                      >Costamigo Wellness Spa</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./event.html"
+                      class="h1-font font-heading color-white animation-text-v3"
+                      >Hội nghị & tiệc cưới</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./destination.html"
+                      class="h1-font-md font-heading color-white animation-text-v3"
+                      >Điểm đến</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./gallery.html"
+                      class="h1-font-md font-heading color-white animation-text-v3"
+                      >Thư viện</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./news.html"
+                      class="h1-font-md font-heading color-white animation-text-v3"
+                      >Tin tức & Giải thưởng</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./contact.html"
+                      class="h1-font-md font-heading color-white animation-text-v3"
+                      >Liên hệ</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="header-sub-menu__bottom">
+              <div class="bottom-wrapper">
+                <div class="lang">
+                  <div class="dropdown-custom">
+                    <div class="dropdown-custom__btn">
+                      <div
+                        class="value-select dropdown-custom__text b2-font color-white"
+                      >
+                        VI
+                      </div>
+                      <img src="./assets/images/ic-arrow-down.svg" alt="" />
+                    </div>
+                    <div class="dropdown-custom__menu">
+                      <div
+                        class="dropdown-custom__item language__item b2-font color-primary animation-text-v3"
+                      >
+                        EN
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="virtual-link">
+                  <a href="" class="b2-font color-white d-inline-block">
+                    360 Virtual
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </header>
+    <!-- toolbar mobile -->
+    <div class="toolbar-mobile d-block d-lg-none">
+      <div class="toolbar-wrapper">
+        <a href="#" class="b2-font color-white">Đặt phòng</a>
+      </div>
+    </div>
+    <!-- end toolbar mobile -->
     <main>
       <section class="section-banner">
         <div class="container-fluid p-0">
