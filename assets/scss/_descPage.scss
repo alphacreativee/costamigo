@@ -44,10 +44,10 @@
   &__bg {
     position: absolute;
     right: 0;
-    bottom: -50%;
+    bottom: -40%;
     width: 370px;
     height: 470px;
     transform: translateX(50%);
-    z-index: 1;
+    z-index: -1;
   }
 }

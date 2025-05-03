@@ -276,7 +276,7 @@ function imgWithText() {
 }
 
 function animationMaskCentral() {
-  if ($(".image-with-text").length < 1) return;
+  // if ($(".image-with-text").length < 1) return;
 
   const animationImages = document.querySelectorAll(".animation-image");
 

@@ -47,8 +47,8 @@
   }
 }
 .split-line {
-  display: block; /* Mỗi dòng là một khối */
-  overflow: hidden; /* Ẩn phần text khi "mọc" lên */
+  display: block;
+  overflow: hidden;
 }
 [data-fade-desc],
 [data-fade-desc-v2] {
