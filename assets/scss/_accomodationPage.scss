@@ -82,6 +82,12 @@
       width: 395px;
       height: 530px;
       z-index: -1;
+      @media (max-width: 991px) {
+        width: 241px;
+        height: 324px;
+        right: 60px;
+        display: none;
+      }
     }
     &-card {
       display: flex;
@@ -179,10 +185,16 @@
     }
   }
 }
-.page-accomodation {
+.page-accomodation,
+.page-offer {
   .accomodation-list .nav-tabs {
     @media (max-width: 991px) {
       justify-content: center !important;
     }
+  }
+}
+.page-offer .accomodation-list {
+  @media (max-width: 991px) {
+    overflow: unset !important;
   }
 }

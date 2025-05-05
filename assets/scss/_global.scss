@@ -111,8 +111,11 @@
   }
 }
 
-.page-accomodation main {
-  overflow: unset;
+.page-accomodation,
+.page-offer {
+  main {
+    overflow: unset;
+  }
 }
 .page-contact {
   .svg-container {
