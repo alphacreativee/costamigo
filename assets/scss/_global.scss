@@ -110,6 +110,9 @@
     overflow-x: hidden;
   }
 }
+.page-restaurant main {
+  overflow: unset;
+}
 .page-contact {
   .svg-container {
     left: 40%;
