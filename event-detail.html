@@ -26,7 +26,7 @@
   </head>
   <body class="scroll-hidden">
     <!-- loading -->
-    <div class="loading d-none">
+    <div class="loading">
       <div class="loading-logo">
         <img src="./assets/images/logo-footer.svg" alt="" />
       </div>
@@ -434,9 +434,16 @@
                 <div
                   class="btn-wrapper d-flex align-items-center justify-content-center"
                 >
-                  <a href="#" class="btn-general">Đặt dịch vụ</a>
                   <a href="#" class="btn-general secondary"
                     >(+84) 0252 3682 999</a
+                  >
+                  <a
+                    href="javascript:void(0)"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalBooking"
+                    class="btn-general"
+                    >Đặt dịch vụ</a
                   >
                 </div>
               </div>
@@ -453,7 +460,7 @@
           />
         </div>
       </section>
-      <div class="spacing-120"></div>
+      <div class="spacing-80"></div>
       <section class="image-with-text">
         <div class="container-fluild">
           <div class="section-wrapper">
@@ -514,7 +521,7 @@
           </div>
         </div>
       </section>
-      <div class="spacing-40"></div>
+      <div class="spacing-80"></div>
       <section class="section-intro">
         <div class="section-intro__ilus animation-art-reverse">
           <img src="./assets/images/leaf.png" alt="" />
@@ -555,18 +562,22 @@
               <div class="section-intro__container">
                 <ul class="list-item">
                   <li class="item-box">
-                    <div class="item-image animation-image">
+                    <div
+                      class="item-image animation-image animation-image-clip"
+                    >
                       <img src="./assets/images/res-1.png" alt="" />
                     </div>
                     <div
                       class="item-title h2-font color-primary text-center"
                       data-fade-desc
+                      data-start="70%"
                     >
                       Bãi biển
                     </div>
                     <div
                       class="item-desc text-center b1-font color-primary"
                       data-fade-desc
+                      data-start="70%"
                     >
                       Tiếng sóng vỗ, ánh hoàng hôn rực rỡ cùng không gian mở đầy
                       cảm hứng tạo nên một buổi tiệc đáng nhớ – dù là tiệc cưới,
@@ -574,18 +585,22 @@
                     </div>
                   </li>
                   <li class="item-box">
-                    <div class="item-image animation-image">
+                    <div
+                      class="item-image animation-image animation-image-clip"
+                    >
                       <img src="./assets/images/res-1.png" alt="" />
                     </div>
                     <div
                       class="item-title h2-font color-primary text-center"
                       data-fade-desc
+                      data-start="70%"
                     >
                       Nhà hàng
                     </div>
                     <div
                       class="item-desc text-center b1-font color-primary"
                       data-fade-desc
+                      data-start="70%"
                     >
                       Nhà hàng tại Costamigo là lựa chọn hoàn hảo để tổ chức
                       những bữa tiệc thân mật hay gặp mặt đối tác. Không gian
@@ -622,7 +637,7 @@
                     <div class="section-offer__item">
                       <a
                         href=""
-                        class="section-offer__img d-block animation-image"
+                        class="section-offer__img d-block animation-image animation-image-clip"
                       >
                         <img src="./assets/images/res-1.png" alt="" />
                       </a>
@@ -630,12 +645,14 @@
                         <div
                           class="section-offer__content--title h5-font color-primary"
                           data-fade-desc
+                          data-start="80%"
                         >
                           Family Summer
                         </div>
                         <div
                           class="section-offer__content--desc b1-font color-primary"
                           data-fade-desc
+                          data-start="80%"
                         >
                           Hè trọn vẹn bên gia đình, gắn kết yêu thương qua từng
                           khoảnh khắc ý nghĩa.
@@ -647,7 +664,7 @@
                     <div class="section-offer__item">
                       <a
                         href=""
-                        class="section-offer__img d-block animation-image"
+                        class="section-offer__img d-block animation-image animation-image-clip"
                       >
                         <img src="./assets/images/res-1.png" alt="" />
                       </a>
@@ -655,12 +672,14 @@
                         <div
                           class="section-offer__content--title h5-font color-primary"
                           data-fade-desc
+                          data-start="80%"
                         >
                           Trở lại thanh xuân
                         </div>
                         <div
                           class="section-offer__content--desc b1-font color-primary"
                           data-fade-desc
+                          data-start="80%"
                         >
                           Hè trọn vẹn bên gia đình, gắn kết yêu thương qua từng
                           khoảnh khắc ý nghĩa.
@@ -672,7 +691,7 @@
                     <div class="section-offer__item">
                       <a
                         href=""
-                        class="section-offer__img d-block animation-image"
+                        class="section-offer__img d-block animation-image animation-image-clip"
                       >
                         <img src="./assets/images/res-1.png" alt="" />
                       </a>
@@ -680,12 +699,14 @@
                         <div
                           class="section-offer__content--title h5-font color-primary"
                           data-fade-desc
+                          data-start="80%"
                         >
                           Valentine
                         </div>
                         <div
                           class="section-offer__content--desc b1-font color-primary"
                           data-fade-desc
+                          data-start="80%"
                         >
                           Hè trọn vẹn bên gia đình, gắn kết yêu thương qua từng
                           khoảnh khắc ý nghĩa.
@@ -695,7 +716,10 @@
                   </div>
                   <div class="swiper-slide" data-cursor-text="Chi tiết">
                     <div class="section-offer__item">
-                      <a href="" class="section-offer__img d-block">
+                      <a
+                        href=""
+                        class="section-offer__img d-block animation-image-clip"
+                      >
                         <img src="./assets/images/res-1.png" alt="" />
                       </a>
                       <div class="section-offer__content">
@@ -753,6 +777,171 @@
       </section>
       <div class="spacing-120"></div>
     </main>
+
+    <div
+      class="modal fade modal-booking"
+      id="modalBooking"
+      aria-hidden="true"
+      tabindex="-1"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered d-flex justify-content-center align-items-end flex-column"
+      >
+        <div class="modal-close">
+          <button type="button" class="btn-close" data-bs-dismiss="modal">
+            <img
+              src="./assets/images/culinary-detail/icon-close-modal.svg"
+              alt=""
+            />
+          </button>
+        </div>
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="content-box">
+              <form action="">
+                <h4 class="title h1-font font-heading color-primary">
+                  Gói gia đình
+                </h4>
+                <div
+                  class="group field d-flex justify-content-between w-100 color-primary date"
+                >
+                  <div
+                    class="d-flex align-items-center field-border-bottom w-100"
+                  >
+                    <input
+                      type="text"
+                      id="booking-startday"
+                      class="b1-font color-primary"
+                      autocomplete="off"
+                      placeholder="Ngày đến"
+                      name="booking-startday"
+                      readonly
+                    />
+                  </div>
+                  <img
+                    src="./assets/images/culinary-detail/icon-calendar.svg"
+                    alt=""
+                  />
+                </div>
+                <div class="field people d-flex justify-content-between w-100">
+                  <div
+                    class="d-flex align-items-center field-border-bottom adult"
+                  >
+                    <input
+                      type="number"
+                      id="booking-adult"
+                      class="b1-font color-primary"
+                      autocomplete="off"
+                      placeholder="Người lớn*"
+                      name="booking-adult"
+                    />
+                  </div>
+                  <div
+                    class="d-flex align-items-center field-border-bottom child"
+                  >
+                    <input
+                      type="number"
+                      id="booking-child"
+                      class="b1-font color-primary"
+                      autocomplete="off"
+                      placeholder="Trẻ em (<6 tuổi)"
+                      name="booking-child"
+                    />
+                  </div>
+                </div>
+                <div class="field name field-border-bottom name">
+                  <input
+                    type="text"
+                    id="booking-name"
+                    class="b1-font color-primary"
+                    autocomplete="off"
+                    placeholder="Họ và tên*"
+                    name="booking-name"
+                  />
+                </div>
+                <div class="field phone field-border-bottom">
+                  <input
+                    type="tel"
+                    id="booking-phone"
+                    class="b1-font color-primary"
+                    autocomplete="off"
+                    pattern="[0-9]{10,11}"
+                    placeholder="Số điện thoại*"
+                    name="booking-phone"
+                  />
+                </div>
+                <div class="field email field-border-bottom">
+                  <input
+                    type="email"
+                    id="booking-email"
+                    autocomplete="off"
+                    class="b1-font color-primary"
+                    placeholder="Email"
+                    name="booking-email"
+                  />
+                </div>
+                <div class="field message field-border-bottom">
+                  <input
+                    type="text"
+                    id="booking-message"
+                    class="b1-font color-primary"
+                    placeholder="Lời nhắn"
+                    name="booking-message"
+                  />
+                </div>
+                <div
+                  class="btn-wrapper d-flex justify-content-center align-items-center"
+                >
+                  <a href="#" class="btn-general secondary"
+                    >(+84) 0252 3682 999</a
+                  >
+                  <button type="submit" class="btn-general">Gửi yêu cầu</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade modal-booking-success"
+      id="modalBookingSuccess"
+      aria-hidden="true"
+      tabindex="-1"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered d-flex justify-content-center align-items-end flex-column"
+      >
+        <div class="modal-close">
+          <button type="button" class="btn-close" data-bs-dismiss="modal">
+            <img
+              src="./assets/images/culinary-detail/icon-close-modal.svg"
+              alt=""
+            />
+          </button>
+        </div>
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="content-logo">
+              <img
+                src="./assets/images/culinary-detail/logo-modal.svg"
+                alt=""
+              />
+            </div>
+            <div class="content-box">
+              <h4 class="title color-primary h1-font font-heading text-center">
+                Cám ơn bạn
+              </h4>
+              <div class="desc color-primary b1-font text-center">
+                Chúng tôi đã nhận được thông tin, đội ngũ tư vấn sẽ liên hệ Quý
+                khách sớm
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer>
       <div class="container-fluid p-0">
@@ -929,6 +1118,8 @@
     <script src="./assets/libs/bootstrap.bundle.min.js"></script>
     <script src="./assets/libs/imagesloaded.pkgd.min.js"></script>
     <script src="./assets/libs/swiper-bundle.min.js"></script>
+    <script src="./assets/libs/moment.min.js"></script>
+    <script src="./assets/libs/lightpick.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/MotionPathPlugin.min.js"></script>
     <!-- import custom js -->
     <script type="module" src="./assets/main/js/script.min.js"></script>
