@@ -186,7 +186,8 @@
   }
 }
 .page-accomodation,
-.page-offer {
+.page-offer,
+.page-news {
   .accomodation-list .nav-tabs {
     @media (max-width: 991px) {
       justify-content: center !important;
@@ -196,5 +197,10 @@
 .page-offer .accomodation-list {
   @media (max-width: 991px) {
     overflow: unset !important;
+  }
+}
+.page-news {
+  .tab-content {
+    padding: 0 24px;
   }
 }
