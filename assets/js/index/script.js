@@ -1183,8 +1183,17 @@ function detailSlider() {
     watchSlidesProgress: true,
     mousewheel: false,
     keyboard: false,
-    allowTouchMove: false,
+    allowTouchMove: true,
     autoplay: false,
+    pagination: {
+      el: ".image-with-text .swiper-pagination",
+      type: "progressbar",
+    },
+    breakpoints: {
+      991: {
+        allowTouchMove: false,
+      },
+    },
     // Loại bỏ navigation vì không dùng nút mặc định
     on: {
       progress(swiper) {

@@ -1,7 +1,9 @@
 section.image-with-text {
   position: relative;
   overflow: hidden;
-
+  @media (max-width: 991px) {
+    overflow: unset;
+  }
   .ilus-right {
     width: 365px;
     height: auto;
@@ -166,6 +168,18 @@ section.image-with-text {
     }
     .mask.bottom::after {
       transform: translateY(1px) scaleX(-1);
+    }
+  }
+  .swiper-pagination {
+    top: unset;
+    bottom: -48px;
+    width: 150px;
+    height: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #b7b4bc;
+    span {
+      background-color: var(--color-primary);
     }
   }
 }
