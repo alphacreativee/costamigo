@@ -52,26 +52,27 @@ section.image-with-text {
 
   .swiper-button-next,
   .swiper-button-prev {
-    width: 50%;
-    height: 100%;
-    transform: translateY(-50%);
-    transition: all 0.2s ease;
+    margin: 0;
+    width: 80px;
+    height: 80px;
+    // background: url("../../images/img-frame-circle.svg");
+    background-color: var(--color-pattern);
+    border: 1px solid var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+    z-index: 999;
     cursor: none;
-    z-index: 3;
-
-    img {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: unset;
-    }
-
-    &.swiper-button-disabled {
-      opacity: 0;
-      visibility: hidden;
+    svg {
+      width: auto;
+      height: auto;
     }
   }
 
