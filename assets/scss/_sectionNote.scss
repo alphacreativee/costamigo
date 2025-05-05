@@ -32,5 +32,11 @@
     .title {
       margin-bottom: 24px;
     }
+
+    &--desc {
+      ul {
+        list-style: none;
+      }
+    }
   }
 }
