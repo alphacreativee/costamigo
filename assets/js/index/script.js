@@ -1156,108 +1156,156 @@ function magicCursor() {
 }
 
 function detailSlider() {
-  if ($(".detail-slider").length < 1) return;
+  // Kiểm tra container có tồn tại
+  const container = document.querySelector(".image-with-text .detail-slider");
+  if (!container) {
+    console.warn("Detail slider (.image-with-text .detail-slider) not found");
+    return;
+  }
 
-  var interleaveOffset = 0.9;
+  const parentContainer = document.querySelector(".image-with-text");
+  if (!parentContainer) {
+    console.warn("Parent container (.image-with-text) not found");
+    return;
+  }
 
-  var detailSlider = new Swiper(".detail-slider", {
+  const interleaveOffset = 0.9;
+  const swiperButton = document.querySelector(
+    ".image-with-text .detail-slider__arrows"
+  );
+
+  // Kiểm tra swiperButton tồn tại
+  if (!swiperButton) {
+    console.warn(
+      "Swiper button (.image-with-text .detail-slider__arrows) not found"
+    );
+    return;
+  }
+
+  // Khởi tạo Swiper
+  const detailSlider = new Swiper(container, {
     loop: false,
     speed: 1500,
     watchSlidesProgress: true,
-    mousewheelControl: false,
-    keyboardControl: false,
+    mousewheel: false,
+    keyboard: false,
     allowTouchMove: false,
     autoplay: false,
-    navigation: {
-      nextEl: document
-        .querySelector(".detail-slider")
-        .parentElement.querySelector(".swiper-button-next"),
-      prevEl: document
-        .querySelector(".detail-slider")
-        .parentElement.querySelector(".swiper-button-prev")
-    },
+    // Loại bỏ navigation vì không dùng nút mặc định
     on: {
-      progress: function (swiper) {
-        swiper.slides.forEach(function (slide) {
-          var slideProgress = slide.progress || 0;
-          var innerOffset = swiper.width * interleaveOffset;
-          var innerTranslate = slideProgress * innerOffset;
+      progress(swiper) {
+        swiper.slides.forEach((slide) => {
+          const slideProgress = slide.progress || 0;
+          const innerOffset = swiper.width * interleaveOffset;
+          const innerTranslate = slideProgress * innerOffset;
+
           if (!isNaN(innerTranslate)) {
-            var slideInner = slide.querySelector(".detail-slider__image");
+            const slideInner = slide.querySelector(".detail-slider__image");
             if (slideInner) {
-              slideInner.style.transform =
-                "translate3d(" + innerTranslate + "px, 0, 0)";
+              slideInner.style.transform = `translate3d(${innerTranslate}px, 0, 0)`;
             }
           }
         });
       },
-      touchStart: function (swiper) {
-        swiper.slides.forEach(function (slide) {
+      touchStart(swiper) {
+        swiper.slides.forEach((slide) => {
           slide.style.transition = "";
         });
       },
-      setTransition: function (swiper, speed) {
-        var easing = "cubic-bezier(0.25, 0.1, 0.25, 1)";
-        swiper.slides.forEach(function (slide) {
-          slide.style.transition = speed + "ms " + easing;
-          var slideInner = slide.querySelector(".detail-slider__image");
+      setTransition(swiper, speed) {
+        const easing = "cubic-bezier(0.25, 0.1, 0.25, 1)";
+        swiper.slides.forEach((slide) => {
+          slide.style.transition = `${speed}ms ${easing}`;
+          const slideInner = slide.querySelector(".detail-slider__image");
           if (slideInner) {
-            slideInner.style.transition = speed + "ms " + easing;
+            slideInner.style.transition = `${speed}ms ${easing}`;
           }
         });
       }
     }
   });
 
-  // arrowSliderDetails
-  const arrowSliderDetails = document.querySelectorAll(
-    ".detail-slider__arrows .swiper-button-next,.detail-slider__arrows .swiper-button-prev"
-  );
+  let lastMouseX = null;
 
-  arrowSliderDetails.forEach((arrowSliderDetail) => {
-    const img = arrowSliderDetail.querySelector("img");
-    if (!img) return;
+  // Xử lý sự kiện mousemove trên .image-with-text
+  parentContainer.addEventListener("mousemove", (e) => {
+    const rect = container.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const halfWidth = rect.width / 2;
+    const buttonWidth = swiperButton.offsetWidth;
+    const buttonHeight = swiperButton.offsetHeight;
 
-    gsap.set(img, {
-      opacity: 0,
-      scale: 0.8,
-      pointerEvents: "none"
-    });
+    lastMouseX = mouseX;
 
-    arrowSliderDetail.addEventListener("mouseenter", () => {
-      if (arrowSliderDetail.getAttribute("disabled") === "true") return;
+    // Hiển thị nút
+    swiperButton.style.opacity = "1";
+    swiperButton.style.transition = "opacity 0.3s, transform 0.3s";
 
-      gsap.to(img, {
-        opacity: 1,
-        scale: 1,
-        duration: 0.3,
-        ease: "power2.out"
-      });
-    });
+    // Tính toán vị trí
+    let buttonPosX = mouseX - buttonWidth / 2;
+    let buttonPosY = mouseY - buttonHeight / 2;
+    const transitionZone = 0;
+    let rotateDeg;
 
-    arrowSliderDetail.addEventListener("mousemove", (e) => {
-      if (arrowSliderDetail.getAttribute("disabled") === "true") return;
+    if (mouseX <= halfWidth - transitionZone) {
+      rotateDeg = 180; // Nửa trái: prev
+      buttonPosX = Math.max(0, Math.min(halfWidth - buttonWidth, buttonPosX));
+    } else if (mouseX >= halfWidth + transitionZone) {
+      rotateDeg = 0; // Nửa phải: next
+      buttonPosX = Math.max(
+        halfWidth,
+        Math.min(rect.width - buttonWidth, buttonPosX)
+      );
+    } else {
+      const progress =
+        (mouseX - (halfWidth - transitionZone)) / (transitionZone * 2);
+      rotateDeg = 180 - progress * 180; // Vùng chuyển tiếp
+      buttonPosX = Math.max(0, Math.min(rect.width - buttonWidth, buttonPosX));
+    }
 
-      const rect = arrowSliderDetail.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+    // Giới hạn vị trí Y
+    buttonPosY = Math.max(0, Math.min(rect.height - buttonHeight, buttonPosY));
 
-      gsap.to(img, {
-        x: x,
-        y: y,
-        duration: 0.3,
-        ease: "power3.out"
-      });
-    });
+    // Áp dụng transform
+    swiperButton.style.left = `${buttonPosX}px`;
+    swiperButton.style.top = `${buttonPosY}px`;
+    swiperButton.style.transform = `scale(1) rotate(${rotateDeg}deg)`;
+  });
 
-    arrowSliderDetail.addEventListener("mouseleave", () => {
-      gsap.to(img, {
-        opacity: 0,
-        scale: 0.8,
-        duration: 0.3,
-        ease: "power2.out"
-      });
-    });
+  // Xử lý sự kiện mouseleave
+  parentContainer.addEventListener("mouseleave", () => {
+    swiperButton.style.opacity = "0";
+    swiperButton.style.transform = "scale(0)";
+    swiperButton.style.transition = "opacity 0.3s, transform 0.3s";
+    lastMouseX = null;
+  });
+
+  // Xử lý sự kiện click
+  swiperButton.addEventListener("click", (e) => {
+    const rect = container.getBoundingClientRect();
+    const halfWidth = rect.width / 2;
+    const currentIndex = detailSlider.activeIndex;
+    const totalSlides = detailSlider.slides.length;
+
+    // Lấy vị trí chuột tại thời điểm click
+    const mouseX = lastMouseX !== null ? lastMouseX : e.clientX - rect.left;
+
+    if (mouseX <= halfWidth) {
+      if (currentIndex > 0) {
+        detailSlider.slidePrev();
+        console.log("slidePrev called");
+      } else {
+        console.log("Cannot slidePrev: at first slide");
+      }
+    } else {
+      if (currentIndex < totalSlides - 1) {
+        detailSlider.slideNext();
+        console.log("slideNext called");
+      } else {
+        console.log("Cannot slideNext: at last slide");
+      }
+    }
   });
 }
 

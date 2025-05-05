@@ -552,6 +552,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 .page-single {
   .section-slider__content {
-    margin: 0;
+    @media (max-width: 991px) {
+      margin: 0;
+    }
   }
 }
