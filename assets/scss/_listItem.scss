@@ -73,3 +73,10 @@
     }
   }
 }
+.page-facilities {
+  .list-item__info {
+    @media (max-width: 991px) {
+      margin-bottom: 0;
+    }
+  }
+}
