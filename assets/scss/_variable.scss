@@ -28,10 +28,18 @@
 .h0-font {
   font-size: 64px;
   line-height: 72px;
+  @media (max-width: 991px) {
+    font-size: 40px;
+    line-height: 48px;
+  }
 }
 .h2-font {
   font-size: 24px;
   line-height: 40px;
+  @media (max-width: 991px) {
+    font-size: 20px;
+    line-height: 32px;
+  }
 }
 .h4-font {
   font-size: 26px;
@@ -42,6 +50,10 @@
   font-size: 24px;
   line-height: 40px;
   font-weight: 300;
+  @media (max-width: 991px) {
+    font-size: 20px;
+    line-height: 32px;
+  }
 }
 .b2-font {
   font-size: 13px;
@@ -96,6 +108,9 @@
 }
 .spacing-240 {
   height: 240px;
+  @media (max-width: 991px) {
+    height: 140px;
+  }
 }
 .spacing-140 {
   height: 140px;

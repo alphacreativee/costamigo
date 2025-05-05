@@ -73,7 +73,7 @@ function sectionSlider() {
       pagination: {
         el: paginationEl,
         clickable: true,
-        type: "fraction",
+        type: "progressbar",
       },
       navigation: {
         nextEl: btnNext, // Sử dụng nút tùy chỉnh
@@ -85,6 +85,11 @@ function sectionSlider() {
           navigation: {
             nextEl: swiperButton, // Sử dụng nút mặc định của Swiper
             prevEl: swiperButton,
+          },
+          pagination: {
+            el: paginationEl,
+            clickable: true,
+            type: "fraction",
           },
         },
       },
@@ -607,6 +612,11 @@ function swiperAct() {
       991: {
         slidesPerView: 1.4,
         slidesOffsetAfter: 76,
+        pagination: {
+          el: ".section-act__slider .swiper-pagination",
+          clickable: true,
+          type: "fraction",
+        },
       },
     },
     speed: 1000,
@@ -614,7 +624,7 @@ function swiperAct() {
     pagination: {
       el: ".section-act__slider .swiper-pagination",
       clickable: true,
-      type: "fraction",
+      type: "progressbar",
     },
     navigation: isMobile
       ? {
@@ -642,7 +652,19 @@ function swiperAct() {
   $(".swiper-button-next-mobile").on("click", function () {
     swiperAct.slideNext();
   });
-  swiperAct.changeLanguageDirection("rtl");
+  function handleSwiperDirection() {
+    if (window.innerWidth >= 991) {
+      swiperAct.changeLanguageDirection("rtl");
+    } else {
+      swiperAct.changeLanguageDirection("ltr"); // Optional: Reset to LTR for smaller screens
+    }
+  }
+
+  // Run on page load
+  handleSwiperDirection();
+
+  // Update on window resize
+  window.addEventListener("resize", handleSwiperDirection);
 
   // Hover effect và click cho desktop
   if (!isMobile) {
@@ -765,6 +787,10 @@ function swiperOffer() {
     navigation: {
       nextEl: ".section-offer__slider .swiper-button-next",
       prevEl: ".section-offer__slider .swiper-button-prev",
+    },
+    pagination: {
+      el: ".section-offer__slider .swiper-pagination",
+      type: "progressbar",
     },
     slidesOffsetAfter: 24,
     slidesOffsetBefore: 24,
