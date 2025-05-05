@@ -90,6 +90,9 @@
 
       &:nth-child(even) {
         transform: translateY(80px);
+        @media (max-width: 991px) {
+          transform: translate(0);
+        }
       }
 
       .card {
@@ -149,5 +152,8 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 120px 50px;
+    @media (max-width: 991px) {
+      grid-template-columns: 1fr;
+    }
   }
 }

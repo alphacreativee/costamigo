@@ -1,7 +1,13 @@
 .list-item {
   padding: 0 40px;
+  @media (max-width: 991px) {
+    padding: 0 24px;
+  }
   .row {
     margin-bottom: 140px;
+    @media (max-width: 991px) {
+      margin-bottom: 80px;
+    }
     &:last-child {
       margin-bottom: 0;
     }
@@ -11,12 +17,20 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-
+    @media (max-width: 991px) {
+      padding: 0;
+    }
     &--title {
       margin-bottom: 40px;
+      @media (max-width: 991px) {
+        margin-bottom: 24px;
+      }
     }
     &--desc {
       margin-bottom: 48px;
+      @media (max-width: 991px) {
+        margin-bottom: 24px;
+      }
     }
 
     .list-item__btn {
@@ -27,7 +41,9 @@
     width: 100%;
     aspect-ratio: 806 / 500;
     // mask: url("../../images/bg-res.png");
-
+    @media (max-width: 991px) {
+      margin-bottom: 32px;
+    }
     img {
       width: 100%;
       height: 100%;
@@ -36,6 +52,9 @@
   }
   &__info {
     margin-bottom: 80px;
+    @media (max-width: 991px) {
+      margin-bottom: 32px;
+    }
     li {
       display: flex;
       flex-direction: column;

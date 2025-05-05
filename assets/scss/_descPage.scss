@@ -2,6 +2,9 @@
   position: relative;
   padding-bottom: 120px;
   overflow: hidden;
+  @media (max-width: 991px) {
+    padding-bottom: 80px;
+  }
   &.page-contact {
     .desc-page__container {
       padding: 0;
