@@ -24,6 +24,7 @@
   min-width: 115px;
   text-align: center;
   height: 40px;
+  min-width: max-content;
 
   &.secondary {
     color: var(--color-primary);
@@ -233,8 +234,8 @@
     }
 
     &.show-text {
-      width: 88px;
-      height: 88px;
+      width: 80px;
+      height: 80px;
       background-color: var(--color-pattern);
       border-radius: 50%;
       border: 1px solid var(--color-primary);

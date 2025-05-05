@@ -1,3 +1,8 @@
+.page-content__container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .the-content {
   color: var(--color-primary);
   font-family: var(--font-body);
@@ -46,14 +51,14 @@
   }
 
   figure {
-    margin: 24px 0;
+    margin: 24px 0 12px;
   }
 
   figcaption {
     font-size: 13px;
     line-height: 20px;
     color: var(--color-primary);
-    margin-top: 24px;
+    margin-top: 12px;
     display: block;
   }
 
