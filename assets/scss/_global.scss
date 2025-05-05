@@ -550,3 +550,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .lightpick__previous-action {
   transform: rotate(180deg);
 }
+.page-single {
+  .section-slider__content {
+    margin: 0;
+  }
+}
