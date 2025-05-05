@@ -56,7 +56,7 @@ function sectionSlider() {
         contentSwiperEl,
         mainSwiperEl,
         paginationEl,
-        swiperButton,
+        swiperButton
       });
       return;
     }
@@ -64,7 +64,7 @@ function sectionSlider() {
     const swiperContent = new Swiper(contentSwiperEl, {
       loop: false,
       effect: "fade",
-      allowTouchMove: false,
+      allowTouchMove: false
     });
 
     const swiperMain = new Swiper(mainSwiperEl, {
@@ -73,31 +73,31 @@ function sectionSlider() {
       pagination: {
         el: paginationEl,
         clickable: true,
-        type: "progressbar",
+        type: "progressbar"
       },
       navigation: {
         nextEl: btnNext, // Sử dụng nút tùy chỉnh
-        prevEl: btnPrev,
+        prevEl: btnPrev
       },
       breakpoints: {
         // Trên hoặc bằng 992px
         991: {
           navigation: {
             nextEl: swiperButton, // Sử dụng nút mặc định của Swiper
-            prevEl: swiperButton,
+            prevEl: swiperButton
           },
           pagination: {
             el: paginationEl,
             clickable: true,
-            type: "fraction",
-          },
-        },
+            type: "fraction"
+          }
+        }
       },
       on: {
         slideChange: function () {
           swiperContent.slideTo(this.realIndex);
-        },
-      },
+        }
+      }
     });
 
     if (document.documentElement.clientWidth > 991) {
@@ -212,8 +212,8 @@ function imgWithText() {
         trigger: $(section).find(".content-box"),
         start: "top 30%", // Start when the top of the image hits the bottom of the viewport
         end: "bottom top", // End when the bottom of the image hits the top of the viewport
-        scrub: true, // Smoothly tie the animation to scroll
-      },
+        scrub: true // Smoothly tie the animation to scroll
+      }
     });
   });
 
@@ -227,13 +227,13 @@ function imgWithText() {
     gsap.fromTo(
       wrapper,
       {
-        clipPath: "inset(0% 0% 0% 0%)",
+        clipPath: "inset(0% 0% 0% 0%)"
       },
       {
         scrollTrigger: {
           trigger: section,
           start: "top 70%",
-          end: "bottom 70%",
+          end: "bottom 70%"
           // scrub: 1
         },
         clipPath: () => {
@@ -259,7 +259,7 @@ function imgWithText() {
           return `inset(${heightClipPercentage}% ${widthClipPercentage}% ${heightClipPercentage}% ${widthClipPercentage}%)`;
         },
         duration: 1,
-        ease: "power2.out",
+        ease: "power2.out"
       }
     );
 
@@ -267,18 +267,18 @@ function imgWithText() {
     gsap.fromTo(
       image,
       {
-        scale: 1,
+        scale: 1
       },
       {
         scrollTrigger: {
           trigger: wrapper,
           start: "top 70%",
-          end: "bottom 70%",
+          end: "bottom 70%"
           // scrub: 1
         },
         scale: 1.1,
         duration: 1,
-        ease: "power2.out",
+        ease: "power2.out"
       }
     );
   });
@@ -296,9 +296,9 @@ function animationMaskCentral() {
         start: "top 70%",
         end: "bottom 70%",
         // toggleClass: "show",
-        onEnter: () => image.classList.add("show"),
+        onEnter: () => image.classList.add("show")
         // markers: true,
-      },
+      }
     });
   });
 
@@ -339,7 +339,7 @@ function animationText() {
     const tl = gsap.timeline({ paused: true }).to(chars, {
       color: hoverColor, // Dùng màu từ CSS
       stagger: 0.05, // Delay giữa các ký tự
-      duration: 0.2, // Thời gian đổi màu mỗi ký tự
+      duration: 0.2 // Thời gian đổi màu mỗi ký tự
     });
 
     // Hover events
@@ -351,7 +351,7 @@ function animationText() {
       gsap.to(chars, {
         color: originalColor, // Trở về màu ban đầu từ CSS
         stagger: 0.05,
-        duration: 0.2,
+        duration: 0.2
       });
     });
   });
@@ -362,7 +362,7 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20,
+        y: 20
       },
       {
         opacity: 1,
@@ -371,9 +371,9 @@ function animationText() {
         scrollTrigger: {
           trigger: element,
           start: "top 60%",
-          end: "bottom 60%",
+          end: "bottom 60%"
           // markers: true,
-        },
+        }
       }
     );
   });
@@ -384,7 +384,7 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20,
+        y: 20
       },
       {
         opacity: 1,
@@ -393,9 +393,9 @@ function animationText() {
         scrollTrigger: {
           trigger: element,
           start: "top 40%",
-          end: "bottom 40%",
+          end: "bottom 40%"
           // markers: true,
-        },
+        }
       }
     );
   });
@@ -407,18 +407,18 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20,
+        y: 20
       },
       {
         scrollTrigger: {
           trigger: element,
           start: "top 75%",
-          end: "bottom 75%",
+          end: "bottom 75%"
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
-        ease: "sine.out",
+        ease: "sine.out"
       }
     );
   });
@@ -428,18 +428,18 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20,
+        y: 20
       },
       {
         scrollTrigger: {
           trigger: element,
           start: "top 70%",
-          end: "bottom 70%",
+          end: "bottom 70%"
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
-        ease: "sine.out",
+        ease: "sine.out"
       }
     );
   });
@@ -449,18 +449,18 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20,
+        y: 20
       },
       {
         scrollTrigger: {
           trigger: element,
           start: "top 90%",
-          end: "bottom 90%",
+          end: "bottom 90%"
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
-        ease: "sine.out",
+        ease: "sine.out"
       }
     );
   });
@@ -470,18 +470,18 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20,
+        y: 20
       },
       {
         scrollTrigger: {
           trigger: element,
           start: "top 60%",
-          end: "bottom 60%",
+          end: "bottom 60%"
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
-        ease: "sine.out",
+        ease: "sine.out"
       }
     );
   });
@@ -493,7 +493,7 @@ function animationText() {
     let myDesc = new SplitType(element, {
       types: "lines, words",
       lineClass: "split-line",
-      wordClass: "split-word",
+      wordClass: "split-word"
     });
     myDesc.lines.forEach((line, index) => {
       gsap.from(line.querySelectorAll(".split-word"), {
@@ -505,9 +505,9 @@ function animationText() {
           trigger: element,
           start: `top ${startValue}`,
           end: `top ${startValue}`,
-          toggleActions: "play none none none",
+          toggleActions: "play none none none"
           // markers: true,
-        },
+        }
       });
     });
   });
@@ -516,7 +516,7 @@ function animationText() {
     let myDesc = new SplitType(element, {
       types: "lines, words",
       lineClass: "split-line",
-      wordClass: "split-word",
+      wordClass: "split-word"
     });
     myDesc.lines.forEach((line, index) => {
       gsap.from(line.querySelectorAll(".split-word"), {
@@ -528,9 +528,9 @@ function animationText() {
           trigger: element,
           start: "top 70%",
           end: "top 70%",
-          toggleActions: "play none none none",
+          toggleActions: "play none none none"
           // markers: true,
-        },
+        }
       });
     });
   });
@@ -540,7 +540,7 @@ function swiperRestaurant() {
   var swiperRes = new Swiper(".swiper-restaurant", {
     effect: "fade",
     slidesPerView: "auto",
-    centeredSlides: true,
+    centeredSlides: true
   });
   const contentRes = document.querySelectorAll(
     ".section-restaurant__content--title a"
@@ -568,7 +568,7 @@ function swiperRestaurant() {
       slidesPerView: 1.25,
       spaceBetween: 24,
       slidesOffsetAfter: 24,
-      slidesOffsetBefore: 24,
+      slidesOffsetBefore: 24
     });
   }
 }
@@ -584,7 +584,7 @@ function swiperAct() {
     console.error("Missing required elements:", {
       container,
       swiperButton,
-      swiperActContent,
+      swiperActContent
     });
     return;
   }
@@ -595,11 +595,11 @@ function swiperAct() {
     watchSlidesVisibility: true,
     effect: "fade",
     fadeEffect: {
-      crossFade: true,
+      crossFade: true
     },
 
     spaceBetween: 30,
-    allowTouchMove: false,
+    allowTouchMove: false
   });
 
   const isMobile = window.innerWidth < 991;
@@ -615,25 +615,25 @@ function swiperAct() {
         pagination: {
           el: ".section-act__slider .swiper-pagination",
           clickable: true,
-          type: "fraction",
-        },
-      },
+          type: "fraction"
+        }
+      }
     },
     speed: 1000,
     loop: false,
     pagination: {
       el: ".section-act__slider .swiper-pagination",
       clickable: true,
-      type: "progressbar",
+      type: "progressbar"
     },
     navigation: isMobile
       ? {
           nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+          prevEl: ".swiper-button-prev"
         }
       : false,
     thumbs: {
-      swiper: swiperActC,
+      swiper: swiperActC
     },
     on: {
       slideChange: function () {
@@ -643,8 +643,8 @@ function swiperAct() {
           "Total slides:",
           this.slides.length
         );
-      },
-    },
+      }
+    }
   });
   $(".swiper-button-prev-mobile").on("click", function () {
     swiperAct.slidePrev();
@@ -786,11 +786,11 @@ function swiperOffer() {
     slidesPerView: 1.25,
     navigation: {
       nextEl: ".section-offer__slider .swiper-button-next",
-      prevEl: ".section-offer__slider .swiper-button-prev",
+      prevEl: ".section-offer__slider .swiper-button-prev"
     },
     pagination: {
       el: ".section-offer__slider .swiper-pagination",
-      type: "progressbar",
+      type: "progressbar"
     },
     slidesOffsetAfter: 24,
     slidesOffsetBefore: 24,
@@ -799,9 +799,9 @@ function swiperOffer() {
         slidesPerView: 3,
         spaceBetween: 40,
         slidesOffsetAfter: 0,
-        slidesOffsetBefore: 0,
-      },
-    },
+        slidesOffsetBefore: 0
+      }
+    }
   });
 }
 function animationLineMap() {
@@ -819,9 +819,9 @@ function animationLineMap() {
       trigger: svgContainer,
       start: hasNotBanner ? "top top" : "top center",
       end: "bottom bottom",
-      scrub: true,
+      scrub: true
       // markers: true,
-    },
+    }
   });
   // gsap.to("#rect", {
   //   ease: "none",
@@ -857,12 +857,18 @@ function scrollHeader() {
       // Kiểm tra scrollY để xóa lớp 'scrolled' khi ở đầu trang
       if (scrollY === 0) {
         header.classList.remove("scrolled");
+
+        console.log("scroll Y 0");
       }
 
       // Kiểm tra hướng cuộn (self.direction)
       if (self.direction === 1) {
         // Cuộn xuống
-        header.classList.add("scrolled");
+        const hamburger = document.querySelector(".btn-hamburger");
+        if (!hamburger.classList.contains("change")) {
+          header.classList.add("scrolled");
+        }
+
         if (navSticky) {
           // Chỉ thêm lớp 'scrolled' nếu navSticky tồn tại
           navSticky.classList.add("scrolled");
@@ -880,7 +886,7 @@ function scrollHeader() {
       self.direction === 1
         ? $(".cta-group").addClass("hide")
         : $(".cta-group").removeClass("hide");
-    },
+    }
   });
 }
 
@@ -896,9 +902,9 @@ function animationArt() {
         trigger: image,
         start: "top bottom", // Start when the top of the image hits the bottom of the viewport
         end: "bottom top", // End when the bottom of the image hits the top of the viewport
-        scrub: true, // Smoothly tie the animation to scroll
+        scrub: true // Smoothly tie the animation to scroll
         // markers: true,
-      },
+      }
     });
   });
 
@@ -915,9 +921,9 @@ function animationArt() {
         trigger: imageR,
         start: "top bottom",
         end: "bottom top",
-        scrub: true,
+        scrub: true
         // markers: true,
-      },
+      }
     });
   });
 }
@@ -932,7 +938,7 @@ function headerMenu() {
     y: 20,
     stagger: 0.1,
     duration: 0.3,
-    ease: "power2.out",
+    ease: "power2.out"
   });
 
   $btnMenu.on("click", function () {
@@ -1040,7 +1046,7 @@ function modalBooking() {
       } catch (error) {
         console.error("Error in Lightpick onSelect:", error);
       }
-    },
+    }
   });
 
   // Form submission handler
@@ -1054,11 +1060,11 @@ function modalBooking() {
     const requiredFields = [
       {
         name: "booking-startday",
-        errorField: ".field.date .field-border-bottom",
+        errorField: ".field.date .field-border-bottom"
       },
       { name: "booking-adult", errorField: ".adult.field-border-bottom" },
       { name: "booking-name", errorField: ".name.field-border-bottom" },
-      { name: "booking-phone", errorField: ".phone.field-border-bottom" },
+      { name: "booking-phone", errorField: ".phone.field-border-bottom" }
     ];
 
     requiredFields.forEach((field) => {
@@ -1110,7 +1116,7 @@ function magicCursor() {
 
   gsap.set(circle, {
     xPercent: -50,
-    yPercent: -50,
+    yPercent: -50
   });
 
   let mouseX = 0,
@@ -1124,7 +1130,7 @@ function magicCursor() {
     gsap.to(circle, {
       x: mouseX,
       y: mouseY,
-      duration: 0.1, // Không có độ trễ
+      duration: 0.1 // Không có độ trễ
     });
   });
 
@@ -1168,7 +1174,7 @@ function detailSlider() {
         .parentElement.querySelector(".swiper-button-next"),
       prevEl: document
         .querySelector(".detail-slider")
-        .parentElement.querySelector(".swiper-button-prev"),
+        .parentElement.querySelector(".swiper-button-prev")
     },
     on: {
       progress: function (swiper) {
@@ -1199,8 +1205,8 @@ function detailSlider() {
             slideInner.style.transition = speed + "ms " + easing;
           }
         });
-      },
-    },
+      }
+    }
   });
 
   // arrowSliderDetails
@@ -1215,7 +1221,7 @@ function detailSlider() {
     gsap.set(img, {
       opacity: 0,
       scale: 0.8,
-      pointerEvents: "none",
+      pointerEvents: "none"
     });
 
     arrowSliderDetail.addEventListener("mouseenter", () => {
@@ -1225,7 +1231,7 @@ function detailSlider() {
         opacity: 1,
         scale: 1,
         duration: 0.3,
-        ease: "power2.out",
+        ease: "power2.out"
       });
     });
 
@@ -1240,7 +1246,7 @@ function detailSlider() {
         x: x,
         y: y,
         duration: 0.3,
-        ease: "power3.out",
+        ease: "power3.out"
       });
     });
 
@@ -1249,7 +1255,7 @@ function detailSlider() {
         opacity: 0,
         scale: 0.8,
         duration: 0.3,
-        ease: "power2.out",
+        ease: "power2.out"
       });
     });
   });
@@ -1318,8 +1324,8 @@ function gallery() {
     mobileSettings: {
       controls: true, // Hiển thị nút điều hướng
       showCloseIcon: true, // Hiển thị nút đóng trên mobile
-      download: false,
-    },
+      download: false
+    }
   });
   const prevCursor = document.querySelector(".lg-prev");
   const nextCursor = document.querySelector(".lg-next");
@@ -1368,7 +1374,7 @@ function gallery() {
 function fadeTextFooter() {
   gsap.set("data-text-footer", {
     opacity: 0,
-    y: 20,
+    y: 20
   });
   let tlf = gsap.timeline({ paused: true });
 
@@ -1376,14 +1382,14 @@ function fadeTextFooter() {
     "[data-text-footer]",
     {
       opacity: 0,
-      y: 20,
+      y: 20
     },
     {
       opacity: 1,
       y: 0,
       stagger: 0.1,
       duration: 0.6,
-      ease: "power2.out",
+      ease: "power2.out"
     }
   );
   ScrollTrigger.create({
@@ -1391,7 +1397,7 @@ function fadeTextFooter() {
     start: "top 80%",
     // markers: true,
     animation: tlf,
-    toggleActions: "play none none none",
+    toggleActions: "play none none none"
   });
 }
 const init = () => {
