@@ -41,6 +41,7 @@
     background-size: contain;
     transition: top 0.4s ease;
     padding: 12px 0;
+
     @media (max-width: 991px) {
       top: 56px;
       justify-content: unset !important;
