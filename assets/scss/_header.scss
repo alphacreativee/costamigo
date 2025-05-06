@@ -146,7 +146,12 @@
     .menu-item-has-children {
       gap: 8px;
       position: relative;
-
+      &:hover {
+        &::after {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
       &::after {
         content: "";
         width: 100%;
@@ -155,6 +160,8 @@
         position: absolute;
         top: 100%;
         left: 0;
+        opacity: 0;
+        visibility: hidden;
       }
 
       &:hover {
