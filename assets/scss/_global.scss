@@ -565,3 +565,23 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     }
   }
 }
+.page-single {
+  .section-story__title {
+    .char {
+      opacity: 0;
+    }
+  }
+  .section-story__content {
+    .room-info {
+      opacity: 0;
+    }
+  }
+  .btn-wrapper {
+    opacity: 0;
+  }
+  .section-story__description {
+    .split-word {
+      opacity: 0;
+    }
+  }
+}
