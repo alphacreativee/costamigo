@@ -1,6 +1,9 @@
 .page-content__container {
   max-width: 900px;
   margin: 0 auto;
+  @media (max-width: 991px) {
+    padding: 0 24px;
+  }
 }
 
 .the-content {
@@ -9,6 +12,9 @@
   padding-bottom: 120px;
   position: relative;
   margin-bottom: 80px;
+  @media (max-width: 991px) {
+    padding-bottom: 80px;
+  }
   &::before {
     content: "";
     position: absolute;
@@ -131,7 +137,9 @@
   left: 40px;
   width: max-content;
   height: max-content;
-
+  @media (max-width: 991px) {
+    left: 24px;
+  }
   .main-icon {
     display: flex;
     align-items: center;

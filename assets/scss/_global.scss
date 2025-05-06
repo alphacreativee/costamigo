@@ -312,6 +312,9 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
   .modal-body {
     padding: 48px;
+    @media (max-width: 991px) {
+      padding: 24px;
+    }
   }
 
   .title {
@@ -408,6 +411,11 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   .btn-wrapper {
     margin-top: 40px;
     gap: 40px;
+    @media (max-width: 991px) {
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      margin-top: 32px;
+    }
   }
 
   &-success {
