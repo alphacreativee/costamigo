@@ -270,3 +270,10 @@
     }
   }
 }
+.page-content {
+  .row {
+    @media (max-width: 991px) {
+      flex-direction: column-reverse;
+    }
+  }
+}
