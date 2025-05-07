@@ -298,6 +298,9 @@
     transform-origin: center;
     z-index: 999;
     cursor: none;
+    &.swiper-button-disabled {
+      // pointer-events: auto;
+    }
     @media (max-width: 991px) {
       opacity: 1;
       border: 1px solid var(--color-primary);

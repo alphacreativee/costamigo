@@ -65,11 +65,13 @@ function sectionSlider() {
       loop: false,
       effect: "fade",
       allowTouchMove: false,
+      slidesPerView: 1,
     });
 
     const swiperMain = new Swiper(mainSwiperEl, {
       effect: "fade",
       loop: false,
+      slidesPerView: 1,
       pagination: {
         el: paginationEl,
         clickable: true,
@@ -93,10 +95,8 @@ function sectionSlider() {
           },
         },
       },
-      on: {
-        slideChange: function () {
-          swiperContent.slideTo(this.realIndex);
-        },
+      thumbs: {
+        swiper: swiperContent,
       },
     });
 
@@ -164,17 +164,20 @@ function sectionSlider() {
       });
 
       // Gán sự kiện click một lần duy nhất
-      swiperButton.addEventListener("click", () => {
+
+      swiperButton.addEventListener("click", (e) => {
         const rect = mainSwiperEl.getBoundingClientRect();
         const halfWidth = rect.width / 2;
+        const clickX = e.clientX - rect.left;
         const currentIndex = swiperMain.activeIndex;
-        const totalSlides = swiperMain.slides.length;
-        console.log("123");
+        console.log(currentIndex);
 
+        const totalSlides = swiperMain.slides.length;
         if (lastMouseX <= halfWidth) {
           // Nửa trái: gọi slidePrev nếu không ở slide đầu
           if (currentIndex > 0) {
             swiperMain.slidePrev();
+            console.log("slidePrev called");
           } else {
             console.log("Cannot slidePrev: at first slide");
           }
@@ -680,12 +683,6 @@ function swiperAct() {
 
       // Cập nhật lastMouseX
       lastMouseX = mouseX;
-      console.log(
-        "Mouse moved - lastMouseX:",
-        lastMouseX,
-        "halfWidth:",
-        halfWidth
-      );
 
       // Hiển thị nút
       swiperButton.style.opacity = "1";
@@ -748,15 +745,6 @@ function swiperAct() {
       const halfWidth = rect.width / 2;
       const currentIndex = swiperAct.activeIndex;
       const totalSlides = swiperAct.slides.length;
-
-      console.log(
-        "Button clicked - lastMouseX:",
-        lastMouseX,
-        "currentIndex:",
-        currentIndex,
-        "totalSlides:",
-        totalSlides
-      );
 
       if (lastMouseX <= halfWidth) {
         // Nửa trái: gọi slidePrev nếu không ở slide đầu
