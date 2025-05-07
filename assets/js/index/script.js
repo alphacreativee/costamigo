@@ -65,11 +65,13 @@ function sectionSlider() {
       loop: false,
       effect: "fade",
       allowTouchMove: false,
+      slidesPerView: 1,
     });
 
     const swiperMain = new Swiper(mainSwiperEl, {
       effect: "fade",
       loop: false,
+      slidesPerView: 1,
       pagination: {
         el: paginationEl,
         clickable: true,
@@ -83,8 +85,8 @@ function sectionSlider() {
         // Trên hoặc bằng 992px
         991: {
           navigation: {
-            nextEl: swiperButton, // Sử dụng nút mặc định của Swiper
-            prevEl: swiperButton,
+            nextEl: false,
+            prevEl: false,
           },
           pagination: {
             el: paginationEl,
@@ -93,10 +95,8 @@ function sectionSlider() {
           },
         },
       },
-      on: {
-        slideChange: function () {
-          swiperContent.slideTo(this.realIndex);
-        },
+      thumbs: {
+        swiper: swiperContent,
       },
     });
 
@@ -164,17 +164,20 @@ function sectionSlider() {
       });
 
       // Gán sự kiện click một lần duy nhất
-      swiperButton.addEventListener("click", () => {
+
+      swiperButton.addEventListener("click", (e) => {
         const rect = mainSwiperEl.getBoundingClientRect();
         const halfWidth = rect.width / 2;
+        const clickX = e.clientX - rect.left;
         const currentIndex = swiperMain.activeIndex;
-        const totalSlides = swiperMain.slides.length;
-        console.log("123");
+        console.log(currentIndex);
 
+        const totalSlides = swiperMain.slides.length;
         if (lastMouseX <= halfWidth) {
           // Nửa trái: gọi slidePrev nếu không ở slide đầu
           if (currentIndex > 0) {
             swiperMain.slidePrev();
+            console.log("slidePrev called");
           } else {
             console.log("Cannot slidePrev: at first slide");
           }
@@ -680,12 +683,6 @@ function swiperAct() {
 
       // Cập nhật lastMouseX
       lastMouseX = mouseX;
-      console.log(
-        "Mouse moved - lastMouseX:",
-        lastMouseX,
-        "halfWidth:",
-        halfWidth
-      );
 
       // Hiển thị nút
       swiperButton.style.opacity = "1";
@@ -748,15 +745,6 @@ function swiperAct() {
       const halfWidth = rect.width / 2;
       const currentIndex = swiperAct.activeIndex;
       const totalSlides = swiperAct.slides.length;
-
-      console.log(
-        "Button clicked - lastMouseX:",
-        lastMouseX,
-        "currentIndex:",
-        currentIndex,
-        "totalSlides:",
-        totalSlides
-      );
 
       if (lastMouseX <= halfWidth) {
         // Nửa trái: gọi slidePrev nếu không ở slide đầu
@@ -1533,14 +1521,14 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           opacity: 1,
           y: 0,
           stagger: 0.05,
           duration: 0.3,
-          ease: "sine.out"
+          ease: "sine.out",
         }
       );
     });
@@ -1557,14 +1545,14 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           opacity: 1,
           y: 0,
           duration: 0.5,
           ease: "sine.out",
-          delay: delay
+          delay: delay,
         }
       );
     });
@@ -1578,7 +1566,7 @@ function fadeTextPageDetail() {
       let myDesc = new SplitType(element, {
         types: "lines, words",
         lineClass: "split-line",
-        wordClass: "split-word"
+        wordClass: "split-word",
       });
 
       myDesc.lines.forEach((line, index) => {
@@ -1586,14 +1574,14 @@ function fadeTextPageDetail() {
           line.querySelectorAll(".split-word"),
           {
             y: "100%",
-            opacity: 0
+            opacity: 0,
           },
           {
             y: "0%",
             opacity: 1,
             duration: 0.2,
             ease: "none",
-            delay: index * 0.01
+            delay: index * 0.01,
           }
         );
       });
@@ -1609,13 +1597,13 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           opacity: 1,
           y: 0,
           duration: 0.1,
-          ease: "none"
+          ease: "none",
         }
       );
     });
@@ -1630,14 +1618,14 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           opacity: 1,
           y: 0,
           duration: 0.5,
           ease: "sine.out",
-          stagger: 0.1
+          stagger: 0.1,
         }
       );
     });
@@ -1715,7 +1703,7 @@ function contactForm() {
         name: nameField.val().trim(),
         email: emailField.val().trim(),
         phone: phoneField.val().trim(),
-        messageNote: messageField.val().trim()
+        messageNote: messageField.val().trim(),
       },
       beforeSend: function () {
         $(".contact-message").remove();
@@ -1732,7 +1720,7 @@ function contactForm() {
         contactForm.append(
           '<span class="contact-message" style="color: red;">Có lỗi xảy ra, vui lòng thử lại sau.</span>'
         );
-      }
+      },
     });
   });
 }
