@@ -1449,7 +1449,7 @@ function fadeTextFooter() {
     {
       opacity: 1,
       y: 0,
-      stagger: 0.1,
+      stagger: 0.05,
       duration: 0.6,
       ease: "power2.out",
     }
