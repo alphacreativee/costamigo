@@ -122,11 +122,19 @@
     overflow: unset;
   }
 }
+.page-accomodation .svg-container {
+  display: none;
+}
 .page-contact {
   .svg-container {
     left: 40%;
     top: 0;
     height: 1700px;
+  }
+}
+.page-event-detail {
+  .svg-container {
+    height: auto !important;
   }
 }
 .page-restaurant,
@@ -147,6 +155,7 @@
   .svg-container {
     left: 40%;
     height: 2900px;
+    display: none;
   }
 }
 .page-gallery {
@@ -174,7 +183,12 @@
   height: 5989px;
   z-index: -1;
   overflow: hidden;
-
+  @media (max-width: 991px) {
+    height: auto;
+    top: 100vh;
+    width: 100%;
+    display: none;
+  }
   svg {
     height: 100%;
     position: relative;
@@ -301,10 +315,16 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   .modal-dialog {
     max-width: 440px;
     gap: 24px;
+    pointer-events: auto;
   }
 
   .modal-close {
     cursor: pointer;
+    .btn-close {
+      &:focus {
+        box-shadow: none;
+      }
+    }
     button {
       width: 24px;
       height: 24px;
@@ -588,4 +608,10 @@ input[type="time"]::-webkit-calendar-picker-indicator {
       opacity: 0;
     }
   }
+}
+.splitting .char {
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  transform: translateZ(0);
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
 }
