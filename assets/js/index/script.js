@@ -1521,14 +1521,14 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20,
+          y: 20
         },
         {
           opacity: 1,
           y: 0,
           stagger: 0.05,
           duration: 0.3,
-          ease: "sine.out",
+          ease: "sine.out"
         }
       );
     });
@@ -1545,14 +1545,14 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20,
+          y: 20
         },
         {
           opacity: 1,
           y: 0,
           duration: 0.5,
           ease: "sine.out",
-          delay: delay,
+          delay: delay
         }
       );
     });
@@ -1566,7 +1566,7 @@ function fadeTextPageDetail() {
       let myDesc = new SplitType(element, {
         types: "lines, words",
         lineClass: "split-line",
-        wordClass: "split-word",
+        wordClass: "split-word"
       });
 
       myDesc.lines.forEach((line, index) => {
@@ -1574,14 +1574,14 @@ function fadeTextPageDetail() {
           line.querySelectorAll(".split-word"),
           {
             y: "100%",
-            opacity: 0,
+            opacity: 0
           },
           {
             y: "0%",
             opacity: 1,
             duration: 0.2,
             ease: "none",
-            delay: index * 0.01,
+            delay: index * 0.01
           }
         );
       });
@@ -1597,13 +1597,13 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20,
+          y: 20
         },
         {
           opacity: 1,
           y: 0,
           duration: 0.1,
-          ease: "none",
+          ease: "none"
         }
       );
     });
@@ -1618,18 +1618,111 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20,
+          y: 20
         },
         {
           opacity: 1,
           y: 0,
           duration: 0.5,
           ease: "sine.out",
-          stagger: 0.1,
+          stagger: 0.1
         }
       );
     });
   }
+}
+
+function contactForm() {
+  if ($(".contact-form").length < 1) return;
+
+  const contactForm = $("#contact-form");
+  const nameField = contactForm.find("input[name='name']");
+  const emailField = contactForm.find("input[name='email']");
+  const phoneField = contactForm.find("input[type='tel']");
+  const messageField = contactForm.find("textarea[name='message']");
+  const checkbox = $("#contact_checkbox");
+  const submitButton = contactForm.find("button[type='submit']");
+
+  function validateFieldsForButton() {
+    const isNameFilled = nameField.val().trim() !== "";
+    const isEmailFilled = emailField.val().trim() !== "";
+    const isPhoneFilled = phoneField.val().trim() !== "";
+    const isChecked = checkbox.is(":checked");
+
+    if (isNameFilled && isEmailFilled && isPhoneFilled && isChecked) {
+      submitButton.removeAttr("disabled");
+    } else {
+      submitButton.attr("disabled", true);
+    }
+  }
+
+  // Gán sự kiện khi người dùng nhập liệu hoặc check/uncheck
+  nameField.on("input", validateFieldsForButton);
+  emailField.on("input", validateFieldsForButton);
+  phoneField.on("input", validateFieldsForButton);
+  checkbox.on("change", validateFieldsForButton);
+
+  // Ban đầu disable nếu điều kiện chưa đủ
+  validateFieldsForButton();
+
+  contactForm.on("submit", function (e) {
+    e.preventDefault();
+
+    contactForm.find(".error-message").remove();
+    contactForm.find("input, textarea").removeClass("error");
+
+    let isValid = true;
+
+    if (!nameField.val().trim()) {
+      nameField.addClass("error");
+      isValid = false;
+    }
+
+    if (!emailField.val().trim()) {
+      emailField.addClass("error");
+      isValid = false;
+    }
+
+    if (!phoneField.val().trim()) {
+      phoneField.addClass("error");
+      isValid = false;
+    }
+
+    if (!checkbox.is(":checked")) {
+      checkbox.addClass("error");
+      isValid = false;
+    }
+
+    if (!isValid) return;
+
+    $.ajax({
+      type: "POST",
+      url: ajaxUrl,
+      data: {
+        action: "submit_contact_form",
+        name: nameField.val().trim(),
+        email: emailField.val().trim(),
+        phone: phoneField.val().trim(),
+        messageNote: messageField.val().trim()
+      },
+      beforeSend: function () {
+        $(".contact-message").remove();
+      },
+      success: function (res) {
+        $(".contact-message").remove();
+        contactForm[0].reset();
+        $("#modalBookingSuccess").modal("show");
+        submitButton.attr("disabled", true); // Disable lại sau khi gửi
+      },
+      error: function (xhr, status, error) {
+        console.error("Lỗi khi gửi form:", error);
+        $(".contact-message").remove();
+        contactForm.append(
+          '<span class="contact-message" style="color: red;">Có lỗi xảy ra, vui lòng thử lại sau.</span>'
+        );
+      }
+    });
+  });
 }
 
 const init = () => {
@@ -1653,6 +1746,7 @@ const init = () => {
   magicCursor();
   detailSlider();
   modalBooking();
+  contactForm();
   ScrollTrigger.refresh();
 };
 togglePlayMusic();
