@@ -1264,6 +1264,7 @@ function detailSlider() {
     const halfWidth = rect.width / 2;
     const buttonWidth = swiperButton.offsetWidth;
     const buttonHeight = swiperButton.offsetHeight;
+    const offset = 40; // Khoảng cách 40px từ cả bốn cạnh
 
     lastMouseX = mouseX;
 
@@ -1279,22 +1280,31 @@ function detailSlider() {
 
     if (mouseX <= halfWidth - transitionZone) {
       rotateDeg = 180; // Nửa trái: prev
-      buttonPosX = Math.max(0, Math.min(halfWidth - buttonWidth, buttonPosX));
+      buttonPosX = Math.max(
+        offset,
+        Math.min(halfWidth - buttonWidth, buttonPosX)
+      );
     } else if (mouseX >= halfWidth + transitionZone) {
       rotateDeg = 0; // Nửa phải: next
       buttonPosX = Math.max(
         halfWidth,
-        Math.min(rect.width - buttonWidth, buttonPosX)
+        Math.min(rect.width - buttonWidth - offset, buttonPosX)
       );
     } else {
       const progress =
         (mouseX - (halfWidth - transitionZone)) / (transitionZone * 2);
       rotateDeg = 180 - progress * 180; // Vùng chuyển tiếp
-      buttonPosX = Math.max(0, Math.min(rect.width - buttonWidth, buttonPosX));
+      buttonPosX = Math.max(
+        offset,
+        Math.min(rect.width - buttonWidth - offset, buttonPosX)
+      );
     }
 
-    // Giới hạn vị trí Y
-    buttonPosY = Math.max(0, Math.min(rect.height - buttonHeight, buttonPosY));
+    // Giới hạn vị trí Y với offset 40px
+    buttonPosY = Math.max(
+      offset,
+      Math.min(rect.height - buttonHeight - offset, buttonPosY)
+    );
 
     // Áp dụng transform
     swiperButton.style.left = `${buttonPosX}px`;
