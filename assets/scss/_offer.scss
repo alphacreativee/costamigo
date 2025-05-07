@@ -135,4 +135,7 @@
   .accomodation-list .accomodation-card {
     gap: 40px;
   }
+  .accomodation-list {
+    overflow: unset !important;
+  }
 }

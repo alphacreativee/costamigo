@@ -1356,11 +1356,16 @@ function loading() {
   loading.classList.add("loading-out");
   document.body.classList.remove("scroll-hidden");
   setTimeout(() => {
+    fadeTextPageDetail();
+  }, 1000);
+  setTimeout(() => {
+    // Ẩn các phần tử .loading sau 1500ms
     document.querySelectorAll(".loading").forEach((element) => {
       element.style.display = "none";
     });
   }, 1500);
 }
+
 // loading();
 $(window).on("DOMContentLoaded", function () {
   setTimeout(() => {
@@ -1489,6 +1494,133 @@ function fadeTextFooter() {
     toggleActions: "play none none none"
   });
 }
+function fadeTextPageDetail() {
+  // Tạo GSAP Timeline để điều khiển thứ tự
+  const tl = gsap.timeline();
+
+  // Xử lý hiệu ứng cho [data-splitting][data-effect-auto] nếu tồn tại
+  const fxTitleAuto = document.querySelectorAll(
+    "[data-splitting][data-effect-auto]"
+  );
+  if (fxTitleAuto.length > 0) {
+    fxTitleAuto.forEach((element) => {
+      const chars = element.querySelectorAll(".char");
+      tl.fromTo(
+        chars,
+        {
+          "will-change": "opacity, transform",
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.05,
+          duration: 0.3,
+          ease: "sine.out",
+        }
+      );
+    });
+  }
+
+  // Xử lý hiệu ứng cho [data-fade-auto] nếu tồn tại, hỗ trợ data-delay
+  const fadeAuto = gsap.utils.toArray("[data-fade-auto]");
+  if (fadeAuto.length > 0) {
+    fadeAuto.forEach((element) => {
+      // Lấy giá trị data-delay, mặc định là 0 nếu không có
+      const delay = parseFloat(element.dataset.delay) || 0;
+      tl.fromTo(
+        element,
+        {
+          "will-change": "opacity, transform",
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "sine.out",
+          delay: delay,
+        }
+      );
+    });
+  }
+
+  // Xử lý hiệu ứng cho [data-fade-desc] nếu tồn tại
+  const fxTitleDesc = document.querySelectorAll("[data-fade-desc-auto]");
+  if (fxTitleDesc.length > 0) {
+    fxTitleDesc.forEach((element) => {
+      // Khởi tạo SplitType
+      let myDesc = new SplitType(element, {
+        types: "lines, words",
+        lineClass: "split-line",
+        wordClass: "split-word",
+      });
+
+      myDesc.lines.forEach((line, index) => {
+        tl.fromTo(
+          line.querySelectorAll(".split-word"),
+          {
+            y: "100%",
+            opacity: 0,
+          },
+          {
+            y: "0%",
+            opacity: 1,
+            duration: 0.2,
+            ease: "none",
+            delay: index * 0.01,
+          }
+        );
+      });
+    });
+  }
+
+  // Xử lý hiệu ứng cho [data-fade-auto-button] nếu tồn tại
+  const fadeAutoButton = gsap.utils.toArray("[data-fade-auto-button]");
+  if (fadeAutoButton.length > 0) {
+    fadeAutoButton.forEach((element) => {
+      tl.fromTo(
+        element,
+        {
+          "will-change": "opacity, transform",
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.1,
+          ease: "none",
+        }
+      );
+    });
+  }
+
+  // Xử lý hiệu ứng cho [data-fade-auto-bottom] nếu tồn tại
+  const fadeAutoBottom = gsap.utils.toArray("[data-fade-auto-bottom]");
+  if (fadeAutoBottom.length > 0) {
+    fadeAutoBottom.forEach((element) => {
+      tl.fromTo(
+        element,
+        {
+          "will-change": "opacity, transform",
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "sine.out",
+          stagger: 0.1,
+        }
+      );
+    });
+  }
+}
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   updateSvgHeight();
