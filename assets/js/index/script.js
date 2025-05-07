@@ -85,8 +85,8 @@ function sectionSlider() {
         // Trên hoặc bằng 992px
         991: {
           navigation: {
-            nextEl: swiperButton, // Sử dụng nút mặc định của Swiper
-            prevEl: swiperButton,
+            nextEl: false,
+            prevEl: false,
           },
           pagination: {
             el: paginationEl,
@@ -1521,14 +1521,14 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           opacity: 1,
           y: 0,
           stagger: 0.05,
           duration: 0.3,
-          ease: "sine.out"
+          ease: "sine.out",
         }
       );
     });
@@ -1545,14 +1545,14 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           opacity: 1,
           y: 0,
           duration: 0.5,
           ease: "sine.out",
-          delay: delay
+          delay: delay,
         }
       );
     });
@@ -1566,7 +1566,7 @@ function fadeTextPageDetail() {
       let myDesc = new SplitType(element, {
         types: "lines, words",
         lineClass: "split-line",
-        wordClass: "split-word"
+        wordClass: "split-word",
       });
 
       myDesc.lines.forEach((line, index) => {
@@ -1574,14 +1574,14 @@ function fadeTextPageDetail() {
           line.querySelectorAll(".split-word"),
           {
             y: "100%",
-            opacity: 0
+            opacity: 0,
           },
           {
             y: "0%",
             opacity: 1,
             duration: 0.2,
             ease: "none",
-            delay: index * 0.01
+            delay: index * 0.01,
           }
         );
       });
@@ -1597,13 +1597,13 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           opacity: 1,
           y: 0,
           duration: 0.1,
-          ease: "none"
+          ease: "none",
         }
       );
     });
@@ -1618,14 +1618,14 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           opacity: 1,
           y: 0,
           duration: 0.5,
           ease: "sine.out",
-          stagger: 0.1
+          stagger: 0.1,
         }
       );
     });
@@ -1703,7 +1703,7 @@ function contactForm() {
         name: nameField.val().trim(),
         email: emailField.val().trim(),
         phone: phoneField.val().trim(),
-        messageNote: messageField.val().trim()
+        messageNote: messageField.val().trim(),
       },
       beforeSend: function () {
         $(".contact-message").remove();
@@ -1720,7 +1720,7 @@ function contactForm() {
         contactForm.append(
           '<span class="contact-message" style="color: red;">Có lỗi xảy ra, vui lòng thử lại sau.</span>'
         );
-      }
+      },
     });
   });
 }
