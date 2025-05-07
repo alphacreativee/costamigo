@@ -30,18 +30,11 @@
       grid-row: span 1;
       height: auto;
     }
-    &:hover {
-      // .thumb-img {
-      //   transform: scale(0.95);
-      // }
-      img {
-        transform: scale(1.05);
-      }
-    }
+
     .thumb-img {
       width: 100%;
       height: 100%;
-      transition: all 0.3s ease;
+      // transition: all 0.3s ease;
     }
 
     &:nth-child(12n + 2),
@@ -65,7 +58,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: all 0.3s ease;
+      // transition: all 0.3s ease;
     }
   }
 }
