@@ -183,3 +183,10 @@ section.image-with-text {
     }
   }
 }
+.page-home {
+  section.image-with-text {
+    @media (max-width: 991px) {
+      overflow: hidden;
+    }
+  }
+}
