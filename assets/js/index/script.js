@@ -1405,36 +1405,58 @@ function updateSvgHeight() {
 function gallery() {
   console.log("animated-thumb");
   if (!document.querySelector(".animated-thumb")) return;
-  lightGallery(document.querySelector(".animated-thumb"), {
-    selector: ".thumb-img",
-    thumbnail: true,
-    download: false,
-    height: "100%", // Height of the gallery (ex: '100%' or '300px').
-    width: "100%", // Width of the gallery (ex: '100%' or '300px').
-    iframeMaxWidth: "100%", // Set maximum width for iframe.
-    // mode: "lg-fade",
-    subHtmlSelectorRelative: true,
-    showCloseIcon: true,
-    mobileSettings: {
-      controls: true, // Hiển thị nút điều hướng
-      showCloseIcon: true, // Hiển thị nút đóng trên mobile
+
+  const galleryInstance = lightGallery(
+    document.querySelector(".animated-thumb"),
+    {
+      selector: ".thumb-img",
+      thumbnail: true,
       download: false,
-    },
-  });
+      height: "100%",
+      width: "100%",
+      iframeMaxWidth: "100%",
+      subHtmlSelectorRelative: true,
+      showCloseIcon: true,
+      mobileSettings: {
+        controls: true,
+        showCloseIcon: true,
+        download: false,
+      },
+    }
+  );
+
+  let autoAdvanceInterval = null;
+
+  // Khi gallery đã mở hoàn tất
+  document
+    .querySelector(".animated-thumb")
+    .addEventListener("lgAfterOpen", function () {
+      autoAdvanceInterval = setInterval(() => {
+        galleryInstance.goToNextSlide();
+      }, 5000);
+    });
+
+  // Khi gallery đóng
+  document
+    .querySelector(".animated-thumb")
+    .addEventListener("lgAfterClose", function () {
+      clearInterval(autoAdvanceInterval);
+    });
+
+  // Custom cursor logic
   const prevCursor = document.querySelector(".lg-prev");
   const nextCursor = document.querySelector(".lg-next");
   const gallery = document.querySelector(".lg-container");
   const closeCursor = document.querySelector(".lg-close");
 
-  let isOverClose = false; // trạng thái đang hover nút close
+  let isOverClose = false;
 
   gallery.addEventListener("mousemove", (e) => {
-    if (isOverClose) return; // Nếu đang hover close thì bỏ qua
+    if (isOverClose) return;
 
     const galleryRect = gallery.getBoundingClientRect();
     const centerX = galleryRect.left + galleryRect.width / 2;
 
-    // Move both cursors to follow the mouse
     prevCursor.style.left = e.clientX + "px";
     prevCursor.style.top = e.clientY + "px";
     nextCursor.style.left = e.clientX + "px";
@@ -1446,7 +1468,7 @@ function gallery() {
     } else {
       prevCursor.style.display = "none";
       nextCursor.style.display = "block";
-      nextCursor.style.transform = "scale(1) translate(-200%, -150%)"; // đảm bảo trở lại scale(1) nếu vừa rời khỏi close
+      nextCursor.style.transform = "scale(1) translate(-200%, -150%)";
     }
   });
 
@@ -1465,6 +1487,7 @@ function gallery() {
     nextCursor.style.transform = "scale(1) translate(-200%, -150%)";
   });
 }
+
 function fadeTextFooter() {
   gsap.set("data-text-footer", {
     opacity: 0,
@@ -1652,8 +1675,4 @@ preloadImages("img").then(() => {
   // Once images are preloaded, remove the 'loading' indicator/class from the body
 
   init();
-});
-
-$(window).on("beforeunload", function () {
-  $(window).scrollTop(0);
 });
