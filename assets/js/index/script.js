@@ -1307,7 +1307,7 @@ function detailSlider() {
     // Tính toán vị trí
     let buttonPosX = mouseX - buttonWidth / 2;
     let buttonPosY = mouseY - buttonHeight / 2;
-    const transitionZone = 0;
+    const transitionZone = 20;
     let rotateDeg;
 
     if (mouseX <= halfWidth - transitionZone) {
@@ -1342,6 +1342,7 @@ function detailSlider() {
     swiperButton.style.left = `${buttonPosX}px`;
     swiperButton.style.top = `${buttonPosY}px`;
     swiperButton.style.transform = `scale(1) rotate(${rotateDeg}deg)`;
+    swiperButton.style.transition = " transform 0.3s";
   });
 
   // Xử lý sự kiện mouseleave
@@ -1626,6 +1627,7 @@ function fadeTextPageDetail() {
 
   // Xử lý hiệu ứng cho [data-fade-desc] nếu tồn tại
   const fxTitleDesc = document.querySelectorAll("[data-fade-desc-auto]");
+
   if (fxTitleDesc.length > 0) {
     fxTitleDesc.forEach((element) => {
       // Khởi tạo SplitType
@@ -1635,22 +1637,27 @@ function fadeTextPageDetail() {
         wordClass: "split-word",
       });
 
-      myDesc.lines.forEach((line, index) => {
-        tl.fromTo(
-          line.querySelectorAll(".split-word"),
-          {
-            y: "100%",
-            opacity: 0,
-          },
-          {
-            y: "0%",
-            opacity: 1,
-            duration: 0.2,
-            ease: "none",
-            delay: index * 0.01,
-          }
-        );
-      });
+      // Tạo timeline GSAP
+      let tl1 = gsap.timeline({ paused: true });
+
+      // Animate tất cả .split-word cùng lúc
+      tl1.fromTo(
+        element.querySelectorAll(".split-word"),
+        {
+          y: "100%",
+          opacity: 0,
+        },
+        {
+          y: "0%",
+          opacity: 1,
+          duration: 0.5,
+          ease: "none",
+          stagger: 0, // Không stagger để hoàn thành cùng lúc
+        }
+      );
+      setTimeout(() => {
+        tl1.play();
+      }, 1000);
     });
   }
 
