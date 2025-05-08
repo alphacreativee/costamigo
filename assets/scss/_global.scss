@@ -172,6 +172,13 @@
     top: 0;
   }
 }
+.page-single {
+  .image-with-text {
+    @media (max-width: 991px) {
+      margin-bottom: 48px;
+    }
+  }
+}
 .svg-container {
   position: absolute;
   top: 70vh;
