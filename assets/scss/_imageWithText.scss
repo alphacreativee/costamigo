@@ -1,9 +1,7 @@
 section.image-with-text {
   position: relative;
   overflow: hidden;
-  @media (max-width: 991px) {
-    overflow: unset;
-  }
+
   .ilus-right {
     width: 365px;
     height: auto;
@@ -12,7 +10,9 @@ section.image-with-text {
     top: -25%;
     z-index: -1;
   }
-
+  @media (max-width: 991px) {
+    overflow: unset;
+  }
   .main-image {
     width: 100%;
     max-height: 100vh;
@@ -192,4 +192,9 @@ section.image-with-text {
 }
 .modal-dialog {
   pointer-events: auto;
+}
+.home {
+  .image-with-text {
+    overflow: hidden;
+  }
 }

@@ -44,7 +44,7 @@
     justify-content: center !important;
     @media (max-width: 991px) {
       top: 64px;
-      justify-content: unset !important;
+      // justify-content: unset !important;
     }
     &.scrolled {
       top: 0;
