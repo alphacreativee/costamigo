@@ -1798,6 +1798,50 @@ function contactForm() {
   });
 }
 
+function getNewletter() {
+  $("#form-newletter").on("submit", function (e) {
+    e.preventDefault();
+
+    const thisForm = $(this);
+    const emailField = thisForm.find("input[type='email']");
+
+    emailField.removeClass("error");
+    thisForm.siblings("span").remove();
+
+    if (!emailField.length) {
+      console.error("Không tìm thấy input email trong form.");
+      return;
+    }
+
+    const email = emailField.val() ? emailField.val().trim() : "";
+
+    if (!email) {
+      emailField.addClass("error");
+      return;
+    }
+
+    $.ajax({
+      type: "POST",
+      url: ajaxUrl,
+      data: {
+        action: "costamigo_receive_newletter",
+        email: email,
+      },
+      beforeSend: function () {
+        console.log("Đang gửi dữ liệu...");
+      },
+      success: function (res) {
+        thisForm[0].reset();
+        $("#modalNewsletterSuccess").modal("show");
+      },
+      error: function (xhr, status, error) {
+        console.error("Lỗi khi gửi form:", error);
+        alert("Có lỗi xảy ra, vui lòng thử lại sau.");
+      },
+    });
+  });
+}
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   updateSvgHeight();
@@ -1820,6 +1864,7 @@ const init = () => {
   detailSlider();
   modalBooking();
   contactForm();
+  getNewletter();
   ScrollTrigger.refresh();
 };
 togglePlayMusic();
