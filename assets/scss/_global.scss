@@ -184,6 +184,9 @@
   height: 5989px;
   z-index: -1;
   overflow: hidden;
+  @media (min-width: 1441px) {
+    display: none;
+  }
   @media (max-width: 991px) {
     height: auto;
     top: 100vh;
