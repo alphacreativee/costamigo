@@ -117,9 +117,10 @@
 
 .page-accomodation,
 .page-offer,
-.page-news {
+.page-news,
+.page-template-template-offer {
   main {
-    overflow: unset;
+    overflow: unset !important;
   }
 }
 .page-accomodation .svg-container {
@@ -319,6 +320,10 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     max-width: 440px;
     gap: 24px;
     pointer-events: auto;
+
+    @media (max-width: 991px) {
+      margin: auto;
+    }
   }
 
   .modal-close {
