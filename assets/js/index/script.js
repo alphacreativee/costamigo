@@ -1652,12 +1652,11 @@ function fadeTextPageDetail() {
           opacity: 1,
           duration: 0.5,
           ease: "none",
-          stagger: 0, // Không stagger để hoàn thành cùng lúc
         }
       );
       setTimeout(() => {
         tl1.play();
-      }, 1000);
+      }, 1100);
     });
   }
 
