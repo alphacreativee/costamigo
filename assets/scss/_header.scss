@@ -279,6 +279,10 @@
       &__item {
         color: var(--color-primary) !important;
         font-weight: 600;
+
+        &:not(:first-child) {
+          margin-top: 8px;
+        }
       }
 
       &__text {
