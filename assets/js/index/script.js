@@ -1,6 +1,13 @@
 import { preloadImages } from "../../libs/utils.js";
 let lenis;
-Splitting();
+let isSafari =
+  navigator.userAgent.indexOf("Safari") > -1 &&
+  navigator.userAgent.indexOf("Chrome") === -1;
+
+// Add class "is-safari" to </body>
+if (!isSafari) {
+  Splitting();
+}
 
 ("use strict");
 $ = jQuery;
@@ -323,9 +330,7 @@ function animationText() {
   const fxTitle = document.querySelectorAll(
     "[data-splitting][data-effect-one]"
   );
-  const fxTitleTwo = document.querySelectorAll(
-    "[data-splitting][data-effect-two]"
-  );
+
   const fxTitleThree = document.querySelectorAll(
     "[data-splitting][data-effect-three]"
   );
@@ -358,28 +363,55 @@ function animationText() {
       });
     });
   });
-  fxTitleTwo.forEach((element) => {
-    const chars = element.querySelectorAll(".char");
-    gsap.fromTo(
-      chars,
-      {
-        "will-change": "opacity, transform",
-        opacity: 0,
-        y: 20,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.05,
-        scrollTrigger: {
-          trigger: element,
-          start: "top 60%",
-          end: "bottom 60%",
-          // markers: true,
-        },
-      }
+  if (!isSafari) {
+    const fxTitleTwo = document.querySelectorAll(
+      "[data-splitting][data-effect-two]"
     );
-  });
+    fxTitleTwo.forEach((element) => {
+      const chars = element.querySelectorAll(".char");
+      gsap.fromTo(
+        chars,
+        {
+          "will-change": "opacity, transform",
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.05,
+          scrollTrigger: {
+            trigger: element,
+            start: "top 60%",
+            end: "bottom 60%",
+            // markers: true,
+          },
+        }
+      );
+    });
+  } else {
+    gsap.utils.toArray("[data-effect-two]").forEach((element) => {
+      gsap.fromTo(
+        element,
+        {
+          "will-change": "opacity, transform",
+          opacity: 0,
+          y: 20,
+        },
+        {
+          scrollTrigger: {
+            trigger: element,
+            start: "top 75%",
+            end: "bottom 75%",
+          },
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "sine.out",
+        }
+      );
+    });
+  }
   fxTitleThree.forEach((element) => {
     const chars = element.querySelectorAll(".char");
     gsap.fromTo(
@@ -1520,24 +1552,48 @@ function fadeTextPageDetail() {
   const tl = gsap.timeline();
 
   // Xử lý hiệu ứng cho [data-splitting][data-effect-auto] nếu tồn tại
-  const fxTitleAuto = document.querySelectorAll(
-    "[data-splitting][data-effect-auto]"
-  );
-  if (fxTitleAuto.length > 0) {
-    fxTitleAuto.forEach((element) => {
-      const chars = element.querySelectorAll(".char");
-      tl.fromTo(
-        chars,
+  if (!isSafari) {
+    const fxTitleAuto = document.querySelectorAll(
+      "[data-splitting][data-effect-auto]"
+    );
+    if (fxTitleAuto.length > 0) {
+      fxTitleAuto.forEach((element) => {
+        const chars = element.querySelectorAll(".char");
+        tl.fromTo(
+          chars,
+          {
+            "will-change": "opacity, transform",
+            opacity: 0,
+            y: 20,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.05,
+            duration: 0.3,
+            ease: "sine.out",
+          }
+        );
+      });
+    }
+  } else {
+    gsap.utils.toArray("[data-effect-auto]").forEach((element) => {
+      gsap.fromTo(
+        element,
         {
           "will-change": "opacity, transform",
           opacity: 0,
           y: 20,
         },
         {
+          scrollTrigger: {
+            trigger: element,
+            start: "top 75%",
+            end: "bottom 75%",
+          },
           opacity: 1,
           y: 0,
-          stagger: 0.05,
-          duration: 0.3,
+          duration: 0.5,
           ease: "sine.out",
         }
       );
