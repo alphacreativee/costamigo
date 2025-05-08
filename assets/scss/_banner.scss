@@ -18,9 +18,22 @@
     height: 100%;
     .video {
       width: 100%;
-      height: 100%;
       position: relative;
       overflow: hidden;
+      padding-bottom: 48%;
+      height: 0;
+      max-width: 100%;
+
+      @media (max-width: 1400px) {
+        height: 100vh;
+        width: 100vw;
+        padding-bottom: 0;
+      }
+
+      @media (max-width: 991px) {
+        height: 100%;
+      }
+
       iframe {
         position: absolute;
         top: 0;
@@ -29,6 +42,18 @@
         height: 100%;
         transform: scale(1.25);
         object-fit: cover;
+
+        @media (max-width: 1400px) {
+          height: 100vh;
+          width: 177.78vh;
+          transform: scale(1);
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          padding-bottom: 0;
+        }
       }
     }
     video {
