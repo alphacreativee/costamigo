@@ -287,6 +287,10 @@ footer {
 
       .info {
         max-width: 78%;
+
+        @media (max-width: 991px) {
+          max-width: 100%;
+        }
       }
     }
 
