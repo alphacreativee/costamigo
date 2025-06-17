@@ -16,9 +16,10 @@
     padding: 25px 40px;
     position: relative;
     z-index: 99;
-    background-image: url("../../images/bg-header.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+    // background-image: url("../../images/bg-header.png");
+    // background-repeat: no-repeat;
+    // background-size: 100% 100%;
+    background-color: var(--color-secondary);
     @media (max-width: 991px) {
       padding: 16px 24px;
     }
@@ -274,7 +275,8 @@
       }
     }
     .sub-menu-container {
-      background-image: url("../../images/bg-sub-menu.png");
+      // background-image: url("../../images/bg-sub-menu.png");
+      background-color: var(--color-secondary);
     }
     .sub-menu-overlay {
       background-color: rgba($color: #000000, $alpha: 0.8);

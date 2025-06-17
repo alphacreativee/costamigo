@@ -1,12 +1,12 @@
 :root {
   --color-primary: #232c6a;
-  --color-secondary: #ce6232;
+  --color-secondary: #2ea3a1;
   --color-white: #ffffff;
   --color-pattern: #f8f0e2;
   --color-line: #484d5c;
 
   --font-heading: "SVN-Hello Serattine", sans-serif;
-  --font-body: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Averta", sans-serif;
 }
 // color
 .color-primary {
@@ -34,6 +34,10 @@
     line-height: 48px;
   }
 }
+.h1-font {
+  font-size: 40px;
+  line-height: 48px;
+}
 .h2-font {
   font-size: 24px;
   line-height: 40px;
@@ -57,27 +61,10 @@
     line-height: 32px;
   }
 }
-.b2-font {
-  font-size: 13px;
-  line-height: 20px;
-  font-weight: 600;
-  letter-spacing: 0.39px;
-}
-.b1-font {
-  font-size: 16px;
-  line-height: 28px;
-  font-weight: 400;
-}
-.b2-font-md {
-  font-size: 13px;
-  line-height: 20px;
-  font-weight: 500;
-  letter-spacing: 0.39px;
-}
+
 .h1-font {
   font-size: 40px;
   line-height: 48px;
-  font-style: italic;
   @media (max-width: 991px) {
     font-size: 32px;
     line-height: 40px;
@@ -89,8 +76,8 @@
   font-style: italic;
 }
 .h2-font-md {
-  font-size: 20px;
-  line-height: 32px;
+  font-size: 24px;
+  line-height: 40px;
 }
 .spacing-40 {
   height: 40px;
@@ -127,4 +114,24 @@
   @media (max-width: 991px) {
     height: 88px;
   }
+}
+.b0-font {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: bold;
+}
+.b1-font {
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+}
+.b2-font {
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: bold;
+}
+.b2-font-md {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
 }
