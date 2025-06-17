@@ -1,5 +1,5 @@
 :root {
-  --color-primary: #232c6a;
+  --color-primary: #0e6261;
   --color-secondary: #2ea3a1;
   --color-white: #ffffff;
   --color-pattern: #f8f0e2;
@@ -134,4 +134,13 @@
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
+}
+.font-light {
+  font-weight: 300;
+}
+.font-italic {
+  font-style: italic;
+}
+.font-bold {
+  font-weight: bold;
 }

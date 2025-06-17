@@ -3,9 +3,16 @@ footer {
   position: relative;
   overflow: hidden;
   z-index: 2;
-  background: var(--color-pattern) url("../../images/bg-body.png");
-  background-repeat: repeat-y;
-  background-size: contain;
+  background-color: var(--color-primary);
+
+  .animation-text-v3 {
+    &:hover {
+      color: var(--color-white) !important;
+    }
+    &::before {
+      background-color: var(--color-white);
+    }
+  }
   @media (max-width: 991px) {
     padding: 0 24px;
   }
@@ -31,7 +38,7 @@ footer {
       }
       &::after {
         content: "";
-        background-color: rgba($color: #232c6a, $alpha: 0.1);
+        background-color: rgba(255, 255, 255, 0.1);
         position: absolute;
         top: 0;
         left: 0;
@@ -50,10 +57,11 @@ footer {
     }
     &-logo {
       width: 233px;
-      height: 120px;
-      display: block;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px 0;
       @media (max-width: 991px) {
-        height: 100px;
         width: 200px;
         margin-bottom: 48px;
       }
@@ -80,7 +88,7 @@ footer {
 
           &::after {
             content: "";
-            background-color: rgba($color: #232c6a, $alpha: 0.1);
+            background-color: rgba(255, 255, 255, 0.1);
             position: absolute;
             bottom: 0;
             left: 0;
@@ -97,13 +105,13 @@ footer {
           font-size: 13px;
           line-height: 20px;
           font-weight: 500;
-          color: var(--color-primary);
+          color: var(--color-white);
 
           &::placeholder {
             font-size: 13px;
             line-height: 20px;
             font-weight: 500;
-            color: var(--color-primary);
+            color: var(--color-white);
           }
         }
 
@@ -112,7 +120,7 @@ footer {
           height: 44px;
           min-width: 44px;
           border-radius: 50%;
-          border: 1px solid var(--color-primary);
+          border: 1px solid var(--color-white);
           transition: all 0.3s ease;
           position: relative;
 
@@ -131,13 +139,13 @@ footer {
           }
 
           &:hover {
-            background-color: var(--color-primary);
+            background-color: var(--color-white);
             path {
-              stroke: var(--color-white);
+              stroke: var(--color-primary);
             }
 
             circle {
-              fill: var(--color-primary);
+              fill: var(--color-white);
             }
 
             .icon {
@@ -157,7 +165,7 @@ footer {
             display: flex;
             a {
               &:hover {
-                color: var(--color-primary);
+                color: var(--color-white);
               }
             }
           }
@@ -181,7 +189,7 @@ footer {
       }
       &::after {
         content: "";
-        background-color: rgba($color: #232c6a, $alpha: 0.1);
+        background-color: rgba(255, 255, 255, 0.1);
         position: absolute;
         top: 0;
         right: 0;
@@ -202,7 +210,7 @@ footer {
             font-size: 13px;
             line-height: 20px;
             font-weight: 500;
-            color: var(--color-primary);
+            color: var(--color-white);
           }
 
           &:not(:first-child) {
@@ -234,7 +242,7 @@ footer {
       }
       &::after {
         content: "";
-        background-color: rgba($color: #232c6a, $alpha: 0.1);
+        background-color: rgba(255, 255, 255, 0.1);
         position: absolute;
         top: 0;
         right: 0;
@@ -255,7 +263,7 @@ footer {
       }
 
       a:hover {
-        color: var(--color-primary);
+        color: var(--color-white);
       }
     }
 
@@ -271,7 +279,7 @@ footer {
       }
       &::after {
         content: "";
-        background-color: rgba($color: #232c6a, $alpha: 0.1);
+        background-color: rgba(255, 255, 255, 0.1);
         position: absolute;
         top: 0;
         left: 0;
@@ -307,7 +315,7 @@ footer {
       }
       &::after {
         content: "";
-        background-color: rgba($color: #232c6a, $alpha: 0.1);
+        background-color: rgba(255, 255, 255, 0.1);
         position: absolute;
         top: 0;
         left: 0;
@@ -331,7 +339,7 @@ footer {
           font-size: 13px;
           line-height: 20px;
           font-weight: 500;
-          color: var(--color-primary);
+          color: var(--color-white);
         }
       }
     }
@@ -339,7 +347,7 @@ footer {
     &-alpha {
       a {
         &:hover {
-          color: var(--color-primary);
+          color: var(--color-white);
         }
       }
     }

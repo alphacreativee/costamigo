@@ -129,10 +129,11 @@
       align-items: flex-start;
       gap: 5px;
       .number {
-        font-size: 57px;
+        font-size: 56px;
         font-family: var(--font-body);
         line-height: 1;
         color: var(--color-primary);
+        font-weight: 400;
         @media (max-width: 991px) {
           font-size: 32px;
         }
@@ -146,7 +147,7 @@
     }
     .name {
       font-size: 16px;
-      line-height: 24px;
+      line-height: 28px;
       color: var(--color-primary);
       @media (max-width: 991px) {
         font-size: 13px;

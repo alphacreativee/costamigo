@@ -139,7 +139,7 @@
         font-size: 16px;
         line-height: 28px;
         &::placeholder {
-          color: #a1a0b0;
+          color: rgba(14, 98, 97, 0.4);
           font-size: 16px;
           line-height: 28px;
         }
@@ -153,7 +153,7 @@
         line-height: 28px;
         resize: none;
         &::placeholder {
-          color: #a1a0b0;
+          color: rgba(14, 98, 97, 0.4);
           font-size: 16px;
           line-height: 28px;
         }
@@ -253,7 +253,7 @@
 
   button[type="submit"] {
     &:disabled {
-      background-color: #b0b2be;
+      background-color: rgba(14, 98, 97, 0.4);
     }
   }
 }
