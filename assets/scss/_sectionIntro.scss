@@ -1,5 +1,51 @@
 .section-intro {
   position: relative;
+  &.spa {
+    .section-intro__ilus {
+      width: auto;
+      height: auto;
+      top: 10%;
+      &.top-left {
+        top: -15%;
+        left: 0;
+        right: unset;
+      }
+      &.bottom-right {
+        bottom: -10%;
+        top: unset;
+        right: 0;
+        left: unset;
+      }
+    }
+  }
+  &.culinary-info {
+    .section-intro__ilus {
+      width: auto;
+      height: auto;
+      top: 10%;
+      &.top-left {
+        transform: scaleX(-1);
+        top: -15%;
+        left: 0;
+        right: unset;
+      }
+    }
+  }
+  &.event-info {
+    .section-intro__ilus {
+      width: auto;
+      height: auto;
+      top: unset;
+      bottom: -15%;
+      &.top-left {
+        transform: scaleX(-1);
+        top: -15%;
+        left: 0;
+        right: unset;
+        bottom: unset;
+      }
+    }
+  }
   &__box {
     &--tag {
       margin-bottom: 24px;

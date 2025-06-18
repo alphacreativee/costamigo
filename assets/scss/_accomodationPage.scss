@@ -1,6 +1,36 @@
 .accomodation-list {
   position: relative;
   padding-bottom: 80px;
+  &.news {
+    .accomodation__bg {
+      right: 0;
+      left: unset;
+      transform: scale(0);
+    }
+  }
+  .accomodation {
+    &__bg {
+      position: absolute;
+      width: auto;
+      height: auto;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      &:nth-child(1) {
+        transform: scaleX(-1);
+        top: 25%;
+      }
+      &:nth-child(2) {
+        left: unset;
+        right: 0;
+        top: 50%;
+      }
+      &:last-child {
+        top: unset;
+        bottom: 0;
+      }
+    }
+  }
   @media (max-width: 991px) {
     padding-bottom: 0;
   }
@@ -75,21 +105,6 @@
   }
 
   .accomodation {
-    &-bg {
-      position: absolute;
-      right: -60px;
-      top: -100px;
-      transform: rotate(-16deg);
-      width: 395px;
-      height: 530px;
-      z-index: -1;
-      @media (max-width: 991px) {
-        width: 241px;
-        height: 324px;
-        right: 60px;
-        display: none;
-      }
-    }
     &-card {
       display: flex;
       flex-direction: column;

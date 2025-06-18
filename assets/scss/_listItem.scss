@@ -5,6 +5,28 @@
   }
   .row {
     margin-bottom: 140px;
+    position: relative;
+    .item__bg {
+      position: absolute;
+      bottom: 0%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      right: 0;
+      transform: translateX(50px);
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &.flex-row-reverse {
+      .item__bg {
+        left: 0;
+        right: unset;
+        transform: translateX(-50px);
+      }
+    }
     @media (max-width: 991px) {
       margin-bottom: 80px;
     }

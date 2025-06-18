@@ -1,18 +1,27 @@
 .section-story {
   //   padding: 0 40px;
   position: relative;
+  &.event {
+    .section-story__ilus {
+      top: -25%;
+      &.right {
+        bottom: -25%;
+        top: unset;
+      }
+    }
+  }
   &__ilus {
     position: absolute;
-    right: 0;
-    top: -40%;
-    transform: translate(0);
-    width: var(--w-ilus);
-    height: var(--h-ilus);
+    top: -50%;
+    left: 0;
     z-index: 2;
-    @media (max-width: 991px) {
-      width: 100px;
-      height: 103px;
-      top: 10px;
+    width: auto;
+    height: auto;
+    &.right {
+      top: unset;
+      bottom: -50%;
+      right: 0;
+      left: unset;
     }
     img {
       width: 100%;
@@ -114,7 +123,7 @@
     position: absolute;
     right: 0%;
     bottom: -100%;
-    width: 365px;
+    width: auto;
     height: auto;
     // aspect-ratio: 585 / 600;
     z-index: -1;

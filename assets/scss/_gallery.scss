@@ -200,14 +200,26 @@
 .lg-show-in .lg-backdrop:before {
   content: "";
   position: absolute;
-  bottom: -50px;
-  left: -80px;
-  width: 400px;
-  height: 400px;
-  background-image: url("../../images/img-flower-f.png");
+  left: 0;
+  bottom: 0;
+  width: 150px;
+  height: 150px;
+  background-image: url("../../images/artwork/so.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  transform: rotate(27deg);
+  transform: scaleX(-1);
+}
+.lg-show-in .lg-backdrop:after {
+  content: "";
+  position: absolute;
+  top: 80px;
+  right: 24px;
+  width: 200px;
+  height: 200px;
+  background-image: url("../../images/artwork/sao.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: scaleX(-1);
 }
 
 .lg-show-in .lg-outer {

@@ -419,11 +419,12 @@ input[type="time"]::-webkit-calendar-picker-indicator {
       &::after {
         content: "";
         position: absolute;
-        right: -10px;
-        bottom: -30px;
-        width: 160px;
+        right: 0px;
+        bottom: 0px;
+        width: 210px;
         height: 210px;
-        background-image: url("../../images/culinary-detail/ilus-modal-booking-success.svg");
+        background-image: url("../../images/artwork/so.svg");
+        opacity: 0.3;
       }
     }
 

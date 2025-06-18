@@ -24,9 +24,31 @@
 
   &__bg {
     position: absolute;
-    bottom: 0;
+    bottom: 20%;
     left: 0;
     transform: translateY(80px);
+    width: auto;
+    height: auto;
+
+    &.right {
+      left: unset;
+      right: 0;
+      bottom: 0;
+    }
+    &.top-left {
+      top: -40%;
+      left: 0;
+      bottom: unset;
+    }
+    &.bottom-right {
+      left: unset;
+      right: 0;
+      bottom: -10%;
+    }
+    &.bottom-left {
+      bottom: -10%;
+      left: -3%;
+    }
     @media (max-width: 991px) {
       width: 110px;
       height: auto;

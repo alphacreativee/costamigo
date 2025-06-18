@@ -4,15 +4,15 @@
 
   &__bg {
     position: absolute;
-    right: 0;
-    top: -50%;
-    z-index: 10;
-    width: 373px;
-    height: 505px;
-    @media (max-width: 991px) {
-      width: 177px;
-      height: 277px;
-      top: -30%;
+    left: 0;
+    top: -15%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    &.right {
+      left: unset;
+      right: 0;
+      top: 0;
     }
   }
   &__top {
@@ -96,6 +96,15 @@
   }
 }
 .form-contact {
+  position: relative;
+  &__bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    transform: scaleX(-1);
+  }
   &__container {
     padding: 40px 24px 40px;
     position: relative;

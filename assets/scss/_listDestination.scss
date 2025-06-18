@@ -1,5 +1,29 @@
 .list-destination {
   padding: 0 40px;
+  position: relative;
+  &__item {
+    &--bg {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      &:nth-child(1) {
+        top: 40%;
+        bottom: unset;
+      }
+      &:nth-child(even) {
+        left: unset;
+        right: 0;
+        top: 66%;
+      }
+      &:nth-child(3) {
+        left: 0;
+        bottom: 0;
+      }
+    }
+  }
   @media (max-width: 991px) {
     padding: 0 24px;
   }

@@ -2,6 +2,15 @@
   position: relative;
   padding-bottom: 120px;
   // overflow: hidden;
+  &.gallery-bg {
+    .desc-page__bg {
+      left: unset;
+      right: 0;
+      bottom: 50px;
+      top: unset;
+      transform: translateX(25%);
+    }
+  }
   @media (max-width: 991px) {
     padding-bottom: 80px;
   }
@@ -53,10 +62,10 @@
   }
   &__bg {
     position: absolute;
-    right: 0;
-    bottom: 30%;
-    width: 370px;
-    height: 470px;
+    top: -10%;
+    left: 0;
+    width: auto;
+    height: auto;
     transform: translateX(50%);
     z-index: -1;
     @media (max-width: 991px) {
