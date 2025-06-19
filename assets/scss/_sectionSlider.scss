@@ -1,6 +1,12 @@
 .section-slider {
   position: relative;
-
+  &.other-room {
+    .section-slider__content {
+      @media (max-width: 991px) {
+        margin-bottom: 0;
+      }
+    }
+  }
   &__content {
     margin-bottom: 80px;
     padding: 0 88px;
@@ -39,6 +45,9 @@
       top: -40%;
       left: 0;
       bottom: unset;
+      @media (max-width: 991px) {
+        top: -20%;
+      }
     }
     &.bottom-right {
       left: unset;
@@ -50,9 +59,10 @@
       left: -3%;
     }
     @media (max-width: 991px) {
-      width: 110px;
+      width: 120px;
       height: auto;
       transform: translateY(0);
+      bottom: 0;
     }
   }
   &__box {

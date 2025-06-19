@@ -139,31 +139,25 @@
   height: auto;
   z-index: -1;
   overflow: hidden;
+  @media (max-width: 991px) {
+    height: 100vh;
+    overflow: hidden;
+    img {
+      transform: scale(3);
+    }
+  }
   &.not-banner {
     top: -45vh;
   }
   @media (min-width: 1441px) {
     display: none;
   }
-  @media (max-width: 991px) {
-    height: auto;
-    top: 100vh;
-    width: 100%;
-    display: none;
-  }
-  svg {
-    height: 100%;
-    position: relative;
-    path {
-      stroke-dasharray: 8 8;
-      stroke: var(--color-primary);
-      stroke-width: 1.2;
-      stroke-linecap: round;
-      mask: url(#revealMask);
-    }
-  }
 }
 .animation-art-reverse {
+  @media (max-width: 991px) {
+    width: 140px !important;
+    aspect-ratio: 1;
+  }
   img {
     display: block;
     width: 100%;
@@ -584,4 +578,39 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   -webkit-font-smoothing: antialiased;
   transform: translateZ(0);
   font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+.culinary-template-default {
+  .section-story__ilus {
+    @media (max-width: 991px) {
+      top: -20%;
+    }
+  }
+}
+.single-offer {
+  .section-offer {
+    @media (max-width: 991px) {
+      padding-top: 30px;
+    }
+  }
+}
+.page-template-template-spa,
+.single-event {
+  .section-intro__content {
+    @media (max-width: 991px) {
+      padding-top: 50px;
+    }
+  }
+}
+.single-destination .section-offer__content {
+  @media (max-width: 991px) {
+    margin-bottom: 0;
+  }
+}
+.single-destination,
+.single-post {
+  @media (max-width: 991px) {
+    main {
+      overflow-x: hidden;
+    }
+  }
 }

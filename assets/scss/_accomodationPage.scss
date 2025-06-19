@@ -1,6 +1,29 @@
 .accomodation-list {
   position: relative;
   padding-bottom: 80px;
+  @media (max-width: 991px) {
+    .accomodation-wrapper {
+      .nav {
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        padding-left: 24px;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        li {
+          button > div {
+            width: max-content;
+          }
+          &:first-child {
+            margin-left: 24px;
+          }
+          &:last-child {
+            margin-right: 24px;
+          }
+        }
+      }
+    }
+  }
   &.news {
     .accomodation__bg {
       right: 0;

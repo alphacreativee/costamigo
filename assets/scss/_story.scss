@@ -4,9 +4,15 @@
   &.event {
     .section-story__ilus {
       top: -25%;
+      @media (max-width: 991px) {
+        top: -10%;
+      }
       &.right {
         bottom: -25%;
         top: unset;
+        @media (max-width: 991px) {
+          bottom: 0;
+        }
       }
     }
   }
@@ -17,11 +23,18 @@
     z-index: 2;
     width: auto;
     height: auto;
+    @media (max-width: 991px) {
+      z-index: -1;
+      top: -40%;
+    }
     &.right {
       top: unset;
       bottom: -50%;
       right: 0;
       left: unset;
+      @media (max-width: 991px) {
+        bottom: -18%;
+      }
     }
     img {
       width: 100%;
@@ -125,14 +138,10 @@
     bottom: -100%;
     width: auto;
     height: auto;
-    // aspect-ratio: 585 / 600;
     z-index: -1;
-    // transform: translate(50%, 50%);
-    // overflow: hidden;
     @media (max-width: 991px) {
-      bottom: 0;
+      bottom: -15%;
       width: 200px;
-      z-index: 1;
     }
   }
 

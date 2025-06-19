@@ -9,6 +9,9 @@
     width: auto;
     height: auto;
     z-index: -1;
+    @media (max-width: 991px) {
+      top: -5%;
+    }
     &.right {
       left: unset;
       right: 0;

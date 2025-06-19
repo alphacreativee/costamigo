@@ -68,8 +68,5 @@
     height: auto;
     transform: translateX(50%);
     z-index: -1;
-    @media (max-width: 991px) {
-      display: none;
-    }
   }
 }

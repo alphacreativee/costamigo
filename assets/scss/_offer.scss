@@ -1,5 +1,12 @@
 .section-offer {
   position: relative;
+  &.related {
+    .section-offer__content {
+      @media (max-width: 991px) {
+        margin-bottom: 0;
+      }
+    }
+  }
   &__bg {
     position: absolute;
     top: -20%;
@@ -8,6 +15,9 @@
     height: auto;
 
     z-index: -1;
+    @media (max-width: 991px) {
+      top: -10%;
+    }
     &.right {
       top: 5%;
       left: unset;
