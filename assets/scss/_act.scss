@@ -37,8 +37,8 @@
     &.bottom-left {
       right: unset;
       bottom: -30%;
-      transform: scaleX(-1);
-      left: -150px;
+
+      left: 0;
       @media (max-width: 991px) {
         left: 0;
       }
