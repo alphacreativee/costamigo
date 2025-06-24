@@ -157,6 +157,7 @@
       align-items: center !important;
       justify-content: flex-start !important;
       height: auto;
+      // aspect-ratio: unset;
     }
     .btn-wrapper {
       position: absolute;
@@ -214,7 +215,7 @@
     @media (max-width: 991px) {
       max-width: 100%;
       .swiper-slide {
-        aspect-ratio: unset;
+        // aspect-ratio: unset;
       }
     }
     .swiper-slide {

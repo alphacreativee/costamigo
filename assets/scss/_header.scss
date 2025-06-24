@@ -249,6 +249,7 @@
           overflow-y: scroll;
           height: calc(100vh - 55px);
           padding-bottom: 50px;
+          padding-top: 50px;
           &::-webkit-scrollbar {
             display: none;
           }
