@@ -68,6 +68,8 @@
     max-width: 90%;
     @media (max-width: 991px) {
       max-width: 100%;
+      margin-top: 32px;
+      margin-bottom: 32px;
     }
 
     &.not-has-tag {
@@ -132,6 +134,10 @@
     }
     &--title {
       margin-bottom: 24px;
+
+      @media (max-width: 991px) {
+        margin-bottom: 12px;
+      }
     }
     &--tag {
       margin-bottom: 24px;
@@ -154,6 +160,7 @@
 
       @media (max-width: 991px) {
         padding: 0;
+        aspect-ratio: 327 / 209;
       }
       &-img {
         height: 100%;

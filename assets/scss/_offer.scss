@@ -36,20 +36,31 @@
     }
     &--title {
       margin-bottom: 40px;
+
+      @media (max-width: 991px) {
+        margin-bottom: 32px;
+      }
     }
     &--desc {
       margin-bottom: 40px;
+
+      @media (max-width: 991px) {
+        margin-bottom: 32px;
+      }
     }
   }
   &__item {
     &:hover {
-      .section-offer__img {
-        clip-path: inset(3%);
+      @media (min-width: 992px) {
+        .section-offer__img {
+          clip-path: inset(3%);
 
-        img {
-          transform: scale(1.05);
+          img {
+            transform: scale(1.05);
+          }
         }
       }
+
       .section-offer__content--title {
         color: var(--color-secondary);
       }

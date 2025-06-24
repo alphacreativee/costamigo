@@ -148,17 +148,26 @@ section.image-with-text {
     width: 100%;
     padding: 0 40px;
     @media (max-width: 991px) {
-      top: 164px;
+      top: 64px;
       max-width: 100%;
       padding: 0 40px;
     }
     h1 {
       margin-bottom: 24px;
       text-align: center;
+
+      @media (max-width: 991px) {
+        margin: 0 auto 24px;
+        max-width: 80%;
+      }
     }
     .desc {
       text-align: center;
       margin-bottom: 40px;
+
+      @media (max-width: 991px) {
+        margin-bottom: 32px;
+      }
     }
   }
 
