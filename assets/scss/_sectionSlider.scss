@@ -48,6 +48,10 @@
       left: unset;
       right: 0;
       bottom: 0;
+
+      @media (max-width: 991px) {
+        display: none;
+      }
     }
     &.top-left {
       top: -40%;
@@ -65,6 +69,12 @@
     &.bottom-left {
       bottom: -10%;
       left: 0;
+
+      @media (max-width: 991px) {
+        right: 0;
+        left: unset;
+        transform: scaleX(-1);
+      }
     }
     @media (max-width: 991px) {
       width: 120px;

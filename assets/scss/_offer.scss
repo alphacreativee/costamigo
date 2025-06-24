@@ -22,6 +22,10 @@
       top: 5%;
       left: unset;
       right: 0;
+
+      @media (max-width: 991px) {
+        display: none;
+      }
     }
   }
   &__top {

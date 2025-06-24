@@ -1125,8 +1125,13 @@ function modalBooking() {
         url: ajaxUrl,
         type: "POST",
         data: formData,
+        beforeSend: function () {
+          form.find("button[type='submit']").addClass("aloading");
+        },
         success: function (response) {
           if (response.success) {
+            form.find("button[type='submit']").removeClass("aloading");
+
             console.log("Đặt chỗ thành công:", response.data);
             $("form")[0].reset();
             $("#modalBooking").modal("hide");
@@ -1724,11 +1729,11 @@ function contactForm() {
     const isPhoneFilled = phoneField.val().trim() !== "";
     const isChecked = checkbox.is(":checked");
 
-    if (isNameFilled && isEmailFilled && isPhoneFilled && isChecked) {
-      submitButton.removeAttr("disabled");
-    } else {
-      submitButton.attr("disabled", true);
-    }
+    // if (isNameFilled && isEmailFilled && isPhoneFilled && isChecked) {
+    //   submitButton.removeAttr("disabled");
+    // } else {
+    //   submitButton.attr("disabled", true);
+    // }
   }
 
   // Gán sự kiện khi người dùng nhập liệu hoặc check/uncheck
@@ -1763,10 +1768,10 @@ function contactForm() {
       isValid = false;
     }
 
-    if (!checkbox.is(":checked")) {
-      checkbox.addClass("error");
-      isValid = false;
-    }
+    // if (!checkbox.is(":checked")) {
+    //   checkbox.addClass("error");
+    //   isValid = false;
+    // }
 
     if (!isValid) return;
 
@@ -1778,16 +1783,19 @@ function contactForm() {
         name: nameField.val().trim(),
         email: emailField.val().trim(),
         phone: phoneField.val().trim(),
-        messageNote: messageField.val().trim()
+        messageNote: messageField.val().trim(),
+        getNewletter: checkbox.is(":checked") ? "true" : "false"
       },
       beforeSend: function () {
         $(".contact-message").remove();
+        submitButton.addClass("aloading");
       },
       success: function (res) {
         $(".contact-message").remove();
+        submitButton.removeClass("aloading");
         contactForm[0].reset();
         $("#modalBookingSuccess").modal("show");
-        submitButton.attr("disabled", true); // Disable lại sau khi gửi
+        // submitButton.attr("disabled", true);
       },
       error: function (xhr, status, error) {
         console.error("Lỗi khi gửi form:", error);
@@ -1870,9 +1878,9 @@ const init = () => {
   ScrollTrigger.refresh();
 };
 togglePlayMusic();
-window.addEventListener("resize", () => {
-  animationText();
-});
+// window.addEventListener("resize", () => {
+//   animationText();
+// });
 preloadImages("img").then(() => {
   // Once images are preloaded, remove the 'loading' indicator/class from the body
 

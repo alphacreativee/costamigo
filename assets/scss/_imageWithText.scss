@@ -151,7 +151,12 @@ section.image-with-text {
       top: 64px;
       max-width: 100%;
       padding: 0 40px;
+
+      .content-box {
+        transform: none !important;
+      }
     }
+
     h1 {
       margin-bottom: 24px;
       text-align: center;
