@@ -21,6 +21,7 @@
 // font
 .font-heading {
   font-family: var(--font-heading);
+  font-style: italic;
 }
 .font-body {
   font-family: var(--font-body);
@@ -118,6 +119,12 @@
 .spacing-180-mb {
   @media (max-width: 991px) {
     height: 180px;
+  }
+}
+
+.spacing-120-mb {
+  @media (max-width: 991px) {
+    height: 120px;
   }
 }
 .b0-font {

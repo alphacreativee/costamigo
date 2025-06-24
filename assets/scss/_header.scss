@@ -219,7 +219,7 @@
     top: 70px;
     bottom: 0;
     width: 100%;
-    min-height: calc(100vh - 70px);
+    min-height: calc(100svh - 70px);
     will-change: transform;
     transition: all 0.5s ease;
     opacity: 0;
@@ -249,7 +249,7 @@
           overflow-y: scroll;
           height: calc(100vh - 55px);
           padding-bottom: 50px;
-          padding-top: 50px;
+          padding-top: 100px;
           &::-webkit-scrollbar {
             display: none;
           }
@@ -329,6 +329,7 @@
     justify-content: center;
     align-items: center;
     position: absolute;
+    z-index: 10;
     bottom: 0;
     left: 0;
     right: 0;

@@ -17,6 +17,7 @@
     z-index: -1;
     @media (max-width: 991px) {
       top: -10%;
+      display: none;
     }
     &.right {
       top: 5%;

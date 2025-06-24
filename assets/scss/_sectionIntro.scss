@@ -16,6 +16,10 @@
         top: unset;
         right: 0;
         left: unset;
+
+        img {
+          object-position: right center;
+        }
       }
     }
   }
@@ -42,6 +46,14 @@
       height: auto;
       top: unset;
       bottom: -15%;
+
+      @media (max-width: 991px) {
+        &.right {
+          width: 100px !important;
+          object-position: right center;
+        }
+      }
+
       &.top-left {
         transform: scaleX(-1);
         top: -15%;
@@ -125,6 +137,13 @@
     img {
       width: 100%;
       height: 100%;
+      object-fit: contain;
+    }
+
+    &.right {
+      img {
+        object-position: right center;
+      }
     }
   }
 }

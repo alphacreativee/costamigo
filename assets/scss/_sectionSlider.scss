@@ -44,6 +44,10 @@
     width: auto;
     height: auto;
 
+    img {
+      object-fit: contain;
+    }
+
     &.right {
       left: unset;
       right: 0;
@@ -74,6 +78,10 @@
         right: 0;
         left: unset;
         transform: scaleX(-1);
+
+        img {
+          object-position: left center;
+        }
       }
     }
     @media (max-width: 991px) {
@@ -234,6 +242,11 @@
         font-size: 24px;
         line-height: 40px;
         font-weight: 300;
+
+        @media (max-width: 991px) {
+          font-size: 20px;
+          line-height: 32px;
+        }
       }
       .desc {
         margin-top: 24px;
@@ -243,6 +256,7 @@
         color: var(--color-primary);
         @media (max-width: 991px) {
           text-align: center;
+          margin-top: 12px;
         }
         .split-line {
           white-space: wrap;

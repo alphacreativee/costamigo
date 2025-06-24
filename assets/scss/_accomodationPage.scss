@@ -42,6 +42,11 @@
       z-index: -1;
       &:nth-child(1) {
         top: 25%;
+
+        img {
+          object-fit: contain;
+          object-position: left center;
+        }
       }
       &:nth-child(2) {
         left: unset;
@@ -51,6 +56,11 @@
       &:last-child {
         top: unset;
         bottom: 0;
+
+        @media (max-width: 991px) {
+          bottom: -60px;
+          width: 100px !important;
+        }
       }
     }
   }
@@ -65,6 +75,17 @@
         flex-wrap: nowrap;
         overflow-x: scroll;
         gap: 32px;
+
+        &.gallery {
+          justify-content: flex-start !important;
+
+          .nav-item {
+            &:first-child {
+              margin-left: 0;
+            }
+          }
+        }
+
         &::-webkit-scrollbar {
           display: none;
         }
@@ -250,11 +271,14 @@
   }
 }
 .page-accomodation,
-.page-offer,
-.page-news {
+.page-offer {
   .accomodation-list .nav-tabs {
     @media (max-width: 991px) {
-      justify-content: center !important;
+      justify-content: flex-start !important;
+
+      .nav-item:first-child {
+        margin-left: 0;
+      }
     }
   }
 }

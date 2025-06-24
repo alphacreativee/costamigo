@@ -9,6 +9,12 @@
       bottom: 50px;
       top: unset;
       transform: translateX(25%);
+
+      img {
+        @media (max-width: 991px) {
+          object-fit: contain;
+        }
+      }
     }
   }
   @media (max-width: 991px) {

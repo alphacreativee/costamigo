@@ -32,6 +32,12 @@
       bottom: -30%;
       right: 0;
       left: unset;
+
+      img {
+        object-fit: contain;
+        object-position: right center;
+      }
+
       @media (max-width: 991px) {
         bottom: -18%;
       }
@@ -39,6 +45,7 @@
     img {
       width: 100%;
       height: 100%;
+      object-fit: contain;
     }
   }
 
