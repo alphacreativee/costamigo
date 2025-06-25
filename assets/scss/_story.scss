@@ -51,6 +51,16 @@
 
   &__content {
     text-align: center;
+
+    &.home {
+      @media (min-width: 992px) {
+        min-height: 505px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
     @media (max-width: 991px) {
       padding: 0 24px;
     }
@@ -142,7 +152,7 @@
   &__leaf {
     position: absolute;
     right: 0%;
-    bottom: -100%;
+    bottom: 0;
     width: 200px;
     aspect-ratio: 1;
     z-index: -1;

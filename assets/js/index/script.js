@@ -1,5 +1,23 @@
 import { preloadImages } from "../../libs/utils.js";
-let lenis;
+
+("use strict");
+$ = jQuery;
+
+const lenis = new Lenis({
+  duration: 1,
+  easing: (t) => 1 - Math.pow(1 - t, 4),
+  smooth: true,
+  smoothTouch: false
+});
+
+lenis.on("scroll", ScrollTrigger.update);
+
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
+});
+
+gsap.ticker.lagSmoothing(0);
+
 let isSafari =
   navigator.userAgent.indexOf("Safari") > -1 &&
   navigator.userAgent.indexOf("Chrome") === -1;
@@ -8,9 +26,6 @@ let isSafari =
 if (!isSafari) {
   Splitting();
 }
-
-("use strict");
-$ = jQuery;
 
 function togglePlayMusic() {
   const thisTarget = $("header .btn-music");
@@ -877,8 +892,6 @@ function scrollHeader() {
       // Kiểm tra scrollY để xóa lớp 'scrolled' khi ở đầu trang
       if (scrollY === 0) {
         header.classList.remove("scrolled");
-
-        console.log("scroll Y 0");
       }
 
       // Kiểm tra hướng cuộn (self.direction)

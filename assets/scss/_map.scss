@@ -1,6 +1,6 @@
 .section-map {
   padding: 0 40px;
-  background: var(--color-pattern) url("../../images/bg-body.png");
+  // background: var(--color-pattern) url("../../images/bg-body.png");
   background-repeat: repeat-y;
   background-size: contain;
   background-attachment: fixed;
@@ -123,8 +123,7 @@
     }
   }
   &__desc {
-    background: var(--color-white) url(../../images/bg-body.png);
-    background-size: contain;
+    background: #f9f5ee;
 
     padding: 16px 24px;
     display: flex;

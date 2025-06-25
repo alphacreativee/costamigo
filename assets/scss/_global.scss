@@ -301,7 +301,11 @@ body::after {
 }
 
 [data-cursor-text] {
-  cursor: none;
+  cursor: none !important;
+
+  a {
+    cursor: none !important;
+  }
 }
 
 input[type="time"]::-webkit-calendar-picker-indicator {

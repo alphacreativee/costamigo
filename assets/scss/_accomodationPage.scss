@@ -111,8 +111,6 @@
     left: -24px;
     top: 82px;
     z-index: 1;
-    background: var(--color-pattern) url("../../images/bg-nav-sticky.png");
-    background-size: contain;
     transition: top 0.4s ease;
     padding: 12px 0;
     justify-content: center !important;
@@ -122,6 +120,8 @@
     }
     &.scrolled {
       top: 0;
+      background: var(--color-pattern) url("../../images/bg-nav-sticky.png");
+      background-size: contain;
     }
     .nav-link {
       background-color: transparent;

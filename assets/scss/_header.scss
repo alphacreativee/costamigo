@@ -247,8 +247,8 @@
         height: 100%;
         @media (max-width: 991px) {
           overflow-y: scroll;
-          height: calc(100vh - 55px);
-          padding-bottom: 50px;
+          height: calc(100vh - 100px);
+          padding-bottom: 100px;
           padding-top: 100px;
           &::-webkit-scrollbar {
             display: none;
@@ -259,6 +259,11 @@
           align-items: center;
           flex-direction: column;
           gap: 24px;
+
+          @media (max-width: 991px) {
+            gap: 12px;
+          }
+
           li {
             a {
               &:hover {
