@@ -13,7 +13,7 @@
       height: auto;
       z-index: -1;
       right: 0;
-      transform: translateX(50px);
+      transform: translate(50px, -5px);
 
       img {
         width: 100%;
@@ -25,7 +25,7 @@
       .item__bg {
         left: 0;
         right: unset;
-        transform: translateX(-50px);
+        transform: translate(-50px, -5px);
         @media (max-width: 991px) {
           left: unset;
           right: 0;

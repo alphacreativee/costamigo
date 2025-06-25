@@ -38,7 +38,7 @@
 
   &__bg {
     position: absolute;
-    bottom: 20%;
+    bottom: 100%;
     left: 0;
     transform: translateY(80px);
     width: auto;
@@ -52,7 +52,11 @@
       left: unset;
       right: 0;
       bottom: 0;
-
+      width: 150px !important;
+      aspect-ratio: 1;
+      img {
+        object-position: right;
+      }
       @media (max-width: 991px) {
         display: none;
       }
