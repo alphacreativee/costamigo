@@ -309,7 +309,7 @@ function imgWithText() {
     //   }
     // );
 
-    gsap.set(image, { scale: 2 });
+    gsap.set(image, { scale: 1.5 });
 
     gsap.to(image, {
       scale: 1,
@@ -330,8 +330,8 @@ function imgWithText() {
       scrollTrigger: {
         trigger: section,
         scrub: true,
-        pin: false
-        // markers: true
+        pin: false,
+        markers: true
       }
     });
 

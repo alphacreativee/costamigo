@@ -10,6 +10,16 @@
       position: absolute;
       bottom: 30px;
       right: 30px;
+
+      path {
+        transition: all 0.4s ease;
+      }
+
+      &:hover {
+        path {
+          fill: var(--color-primary);
+        }
+      }
     }
   }
   @media (max-width: 991px) {

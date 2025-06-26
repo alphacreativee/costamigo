@@ -9,6 +9,12 @@ section.image-with-text {
       clip-path: inset(24px);
     }
 
+    .content {
+      @media (max-width: 991px) {
+        top: 90px;
+      }
+    }
+
     .section-wrapper {
       overflow: hidden;
 
