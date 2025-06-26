@@ -150,14 +150,17 @@
   }
   .act-slider {
     margin-right: 95px;
-
+    margin-left: 40px;
+    .swiper-slide {
+      overflow: hidden;
+    }
     @media (max-width: 991px) {
       margin-right: 0;
+      margin-left: 0;
     }
     .swiper-box {
       width: 100%;
       aspect-ratio: 550 / 435;
-      padding: 0 20px;
 
       @media (max-width: 991px) {
         padding: 0;

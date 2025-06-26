@@ -653,15 +653,13 @@ function swiperAct() {
   });
 
   const isMobile = window.innerWidth < 991;
-
+  let interleaveOffset = 0.9;
   const swiperAct = new Swiper(".act-slider", {
     slidesPerView: 1,
-    effect: isMobile ? "fade" : "slide",
-    slidesOffsetAfter: 0,
+    watchSlidesProgress: true,
     breakpoints: {
       991: {
-        slidesPerView: 1.4,
-        slidesOffsetAfter: 76,
+        slidesPerView: 1,
         pagination: {
           el: ".section-act__slider .swiper-pagination",
           clickable: true,
@@ -686,13 +684,34 @@ function swiperAct() {
       swiper: swiperActC,
     },
     on: {
-      slideChange: function () {
-        console.log(
-          "Current slide index:",
-          this.activeIndex,
-          "Total slides:",
-          this.slides.length
-        );
+      progress(swiper) {
+        swiper.slides.forEach((slide) => {
+          const slideProgress = slide.progress || 0;
+          const innerOffset = swiper.width * interleaveOffset;
+          const innerTranslate = slideProgress * innerOffset;
+
+          if (!isNaN(innerTranslate)) {
+            const slideInner = slide.querySelector(".swiper-box-img");
+            if (slideInner) {
+              slideInner.style.transform = `translate3d(${innerTranslate}px, 0, 0)`;
+            }
+          }
+        });
+      },
+      touchStart(swiper) {
+        swiper.slides.forEach((slide) => {
+          slide.style.transition = "";
+        });
+      },
+      setTransition(swiper, speed) {
+        const easing = "cubic-bezier(0.25, 0.1, 0.25, 1)";
+        swiper.slides.forEach((slide) => {
+          slide.style.transition = `${speed}ms ${easing}`;
+          const slideInner = slide.querySelector(".swiper-box-img");
+          if (slideInner) {
+            slideInner.style.transition = `${speed}ms ${easing}`;
+          }
+        });
       },
     },
   });
@@ -703,11 +722,11 @@ function swiperAct() {
     swiperAct.slideNext();
   });
   function handleSwiperDirection() {
-    if (window.innerWidth >= 991) {
-      swiperAct.changeLanguageDirection("rtl");
-    } else {
-      swiperAct.changeLanguageDirection("ltr"); // Optional: Reset to LTR for smaller screens
-    }
+    // if (window.innerWidth >= 991) {
+    //   swiperAct.changeLanguageDirection("rtl");
+    // } else {
+    //   swiperAct.changeLanguageDirection("ltr"); // Optional: Reset to LTR for smaller screens
+    // }
   }
 
   // Run on page load
@@ -984,7 +1003,7 @@ function headerMenu() {
       y: 20,
       stagger: 0.1,
       duration: 0.3,
-      ease: "power2.out"
+      ease: "power2.out",
     }
   );
 
@@ -1900,7 +1919,155 @@ function getNewletter() {
     });
   });
 }
+function swiperBanner() {
+  if ($(".banner-slider").length < 1) return;
+  let interleaveOffset = 0.9;
+  const container = document.querySelector(".banner-slider");
+  const bannerSwiper = new Swiper(".banner-slider", {
+    loop: false,
+    speed: 1500,
+    watchSlidesProgress: true,
+    mousewheel: false,
+    keyboard: false,
+    allowTouchMove: true,
+    autoplay: true,
 
+    breakpoints: {
+      991: {
+        allowTouchMove: false,
+        autoplay: false,
+      },
+    },
+    // Loại bỏ navigation vì không dùng nút mặc định
+    on: {
+      progress(swiper) {
+        swiper.slides.forEach((slide) => {
+          const slideProgress = slide.progress || 0;
+          const innerOffset = swiper.width * interleaveOffset;
+          const innerTranslate = slideProgress * innerOffset;
+
+          if (!isNaN(innerTranslate)) {
+            const slideInner = slide.querySelector(".banner-slider-img");
+            if (slideInner) {
+              slideInner.style.transform = `translate3d(${innerTranslate}px, 0, 0)`;
+            }
+          }
+        });
+      },
+      touchStart(swiper) {
+        swiper.slides.forEach((slide) => {
+          slide.style.transition = "";
+        });
+      },
+      setTransition(swiper, speed) {
+        const easing = "cubic-bezier(0.25, 0.1, 0.25, 1)";
+        swiper.slides.forEach((slide) => {
+          slide.style.transition = `${speed}ms ${easing}`;
+          const slideInner = slide.querySelector(".banner-slider-img");
+          if (slideInner) {
+            slideInner.style.transition = `${speed}ms ${easing}`;
+          }
+        });
+      },
+    },
+  });
+  const swiperButton = document.querySelector(
+    ".banner-slider .swiper-btn-custom"
+  );
+  const parentContainer = document.querySelector(".banner-slider");
+  let lastMouseX = null;
+  // Xử lý sự kiện mousemove trên .image-with-text
+  parentContainer.addEventListener("mousemove", (e) => {
+    const rect = container.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const halfWidth = rect.width / 2;
+    const buttonWidth = swiperButton.offsetWidth;
+    const buttonHeight = swiperButton.offsetHeight;
+    const offset = 40; // Khoảng cách 40px từ cả bốn cạnh
+
+    lastMouseX = mouseX;
+
+    // Hiển thị nút
+    swiperButton.style.opacity = "1";
+    swiperButton.style.transition = "opacity 0.3s, transform 0.3s";
+
+    // Tính toán vị trí
+    let buttonPosX = mouseX - buttonWidth / 2;
+    let buttonPosY = mouseY - buttonHeight / 2;
+    const transitionZone = 20;
+    let rotateDeg;
+
+    if (mouseX <= halfWidth - transitionZone) {
+      rotateDeg = 180; // Nửa trái: prev
+      buttonPosX = Math.max(
+        offset,
+        Math.min(halfWidth - buttonWidth, buttonPosX)
+      );
+    } else if (mouseX >= halfWidth + transitionZone) {
+      rotateDeg = 0; // Nửa phải: next
+      buttonPosX = Math.max(
+        halfWidth,
+        Math.min(rect.width - buttonWidth - offset, buttonPosX)
+      );
+    } else {
+      const progress =
+        (mouseX - (halfWidth - transitionZone)) / (transitionZone * 2);
+      rotateDeg = 180 - progress * 180; // Vùng chuyển tiếp
+      buttonPosX = Math.max(
+        offset,
+        Math.min(rect.width - buttonWidth - offset, buttonPosX)
+      );
+    }
+
+    // Giới hạn vị trí Y với offset 40px
+    buttonPosY = Math.max(
+      offset,
+      Math.min(rect.height - buttonHeight - offset, buttonPosY)
+    );
+
+    // Áp dụng transform
+    swiperButton.style.left = `${buttonPosX}px`;
+    swiperButton.style.top = `${buttonPosY}px`;
+    swiperButton.style.transform = `scale(1) rotate(${rotateDeg}deg)`;
+    swiperButton.style.transition = " transform 0.3s";
+  });
+
+  // Xử lý sự kiện mouseleave
+  parentContainer.addEventListener("mouseleave", () => {
+    swiperButton.style.opacity = "0";
+    swiperButton.style.transform = "scale(0)";
+    swiperButton.style.transition = "opacity 0.3s, transform 0.3s";
+    lastMouseX = null;
+  });
+
+  // Xử lý sự kiện click
+  swiperButton.addEventListener("click", (e) => {
+    const rect = container.getBoundingClientRect();
+    const halfWidth = rect.width / 2;
+    const currentIndex = bannerSwiper.activeIndex;
+    const totalSlides = bannerSwiper.slides.length;
+
+    // Lấy vị trí chuột tại thời điểm click
+    const mouseX = lastMouseX !== null ? lastMouseX : e.clientX - rect.left;
+
+    if (mouseX <= halfWidth) {
+      if (currentIndex > 0) {
+        bannerSwiper.slidePrev();
+        console.log("slidePrev called");
+      } else {
+        console.log("Cannot slidePrev: at first slide");
+      }
+    } else {
+      if (currentIndex < totalSlides - 1) {
+        bannerSwiper.slideNext();
+        console.log("slideNext called");
+      } else {
+        console.log("Cannot slideNext: at last slide");
+      }
+    }
+  });
+}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   updateSvgHeight();
@@ -1916,6 +2083,7 @@ const init = () => {
   swiperRestaurant();
   toggleDropdown();
   gallery();
+  swiperBanner();
   // scrollMap();
   animationLineMap();
   swiperAct();
