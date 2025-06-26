@@ -5,6 +5,7 @@
   transition-property: clip-path;
   transition-property: clip-path, -webkit-clip-path;
   overflow: hidden;
+  will-change: clip-path;
 
   @media (min-width: 992px) {
     &:hover {
