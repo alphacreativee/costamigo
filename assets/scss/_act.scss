@@ -5,7 +5,10 @@
   }
   &.section-chef {
     .swiper-box {
-      aspect-ratio: 590 / 550 !important;
+      // aspect-ratio: 590 / 550 !important;
+      img {
+        object-position: top;
+      }
     }
 
     .section-act__slider--title {
