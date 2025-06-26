@@ -92,13 +92,13 @@
 
 .cta-group {
   position: fixed;
-  bottom: 40px;
+  bottom: 65px;
   right: 40px;
   z-index: 19;
   transition: right 0.3s ease;
   @media (max-width: 991px) {
     right: 24px;
-    bottom: 64px;
+    bottom: 110px;
   }
   &:hover {
     cursor: pointer;

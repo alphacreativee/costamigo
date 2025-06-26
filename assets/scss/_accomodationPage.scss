@@ -1,6 +1,7 @@
 .accomodation-list {
   position: relative;
-  padding-bottom: 80px;
+  z-index: 3;
+  // padding-bottom: 80px;
   @media (max-width: 991px) {
     .accomodation-wrapper {
       .nav {
@@ -107,22 +108,29 @@
   .nav-tabs {
     border: none;
     gap: 32px;
-    position: sticky;
-    right: -24px;
-    left: -24px;
-    top: 82px;
+    // position: sticky;
+    right: 0;
+    left: 0;
+    top: unset;
+    bottom: 0;
     z-index: 1;
-    transition: top 0.4s ease;
+    transition: all 0.4s ease;
     padding: 12px 0;
     justify-content: center !important;
-    @media (max-width: 991px) {
-      top: 64px;
-      // justify-content: unset !important;
+    position: fixed;
+    z-index: 99;
+    background-color: var(--color-secondary);
+    opacity: 0;
+    visibility: hidden;
+
+    &.show {
+      opacity: 1;
+      visibility: visible;
+      transition: all 0.4s ease;
     }
-    &.scrolled {
-      top: 0;
-      background: var(--color-pattern) url("../../images/bg-nav-sticky.png");
-      background-size: contain;
+
+    @media (max-width: 991px) {
+      bottom: 44px;
     }
     .nav-link {
       background-color: transparent;
@@ -143,9 +151,9 @@
   }
 
   .tab-content {
-    margin-top: 80px;
+    // margin-top: 80px;
     @media (max-width: 991px) {
-      margin-top: 48px;
+      // margin-top: 48px;
     }
   }
 
@@ -275,7 +283,7 @@
 .page-offer {
   .accomodation-list .nav-tabs {
     @media (max-width: 991px) {
-      justify-content: flex-start !important;
+      // justify-content: flex-start !important;
 
       .nav-item:first-child {
         margin-left: 0;

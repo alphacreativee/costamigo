@@ -330,8 +330,8 @@ function imgWithText() {
       scrollTrigger: {
         trigger: section,
         scrub: true,
-        pin: false,
-        markers: true
+        pin: false
+        // markers: true
       }
     });
 
@@ -2109,6 +2109,19 @@ function swiperBanner() {
     }
   });
 }
+
+function accomodationnFilter() {
+  if ($(".accomodation-list").length < 1) return;
+
+  ScrollTrigger.create({
+    trigger: ".accomodation-list",
+    start: "top 80%",
+    end: "bottom bottom",
+    toggleClass: { targets: ".accomodation-list .nav-tabs", className: "show" }
+    // markers: true
+  });
+}
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   updateSvgHeight();
@@ -2133,6 +2146,7 @@ const init = () => {
   modalBooking();
   contactForm();
   getNewletter();
+  accomodationnFilter();
   ScrollTrigger.refresh();
 };
 togglePlayMusic();

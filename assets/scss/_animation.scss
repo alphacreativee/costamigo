@@ -105,6 +105,12 @@
         transform-origin: bottom left;
       }
     }
+
+    &.color-white {
+      &::before {
+        background-color: var(--color-white);
+      }
+    }
   }
   &-v2 {
     display: inline-block;
@@ -157,6 +163,12 @@
       transform-origin: bottom right;
       // mask: url("../../images/line-white-2.svg");
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &.color-white {
+      &::before {
+        background-color: var(--color-white);
+      }
     }
   }
   &:hover {
