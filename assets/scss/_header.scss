@@ -190,7 +190,7 @@
         // visibility: hidden;
         background-color: var(--color-pattern);
         padding: 24px;
-        position: absolute;
+        // position: absolute;
         left: -24px;
         top: calc(100% + 31px);
         width: max-content;
@@ -276,6 +276,56 @@
                 mask-size: 100% auto;
               }
             }
+
+            &.menu-item-has-children {
+              position: unset;
+
+              & > a {
+                position: relative;
+
+                &::after {
+                  content: "";
+                  width: 16px;
+                  height: 12px;
+                  position: absolute;
+                  top: 50%;
+                  right: -32px;
+                  transform: translateY(-50%);
+                  background-image: url("../../images/ic-arrow-down.svg");
+                  background-repeat: no-repeat;
+                  background-size: contain;
+                  background-position: center;
+                }
+              }
+
+              &.open {
+                .sub-menu {
+                  opacity: 1;
+                  visibility: visible;
+                  background-color: var(--color-secondary);
+                  z-index: 2;
+                }
+              }
+
+              .sub-menu {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                position: absolute;
+                opacity: 0;
+                visibility: hidden;
+
+                .return {
+                  text-decoration: underline;
+                  margin-bottom: 32px;
+                  text-align: center;
+                }
+              }
+            }
           }
         }
       }
@@ -283,6 +333,18 @@
     .sub-menu-container {
       // background-image: url("../../images/bg-sub-menu.png");
       background-color: var(--color-secondary);
+
+      @media (max-width: 991px) {
+        position: relative;
+      }
+
+      .menu-has-children .sub-menu {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 64px;
+        left: 0;
+      }
     }
     .sub-menu-overlay {
       background-color: rgba($color: #000000, $alpha: 0.8);
@@ -395,4 +457,13 @@
       }
     }
   }
+}
+
+.header-sub-menu.show
+  .header-sub-menu__container
+  .sub-menu
+  ul
+  li.menu-item-has-children
+  .sub-menu {
+  position: absolute;
 }
