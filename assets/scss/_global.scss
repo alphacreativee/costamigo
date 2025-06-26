@@ -515,6 +515,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .lightpick {
   padding: 15px;
   font-family: var(--font-body);
+  color: var(--color-primary);
 }
 
 .lightpick__month-title-bar {
@@ -522,21 +523,32 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .lightpick__day.is-today {
-  color: var(--color-primary);
+  color: var(--color-secondary);
   font-weight: 900;
   background-image: none;
 }
 
 .lightpick__day.is-start-date {
   background-image: none;
-  background-color: var(--color-primary);
-  color: var(--color-white) !important;
+  background-color: var(--color-pattern);
+  color: var(--color-secondary) !important;
   border-radius: 50%;
+}
+
+.lightpick__day.is-available {
+  border-radius: 50%;
+  transition: all 0.4s ease;
+}
+
+.lightpick__day.is-available:hover {
+  background-image: none;
+  background-color: var(--color-pattern);
+  color: var(--color-secondary) !important;
 }
 
 .lightpick__day.is-in-range:hover {
   background-image: none;
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
 }
 
 .lightpick__day:not(.is-disabled):hover,
@@ -553,13 +565,14 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .lightpick__day.is-start-date.is-in-range,
 .lightpick__day.is-end-date.is-in-range,
 .lightpick__day.is-start-date.is-in-range.is-flipped {
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
   font-weight: 900;
 }
 
 .lightpick__month-title > .lightpick__select-months,
 .lightpick__day-of-the-week {
   font-weight: 600;
+  color: var(--color-primary);
 }
 .lightpick__month-title {
   padding: 0;
@@ -573,18 +586,40 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   display: flex;
   gap: 5px;
 }
+.lightpick__month-title > .lightpick__select {
+  color: var(--color-primary);
+}
+.lightpick__month-title > .lightpick__select.lightpick__select-years {
+  font-weight: 600;
+}
 .lightpick__next-action,
 .lightpick__previous-action {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 0;
-  background-image: url("../../images/ic-arrow-next.svg");
+  background-image: url("../../images/ic-arrow-calendar-bg.svg");
   background-repeat: no-repeat;
   background-position: 55% 50%;
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
   background-size: 160%;
   margin: 0;
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-image: url("../../images/ic-arrow-calendar-next.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 .lightpick__previous-action {
   transform: rotate(180deg);
