@@ -208,6 +208,7 @@ body::after {
   @media (max-width: 991px) {
     width: 140px !important;
     aspect-ratio: 1;
+    opacity: 0.5;
   }
   img {
     display: block;

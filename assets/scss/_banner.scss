@@ -30,11 +30,19 @@
       height: 0;
       max-width: 100%;
 
+<<<<<<< HEAD
       @media (max-width: 1440px) {
         height: 100vh;
         width: 100svw;
         padding-bottom: 0;
       }
+=======
+      // @media (max-width: 1440px) {
+      //   height: 100vh;
+      //   width: 100svh;
+      //   padding-bottom: 0;
+      // }
+>>>>>>> 1f1e5fedbc02ab5d08b41a62b00b0a8eff63a2f2
 
       @media (max-width: 991px) {
         height: 100%;
