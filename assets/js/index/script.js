@@ -247,8 +247,9 @@ function imgWithText() {
 
     const wrapper = section.querySelector(".section-wrapper");
     const image = section.querySelector(".section-wrapper img");
+    const detailSlider = section.querySelector(".detail-slider");
 
-    if (!wrapper || !image) return;
+    if (!wrapper || !image || detailSlider) return;
 
     // Animate clip-path
     // gsap.fromTo(
@@ -2113,13 +2114,38 @@ function swiperBanner() {
 function accomodationnFilter() {
   if ($(".accomodation-list").length < 1) return;
 
+  gsap.set(".accomodation-list .nav-tabs", {
+    opacity: 0,
+    y: 20
+  });
+
   ScrollTrigger.create({
     trigger: ".accomodation-list",
     start: "top 80%",
     end: "bottom bottom",
-    toggleClass: { targets: ".accomodation-list .nav-tabs", className: "show" }
-    // markers: true
+    onEnter: showTabs,
+    onEnterBack: showTabs,
+    onLeave: hideTabs,
+    onLeaveBack: hideTabs
   });
+
+  function showTabs() {
+    gsap.to(".accomodation-list .nav-tabs", {
+      opacity: 1,
+      y: 0,
+      duration: 0.3,
+      ease: "none"
+    });
+  }
+
+  function hideTabs() {
+    gsap.to(".accomodation-list .nav-tabs", {
+      opacity: 0,
+      y: 20,
+      duration: 0.3,
+      ease: "none"
+    });
+  }
 }
 
 const init = () => {

@@ -92,12 +92,7 @@
           display: none;
         }
         li {
-          &:first-child {
-            margin-left: 24px;
-          }
-          &:last-child {
-            margin-right: 24px;
-          }
+          width: max-content;
           .nav-link {
             width: max-content;
           }
@@ -114,23 +109,15 @@
     top: unset;
     bottom: 0;
     z-index: 1;
-    transition: all 0.4s ease;
+    // transition: all 0.4s ease;
     padding: 12px 0;
     justify-content: center !important;
     position: fixed;
     z-index: 99;
     background-color: var(--color-secondary);
-    opacity: 0;
-    visibility: hidden;
-
-    &.show {
-      opacity: 1;
-      visibility: visible;
-      transition: all 0.4s ease;
-    }
 
     @media (max-width: 991px) {
-      bottom: 44px;
+      bottom: 43px;
     }
     .nav-link {
       background-color: transparent;
@@ -145,6 +132,13 @@
       &.active {
         .animation-text-v4::before {
           transform: scale(1);
+        }
+      }
+
+      & > div {
+        @media (max-width: 991px) {
+          font-size: 13px;
+          line-height: 20px;
         }
       }
     }
@@ -279,11 +273,11 @@
     }
   }
 }
-.page-accomodation,
+
 .page-offer {
   .accomodation-list .nav-tabs {
     @media (max-width: 991px) {
-      // justify-content: flex-start !important;
+      justify-content: flex-start !important;
 
       .nav-item:first-child {
         margin-left: 0;
