@@ -48,13 +48,13 @@
   .slider-contact {
     display: flex;
     gap: 40px;
-    mask-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0) 0%,
-      rgb(0, 0, 0) 5%,
-      rgb(0, 0, 0) 95%,
-      rgba(0, 0, 0, 0) 100%
-    );
+    // mask-image: linear-gradient(
+    //   to right,
+    //   rgba(0, 0, 0, 0) 0%,
+    //   rgb(0, 0, 0) 5%,
+    //   rgb(0, 0, 0) 95%,
+    //   rgba(0, 0, 0, 0) 100%
+    // );
     overflow: hidden;
 
     @media (max-width: 991px) {
