@@ -7,7 +7,7 @@ const lenis = new Lenis({
   duration: 0.5,
   easing: (t) => 1 - Math.pow(1 - t, 4),
   smooth: true,
-  smoothTouch: false
+  smoothTouch: false,
 });
 
 lenis.on("scroll", ScrollTrigger.update);
@@ -79,7 +79,7 @@ function sectionSlider() {
         contentSwiperEl,
         mainSwiperEl,
         paginationEl,
-        swiperButton
+        swiperButton,
       });
       return;
     }
@@ -88,7 +88,7 @@ function sectionSlider() {
       loop: false,
       effect: "fade",
       allowTouchMove: false,
-      slidesPerView: 1
+      slidesPerView: 1,
     });
 
     const swiperMain = new Swiper(mainSwiperEl, {
@@ -98,65 +98,72 @@ function sectionSlider() {
       pagination: {
         el: paginationEl,
         clickable: true,
-        type: "progressbar"
+        type: "progressbar",
       },
       navigation: {
-        nextEl: btnNext, // Sử dụng nút tùy chỉnh
-        prevEl: btnPrev
+        nextEl: btnNext,
+        prevEl: btnPrev,
       },
       breakpoints: {
         991: {
           navigation: {
             nextEl: false,
-            prevEl: false
+            prevEl: false,
           },
           pagination: {
             el: paginationEl,
             clickable: true,
-            type: "fraction"
-          }
-        }
+            type: "fraction",
+          },
+        },
       },
       thumbs: {
-        swiper: swiperContent
+        swiper: swiperContent,
       },
-      // Add slideChange event to handle animations
       on: {
-        slideChange: function () {
-          // Hide all h4, desc, and btn-wrapper elements to prevent overlap
-          gsap.set(
-            ".slider-swiper-content h4, .slider-swiper-content .desc, .slider-swiper-content .btn-wrapper",
-            { y: 20, opacity: 0 }
-          );
-
-          // Create a GSAP timeline to animate h4, desc, and btn-wrapper sequentially
-          const tl = gsap.timeline();
-          tl.fromTo(
-            `.slider-swiper-content .swiper-slide:nth-child(${
-              this.activeIndex + 1
-            }) h4`,
-            { y: 20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.75 }
-          )
-            .fromTo(
-              `.slider-swiper-content .swiper-slide:nth-child(${
-                this.activeIndex + 1
-              }) .desc`,
-              { y: 20, opacity: 0 },
-              { y: 0, opacity: 1, duration: 0.75 },
-              "-=0.5" // Overlap by 0.5s for smoother transition
-            )
-            .fromTo(
-              `.slider-swiper-content .swiper-slide:nth-child(${
-                this.activeIndex + 1
-              }) .btn-wrapper`,
-              { y: 20, opacity: 0 },
-              { y: 0, opacity: 1, duration: 1 },
-              "-=0.5" // Overlap by 0.5s for smoother transition
-            );
-        }
-      }
+        // slideChangeTransitionEnd: function () {
+        //   // Hide all h4, desc, and btn-wrapper elements to prevent overlap
+        //   gsap.set(
+        //     ".slider-swiper-content h4, .slider-swiper-content .desc, .slider-swiper-content .btn-wrapper",
+        //     { y: 20, opacity: 0 }
+        //   );
+        //   // Create a GSAP timeline to animate h4, desc, and btn-wrapper sequentially
+        //   const tl = gsap.timeline();
+        //   tl.fromTo(
+        //     `.slider-swiper-content .swiper-slide:nth-child(${
+        //       this.activeIndex + 1
+        //     }) h4`,
+        //     { y: 20, opacity: 0 },
+        //     { y: 0, opacity: 1, duration: 0.75 }
+        //   )
+        //     .fromTo(
+        //       `.slider-swiper-content .swiper-slide:nth-child(${
+        //         this.activeIndex + 1
+        //       }) .desc`,
+        //       { y: 20, opacity: 0 },
+        //       { y: 0, opacity: 1, duration: 0.75 },
+        //       "-=0.5"
+        //     )
+        //     .fromTo(
+        //       `.slider-swiper-content .swiper-slide:nth-child(${
+        //         this.activeIndex + 1
+        //       }) .btn-wrapper`,
+        //       { y: 20, opacity: 0 },
+        //       { y: 0, opacity: 1, duration: 0.5 },
+        //       "-=0.5"
+        //     );
+        // },
+      },
     });
+
+    // Handle tab click with consistent animation
+    // $(".nav-item").on("click", function () {
+    //   // Get the index of the clicked tab
+    //   const tabIndex = $(this).index();
+    //   // Update the swiper to the corresponding slide
+    //   swiperMain.slideTo(tabIndex);
+    //   // Animation will be handled by slideChangeTransitionEnd to avoid flickering
+    // });
 
     if (document.documentElement.clientWidth > 991) {
       let lastMouseX = 0;
@@ -241,6 +248,31 @@ function sectionSlider() {
         swiperButton.style.transform = "scale(0)";
       });
     }
+
+    // Trigger initial animation for the first slide
+    // gsap.set(
+    //   ".slider-swiper-content h4, .slider-swiper-content .desc, .slider-swiper-content .btn-wrapper",
+    //   { y: 20, opacity: 0 }
+    // );
+    // const initialTl = gsap.timeline();
+    // initialTl
+    //   .fromTo(
+    //     `.slider-swiper-content .swiper-slide:nth-child(1) h4`,
+    //     { y: 20, opacity: 0 },
+    //     { y: 0, opacity: 1, duration: 0.75 }
+    //   )
+    //   .fromTo(
+    //     `.slider-swiper-content .swiper-slide:nth-child(1) .desc`,
+    //     { y: 20, opacity: 0 },
+    //     { y: 0, opacity: 1, duration: 0.75 },
+    //     "-=0.5"
+    //   )
+    //   .fromTo(
+    //     `.slider-swiper-content .swiper-slide:nth-child(1) .btn-wrapper`,
+    //     { y: 20, opacity: 0 },
+    //     { y: 0, opacity: 1, duration: 0.5 },
+    //     "-=0.5"
+    //   );
   });
 }
 
@@ -341,8 +373,8 @@ function imgWithText() {
         trigger: section,
         start: "top 80%",
         end: "top 20%",
-        scrub: true
-      }
+        scrub: true,
+      },
     });
   });
 
@@ -353,20 +385,20 @@ function imgWithText() {
       scrollTrigger: {
         trigger: section,
         scrub: true,
-        pin: false
+        pin: false,
         // markers: true
-      }
+      },
     });
 
     tl.fromTo(
       img,
       {
         yPercent: -15,
-        ease: "none"
+        ease: "none",
       },
       {
         yPercent: 15,
-        ease: "none"
+        ease: "none",
       }
     );
   });
@@ -384,9 +416,9 @@ function animationMaskCentral() {
         start: "top 70%",
         end: "bottom 70%",
         // toggleClass: "show",
-        onEnter: () => image.classList.add("show")
+        onEnter: () => image.classList.add("show"),
         // markers: true,
-      }
+      },
     });
   });
 
@@ -425,7 +457,7 @@ function animationText() {
     const tl = gsap.timeline({ paused: true }).to(chars, {
       color: hoverColor, // Dùng màu từ CSS
       stagger: 0.05, // Delay giữa các ký tự
-      duration: 0.2 // Thời gian đổi màu mỗi ký tự
+      duration: 0.2, // Thời gian đổi màu mỗi ký tự
     });
 
     // Hover events
@@ -437,7 +469,7 @@ function animationText() {
       gsap.to(chars, {
         color: originalColor, // Trở về màu ban đầu từ CSS
         stagger: 0.05,
-        duration: 0.2
+        duration: 0.2,
       });
     });
   });
@@ -452,7 +484,7 @@ function animationText() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           opacity: 1,
@@ -461,9 +493,9 @@ function animationText() {
           scrollTrigger: {
             trigger: element,
             start: "top 60%",
-            end: "bottom 60%"
+            end: "bottom 60%",
             // markers: true,
-          }
+          },
         }
       );
     });
@@ -474,18 +506,18 @@ function animationText() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           scrollTrigger: {
             trigger: element,
             start: "top 75%",
-            end: "bottom 75%"
+            end: "bottom 75%",
           },
           opacity: 1,
           y: 0,
           duration: 0.5,
-          ease: "sine.out"
+          ease: "sine.out",
         }
       );
     });
@@ -497,7 +529,7 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20
+        y: 20,
       },
       {
         opacity: 1,
@@ -506,9 +538,9 @@ function animationText() {
         scrollTrigger: {
           trigger: element,
           start: "top 40%",
-          end: "bottom 40%"
+          end: "bottom 40%",
           // markers: true,
-        }
+        },
       }
     );
   });
@@ -520,18 +552,18 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20
+        y: 20,
       },
       {
         scrollTrigger: {
           trigger: element,
           start: "top 75%",
-          end: "bottom 75%"
+          end: "bottom 75%",
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
-        ease: "sine.out"
+        ease: "sine.out",
       }
     );
   });
@@ -541,18 +573,18 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20
+        y: 20,
       },
       {
         scrollTrigger: {
           trigger: element,
           start: "top 70%",
-          end: "bottom 70%"
+          end: "bottom 70%",
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
-        ease: "sine.out"
+        ease: "sine.out",
       }
     );
   });
@@ -562,18 +594,18 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20
+        y: 20,
       },
       {
         scrollTrigger: {
           trigger: element,
           start: "top 90%",
-          end: "bottom 90%"
+          end: "bottom 90%",
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
-        ease: "sine.out"
+        ease: "sine.out",
       }
     );
   });
@@ -583,18 +615,18 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20
+        y: 20,
       },
       {
         scrollTrigger: {
           trigger: element,
           start: "top 60%",
-          end: "bottom 60%"
+          end: "bottom 60%",
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
-        ease: "sine.out"
+        ease: "sine.out",
       }
     );
   });
@@ -606,7 +638,7 @@ function animationText() {
     let myDesc = new SplitType(element, {
       types: "lines, words",
       lineClass: "split-line",
-      wordClass: "split-word"
+      wordClass: "split-word",
     });
     myDesc.lines.forEach((line, index) => {
       gsap.from(line.querySelectorAll(".split-word"), {
@@ -618,9 +650,9 @@ function animationText() {
           trigger: element,
           start: `top ${startValue}`,
           end: `top ${startValue}`,
-          toggleActions: "play none none none"
+          toggleActions: "play none none none",
           // markers: true,
-        }
+        },
       });
     });
   });
@@ -629,7 +661,7 @@ function animationText() {
     let myDesc = new SplitType(element, {
       types: "lines, words",
       lineClass: "split-line",
-      wordClass: "split-word"
+      wordClass: "split-word",
     });
     myDesc.lines.forEach((line, index) => {
       gsap.from(line.querySelectorAll(".split-word"), {
@@ -641,9 +673,9 @@ function animationText() {
           trigger: element,
           start: "top 70%",
           end: "top 70%",
-          toggleActions: "play none none none"
+          toggleActions: "play none none none",
           // markers: true,
-        }
+        },
       });
     });
   });
@@ -653,7 +685,7 @@ function swiperRestaurant() {
   var swiperRes = new Swiper(".swiper-restaurant", {
     effect: "fade",
     slidesPerView: "auto",
-    centeredSlides: true
+    centeredSlides: true,
   });
   const contentRes = document.querySelectorAll(
     ".section-restaurant__content--title a"
@@ -681,7 +713,7 @@ function swiperRestaurant() {
       slidesPerView: 1.25,
       spaceBetween: 24,
       slidesOffsetAfter: 24,
-      slidesOffsetBefore: 24
+      slidesOffsetBefore: 24,
     });
   }
 }
@@ -697,7 +729,7 @@ function swiperAct() {
     console.error("Missing required elements:", {
       container,
       swiperButton,
-      swiperActContent
+      swiperActContent,
     });
     return;
   }
@@ -708,11 +740,11 @@ function swiperAct() {
     watchSlidesVisibility: true,
     effect: "fade",
     fadeEffect: {
-      crossFade: true
+      crossFade: true,
     },
 
     spaceBetween: 30,
-    allowTouchMove: false
+    allowTouchMove: false,
   });
 
   const isMobile = window.innerWidth < 991;
@@ -726,25 +758,25 @@ function swiperAct() {
         pagination: {
           el: ".section-act__slider .swiper-pagination",
           clickable: true,
-          type: "fraction"
-        }
-      }
+          type: "fraction",
+        },
+      },
     },
     speed: 1000,
     loop: false,
     pagination: {
       el: ".section-act__slider .swiper-pagination",
       clickable: true,
-      type: "progressbar"
+      type: "progressbar",
     },
     navigation: isMobile
       ? {
           nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
+          prevEl: ".swiper-button-prev",
         }
       : false,
     thumbs: {
-      swiper: swiperActC
+      swiper: swiperActC,
     },
     on: {
       progress(swiper) {
@@ -775,8 +807,8 @@ function swiperAct() {
             slideInner.style.transition = `${speed}ms ${easing}`;
           }
         });
-      }
-    }
+      },
+    },
   });
   $(".swiper-button-prev-mobile").on("click", function () {
     swiperAct.slidePrev();
@@ -904,11 +936,11 @@ function swiperOffer() {
     speed: 1000,
     navigation: {
       nextEl: ".section-offer__slider .swiper-button-next",
-      prevEl: ".section-offer__slider .swiper-button-prev"
+      prevEl: ".section-offer__slider .swiper-button-prev",
     },
     pagination: {
       el: ".section-offer__slider .swiper-pagination",
-      type: "progressbar"
+      type: "progressbar",
     },
     slidesOffsetAfter: 24,
     slidesOffsetBefore: 24,
@@ -917,9 +949,9 @@ function swiperOffer() {
         slidesPerView: 3,
         spaceBetween: 40,
         slidesOffsetAfter: 0,
-        slidesOffsetBefore: 0
-      }
-    }
+        slidesOffsetBefore: 0,
+      },
+    },
   });
 }
 function animationLineMap() {
@@ -937,9 +969,9 @@ function animationLineMap() {
       trigger: svgContainer,
       start: hasNotBanner ? "top top" : "top center",
       end: "bottom bottom",
-      scrub: true
+      scrub: true,
       // markers: true,
-    }
+    },
   });
   // gsap.to("#rect", {
   //   ease: "none",
@@ -1002,7 +1034,7 @@ function scrollHeader() {
       self.direction === 1
         ? $(".cta-group").addClass("hide")
         : $(".cta-group").removeClass("hide");
-    }
+    },
   });
 }
 
@@ -1018,9 +1050,9 @@ function animationArt() {
         trigger: image,
         start: "top bottom", // Start when the top of the image hits the bottom of the viewport
         end: "bottom top", // End when the bottom of the image hits the top of the viewport
-        scrub: true // Smoothly tie the animation to scroll
+        scrub: true, // Smoothly tie the animation to scroll
         // markers: true,
-      }
+      },
     });
   });
 
@@ -1037,9 +1069,9 @@ function animationArt() {
         trigger: imageR,
         start: "top bottom",
         end: "bottom top",
-        scrub: true
+        scrub: true,
         // markers: true,
-      }
+      },
     });
   });
 }
@@ -1055,7 +1087,7 @@ function headerMenu() {
     y: 20,
     stagger: 0.1,
     duration: 0.3,
-    ease: "power2.out"
+    ease: "power2.out",
   });
 
   // console.log($(".header-sub-menu .sub-menu-container .sub-menu > ul > li"));
@@ -1067,7 +1099,7 @@ function headerMenu() {
       y: 20,
       stagger: 0.1,
       duration: 0.3,
-      ease: "power2.out"
+      ease: "power2.out",
     }
   );
 
@@ -1198,7 +1230,7 @@ function modalBooking() {
       } catch (error) {
         console.error("Error in Lightpick onSelect:", error);
       }
-    }
+    },
   });
 
   // Form submission handler
@@ -1213,11 +1245,11 @@ function modalBooking() {
     const requiredFields = [
       {
         name: "booking-startday",
-        errorField: ".field.date .field-border-bottom"
+        errorField: ".field.date .field-border-bottom",
       },
       { name: "booking-adult", errorField: ".adult.field-border-bottom" },
       { name: "booking-name", errorField: ".name.field-border-bottom" },
-      { name: "booking-phone", errorField: ".phone.field-border-bottom" }
+      { name: "booking-phone", errorField: ".phone.field-border-bottom" },
     ];
 
     requiredFields.forEach((field) => {
@@ -1250,7 +1282,7 @@ function modalBooking() {
         booking_email: form.find('[name="booking-email"]').val(),
         booking_message: form.find('[name="booking-message"]').val(),
         data_id: form.find('[name="data-id"]').val(),
-        data_posttype: form.find('[name="data-posttype"]').val()
+        data_posttype: form.find('[name="data-posttype"]').val(),
       };
 
       $.ajax({
@@ -1274,7 +1306,7 @@ function modalBooking() {
         },
         error: function (xhr, status, error) {
           console.error("Lỗi AJAX:", status, error);
-        }
+        },
       });
 
       $(".error").removeClass("error");
@@ -1305,7 +1337,7 @@ function magicCursor() {
 
   gsap.set(circle, {
     xPercent: -50,
-    yPercent: -50
+    yPercent: -50,
   });
 
   let mouseX = 0,
@@ -1319,7 +1351,7 @@ function magicCursor() {
     gsap.to(circle, {
       x: mouseX,
       y: mouseY,
-      duration: 0.1 // Không có độ trễ
+      duration: 0.1, // Không có độ trễ
     });
   });
 
@@ -1382,12 +1414,12 @@ function detailSlider() {
     autoplay: false,
     pagination: {
       el: ".image-with-text .swiper-pagination",
-      type: "progressbar"
+      type: "progressbar",
     },
     breakpoints: {
       991: {
-        allowTouchMove: false
-      }
+        allowTouchMove: false,
+      },
     },
     // Loại bỏ navigation vì không dùng nút mặc định
     on: {
@@ -1419,8 +1451,8 @@ function detailSlider() {
             slideInner.style.transition = `${speed}ms ${easing}`;
           }
         });
-      }
-    }
+      },
+    },
   });
 
   let lastMouseX = null;
@@ -1591,8 +1623,8 @@ function gallery() {
       mobileSettings: {
         controls: true,
         showCloseIcon: true,
-        download: false
-      }
+        download: false,
+      },
     }
   );
 
@@ -1662,7 +1694,7 @@ function gallery() {
 function fadeTextFooter() {
   gsap.set("data-text-footer", {
     opacity: 0,
-    y: 20
+    y: 20,
   });
   let tlf = gsap.timeline({ paused: true });
 
@@ -1670,14 +1702,14 @@ function fadeTextFooter() {
     "[data-text-footer]",
     {
       opacity: 0,
-      y: 20
+      y: 20,
     },
     {
       opacity: 1,
       y: 0,
       stagger: 0.05,
       duration: 0.6,
-      ease: "power2.out"
+      ease: "power2.out",
     }
   );
   ScrollTrigger.create({
@@ -1685,7 +1717,7 @@ function fadeTextFooter() {
     start: "top 80%",
     // markers: true,
     animation: tlf,
-    toggleActions: "play none none none"
+    toggleActions: "play none none none",
   });
 }
 function fadeTextPageDetail() {
@@ -1705,14 +1737,14 @@ function fadeTextPageDetail() {
           {
             "will-change": "opacity, transform",
             opacity: 0,
-            y: 20
+            y: 20,
           },
           {
             opacity: 1,
             y: 0,
             stagger: 0.05,
             duration: 0.3,
-            ease: "sine.out"
+            ease: "sine.out",
           }
         );
       });
@@ -1724,18 +1756,18 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           scrollTrigger: {
             trigger: element,
             start: "top 75%",
-            end: "bottom 75%"
+            end: "bottom 75%",
           },
           opacity: 1,
           y: 0,
           duration: 0.5,
-          ease: "sine.out"
+          ease: "sine.out",
         }
       );
     });
@@ -1752,14 +1784,14 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           opacity: 1,
           y: 0,
           duration: 0.5,
           ease: "sine.out",
-          delay: delay
+          delay: delay,
         }
       );
     });
@@ -1774,7 +1806,7 @@ function fadeTextPageDetail() {
       let myDesc = new SplitType(element, {
         types: "lines, words",
         lineClass: "split-line",
-        wordClass: "split-word"
+        wordClass: "split-word",
       });
 
       // Tạo timeline GSAP
@@ -1785,13 +1817,13 @@ function fadeTextPageDetail() {
         element.querySelectorAll(".split-word"),
         {
           y: "100%",
-          opacity: 0
+          opacity: 0,
         },
         {
           y: "0%",
           opacity: 1,
           duration: 0.5,
-          ease: "none"
+          ease: "none",
         }
       );
       setTimeout(() => {
@@ -1809,13 +1841,13 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           opacity: 1,
           y: 0,
           duration: 0.2,
-          ease: "none"
+          ease: "none",
         }
       );
     });
@@ -1830,14 +1862,14 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           opacity: 1,
           y: 0,
           duration: 0.5,
           ease: "sine.out",
-          stagger: 0.1
+          stagger: 0.1,
         }
       );
     });
@@ -1916,7 +1948,7 @@ function contactForm() {
         email: emailField.val().trim(),
         phone: phoneField.val().trim(),
         messageNote: messageField.val().trim(),
-        getNewletter: checkbox.is(":checked") ? "true" : "false"
+        getNewletter: checkbox.is(":checked") ? "true" : "false",
       },
       beforeSend: function () {
         $(".contact-message").remove();
@@ -1935,7 +1967,7 @@ function contactForm() {
         contactForm.append(
           '<span class="contact-message" style="color: red;">Có lỗi xảy ra, vui lòng thử lại sau.</span>'
         );
-      }
+      },
     });
   });
 }
@@ -1967,7 +1999,7 @@ function getNewletter() {
       url: ajaxUrl,
       data: {
         action: "costamigo_receive_newletter",
-        email: email
+        email: email,
       },
       beforeSend: function () {
         console.log("Đang gửi dữ liệu...");
@@ -1979,7 +2011,7 @@ function getNewletter() {
       error: function (xhr, status, error) {
         console.error("Lỗi khi gửi form:", error);
         alert("Có lỗi xảy ra, vui lòng thử lại sau.");
-      }
+      },
     });
   });
 }
@@ -1999,8 +2031,8 @@ function swiperBanner() {
     breakpoints: {
       991: {
         allowTouchMove: false,
-        autoplay: false
-      }
+        autoplay: false,
+      },
     },
     // Loại bỏ navigation vì không dùng nút mặc định
     on: {
@@ -2032,8 +2064,8 @@ function swiperBanner() {
             slideInner.style.transition = `${speed}ms ${easing}`;
           }
         });
-      }
-    }
+      },
+    },
   });
   const swiperButton = document.querySelector(
     ".banner-slider .swiper-btn-custom"
@@ -2138,7 +2170,7 @@ function accomodationnFilter() {
 
   gsap.set(".accomodation-list .nav-tabs", {
     opacity: 0,
-    y: 20
+    y: 20,
   });
 
   ScrollTrigger.create({
@@ -2148,7 +2180,7 @@ function accomodationnFilter() {
     onEnter: showTabs,
     onEnterBack: showTabs,
     onLeave: hideTabs,
-    onLeaveBack: hideTabs
+    onLeaveBack: hideTabs,
   });
 
   function showTabs() {
@@ -2156,7 +2188,7 @@ function accomodationnFilter() {
       opacity: 1,
       y: 0,
       duration: 0.3,
-      ease: "none"
+      ease: "none",
     });
   }
 
@@ -2165,7 +2197,7 @@ function accomodationnFilter() {
       opacity: 0,
       y: 20,
       duration: 0.3,
-      ease: "none"
+      ease: "none",
     });
   }
 }
@@ -2173,7 +2205,7 @@ function zoomInBanner() {
   gsap.registerPlugin(ScrollTrigger);
   let img = document.querySelector(".section-banner__wrapper picture img");
   gsap.set(img, {
-    scale: 1.5
+    scale: 1.5,
   });
   gsap.to(img, {
     scale: 1,
@@ -2183,9 +2215,9 @@ function zoomInBanner() {
       trigger: ".section-banner",
       start: "top top",
       end: "bottom 70%",
-      scrub: 1
+      scrub: 1,
       // markers: true,
-    }
+    },
   });
 }
 const init = () => {
