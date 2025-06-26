@@ -2,6 +2,22 @@ section.image-with-text {
   position: relative;
   overflow: hidden;
 
+  &.parallax {
+    clip-path: inset(40px);
+
+    @media (max-width: 991px) {
+      clip-path: inset(24px);
+    }
+
+    .section-wrapper {
+      overflow: hidden;
+
+      img {
+        transform: scale(1.15);
+      }
+    }
+  }
+
   .ilus-right {
     width: 365px;
     height: auto;
@@ -116,6 +132,7 @@ section.image-with-text {
   .section-wrapper {
     position: relative;
     height: 100%;
+    overflow: hidden;
   }
 
   .mask.bottom {
