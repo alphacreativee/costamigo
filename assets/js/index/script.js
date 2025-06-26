@@ -1796,7 +1796,7 @@ function fadeTextPageDetail() {
       );
       setTimeout(() => {
         tl1.play();
-      }, 1100);
+      }, 0.5);
     });
   }
 
