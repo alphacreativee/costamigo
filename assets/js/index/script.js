@@ -2147,9 +2147,28 @@ function accomodationnFilter() {
     });
   }
 }
-
+function zoomInBanner() {
+  gsap.registerPlugin(ScrollTrigger);
+  let img = document.querySelector(".section-banner__wrapper picture img");
+  gsap.set(img, {
+    scale: 1.5
+  });
+  gsap.to(img, {
+    scale: 1,
+    duration: 1,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".section-banner",
+      start: "top top",
+      end: "bottom 70%",
+      scrub: 1
+      // markers: true,
+    }
+  });
+}
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
+  zoomInBanner();
   updateSvgHeight();
   fadeTextFooter();
   headerMenu();
