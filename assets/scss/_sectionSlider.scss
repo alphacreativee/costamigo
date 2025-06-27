@@ -263,9 +263,9 @@
       }
 
       * {
-        // transform: translateY(30px);
-        // opacity: 0;
-        // transition: all 0.4s ease;
+        transform: translateY(30px);
+        opacity: 0;
+        transition: all 0.4s ease;
         @media (max-width: 991px) {
           text-align: center;
         }
@@ -273,9 +273,9 @@
 
       &.swiper-slide-active {
         * {
-          // transform: translate(0);
-          // opacity: 1;
-          // transition: all 0.4s ease;
+          transform: translate(0);
+          opacity: 1;
+          transition: all 0.4s ease;
 
           // .btn-wrapper {
           //   transition-delay: 0.s;
