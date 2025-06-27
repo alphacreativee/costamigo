@@ -197,9 +197,38 @@ function sectionSlider() {
         swiper: swiperContent,
       },
       on: {
-        slideChangeTransitionEnd: function () {
-          animateSlideContent(section, this.activeIndex);
-        },
+        // slideChangeTransitionEnd: function () {
+        //   // Hide all h4, desc, and btn-wrapper elements to prevent overlap
+        //   gsap.set(
+        //     ".slider-swiper-content h4, .slider-swiper-content .desc, .slider-swiper-content .btn-wrapper",
+        //     { y: 20, opacity: 0 }
+        //   );
+        //   // Create a GSAP timeline to animate h4, desc, and btn-wrapper sequentially
+        //   const tl = gsap.timeline();
+        //   tl.fromTo(
+        //     `.slider-swiper-content .swiper-slide:nth-child(${
+        //       this.activeIndex + 1
+        //     }) h4`,
+        //     { y: 20, opacity: 0 },
+        //     { y: 0, opacity: 1, duration: 0.75 }
+        //   )
+        //     .fromTo(
+        //       `.slider-swiper-content .swiper-slide:nth-child(${
+        //         this.activeIndex + 1
+        //       }) .desc`,
+        //       { y: 20, opacity: 0 },
+        //       { y: 0, opacity: 1, duration: 0.75 },
+        //       "-=0.5"
+        //     )
+        //     .fromTo(
+        //       `.slider-swiper-content .swiper-slide:nth-child(${
+        //         this.activeIndex + 1
+        //       }) .btn-wrapper`,
+        //       { y: 20, opacity: 0 },
+        //       { y: 0, opacity: 1, duration: 0.5 },
+        //       "-=0.5"
+        //     );
+        // },
       },
     });
 
@@ -1893,7 +1922,7 @@ function fadeTextPageDetail() {
       );
       setTimeout(() => {
         tl1.play();
-      }, 1100);
+      }, 0.5);
     });
   }
 
