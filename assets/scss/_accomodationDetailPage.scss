@@ -9,7 +9,12 @@
       grid-template-columns: repeat(5, 1fr);
       margin-top: 80px;
       gap: 62px 40px;
-      @media (max-width: 991px) {
+      @media (max-width: 1199px) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px 40px;
+        margin-top: 48px;
+      }
+      @media (max-width: 767px) {
         grid-template-columns: repeat(2, 1fr);
         gap: 24px 40px;
         margin-top: 48px;

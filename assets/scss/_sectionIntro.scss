@@ -10,6 +10,10 @@
         top: -15%;
         left: 0;
         right: unset;
+
+        @media (max-width: 991px) {
+          top: -8%;
+        }
       }
       &.bottom-right {
         bottom: -10%;

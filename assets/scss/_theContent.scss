@@ -6,13 +6,17 @@
   }
 }
 
+.page-content {
+  margin-bottom: 80px;
+}
+
 .the-content {
   color: var(--color-primary);
   font-family: var(--font-body);
   padding-bottom: 120px;
   position: relative;
-  margin-bottom: 80px;
   text-align: justify;
+
   @media (max-width: 991px) {
     padding-bottom: 0px;
   }

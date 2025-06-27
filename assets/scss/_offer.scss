@@ -93,7 +93,13 @@
     &--title {
       display: block;
       margin-bottom: 12px;
+      padding-left: 40px;
+      padding-right: 40px;
       transition: color 0.3s ease;
+
+      @media (max-width: 991px) {
+        padding: 0;
+      }
     }
     &--desc {
       padding: 0 40px;

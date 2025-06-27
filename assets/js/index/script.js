@@ -61,85 +61,307 @@ function togglePlayMusic() {
   });
 }
 
+// function sectionSlider() {
+//   if ($(".section-slider").length < 1) return;
+//   const sections = document.querySelectorAll(".tab-content .tab-pane");
+
+//   // Function để animate content của slide đầu tiên
+//   function animateInitialSlide(section) {
+//     gsap.set(
+//       section.querySelectorAll(
+//         ".slider-swiper-content h4, .slider-swiper-content .desc, .slider-swiper-content .btn-wrapper"
+//       ),
+//       { y: 20, opacity: 0 }
+//     );
+//     const initialTl = gsap.timeline();
+//     initialTl
+//       .fromTo(
+//         section.querySelector(
+//           `.slider-swiper-content .swiper-slide:nth-child(1) h4`
+//         ),
+//         { y: 20, opacity: 0 },
+//         { y: 0, opacity: 1, duration: 0.75 }
+//       )
+//       .fromTo(
+//         section.querySelector(
+//           `.slider-swiper-content .swiper-slide:nth-child(1) .desc`
+//         ),
+//         { y: 20, opacity: 0 },
+//         { y: 0, opacity: 1, duration: 0.75 },
+//         "-=0.5"
+//       )
+//       .fromTo(
+//         section.querySelector(
+//           `.slider-swiper-content .swiper-slide:nth-child(1) .btn-wrapper`
+//         ),
+//         { y: 20, opacity: 0 },
+//         { y: 0, opacity: 1, duration: 0.5 },
+//         "-=0.5"
+//       );
+//   }
+
+//   // Function để animate content khi slide change
+//   function animateSlideContent(section, activeIndex) {
+//     // Hide tất cả content trước
+//     gsap.set(
+//       section.querySelectorAll(
+//         ".slider-swiper-content h4, .slider-swiper-content .desc, .slider-swiper-content .btn-wrapper"
+//       ),
+//       { y: 20, opacity: 0 }
+//     );
+
+//     // Animate content của slide active
+//     const tl = gsap.timeline();
+//     tl.fromTo(
+//       section.querySelector(
+//         `.slider-swiper-content .swiper-slide:nth-child(${activeIndex + 1}) h4`
+//       ),
+//       { y: 20, opacity: 0 },
+//       { y: 0, opacity: 1, duration: 0.75 }
+//     )
+//       .fromTo(
+//         section.querySelector(
+//           `.slider-swiper-content .swiper-slide:nth-child(${
+//             activeIndex + 1
+//           }) .desc`
+//         ),
+//         { y: 20, opacity: 0 },
+//         { y: 0, opacity: 1, duration: 0.75 },
+//         "-=0.5"
+//       )
+//       .fromTo(
+//         section.querySelector(
+//           `.slider-swiper-content .swiper-slide:nth-child(${
+//             activeIndex + 1
+//           }) .btn-wrapper`
+//         ),
+//         { y: 20, opacity: 0 },
+//         { y: 0, opacity: 1, duration: 0.5 },
+//         "-=0.5"
+//       );
+//   }
+
+//   sections.forEach((section) => {
+//     const contentSwiperEl = section.querySelector(".slider-swiper-content");
+//     const mainSwiperEl = section.querySelector(".main-slider");
+//     const paginationEl = section.querySelector(".swiper-pagination");
+//     const swiperButton = section.querySelector(".swiper-btn-custom");
+//     const btnNext = section.querySelector(".swiper-button-next");
+//     const btnPrev = section.querySelector(".swiper-button-prev");
+
+//     // Kiểm tra xem các phần tử có tồn tại không
+//     if (!contentSwiperEl || !mainSwiperEl || !paginationEl || !swiperButton) {
+//       console.error("Missing required elements:", {
+//         contentSwiperEl,
+//         mainSwiperEl,
+//         paginationEl,
+//         swiperButton,
+//       });
+//       return;
+//     }
+
+//     const swiperContent = new Swiper(contentSwiperEl, {
+//       loop: false,
+//       effect: "fade",
+//       allowTouchMove: true,
+//       slidesPerView: 1,
+//       breakpoints: {
+//         991: {
+//           allowTouchMove: false,
+//         },
+//       },
+//       on: {
+//         slideChange: function () {
+//           // Đồng bộ swiperMain khi swiperContent thay đổi (mobile)
+//           if (swiperMain && this.activeIndex !== swiperMain.activeIndex) {
+//             swiperMain.slideTo(this.activeIndex, 300, false);
+//           }
+//         },
+//       },
+//     });
+
+//     const swiperMain = new Swiper(mainSwiperEl, {
+//       effect: "fade",
+//       loop: false,
+//       slidesPerView: 1,
+//       pagination: {
+//         el: paginationEl,
+//         clickable: true,
+//         type: "progressbar",
+//       },
+//       navigation: {
+//         nextEl: btnNext,
+//         prevEl: btnPrev,
+//       },
+//       breakpoints: {
+//         991: {
+//           navigation: {
+//             nextEl: false,
+//             prevEl: false,
+//           },
+//           pagination: {
+//             el: paginationEl,
+//             clickable: true,
+//             type: "fraction",
+//           },
+//         },
+//       },
+//       thumbs: {
+//         swiper: swiperContent,
+//       },
+//       on: {
+//         slideChange: function () {
+//           // Đồng bộ swiperContent khi swiperMain thay đổi
+//           if (swiperContent && this.activeIndex !== swiperContent.activeIndex) {
+//             swiperContent.slideTo(this.activeIndex, 300, false);
+//           }
+//         },
+//         slideChangeTransitionEnd: function () {
+//           animateSlideContent(section, this.activeIndex);
+//         },
+//       },
+//     });
+
+//     if (document.documentElement.clientWidth > 991) {
+//       let lastMouseX = 0;
+
+//       mainSwiperEl.addEventListener("mousemove", (e) => {
+//         const rect = mainSwiperEl.getBoundingClientRect();
+//         const mouseX = e.clientX - rect.left;
+//         const mouseY = e.clientY - rect.top;
+//         const halfWidth = rect.width / 2;
+//         const buttonWidth = swiperButton.offsetWidth;
+//         const buttonHeight = swiperButton.offsetHeight;
+
+//         lastMouseX = mouseX;
+
+//         swiperButton.style.opacity = "1";
+//         swiperButton.style.transform = "scale(1)";
+
+//         let buttonPosX = mouseX - buttonWidth / 2;
+//         let buttonPosY = mouseY - buttonHeight / 2;
+
+//         const transitionZone = 50;
+//         let rotateDeg;
+
+//         if (mouseX <= halfWidth - transitionZone) {
+//           rotateDeg = 180;
+//           buttonPosX = Math.max(
+//             0,
+//             Math.min(halfWidth - buttonWidth, buttonPosX)
+//           );
+//         } else if (mouseX >= halfWidth + transitionZone) {
+//           rotateDeg = 360;
+//           buttonPosX = Math.max(
+//             halfWidth,
+//             Math.min(rect.width - buttonWidth, buttonPosX)
+//           );
+//         } else {
+//           const progress =
+//             (mouseX - (halfWidth - transitionZone)) / (transitionZone * 2);
+//           rotateDeg = 180 + progress * 180;
+//           buttonPosX = Math.max(
+//             0,
+//             Math.min(rect.width - buttonWidth, buttonPosX)
+//           );
+//         }
+
+//         buttonPosY = Math.max(
+//           0,
+//           Math.min(rect.height - buttonHeight, buttonPosY)
+//         );
+
+//         swiperButton.style.left = `${buttonPosX}px`;
+//         swiperButton.style.top = `${buttonPosY}px`;
+//         swiperButton.style.transform = `scale(1) rotate(${rotateDeg}deg)`;
+//       });
+
+//       swiperButton.addEventListener("click", (e) => {
+//         const rect = mainSwiperEl.getBoundingClientRect();
+//         const halfWidth = rect.width / 2;
+//         const clickX = e.clientX - rect.left;
+//         const currentIndex = swiperMain.activeIndex;
+//         const totalSlides = swiperMain.slides.length;
+
+//         if (lastMouseX <= halfWidth) {
+//           if (currentIndex > 0) {
+//             swiperMain.slidePrev();
+//             console.log("slidePrev called");
+//           } else {
+//             console.log("Cannot slidePrev: at first slide");
+//           }
+//         } else {
+//           if (currentIndex < totalSlides - 1) {
+//             swiperMain.slideNext();
+//             console.log("slideNext called");
+//           } else {
+//             console.log("Cannot slideNext: at last slide");
+//           }
+//         }
+//       });
+
+//       mainSwiperEl.addEventListener("mouseleave", () => {
+//         swiperButton.style.opacity = "0";
+//         swiperButton.style.transform = "scale(0)";
+//       });
+//     }
+
+//     // Animate slide đầu tiên khi khởi tạo
+//     animateInitialSlide(section);
+//   });
+
+//   // Thêm event listener cho tab change để animate content
+//   $(document).on("shown.bs.tab", ".tab-content .nav-link", function (e) {
+//     const targetTab = $(
+//       e.target.getAttribute("href") || e.target.dataset.target
+//     );
+//     const section = targetTab[0];
+
+//     if (section && section.querySelector(".slider-swiper-content")) {
+//       // Delay nhỏ để đảm bảo tab đã hiển thị hoàn toàn
+//       setTimeout(() => {
+//         // Tìm swiper instance trong section này
+//         const mainSwiperEl = section.querySelector(".main-slider");
+//         if (mainSwiperEl && mainSwiperEl.swiper) {
+//           const activeIndex = mainSwiperEl.swiper.activeIndex;
+//           animateSlideContent(section, activeIndex);
+//         } else {
+//           // Nếu chưa có swiper, animate slide đầu tiên
+//           animateInitialSlide(section);
+//         }
+//       }, 100);
+//     }
+//   });
+
+//   // Thêm support cho các framework tab khác (nếu không dùng Bootstrap)
+//   $(document).on(
+//     "click",
+//     ".nav-tabs .nav-link, .nav-pills .nav-link",
+//     function (e) {
+//       const target = this.getAttribute("href") || this.dataset.target;
+//       if (target) {
+//         const targetTab = $(target);
+//         const section = targetTab[0];
+
+//         if (section && section.querySelector(".slider-swiper-content")) {
+//           // Delay để đảm bảo tab transition hoàn thành
+//           setTimeout(() => {
+//             const mainSwiperEl = section.querySelector(".main-slider");
+//             if (mainSwiperEl && mainSwiperEl.swiper) {
+//               const activeIndex = mainSwiperEl.swiper.activeIndex;
+//               animateSlideContent(section, activeIndex);
+//             } else {
+//               animateInitialSlide(section);
+//             }
+//           }, 150);
+//         }
+//       }
+//     }
+//   );
+// }
 function sectionSlider() {
   if ($(".section-slider").length < 1) return;
   const sections = document.querySelectorAll(".tab-content .tab-pane");
-
-  // Function để animate content của slide đầu tiên
-  function animateInitialSlide(section) {
-    gsap.set(
-      section.querySelectorAll(
-        ".slider-swiper-content h4, .slider-swiper-content .desc, .slider-swiper-content .btn-wrapper"
-      ),
-      { y: 20, opacity: 0 }
-    );
-    const initialTl = gsap.timeline();
-    initialTl
-      .fromTo(
-        section.querySelector(
-          `.slider-swiper-content .swiper-slide:nth-child(1) h4`
-        ),
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.75 }
-      )
-      .fromTo(
-        section.querySelector(
-          `.slider-swiper-content .swiper-slide:nth-child(1) .desc`
-        ),
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.75 },
-        "-=0.5"
-      )
-      .fromTo(
-        section.querySelector(
-          `.slider-swiper-content .swiper-slide:nth-child(1) .btn-wrapper`
-        ),
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5 },
-        "-=0.5"
-      );
-  }
-
-  // Function để animate content khi slide change
-  function animateSlideContent(section, activeIndex) {
-    // Hide tất cả content trước
-    gsap.set(
-      section.querySelectorAll(
-        ".slider-swiper-content h4, .slider-swiper-content .desc, .slider-swiper-content .btn-wrapper"
-      ),
-      { y: 20, opacity: 0 }
-    );
-
-    // Animate content của slide active
-    const tl = gsap.timeline();
-    tl.fromTo(
-      section.querySelector(
-        `.slider-swiper-content .swiper-slide:nth-child(${activeIndex + 1}) h4`
-      ),
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.75 }
-    )
-      .fromTo(
-        section.querySelector(
-          `.slider-swiper-content .swiper-slide:nth-child(${
-            activeIndex + 1
-          }) .desc`
-        ),
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.75 },
-        "-=0.5"
-      )
-      .fromTo(
-        section.querySelector(
-          `.slider-swiper-content .swiper-slide:nth-child(${
-            activeIndex + 1
-          }) .btn-wrapper`
-        ),
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5 },
-        "-=0.5"
-      );
-  }
 
   sections.forEach((section) => {
     const contentSwiperEl = section.querySelector(".slider-swiper-content");
@@ -179,7 +401,6 @@ function sectionSlider() {
       effect: "fade",
       loop: false,
       slidesPerView: 1,
-      // autoplay: true,
       pagination: {
         el: paginationEl,
         clickable: true,
@@ -191,7 +412,6 @@ function sectionSlider() {
       },
       breakpoints: {
         991: {
-          autoplay: false,
           navigation: {
             nextEl: false,
             prevEl: false
@@ -296,61 +516,8 @@ function sectionSlider() {
         swiperButton.style.transform = "scale(0)";
       });
     }
-
-    // Animate slide đầu tiên khi khởi tạo
-    animateInitialSlide(section);
   });
-
-  // Thêm event listener cho tab change để animate content
-  $(document).on("shown.bs.tab", ".tab-content .nav-link", function (e) {
-    const targetTab = $(
-      e.target.getAttribute("href") || e.target.dataset.target
-    );
-    const section = targetTab[0];
-
-    if (section && section.querySelector(".slider-swiper-content")) {
-      // Delay nhỏ để đảm bảo tab đã hiển thị hoàn toàn
-      setTimeout(() => {
-        // Tìm swiper instance trong section này
-        const mainSwiperEl = section.querySelector(".main-slider");
-        if (mainSwiperEl && mainSwiperEl.swiper) {
-          const activeIndex = mainSwiperEl.swiper.activeIndex;
-          animateSlideContent(section, activeIndex);
-        } else {
-          // Nếu chưa có swiper, animate slide đầu tiên
-          animateInitialSlide(section);
-        }
-      }, 100);
-    }
-  });
-
-  // Thêm support cho các framework tab khác (nếu không dùng Bootstrap)
-  $(document).on(
-    "click",
-    ".nav-tabs .nav-link, .nav-pills .nav-link",
-    function (e) {
-      const target = this.getAttribute("href") || this.dataset.target;
-      if (target) {
-        const targetTab = $(target);
-        const section = targetTab[0];
-
-        if (section && section.querySelector(".slider-swiper-content")) {
-          // Delay để đảm bảo tab transition hoàn thành
-          setTimeout(() => {
-            const mainSwiperEl = section.querySelector(".main-slider");
-            if (mainSwiperEl && mainSwiperEl.swiper) {
-              const activeIndex = mainSwiperEl.swiper.activeIndex;
-              animateSlideContent(section, activeIndex);
-            } else {
-              animateInitialSlide(section);
-            }
-          }, 150);
-        }
-      }
-    }
-  );
 }
-
 function imgWithText() {
   if ($(".image-with-text").length < 1) return;
 
@@ -447,7 +614,7 @@ function imgWithText() {
       scrollTrigger: {
         trigger: section,
         start: "top 80%",
-        end: "top top",
+        end: "bottom top",
         scrub: true
       }
     });
@@ -1200,16 +1367,16 @@ function headerMenu() {
 
   if ($(window).width() > 992) return;
 
-  let menuHasChilden = $("header .sub-menu .menu-item-has-children a");
-  menuHasChilden.on("click", function (e) {
-    e.preventDefault();
-    tl.reverse();
-    tl2.restart();
+  // let menuHasChilden = $("header .sub-menu .menu-item-has-children a");
+  // menuHasChilden.on("click", function (e) {
+  //   e.preventDefault();
+  //   tl.reverse();
+  //   tl2.restart();
 
-    let thisItem = $(this);
-    let thisSubMenu = thisItem.closest(".menu-item-has-children");
-    thisSubMenu.addClass("open");
-  });
+  //   let thisItem = $(this);
+  //   let thisSubMenu = thisItem.closest(".menu-item-has-children");
+  //   thisSubMenu.addClass("open");
+  // });
 
   let btnBack = $("header .menu-item-has-children .return");
   btnBack.on("click", function (e) {
@@ -1794,6 +1961,8 @@ function fadeTextFooter() {
     animation: tlf,
     toggleActions: "play none none none"
   });
+
+  return tlf;
 }
 function fadeTextPageDetail() {
   // Tạo GSAP Timeline để điều khiển thứ tự
@@ -1877,6 +2046,8 @@ function fadeTextPageDetail() {
 
   if (fxTitleDesc.length > 0) {
     fxTitleDesc.forEach((element) => {
+      const dataDelay = parseFloat(element.dataset.delay) || 500;
+
       // Khởi tạo SplitType
       let myDesc = new SplitType(element, {
         types: "lines, words",
@@ -1903,7 +2074,7 @@ function fadeTextPageDetail() {
       );
       setTimeout(() => {
         tl1.play();
-      }, 0.5);
+      }, 500);
     });
   }
 
@@ -2244,12 +2415,13 @@ function accomodationnFilter() {
   if ($(".accomodation-list").length < 1) return;
 
   const tabs = $(".accomodation-list .nav-tabs .nav-link");
-  // tabs.on("click", function (e) {
-  //   e.preventDefault();
-  //   // fadeTextFooter();
-  //   ScrollTrigger.refresh();
-  //   console.log("click");
-  // });
+  tabs.on("click", function (e) {
+    e.preventDefault();
+
+    // ScrollTrigger.refresh();
+    const footerTimeline = fadeTextFooter();
+    footerTimeline.play();
+  });
 
   gsap.set(".accomodation-list .nav-tabs", {
     opacity: 0,
@@ -2258,7 +2430,7 @@ function accomodationnFilter() {
 
   ScrollTrigger.create({
     trigger: ".accomodation-list",
-    start: "top 80%",
+    start: "top 60%",
     end: "bottom bottom",
     onEnter: showTabs,
     onEnterBack: showTabs,
@@ -2288,7 +2460,7 @@ function zoomInBanner() {
   gsap.registerPlugin(ScrollTrigger);
   let img = document.querySelector(".section-banner__wrapper picture img");
   gsap.set(img, {
-    scale: 1.1
+    scale: 1.2
   });
   gsap.to(img, {
     scale: 1,
@@ -2297,12 +2469,34 @@ function zoomInBanner() {
     scrollTrigger: {
       trigger: ".section-banner",
       start: "top top",
-      end: "bottom 70%",
+      end: "bottom top",
       scrub: 1
       // markers: true,
     }
   });
 }
+
+function animation() {
+  document.querySelectorAll(".image-zoom-in").forEach((section) => {
+    const img = section.querySelector("img");
+
+    if (!img) return;
+
+    gsap.set(img, { scale: 1.5 });
+
+    gsap.to(img, {
+      scale: 1,
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+  });
+}
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   zoomInBanner();
@@ -2329,6 +2523,7 @@ const init = () => {
   contactForm();
   getNewletter();
   accomodationnFilter();
+  animation();
   ScrollTrigger.refresh();
 };
 togglePlayMusic();
