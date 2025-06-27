@@ -224,6 +224,11 @@
     max-width: 70%;
     margin-right: auto;
     margin-left: 0;
+
+    .swiper-slide {
+      aspect-ratio: unset;
+    }
+
     @media (max-width: 991px) {
       max-width: 100%;
       .swiper-slide {

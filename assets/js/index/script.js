@@ -2168,6 +2168,14 @@ function swiperBanner() {
 function accomodationnFilter() {
   if ($(".accomodation-list").length < 1) return;
 
+  const tabs = $(".accomodation-list .nav-tabs .nav-link");
+  // tabs.on("click", function (e) {
+  //   e.preventDefault();
+  //   // fadeTextFooter();
+  //   ScrollTrigger.refresh();
+  //   console.log("click");
+  // });
+
   gsap.set(".accomodation-list .nav-tabs", {
     opacity: 0,
     y: 20
