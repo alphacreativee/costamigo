@@ -163,14 +163,23 @@ function sectionSlider() {
     const swiperContent = new Swiper(contentSwiperEl, {
       loop: false,
       effect: "fade",
-      allowTouchMove: false,
+      allowTouchMove: true,
       slidesPerView: 1,
+      freeMode: true,
+      autoplay: true,
+      breakpoints: {
+        991: {
+          allowTouchMove: false,
+          autoplay: false,
+        },
+      },
     });
 
     const swiperMain = new Swiper(mainSwiperEl, {
       effect: "fade",
       loop: false,
       slidesPerView: 1,
+      // autoplay: true,
       pagination: {
         el: paginationEl,
         clickable: true,
@@ -182,6 +191,7 @@ function sectionSlider() {
       },
       breakpoints: {
         991: {
+          autoplay: false,
           navigation: {
             nextEl: false,
             prevEl: false,
