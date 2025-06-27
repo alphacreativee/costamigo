@@ -64,9 +64,12 @@
     }
     &--title {
       a {
+        h3 {
+          transition: all 0.4s ease;
+        }
         &:not(:last-child) {
           display: block;
-          margin-bottom: 8px;
+          margin-bottom: 16px;
         }
         &.active {
           h3 {

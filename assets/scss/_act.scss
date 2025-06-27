@@ -145,6 +145,10 @@
     }
     &--tag {
       margin-bottom: 24px;
+
+      @media (max-width: 991px) {
+        margin-bottom: 16px;
+      }
     }
   }
   .swiper-act-content {
@@ -153,7 +157,6 @@
   }
   .act-slider {
     margin-right: 95px;
-    margin-left: 40px;
     .swiper-slide {
       overflow: hidden;
     }

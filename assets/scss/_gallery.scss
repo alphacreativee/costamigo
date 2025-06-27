@@ -198,7 +198,7 @@
   }
 }
 .lg-show-in .lg-backdrop {
-  animation: fadeInBackdrop 0.3s ease both;
+  // animation: fadeInBackdrop 0.3s ease both;
 }
 .lg-container {
   cursor: none !important;
@@ -226,6 +226,11 @@
   background-repeat: no-repeat;
   background-size: contain;
   transform: scaleX(-1);
+
+  @media (max-width: 991px) {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 .lg-show-in .lg-outer {
