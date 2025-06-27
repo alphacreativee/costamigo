@@ -101,7 +101,7 @@ function sectionSlider() {
         type: "progressbar"
       },
       navigation: {
-        nextEl: btnNext, // Sử dụng nút tùy chỉnh
+        nextEl: btnNext,
         prevEl: btnPrev
       },
       breakpoints: {
@@ -120,43 +120,50 @@ function sectionSlider() {
       thumbs: {
         swiper: swiperContent
       },
-      // Add slideChange event to handle animations
       on: {
-        slideChange: function () {
-          // Hide all h4, desc, and btn-wrapper elements to prevent overlap
-          gsap.set(
-            ".slider-swiper-content h4, .slider-swiper-content .desc, .slider-swiper-content .btn-wrapper",
-            { y: 20, opacity: 0 }
-          );
-
-          // Create a GSAP timeline to animate h4, desc, and btn-wrapper sequentially
-          const tl = gsap.timeline();
-          tl.fromTo(
-            `.slider-swiper-content .swiper-slide:nth-child(${
-              this.activeIndex + 1
-            }) h4`,
-            { y: 20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.75 }
-          )
-            .fromTo(
-              `.slider-swiper-content .swiper-slide:nth-child(${
-                this.activeIndex + 1
-              }) .desc`,
-              { y: 20, opacity: 0 },
-              { y: 0, opacity: 1, duration: 0.75 },
-              "-=0.5" // Overlap by 0.5s for smoother transition
-            )
-            .fromTo(
-              `.slider-swiper-content .swiper-slide:nth-child(${
-                this.activeIndex + 1
-              }) .btn-wrapper`,
-              { y: 20, opacity: 0 },
-              { y: 0, opacity: 1, duration: 1 },
-              "-=0.5" // Overlap by 0.5s for smoother transition
-            );
-        }
+        // slideChangeTransitionEnd: function () {
+        //   // Hide all h4, desc, and btn-wrapper elements to prevent overlap
+        //   gsap.set(
+        //     ".slider-swiper-content h4, .slider-swiper-content .desc, .slider-swiper-content .btn-wrapper",
+        //     { y: 20, opacity: 0 }
+        //   );
+        //   // Create a GSAP timeline to animate h4, desc, and btn-wrapper sequentially
+        //   const tl = gsap.timeline();
+        //   tl.fromTo(
+        //     `.slider-swiper-content .swiper-slide:nth-child(${
+        //       this.activeIndex + 1
+        //     }) h4`,
+        //     { y: 20, opacity: 0 },
+        //     { y: 0, opacity: 1, duration: 0.75 }
+        //   )
+        //     .fromTo(
+        //       `.slider-swiper-content .swiper-slide:nth-child(${
+        //         this.activeIndex + 1
+        //       }) .desc`,
+        //       { y: 20, opacity: 0 },
+        //       { y: 0, opacity: 1, duration: 0.75 },
+        //       "-=0.5"
+        //     )
+        //     .fromTo(
+        //       `.slider-swiper-content .swiper-slide:nth-child(${
+        //         this.activeIndex + 1
+        //       }) .btn-wrapper`,
+        //       { y: 20, opacity: 0 },
+        //       { y: 0, opacity: 1, duration: 0.5 },
+        //       "-=0.5"
+        //     );
+        // },
       }
     });
+
+    // Handle tab click with consistent animation
+    // $(".nav-item").on("click", function () {
+    //   // Get the index of the clicked tab
+    //   const tabIndex = $(this).index();
+    //   // Update the swiper to the corresponding slide
+    //   swiperMain.slideTo(tabIndex);
+    //   // Animation will be handled by slideChangeTransitionEnd to avoid flickering
+    // });
 
     if (document.documentElement.clientWidth > 991) {
       let lastMouseX = 0;
@@ -241,6 +248,31 @@ function sectionSlider() {
         swiperButton.style.transform = "scale(0)";
       });
     }
+
+    // Trigger initial animation for the first slide
+    // gsap.set(
+    //   ".slider-swiper-content h4, .slider-swiper-content .desc, .slider-swiper-content .btn-wrapper",
+    //   { y: 20, opacity: 0 }
+    // );
+    // const initialTl = gsap.timeline();
+    // initialTl
+    //   .fromTo(
+    //     `.slider-swiper-content .swiper-slide:nth-child(1) h4`,
+    //     { y: 20, opacity: 0 },
+    //     { y: 0, opacity: 1, duration: 0.75 }
+    //   )
+    //   .fromTo(
+    //     `.slider-swiper-content .swiper-slide:nth-child(1) .desc`,
+    //     { y: 20, opacity: 0 },
+    //     { y: 0, opacity: 1, duration: 0.75 },
+    //     "-=0.5"
+    //   )
+    //   .fromTo(
+    //     `.slider-swiper-content .swiper-slide:nth-child(1) .btn-wrapper`,
+    //     { y: 20, opacity: 0 },
+    //     { y: 0, opacity: 1, duration: 0.5 },
+    //     "-=0.5"
+    //   );
   });
 }
 

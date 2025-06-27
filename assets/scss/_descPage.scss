@@ -3,16 +3,23 @@
   padding-bottom: 120px;
   // overflow: hidden;
   &.gallery-bg {
+    overflow: hidden;
     .desc-page__bg {
       left: unset;
-      right: 55px;
+      right: 0;
       top: 0;
       transform: translateX(25%);
       width: 250px !important;
       opacity: 0.5;
+
+      @media (max-width: 991px) {
+        width: 200px !important;
+      }
+
       img {
         @media (max-width: 991px) {
           object-fit: contain;
+          object-position: right center;
         }
       }
     }

@@ -601,7 +601,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   background-image: url("../../images/ic-arrow-calendar-bg.svg");
   background-repeat: no-repeat;
   background-position: 55% 50%;
-  background-color: var(--color-secondary);
+  // background-color: var(--color-secondary);
   background-size: 160%;
   margin: 0;
   position: relative;
