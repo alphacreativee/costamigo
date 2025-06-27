@@ -65,6 +65,82 @@ function sectionSlider() {
   if ($(".section-slider").length < 1) return;
   const sections = document.querySelectorAll(".tab-content .tab-pane");
 
+  // Function để animate content của slide đầu tiên
+  function animateInitialSlide(section) {
+    gsap.set(
+      section.querySelectorAll(
+        ".slider-swiper-content h4, .slider-swiper-content .desc, .slider-swiper-content .btn-wrapper"
+      ),
+      { y: 20, opacity: 0 }
+    );
+    const initialTl = gsap.timeline();
+    initialTl
+      .fromTo(
+        section.querySelector(
+          `.slider-swiper-content .swiper-slide:nth-child(1) h4`
+        ),
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.75 }
+      )
+      .fromTo(
+        section.querySelector(
+          `.slider-swiper-content .swiper-slide:nth-child(1) .desc`
+        ),
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.75 },
+        "-=0.5"
+      )
+      .fromTo(
+        section.querySelector(
+          `.slider-swiper-content .swiper-slide:nth-child(1) .btn-wrapper`
+        ),
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5 },
+        "-=0.5"
+      );
+  }
+
+  // Function để animate content khi slide change
+  function animateSlideContent(section, activeIndex) {
+    // Hide tất cả content trước
+    gsap.set(
+      section.querySelectorAll(
+        ".slider-swiper-content h4, .slider-swiper-content .desc, .slider-swiper-content .btn-wrapper"
+      ),
+      { y: 20, opacity: 0 }
+    );
+
+    // Animate content của slide active
+    const tl = gsap.timeline();
+    tl.fromTo(
+      section.querySelector(
+        `.slider-swiper-content .swiper-slide:nth-child(${activeIndex + 1}) h4`
+      ),
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.75 }
+    )
+      .fromTo(
+        section.querySelector(
+          `.slider-swiper-content .swiper-slide:nth-child(${
+            activeIndex + 1
+          }) .desc`
+        ),
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.75 },
+        "-=0.5"
+      )
+      .fromTo(
+        section.querySelector(
+          `.slider-swiper-content .swiper-slide:nth-child(${
+            activeIndex + 1
+          }) .btn-wrapper`
+        ),
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5 },
+        "-=0.5"
+      );
+  }
+
   sections.forEach((section) => {
     const contentSwiperEl = section.querySelector(".slider-swiper-content");
     const mainSwiperEl = section.querySelector(".main-slider");
@@ -121,49 +197,11 @@ function sectionSlider() {
         swiper: swiperContent,
       },
       on: {
-        // slideChangeTransitionEnd: function () {
-        //   // Hide all h4, desc, and btn-wrapper elements to prevent overlap
-        //   gsap.set(
-        //     ".slider-swiper-content h4, .slider-swiper-content .desc, .slider-swiper-content .btn-wrapper",
-        //     { y: 20, opacity: 0 }
-        //   );
-        //   // Create a GSAP timeline to animate h4, desc, and btn-wrapper sequentially
-        //   const tl = gsap.timeline();
-        //   tl.fromTo(
-        //     `.slider-swiper-content .swiper-slide:nth-child(${
-        //       this.activeIndex + 1
-        //     }) h4`,
-        //     { y: 20, opacity: 0 },
-        //     { y: 0, opacity: 1, duration: 0.75 }
-        //   )
-        //     .fromTo(
-        //       `.slider-swiper-content .swiper-slide:nth-child(${
-        //         this.activeIndex + 1
-        //       }) .desc`,
-        //       { y: 20, opacity: 0 },
-        //       { y: 0, opacity: 1, duration: 0.75 },
-        //       "-=0.5"
-        //     )
-        //     .fromTo(
-        //       `.slider-swiper-content .swiper-slide:nth-child(${
-        //         this.activeIndex + 1
-        //       }) .btn-wrapper`,
-        //       { y: 20, opacity: 0 },
-        //       { y: 0, opacity: 1, duration: 0.5 },
-        //       "-=0.5"
-        //     );
-        // },
+        slideChangeTransitionEnd: function () {
+          animateSlideContent(section, this.activeIndex);
+        },
       },
     });
-
-    // Handle tab click with consistent animation
-    // $(".nav-item").on("click", function () {
-    //   // Get the index of the clicked tab
-    //   const tabIndex = $(this).index();
-    //   // Update the swiper to the corresponding slide
-    //   swiperMain.slideTo(tabIndex);
-    //   // Animation will be handled by slideChangeTransitionEnd to avoid flickering
-    // });
 
     if (document.documentElement.clientWidth > 991) {
       let lastMouseX = 0;
@@ -249,31 +287,58 @@ function sectionSlider() {
       });
     }
 
-    // Trigger initial animation for the first slide
-    // gsap.set(
-    //   ".slider-swiper-content h4, .slider-swiper-content .desc, .slider-swiper-content .btn-wrapper",
-    //   { y: 20, opacity: 0 }
-    // );
-    // const initialTl = gsap.timeline();
-    // initialTl
-    //   .fromTo(
-    //     `.slider-swiper-content .swiper-slide:nth-child(1) h4`,
-    //     { y: 20, opacity: 0 },
-    //     { y: 0, opacity: 1, duration: 0.75 }
-    //   )
-    //   .fromTo(
-    //     `.slider-swiper-content .swiper-slide:nth-child(1) .desc`,
-    //     { y: 20, opacity: 0 },
-    //     { y: 0, opacity: 1, duration: 0.75 },
-    //     "-=0.5"
-    //   )
-    //   .fromTo(
-    //     `.slider-swiper-content .swiper-slide:nth-child(1) .btn-wrapper`,
-    //     { y: 20, opacity: 0 },
-    //     { y: 0, opacity: 1, duration: 0.5 },
-    //     "-=0.5"
-    //   );
+    // Animate slide đầu tiên khi khởi tạo
+    animateInitialSlide(section);
   });
+
+  // Thêm event listener cho tab change để animate content
+  $(document).on("shown.bs.tab", ".tab-content .nav-link", function (e) {
+    const targetTab = $(
+      e.target.getAttribute("href") || e.target.dataset.target
+    );
+    const section = targetTab[0];
+
+    if (section && section.querySelector(".slider-swiper-content")) {
+      // Delay nhỏ để đảm bảo tab đã hiển thị hoàn toàn
+      setTimeout(() => {
+        // Tìm swiper instance trong section này
+        const mainSwiperEl = section.querySelector(".main-slider");
+        if (mainSwiperEl && mainSwiperEl.swiper) {
+          const activeIndex = mainSwiperEl.swiper.activeIndex;
+          animateSlideContent(section, activeIndex);
+        } else {
+          // Nếu chưa có swiper, animate slide đầu tiên
+          animateInitialSlide(section);
+        }
+      }, 100);
+    }
+  });
+
+  // Thêm support cho các framework tab khác (nếu không dùng Bootstrap)
+  $(document).on(
+    "click",
+    ".nav-tabs .nav-link, .nav-pills .nav-link",
+    function (e) {
+      const target = this.getAttribute("href") || this.dataset.target;
+      if (target) {
+        const targetTab = $(target);
+        const section = targetTab[0];
+
+        if (section && section.querySelector(".slider-swiper-content")) {
+          // Delay để đảm bảo tab transition hoàn thành
+          setTimeout(() => {
+            const mainSwiperEl = section.querySelector(".main-slider");
+            if (mainSwiperEl && mainSwiperEl.swiper) {
+              const activeIndex = mainSwiperEl.swiper.activeIndex;
+              animateSlideContent(section, activeIndex);
+            } else {
+              animateInitialSlide(section);
+            }
+          }, 150);
+        }
+      }
+    }
+  );
 }
 
 function imgWithText() {
@@ -2205,7 +2270,7 @@ function zoomInBanner() {
   gsap.registerPlugin(ScrollTrigger);
   let img = document.querySelector(".section-banner__wrapper picture img");
   gsap.set(img, {
-    scale: 1.5,
+    scale: 1.1,
   });
   gsap.to(img, {
     scale: 1,
