@@ -102,6 +102,10 @@
       margin-bottom: 24px;
     }
     &--title {
+      @media (max-width: 480px) {
+        width: 290px;
+        margin: 0 auto;
+      }
     }
     &--desc {
       margin-top: 40px;

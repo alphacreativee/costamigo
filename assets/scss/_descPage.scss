@@ -82,6 +82,12 @@
     @media (max-width: 991px) {
       margin-bottom: 32px;
     }
+
+    @media (max-width: 480px) {
+      width: 290px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
   &__bg {
     position: absolute;

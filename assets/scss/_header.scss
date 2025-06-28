@@ -261,11 +261,15 @@
           gap: 24px;
 
           @media (max-width: 991px) {
-            gap: 12px;
+            gap: 24px;
           }
 
           li {
             a {
+              @media (max-width: 480px) {
+                white-space: nowrap;
+              }
+
               &:hover {
                 color: var(--color-white);
               }

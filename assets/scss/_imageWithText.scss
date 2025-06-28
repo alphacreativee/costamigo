@@ -45,6 +45,11 @@ section.image-with-text {
     @media (max-width: 991px) {
       aspect-ratio: 375 / 800;
     }
+
+    @media (max-width: 480px) {
+      aspect-ratio: 375 / 600;
+      max-height: 80vh;
+    }
   }
 
   .detail-slider {
@@ -188,6 +193,10 @@ section.image-with-text {
       @media (max-width: 991px) {
         margin: 0 auto 24px;
         max-width: 80%;
+      }
+
+      @media (max-width: 480px) {
+        max-width: 200px;
       }
     }
     .desc {

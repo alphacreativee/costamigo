@@ -123,6 +123,11 @@
     }
   }
   &__title {
+    @media (max-width: 480px) {
+      width: 292px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
   &__description {
     margin-top: 40px;
