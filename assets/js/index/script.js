@@ -1446,7 +1446,7 @@ function toggleDropdown() {
 }
 
 function modalBooking() {
-  if ($(".modal-booking").length < 1) return;
+  if ($("#modalBooking").length < 1) return;
 
   const dateField = document.querySelector('[name="booking-startday"]');
   if (!dateField) {
@@ -2497,6 +2497,181 @@ function animation() {
   });
 }
 
+function accomodationForm() {
+  if ($("#modalBookingRoom").length < 1) return;
+
+  const btnModalAccommodation = $(".btn-modal-booking-room");
+  const modalElement = document.getElementById("modalBookingRoom");
+
+  const accomodationID = btnModalAccommodation.data("id");
+  if (accomodationID) {
+    $("#modalBookingRoom").find('[name="data-id"]').val(accomodationID);
+  }
+
+  const modal = new bootstrap.Modal(modalElement);
+  const formBookingRoom = $("#modalBookingRoom form");
+
+  btnModalAccommodation.on("click", function (e) {
+    e.preventDefault();
+
+    if (btnModalAccommodation.hasClass("single")) {
+      const thisCurrentID = btnModalAccommodation.data("id");
+      console.log("hihi");
+
+      $(
+        `#modalBookingRoom .dropdown-custom__item[data-id='${thisCurrentID}']`
+      ).trigger("click");
+    }
+
+    modal.show();
+  });
+
+  const titleForm = $("#modalBookingRoom .dropdown-custom__item");
+  const inputDataID = $("#modalBookingRoom input[name='data-id']");
+  titleForm.on("click", function () {
+    const thisIDItemDropdown = $(this).data("id");
+    inputDataID.val(thisIDItemDropdown);
+    console.log("click");
+  });
+
+  const dateField = document.querySelector('[name="booking-room-startday"]');
+  if (!dateField) {
+    console.error('Input field [name="booking-room-startday"] not found');
+    return;
+  }
+
+  const dateEndField = document.querySelector('[name="booking-room-endday"]');
+  if (!dateEndField) {
+    console.error('Input field [name="booking-room-endday"] not found');
+    return;
+  }
+
+  const pickerBooking = new Lightpick({
+    field: dateField, // field chọn ngày bắt đầu
+    secondField: dateEndField, // field chọn ngày kết thúc
+    singleDate: false, // dùng để chọn khoảng ngày
+    numberOfMonths: 1,
+    format: "DD/MM/YYYY",
+    minDate: moment(),
+    onSelect: function (start, end) {
+      try {
+        if (!start || !end) {
+          console.warn("start hoặc end is undefined in onSelect");
+          return;
+        }
+
+        $('[name="booking-room-startday"]').val(start.format("DD/MM/YYYY"));
+        $('[name="booking-room-endday"]').val(end.format("DD/MM/YYYY"));
+        $(".field.date .field-border-bottom").removeClass("error");
+      } catch (error) {
+        console.error("Error in Lightpick onSelect:", error);
+      }
+    }
+  });
+
+  // Form submission handler
+  formBookingRoom.on("submit", function (e) {
+    e.preventDefault();
+
+    // Validate required fields
+    let isValid = true;
+    const form = $(this);
+    $(".error").removeClass("error");
+
+    const requiredFields = [
+      {
+        name: "booking-room-startday",
+        errorField: ".field.date .field-border-bottom"
+      },
+      { name: "booking-adult", errorField: ".adult.field-border-bottom" },
+      { name: "booking-name", errorField: ".name.field-border-bottom" },
+      { name: "booking-phone", errorField: ".phone.field-border-bottom" }
+    ];
+
+    requiredFields.forEach((field) => {
+      const input = $(`[name="${field.name}"]`);
+
+      if (!input.val() || input.val().trim() === "") {
+        $(field.errorField).addClass("error");
+        isValid = false;
+      }
+    });
+
+    // Validate phone number format
+    const phone = $('[name="booking-phone"]').val();
+    if (phone && !/^[0-9]{10,11}$/.test(phone)) {
+      $(".phone.field-border-bottom").addClass("error");
+      isValid = false;
+    }
+
+    // If validation passes, show success modal
+    if (isValid) {
+      // this.reset();
+
+      const formData = {
+        action: "submit_booking_accommodation_form",
+        booking_startday: form.find('[name="booking-room-startday"]').val(),
+        booking_endday: form.find('[name="booking-room-endday"]').val(),
+        booking_adult: form.find('[name="booking-adult"]').val(),
+        booking_child: form.find('[name="booking-child"]').val(),
+        booking_name: form.find('[name="booking-name"]').val(),
+        booking_phone: form.find('[name="booking-phone"]').val(),
+        booking_email: form.find('[name="booking-email"]').val(),
+        booking_message: form.find('[name="booking-message"]').val(),
+        data_id: form.find('[name="data-id"]').val()
+      };
+
+      $.ajax({
+        url: ajaxUrl,
+        type: "POST",
+        data: formData,
+        beforeSend: function () {
+          form.find("button[type='submit']").addClass("aloading");
+        },
+        success: function (response) {
+          if (response.success) {
+            form.find("button[type='submit']").removeClass("aloading");
+
+            console.log("Đặt chỗ thành công:", response.data);
+            $("form")[0].reset();
+            $("#modalBookingRoom").modal("hide");
+            $("#modalBookingSuccess").modal("show");
+          } else {
+            console.error("Lỗi xử lý từ server:", response.data);
+          }
+        },
+        error: function (xhr, status, error) {
+          console.error("Lỗi AJAX:", status, error);
+          console.log("Response text:", xhr.responseText);
+        }
+      });
+
+      $(".error").removeClass("error");
+    }
+  });
+
+  // Remove error class when user starts typing in required fields
+  $('[name="booking-adult"], [name="booking-name"], [name="booking-phone"]').on(
+    "input",
+    function () {
+      const parent = $(this).closest(".field-border-bottom");
+      if (parent.hasClass("error")) {
+        parent.removeClass("error");
+      }
+    }
+  );
+
+  // Show date picker when clicking date input
+  $('[name="booking-room-startday"], [name="booking-room-endday"]').on(
+    "click",
+    function () {
+      console.log("click");
+
+      pickerBooking.show();
+    }
+  );
+}
+
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
   zoomInBanner();
@@ -2524,6 +2699,7 @@ const init = () => {
   getNewletter();
   accomodationnFilter();
   animation();
+  accomodationForm();
   ScrollTrigger.refresh();
 };
 togglePlayMusic();

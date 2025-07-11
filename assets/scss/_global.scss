@@ -305,6 +305,56 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .modal-booking {
+  &#modalBookingRoom {
+    .field.date {
+      gap: 24px;
+
+      img {
+        width: 16px;
+        height: 16px;
+      }
+
+      input {
+        width: 95px;
+      }
+
+      .d-flex {
+        gap: 10px;
+      }
+    }
+
+    .dropdown-custom__btn {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .dropdown-custom__text {
+      font-weight: 400;
+    }
+
+    .dropdown-custom__item {
+      font-weight: 400;
+      font-size: 20px;
+      width: max-content;
+
+      @media (max-width: 991px) {
+        font-size: 16px;
+        line-height: 28px;
+      }
+    }
+
+    .dropdown-custom {
+      z-index: 3;
+      cursor: pointer;
+
+      &__menu {
+        display: flex;
+        flex-direction: column;
+        width: calc(100% + 24px);
+      }
+    }
+  }
+
   .modal-content {
     border: none;
     border-radius: unset;
@@ -512,6 +562,42 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   }
 }
 
+.dropdown-custom {
+  position: relative;
+  &__item {
+    color: var(--color-primary) !important;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:not(:first-child) {
+      margin-top: 8px;
+    }
+  }
+
+  &__text {
+    font-weight: 600;
+  }
+}
+.dropdown-custom__btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dropdown-custom__menu {
+  position: absolute;
+  background-color: var(--color-pattern);
+  padding: 12px 24px;
+  bottom: 0;
+  left: -24px;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  will-change: clip-path;
+  &.dropdown--active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
 .lightpick {
   padding: 15px;
   font-family: var(--font-body);
@@ -532,23 +618,23 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   background-image: none;
   background-color: var(--color-pattern);
   color: var(--color-secondary) !important;
-  border-radius: 50%;
+  // border-radius: 50%;
 }
 
 .lightpick__day.is-available {
-  border-radius: 50%;
-  transition: all 0.4s ease;
+  // border-radius: 50%;
+  // transition: all 0.4s ease;
 }
 
 .lightpick__day.is-available:hover {
   background-image: none;
-  background-color: var(--color-pattern);
-  color: var(--color-secondary) !important;
+  // background-color: var(--color-pattern);
+  // color: var(--color-secondary) !important;
 }
 
 .lightpick__day.is-in-range:hover {
   background-image: none;
-  background-color: var(--color-secondary);
+  // background-color: var(--color-secondary);
 }
 
 .lightpick__day:not(.is-disabled):hover,
@@ -557,16 +643,17 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .lightpick__day.is-in-range {
-  background-color: rgba(194, 32, 51, 0.8);
-  color: #fff;
+  background-color: var(--color-pattern);
+  color: var(--color-secondary);
 }
 
 .lightpick__day.is-end-date.is-in-range.is-flipped,
 .lightpick__day.is-start-date.is-in-range,
 .lightpick__day.is-end-date.is-in-range,
 .lightpick__day.is-start-date.is-in-range.is-flipped {
-  background-color: var(--color-secondary);
+  background-color: var(--color-pattern);
   font-weight: 900;
+  color: var(--color-secondary) !important;
 }
 
 .lightpick__month-title > .lightpick__select-months,

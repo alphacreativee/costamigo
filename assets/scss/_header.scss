@@ -145,13 +145,13 @@
   .menu {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 32px;
 
     a {
-      font-size: 13px;
+      font-size: 15px;
       line-height: 20px;
-      font-weight: 600;
-      letter-spacing: 0.39px;
+      font-weight: 400;
+      // letter-spacing: 0.39px;
       color: var(--color-white);
     }
 

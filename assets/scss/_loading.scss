@@ -43,10 +43,10 @@
 
 .loading-out {
   .loading-transition {
-    mask: url("../../images/sprite-central.png");
+    mask: url("../../images/sprite-loading.png");
     mask-size: 3100% 100%;
     mask-repeat: no-repeat;
-    animation: maskCentralR 1.3s steps(29) forwards;
+    animation: maskCentral 1.2s steps(20) forwards;
   }
   .loading-logo {
     opacity: 0;

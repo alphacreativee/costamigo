@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="./assets/libs/splitting.min.css" />
     <link rel="stylesheet" href="./assets/libs/lenis.css" />
     <link rel="stylesheet" href="./assets/libs/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./assets/libs/lightpick.min.css" />
+    <link rel="stylesheet" href="./assets/libs/daterangepicker.css" />
     <!-- end meta -->
     <!-- link custom css page -->
     <link rel="stylesheet" href="./assets/font/helloSerattine/stylesheet.css" />
@@ -32,7 +34,7 @@
   </head>
   <body class="scroll-hidden">
     <!-- loading -->
-    <div class="loading d-none">
+    <div class="loading">
       <div class="loading-logo">
         <img src="./assets/images/logo-footer.svg" alt="" />
       </div>
@@ -146,7 +148,9 @@
                 <a href="#" class="animation-text-v2">360 Virtual</a>
               </li>
               <li>
-                <a href="#" class="animation-text-v2"> Đặt phòng </a>
+                <a href="#" class="animation-text-v2 btn-modal-booking-room">
+                  Đặt phòng
+                </a>
               </li>
             </ul>
             <div class="lang d-none d-lg-flex">
@@ -523,7 +527,13 @@
                     trọn vẹn.
                   </div>
                   <div class="section-slider__box--btn" data-fade-in>
-                    <a href="" class="btn-general"> Xem tất cả </a>
+                    <a
+                      href=""
+                      class="btn-general btn-modal-booking-room single"
+                      data-id="12"
+                    >
+                      Xem tất cả
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1843,6 +1853,221 @@
       <source src="./assets/images/music.mp3" type="audio/mpeg" />
     </audio> -->
 
+    <div
+      class="modal fade modal-booking"
+      id="modalBookingRoom"
+      aria-hidden="true"
+      tabindex="-1"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered d-flex justify-content-center align-items-end flex-column"
+      >
+        <div class="modal-close">
+          <button type="button" class="btn-close" data-bs-dismiss="modal">
+            <img
+              src="./assets/images/culinary-detail/icon-close-modal.svg"
+              alt=""
+            />
+          </button>
+        </div>
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="content-box">
+              <form action="">
+                <h4 class="title h1-font font-heading color-primary d-none">
+                  Premier Ocean Villa
+                </h4>
+                <div class="dropdown-custom title">
+                  <div class="dropdown-custom__btn">
+                    <div
+                      class="value-select dropdown-custom__text h1-font font-heading color-primary"
+                    >
+                      Premier Ocean Villa
+                    </div>
+                    <img
+                      src="./assets/images/ic-arrow-down-primary.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="dropdown-custom__menu">
+                    <div
+                      class="dropdown-custom__item h2-font font-body color-primary animation-text-v3"
+                      data-id="12"
+                    >
+                      <span>Deluxe-Double</span>
+                    </div>
+                    <div
+                      class="dropdown-custom__item h2-font font-body color-primary animation-text-v3"
+                      data-id="11"
+                    >
+                      <span>Deluxe-Double</span>
+                    </div>
+                    <div
+                      class="dropdown-custom__item h2-font font-body color-primary animation-text-v3"
+                      data-id="10"
+                    >
+                      <span>Deluxe-Double</span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="group field d-flex justify-content-between w-100 color-primary date"
+                >
+                  <div
+                    class="d-flex align-items-center field-border-bottom w-100"
+                  >
+                    <input
+                      type="text"
+                      id="booking-room-startday"
+                      class="b1-font color-primary"
+                      autocomplete="off"
+                      placeholder="Ngày đến"
+                      name="booking-room-startday"
+                      readonly
+                    />
+                    <img
+                      src="./assets/images/culinary-detail/icon-calendar.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div
+                    class="d-flex align-items-center field-border-bottom w-100"
+                  >
+                    <input
+                      type="text"
+                      id="booking-room-endday"
+                      class="b1-font color-primary"
+                      autocomplete="off"
+                      placeholder="Ngày đi"
+                      name="booking-room-endday"
+                      readonly
+                    />
+                    <img
+                      src="./assets/images/culinary-detail/icon-calendar.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="field people d-flex justify-content-between w-100">
+                  <div
+                    class="d-flex align-items-center field-border-bottom adult"
+                  >
+                    <input
+                      type="number"
+                      class="b1-font color-primary"
+                      autocomplete="off"
+                      placeholder="Người lớn*"
+                      name="booking-adult"
+                    />
+                  </div>
+                  <div
+                    class="d-flex align-items-center field-border-bottom child"
+                  >
+                    <input
+                      type="number"
+                      class="b1-font color-primary"
+                      autocomplete="off"
+                      placeholder="Trẻ em (<6 tuổi)"
+                      name="booking-child"
+                    />
+                  </div>
+                </div>
+                <div class="field name field-border-bottom name">
+                  <input
+                    type="text"
+                    class="b1-font color-primary"
+                    autocomplete="off"
+                    placeholder="Họ và tên*"
+                    name="booking-name"
+                  />
+                </div>
+                <div class="field phone field-border-bottom">
+                  <input
+                    type="tel"
+                    class="b1-font color-primary"
+                    autocomplete="off"
+                    pattern="[0-9]{10,11}"
+                    placeholder="Số điện thoại*"
+                    name="booking-phone"
+                  />
+                </div>
+                <div class="field email field-border-bottom">
+                  <input
+                    type="email"
+                    autocomplete="off"
+                    class="b1-font color-primary"
+                    placeholder="Email"
+                    name="booking-email"
+                  />
+                </div>
+                <div class="field message field-border-bottom">
+                  <input
+                    type="text"
+                    class="b1-font color-primary"
+                    placeholder="Lời nhắn"
+                    name="booking-message"
+                  />
+                </div>
+                <div
+                  class="btn-wrapper d-flex justify-content-center align-items-center"
+                >
+                  <input type="hidden" name="data-id" value="181" />
+                  <input
+                    type="hidden"
+                    name="data-possttype"
+                    value="accomodation"
+                  />
+                  <a href="#" class="btn-general secondary"
+                    >(+84) 0252 3682 999</a
+                  >
+                  <button type="submit" class="btn-general">Gửi yêu cầu</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade modal-booking-success"
+      id="modalBookingSuccess"
+      aria-hidden="true"
+      tabindex="-1"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered d-flex justify-content-center align-items-end flex-column"
+      >
+        <div class="modal-close">
+          <button type="button" class="btn-close" data-bs-dismiss="modal">
+            <img
+              src="./assets/images/culinary-detail/icon-close-modal.svg"
+              alt=""
+            />
+          </button>
+        </div>
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="content-logo">
+              <img
+                src="./assets/images/culinary-detail/logo-modal.svg"
+                alt=""
+              />
+            </div>
+            <div class="content-box">
+              <h4 class="title color-primary h1-font font-heading text-center">
+                Cám ơn bạn
+              </h4>
+              <div class="desc color-primary b1-font text-center">
+                Chúng tôi đã nhận được thông tin, đội ngũ tư vấn sẽ liên hệ Quý
+                khách sớm
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer>
       <div class="container-fluid p-0">
         <div class="footer-top">
@@ -2021,6 +2246,8 @@
     <script src="./assets/libs/bootstrap.bundle.min.js"></script>
     <script src="./assets/libs/imagesloaded.pkgd.min.js"></script>
     <script src="./assets/libs/swiper-bundle.min.js"></script>
+    <script src="./assets/libs/moment.min.js"></script>
+    <script src="./assets/libs/lightpick.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/MotionPathPlugin.min.js"></script>
 
     <!-- import custom js -->
