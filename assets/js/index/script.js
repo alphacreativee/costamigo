@@ -1448,7 +1448,9 @@ function toggleDropdown() {
 function modalBooking() {
   if ($("#modalBooking").length < 1) return;
 
-  const dateField = document.querySelector('[name="booking-startday"]');
+  const dateField = document.querySelector(
+    '#modalBooking [name="booking-startday"]'
+  );
   if (!dateField) {
     console.error('Input field [name="booking-startday"] not found');
     return;
@@ -1467,8 +1469,12 @@ function modalBooking() {
           console.warn("start is undefined in onSelect");
           return;
         }
-        $('[name="booking-startday"]').val(start.format("DD/MM/YYYY"));
-        $(".field.date .field-border-bottom").removeClass("error");
+        $('#modalBooking [name="booking-startday"]').val(
+          start.format("DD/MM/YYYY")
+        );
+        $("#modalBooking .field.date .field-border-bottom").removeClass(
+          "error"
+        );
       } catch (error) {
         console.error("Error in Lightpick onSelect:", error);
       }
@@ -1476,26 +1482,35 @@ function modalBooking() {
   });
 
   // Form submission handler
-  $("form").on("submit", function (e) {
+  $("#modalBooking form").on("submit", function (e) {
     e.preventDefault();
 
     // Validate required fields
     let isValid = true;
     const form = $(this);
-    $(".error").removeClass("error");
+    $("#modalBooking .error").removeClass("error");
 
     const requiredFields = [
       {
         name: "booking-startday",
-        errorField: ".field.date .field-border-bottom"
+        errorField: "#modalBooking .field.date .field-border-bottom"
       },
-      { name: "booking-adult", errorField: ".adult.field-border-bottom" },
-      { name: "booking-name", errorField: ".name.field-border-bottom" },
-      { name: "booking-phone", errorField: ".phone.field-border-bottom" }
+      {
+        name: "booking-adult",
+        errorField: "#modalBooking .adult.field-border-bottom"
+      },
+      {
+        name: "booking-name",
+        errorField: "#modalBooking .name.field-border-bottom"
+      },
+      {
+        name: "booking-phone",
+        errorField: "#modalBooking .phone.field-border-bottom"
+      }
     ];
 
     requiredFields.forEach((field) => {
-      const input = $(`[name="${field.name}"]`);
+      const input = $(`#modalBooking [name="${field.name}"]`);
 
       if (!input.val() || input.val().trim() === "") {
         $(field.errorField).addClass("error");
@@ -1504,9 +1519,9 @@ function modalBooking() {
     });
 
     // Validate phone number format
-    const phone = $('[name="booking-phone"]').val();
+    const phone = $('#modalBooking [name="booking-phone"]').val();
     if (phone && !/^[0-9]{10,11}$/.test(phone)) {
-      $(".phone.field-border-bottom").addClass("error");
+      $("#modalBooking .phone.field-border-bottom").addClass("error");
       isValid = false;
     }
 
@@ -1556,18 +1571,17 @@ function modalBooking() {
   });
 
   // Remove error class when user starts typing in required fields
-  $('[name="booking-adult"], [name="booking-name"], [name="booking-phone"]').on(
-    "input",
-    function () {
-      const parent = $(this).closest(".field-border-bottom");
-      if (parent.hasClass("error")) {
-        parent.removeClass("error");
-      }
+  $(
+    '#modalBooking [name="booking-adult"], #modalBooking [name="booking-name"], #modalBooking [name="booking-phone"]'
+  ).on("input", function () {
+    const parent = $(this).closest(".field-border-bottom");
+    if (parent.hasClass("error")) {
+      parent.removeClass("error");
     }
-  );
+  });
 
   // Show date picker when clicking date input
-  $('[name="booking-startday"]').on("click", function () {
+  $('#modalBooking [name="booking-startday"]').on("click", function () {
     pickerBooking.show();
   });
 }
@@ -2516,7 +2530,6 @@ function accomodationForm() {
 
     if (btnModalAccommodation.hasClass("single")) {
       const thisCurrentID = btnModalAccommodation.data("id");
-      console.log("hihi");
 
       $(
         `#modalBookingRoom .dropdown-custom__item[data-id='${thisCurrentID}']`
@@ -2531,16 +2544,19 @@ function accomodationForm() {
   titleForm.on("click", function () {
     const thisIDItemDropdown = $(this).data("id");
     inputDataID.val(thisIDItemDropdown);
-    console.log("click");
   });
 
-  const dateField = document.querySelector('[name="booking-room-startday"]');
+  const dateField = document.querySelector(
+    '#modalBookingRoom [name="booking-room-startday"]'
+  );
   if (!dateField) {
     console.error('Input field [name="booking-room-startday"] not found');
     return;
   }
 
-  const dateEndField = document.querySelector('[name="booking-room-endday"]');
+  const dateEndField = document.querySelector(
+    '#modalBookingRoom [name="booking-room-endday"]'
+  );
   if (!dateEndField) {
     console.error('Input field [name="booking-room-endday"] not found');
     return;
@@ -2560,9 +2576,15 @@ function accomodationForm() {
           return;
         }
 
-        $('[name="booking-room-startday"]').val(start.format("DD/MM/YYYY"));
-        $('[name="booking-room-endday"]').val(end.format("DD/MM/YYYY"));
-        $(".field.date .field-border-bottom").removeClass("error");
+        $('#modalBookingRoom [name="booking-room-startday"]').val(
+          start.format("DD/MM/YYYY")
+        );
+        $('#modalBookingRoom [name="booking-room-endday"]').val(
+          end.format("DD/MM/YYYY")
+        );
+        $("#modalBookingRoom .field.date .field-border-bottom").removeClass(
+          "error"
+        );
       } catch (error) {
         console.error("Error in Lightpick onSelect:", error);
       }
@@ -2576,20 +2598,29 @@ function accomodationForm() {
     // Validate required fields
     let isValid = true;
     const form = $(this);
-    $(".error").removeClass("error");
+    $("#modalBookingRoom .error").removeClass("error");
 
     const requiredFields = [
       {
         name: "booking-room-startday",
-        errorField: ".field.date .field-border-bottom"
+        errorField: "#modalBookingRoom .field.date .field-border-bottom"
       },
-      { name: "booking-adult", errorField: ".adult.field-border-bottom" },
-      { name: "booking-name", errorField: ".name.field-border-bottom" },
-      { name: "booking-phone", errorField: ".phone.field-border-bottom" }
+      {
+        name: "booking-adult",
+        errorField: "#modalBookingRoom .adult.field-border-bottom"
+      },
+      {
+        name: "booking-name",
+        errorField: "#modalBookingRoom .name.field-border-bottom"
+      },
+      {
+        name: "booking-phone",
+        errorField: "#modalBookingRoom .phone.field-border-bottom"
+      }
     ];
 
     requiredFields.forEach((field) => {
-      const input = $(`[name="${field.name}"]`);
+      const input = $(`#modalBookingRoom [name="${field.name}"]`);
 
       if (!input.val() || input.val().trim() === "") {
         $(field.errorField).addClass("error");
@@ -2598,9 +2629,9 @@ function accomodationForm() {
     });
 
     // Validate phone number format
-    const phone = $('[name="booking-phone"]').val();
+    const phone = $('#modalBookingRoom [name="booking-phone"]').val();
     if (phone && !/^[0-9]{10,11}$/.test(phone)) {
-      $(".phone.field-border-bottom").addClass("error");
+      $("#modalBookingRoom .phone.field-border-bottom").addClass("error");
       isValid = false;
     }
 
@@ -2651,25 +2682,21 @@ function accomodationForm() {
   });
 
   // Remove error class when user starts typing in required fields
-  $('[name="booking-adult"], [name="booking-name"], [name="booking-phone"]').on(
-    "input",
-    function () {
-      const parent = $(this).closest(".field-border-bottom");
-      if (parent.hasClass("error")) {
-        parent.removeClass("error");
-      }
+  $(
+    '#modalBookingRoom [name="booking-adult"],#modalBookingRoom [name="booking-name"],#modalBookingRoom [name="booking-phone"]'
+  ).on("input", function () {
+    const parent = $(this).closest(".field-border-bottom");
+    if (parent.hasClass("error")) {
+      parent.removeClass("error");
     }
-  );
+  });
 
   // Show date picker when clicking date input
-  $('[name="booking-room-startday"], [name="booking-room-endday"]').on(
-    "click",
-    function () {
-      console.log("click");
-
-      pickerBooking.show();
-    }
-  );
+  $(
+    '#modalBookingRoom [name="booking-room-startday"], #modalBookingRoom [name="booking-room-endday"]'
+  ).on("click", function () {
+    pickerBooking.show();
+  });
 }
 
 const init = () => {
