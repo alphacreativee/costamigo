@@ -505,48 +505,34 @@ function animationText() {
   fxTitleDesc.forEach((element, elementIdx) => {
     const startValue = element.dataset.start || "50%";
 
-    let myDesc = new SplitType(element, {
-      types: "lines, words",
-      lineClass: "split-line",
-      wordClass: "split-word",
-    });
-    myDesc.lines.forEach((line, index) => {
-      gsap.from(line.querySelectorAll(".split-word"), {
-        y: "100%",
-        duration: 0.5,
-        ease: "power2.out",
-        delay: index * 0.1,
-        scrollTrigger: {
-          trigger: element,
-          start: `top ${startValue}`,
-          end: `top ${startValue}`,
-          toggleActions: "play none none none",
-          // markers: true,
-        },
-      });
+    gsap.from(element, {
+      y: "10%",
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: element,
+        start: `top ${startValue}`,
+        end: `top ${startValue}`,
+        toggleActions: "play none none none",
+        // markers: true,
+      },
     });
   });
   const fxTitleDescv2 = document.querySelectorAll("[data-fade-desc-v2]");
   fxTitleDescv2.forEach((element, elementIdx) => {
-    let myDesc = new SplitType(element, {
-      types: "lines, words",
-      lineClass: "split-line",
-      wordClass: "split-word",
-    });
-    myDesc.lines.forEach((line, index) => {
-      gsap.from(line.querySelectorAll(".split-word"), {
-        y: "100%",
-        duration: 0.5,
-        ease: "power2.out",
-        delay: index * 0.1,
-        scrollTrigger: {
-          trigger: element,
-          start: "top 70%",
-          end: "top 70%",
-          toggleActions: "play none none none",
-          // markers: true,
-        },
-      });
+    gsap.from(element, {
+      y: "10%",
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: element,
+        start: `top 70%`,
+        end: `top 70%`,
+        toggleActions: "play none none none",
+        // markers: true,
+      },
     });
   });
 }
