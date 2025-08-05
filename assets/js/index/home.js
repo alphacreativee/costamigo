@@ -1246,11 +1246,11 @@ function loading() {
 }
 
 // Cách 1: Giữ nguyên logic gốc nhưng tối ưu
-$(document).ready(function () {
-  setTimeout(() => {
-    loading();
-  }, 2000);
-});
+// $(document).ready(function () {
+//   setTimeout(() => {
+//     loading();
+//   }, 2000);
+// });
 
 function fadeTextFooter() {
   gsap.set("data-text-footer", {
