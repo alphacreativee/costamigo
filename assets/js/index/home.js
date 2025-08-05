@@ -694,7 +694,8 @@ function animationText() {
   });
 }
 function swiperRestaurant() {
-  if (!document.querySelector(".swiper-restaurant")) return;
+  if (!document.querySelector(".section-restaurant")) return;
+
   var swiperRes = new Swiper(".swiper-restaurant", {
     effect: "fade",
     slidesPerView: "auto",
