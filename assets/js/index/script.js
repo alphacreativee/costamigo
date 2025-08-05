@@ -877,49 +877,52 @@ function animationText() {
   fxTitleDesc.forEach((element, elementIdx) => {
     const startValue = element.dataset.start || "50%";
 
-    let myDesc = new SplitType(element, {
-      types: "lines, words",
-      lineClass: "split-line",
-      wordClass: "split-word"
-    });
-    myDesc.lines.forEach((line, index) => {
-      gsap.from(line.querySelectorAll(".split-word"), {
-        y: "100%",
-        duration: 0.5,
+    gsap.fromTo(
+      element,
+      {
+        y: "20%",
+        opacity: 0
+      },
+      {
+        y: "0%",
+        opacity: 1,
+        duration: 0.8,
         ease: "power2.out",
-        delay: index * 0.1,
         scrollTrigger: {
           trigger: element,
           start: `top ${startValue}`,
           end: `top ${startValue}`,
           toggleActions: "play none none none"
-          // markers: true,
+          // markers: true
         }
-      });
-    });
+      }
+    );
   });
+
   const fxTitleDescv2 = document.querySelectorAll("[data-fade-desc-v2]");
   fxTitleDescv2.forEach((element, elementIdx) => {
-    let myDesc = new SplitType(element, {
-      types: "lines, words",
-      lineClass: "split-line",
-      wordClass: "split-word"
-    });
-    myDesc.lines.forEach((line, index) => {
-      gsap.from(line.querySelectorAll(".split-word"), {
-        y: "100%",
-        duration: 0.5,
+    const startValue = element.dataset.start || "70%";
+
+    gsap.fromTo(
+      element,
+      {
+        y: "20%",
+        opacity: 0
+      },
+      {
+        y: "0%",
+        opacity: 1,
+        duration: 0.8,
         ease: "power2.out",
-        delay: index * 0.1,
         scrollTrigger: {
           trigger: element,
-          start: "top 70%",
-          end: "top 70%",
+          start: `top ${startValue}`,
+          end: `top ${startValue}`,
           toggleActions: "play none none none"
-          // markers: true,
+          // markers: true
         }
-      });
-    });
+      }
+    );
   });
 }
 function swiperRestaurant() {
@@ -2062,33 +2065,27 @@ function fadeTextPageDetail() {
     fxTitleDesc.forEach((element) => {
       const dataDelay = parseFloat(element.dataset.delay) || 500;
 
-      // Khởi tạo SplitType
-      let myDesc = new SplitType(element, {
-        types: "lines, words",
-        lineClass: "split-line",
-        wordClass: "split-word"
-      });
-
       // Tạo timeline GSAP
       let tl1 = gsap.timeline({ paused: true });
 
-      // Animate tất cả .split-word cùng lúc
+      // Animate toàn bộ element
       tl1.fromTo(
-        element.querySelectorAll(".split-word"),
+        element,
         {
-          y: "100%",
+          y: "10%",
           opacity: 0
         },
         {
           y: "0%",
           opacity: 1,
-          duration: 0.5,
-          ease: "none"
+          duration: 0.8,
+          ease: "power2.out"
         }
       );
+
       setTimeout(() => {
         tl1.play();
-      }, 500);
+      }, dataDelay);
     });
   }
 
