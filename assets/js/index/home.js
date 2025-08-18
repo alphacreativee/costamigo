@@ -7,7 +7,7 @@ const lenis = new Lenis({
   duration: 0.5,
   easing: (t) => 1 - Math.pow(1 - t, 4),
   smooth: true,
-  smoothTouch: false
+  smoothTouch: false,
 });
 
 lenis.on("scroll", ScrollTrigger.update);
@@ -155,7 +155,7 @@ function sectionSlider() {
         contentSwiperEl,
         mainSwiperEl,
         paginationEl,
-        swiperButton
+        swiperButton,
       });
       return;
     }
@@ -167,8 +167,8 @@ function sectionSlider() {
       slidesPerView: 1,
       breakpoints: {
         991: {
-          allowTouchMove: false
-        }
+          allowTouchMove: false,
+        },
       },
       on: {
         slideChange: function () {
@@ -176,8 +176,8 @@ function sectionSlider() {
           if (swiperMain && this.activeIndex !== swiperMain.activeIndex) {
             swiperMain.slideTo(this.activeIndex, 300, false);
           }
-        }
-      }
+        },
+      },
     });
 
     const swiperMain = new Swiper(mainSwiperEl, {
@@ -187,27 +187,27 @@ function sectionSlider() {
       pagination: {
         el: paginationEl,
         clickable: true,
-        type: "progressbar"
+        type: "progressbar",
       },
       navigation: {
         nextEl: btnNext,
-        prevEl: btnPrev
+        prevEl: btnPrev,
       },
       breakpoints: {
         991: {
           navigation: {
             nextEl: false,
-            prevEl: false
+            prevEl: false,
           },
           pagination: {
             el: paginationEl,
             clickable: true,
-            type: "fraction"
-          }
-        }
+            type: "fraction",
+          },
+        },
       },
       thumbs: {
-        swiper: swiperContent
+        swiper: swiperContent,
       },
       on: {
         slideChange: function () {
@@ -218,8 +218,8 @@ function sectionSlider() {
         },
         slideChangeTransitionEnd: function () {
           animateSlideContent(section, this.activeIndex);
-        }
-      }
+        },
+      },
     });
 
     if (document.documentElement.clientWidth > 991) {
@@ -383,8 +383,8 @@ function imgWithText() {
         trigger: section,
         start: "top 80%",
         end: "bottom top",
-        scrub: true
-      }
+        scrub: true,
+      },
     });
   });
 
@@ -395,20 +395,20 @@ function imgWithText() {
       scrollTrigger: {
         trigger: section,
         scrub: true,
-        pin: false
+        pin: false,
         // markers: true
-      }
+      },
     });
 
     tl.fromTo(
       img,
       {
         yPercent: -15,
-        ease: "none"
+        ease: "none",
       },
       {
         yPercent: 15,
-        ease: "none"
+        ease: "none",
       }
     );
   });
@@ -426,9 +426,9 @@ function animationMaskCentral() {
         start: "top 70%",
         end: "bottom 70%",
         // toggleClass: "show",
-        onEnter: () => image.classList.add("show")
+        onEnter: () => image.classList.add("show"),
         // markers: true,
-      }
+      },
     });
   });
 
@@ -467,7 +467,7 @@ function animationText() {
     const tl = gsap.timeline({ paused: true }).to(chars, {
       color: hoverColor, // Dùng màu từ CSS
       stagger: 0.05, // Delay giữa các ký tự
-      duration: 0.2 // Thời gian đổi màu mỗi ký tự
+      duration: 0.2, // Thời gian đổi màu mỗi ký tự
     });
 
     // Hover events
@@ -479,7 +479,7 @@ function animationText() {
       gsap.to(chars, {
         color: originalColor, // Trở về màu ban đầu từ CSS
         stagger: 0.05,
-        duration: 0.2
+        duration: 0.2,
       });
     });
   });
@@ -494,7 +494,7 @@ function animationText() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           opacity: 1,
@@ -503,9 +503,9 @@ function animationText() {
           scrollTrigger: {
             trigger: element,
             start: "top 60%",
-            end: "bottom 60%"
+            end: "bottom 60%",
             // markers: true,
-          }
+          },
         }
       );
     });
@@ -516,18 +516,18 @@ function animationText() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           scrollTrigger: {
             trigger: element,
             start: "top 75%",
-            end: "bottom 75%"
+            end: "bottom 75%",
           },
           opacity: 1,
           y: 0,
           duration: 0.5,
-          ease: "sine.out"
+          ease: "sine.out",
         }
       );
     });
@@ -539,7 +539,7 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20
+        y: 20,
       },
       {
         opacity: 1,
@@ -548,9 +548,9 @@ function animationText() {
         scrollTrigger: {
           trigger: element,
           start: "top 40%",
-          end: "bottom 40%"
+          end: "bottom 40%",
           // markers: true,
-        }
+        },
       }
     );
   });
@@ -562,18 +562,18 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20
+        y: 20,
       },
       {
         scrollTrigger: {
           trigger: element,
           start: "top 75%",
-          end: "bottom 75%"
+          end: "bottom 75%",
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
-        ease: "sine.out"
+        ease: "sine.out",
       }
     );
   });
@@ -583,18 +583,18 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20
+        y: 20,
       },
       {
         scrollTrigger: {
           trigger: element,
           start: "top 70%",
-          end: "bottom 70%"
+          end: "bottom 70%",
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
-        ease: "sine.out"
+        ease: "sine.out",
       }
     );
   });
@@ -604,18 +604,18 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20
+        y: 20,
       },
       {
         scrollTrigger: {
           trigger: element,
           start: "top 90%",
-          end: "bottom 90%"
+          end: "bottom 90%",
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
-        ease: "sine.out"
+        ease: "sine.out",
       }
     );
   });
@@ -625,18 +625,18 @@ function animationText() {
       {
         "will-change": "opacity, transform",
         opacity: 0,
-        y: 20
+        y: 20,
       },
       {
         scrollTrigger: {
           trigger: element,
           start: "top 60%",
-          end: "bottom 60%"
+          end: "bottom 60%",
         },
         opacity: 1,
         y: 0,
         duration: 0.5,
-        ease: "sine.out"
+        ease: "sine.out",
       }
     );
   });
@@ -649,7 +649,7 @@ function animationText() {
       element,
       {
         y: "20%",
-        opacity: 0
+        opacity: 0,
       },
       {
         y: "0%",
@@ -660,9 +660,9 @@ function animationText() {
           trigger: element,
           start: `top ${startValue}`,
           end: `top ${startValue}`,
-          toggleActions: "play none none none"
+          toggleActions: "play none none none",
           // markers: true
-        }
+        },
       }
     );
   });
@@ -675,7 +675,7 @@ function animationText() {
       element,
       {
         y: "20%",
-        opacity: 0
+        opacity: 0,
       },
       {
         y: "0%",
@@ -686,9 +686,9 @@ function animationText() {
           trigger: element,
           start: `top ${startValue}`,
           end: `top ${startValue}`,
-          toggleActions: "play none none none"
+          toggleActions: "play none none none",
           // markers: true
-        }
+        },
       }
     );
   });
@@ -699,7 +699,7 @@ function swiperRestaurant() {
   var swiperRes = new Swiper(".swiper-restaurant", {
     effect: "fade",
     slidesPerView: "auto",
-    centeredSlides: true
+    centeredSlides: true,
   });
   const contentRes = document.querySelectorAll(
     ".section-restaurant__content--title a"
@@ -727,38 +727,25 @@ function swiperRestaurant() {
       slidesPerView: 1.25,
       spaceBetween: 24,
       slidesOffsetAfter: 24,
-      slidesOffsetBefore: 24
+      slidesOffsetBefore: 24,
     });
   }
 }
 function swiperAct() {
   if (!document.querySelector(".act-slider")) return;
-
   const container = document.querySelector(".act-slider");
-  const swiperButton = container.querySelector(".swiper-btn-act");
   const swiperActContent = document.querySelector(".swiper-act-content");
-
-  // Kiểm tra xem các phần tử có tồn tại không
-  if (!container || !swiperButton || !swiperActContent) {
-    console.error("Missing required elements:", {
-      container,
-      swiperButton,
-      swiperActContent
-    });
-    return;
-  }
-
   const swiperActC = new Swiper(".swiper-act-content", {
     slidesPerView: 1,
     watchSlidesProgress: true,
     watchSlidesVisibility: true,
     effect: "fade",
     fadeEffect: {
-      crossFade: true
+      crossFade: true,
     },
 
     spaceBetween: 30,
-    allowTouchMove: false
+    allowTouchMove: false,
   });
 
   const isMobile = window.innerWidth < 991;
@@ -772,25 +759,24 @@ function swiperAct() {
         pagination: {
           el: ".section-act__slider .swiper-pagination",
           clickable: true,
-          type: "fraction"
-        }
-      }
+          type: "fraction",
+        },
+      },
     },
     speed: 1000,
     loop: false,
     pagination: {
       el: ".section-act__slider .swiper-pagination",
       clickable: true,
-      type: "progressbar"
+      type: "progressbar",
     },
-    navigation: isMobile
-      ? {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        }
-      : false,
+    navigation: {
+      nextEl: ".section-act__slider--main .swiper-button-next",
+      prevEl: ".section-act__slider--main .swiper-button-prev",
+    },
+
     thumbs: {
-      swiper: swiperActC
+      swiper: swiperActC,
     },
     on: {
       progress(swiper) {
@@ -821,8 +807,8 @@ function swiperAct() {
             slideInner.style.transition = `${speed}ms ${easing}`;
           }
         });
-      }
-    }
+      },
+    },
   });
   $(".swiper-button-prev-mobile").on("click", function () {
     swiperAct.slidePrev();
@@ -830,116 +816,6 @@ function swiperAct() {
   $(".swiper-button-next-mobile").on("click", function () {
     swiperAct.slideNext();
   });
-  function handleSwiperDirection() {
-    // if (window.innerWidth >= 991) {
-    //   swiperAct.changeLanguageDirection("rtl");
-    // } else {
-    //   swiperAct.changeLanguageDirection("ltr"); // Optional: Reset to LTR for smaller screens
-    // }
-  }
-
-  // Run on page load
-  handleSwiperDirection();
-
-  // Update on window resize
-  window.addEventListener("resize", handleSwiperDirection);
-
-  // Hover effect và click cho desktop
-  if (!isMobile) {
-    let lastMouseX = 0;
-
-    container.addEventListener("mousemove", (e) => {
-      const rect = container.getBoundingClientRect();
-      const mouseX = e.clientX - rect.left;
-      const mouseY = e.clientY - rect.top;
-      const halfWidth = rect.width / 2;
-      const buttonWidth = swiperButton.offsetWidth;
-      const buttonHeight = swiperButton.offsetHeight;
-
-      // Cập nhật lastMouseX
-      lastMouseX = mouseX;
-
-      // Hiển thị nút
-      swiperButton.style.opacity = "1";
-      swiperButton.style.transform = "scale(1)";
-
-      // Tính toán vị trí
-      let buttonPosX = mouseX - buttonWidth / 2;
-      let buttonPosY = mouseY - buttonHeight / 2;
-
-      // Xác định góc xoay dựa trên vị trí chuột
-      const transitionZone = 50;
-      const zone = 0;
-      let rotateDeg;
-
-      if (mouseX <= halfWidth - transitionZone) {
-        // Nửa trái: prev, mũi tên hướng trái (180deg)
-        rotateDeg = 180;
-        buttonPosX = Math.max(
-          -zone,
-          Math.min(halfWidth - buttonWidth, buttonPosX)
-        );
-      } else if (mouseX >= halfWidth + transitionZone) {
-        // Nửa phải: next, mũi tên hướng phải (0deg)
-        rotateDeg = 0;
-        buttonPosX = Math.max(
-          halfWidth,
-          Math.min(rect.width - buttonWidth + zone, buttonPosX)
-        );
-      } else {
-        // Vùng chuyển tiếp: xoay từ 180deg qua 90deg đến 0deg (lên trên)
-        const progress =
-          (mouseX - (halfWidth - transitionZone)) / (transitionZone * 2);
-        rotateDeg = 180 - progress * 90; // Từ 180deg -> 90deg -> 0deg
-        buttonPosX = Math.max(
-          -zone,
-          Math.min(rect.width - buttonWidth + zone, buttonPosX)
-        );
-      }
-
-      // Giới hạn vị trí Y
-      buttonPosY = Math.max(
-        -zone,
-        Math.min(rect.height - buttonHeight + zone, buttonPosY)
-      );
-
-      // Áp dụng vị trí và xoay
-      swiperButton.style.left = `${buttonPosX}px`;
-      swiperButton.style.top = `${buttonPosY}px`;
-      swiperButton.style.transform = `scale(1) rotate(${rotateDeg}deg)`;
-    });
-
-    container.addEventListener("mouseleave", () => {
-      swiperButton.style.opacity = "0";
-      swiperButton.style.transform = "scale(0)";
-    });
-
-    // Click handler
-    swiperButton.addEventListener("click", () => {
-      const rect = container.getBoundingClientRect();
-      const halfWidth = rect.width / 2;
-      const currentIndex = swiperAct.activeIndex;
-      const totalSlides = swiperAct.slides.length;
-
-      if (lastMouseX <= halfWidth) {
-        // Nửa trái: gọi slidePrev nếu không ở slide đầu
-        if (currentIndex > 0) {
-          swiperAct.slidePrev();
-          console.log("slidePrev called");
-        } else {
-          console.log("Cannot slidePrev: at first slide");
-        }
-      } else {
-        // Nửa phải: gọi slideNext nếu không ở slide cuối
-        if (currentIndex < totalSlides - 1) {
-          swiperAct.slideNext();
-          console.log("slideNext called");
-        } else {
-          console.log("Cannot slideNext: at last slide");
-        }
-      }
-    });
-  }
 }
 
 function swiperOffer() {
@@ -950,11 +826,11 @@ function swiperOffer() {
     speed: 1000,
     navigation: {
       nextEl: ".section-offer__slider .swiper-button-next",
-      prevEl: ".section-offer__slider .swiper-button-prev"
+      prevEl: ".section-offer__slider .swiper-button-prev",
     },
     pagination: {
       el: ".section-offer__slider .swiper-pagination",
-      type: "progressbar"
+      type: "progressbar",
     },
     slidesOffsetAfter: 24,
     slidesOffsetBefore: 24,
@@ -963,9 +839,9 @@ function swiperOffer() {
         slidesPerView: 3,
         spaceBetween: 40,
         slidesOffsetAfter: 0,
-        slidesOffsetBefore: 0
-      }
-    }
+        slidesOffsetBefore: 0,
+      },
+    },
   });
 }
 
@@ -1011,7 +887,7 @@ function scrollHeader() {
       self.direction === 1
         ? $(".cta-group").addClass("hide")
         : $(".cta-group").removeClass("hide");
-    }
+    },
   });
 }
 
@@ -1027,9 +903,9 @@ function animationArt() {
         trigger: image,
         start: "top bottom", // Start when the top of the image hits the bottom of the viewport
         end: "bottom top", // End when the bottom of the image hits the top of the viewport
-        scrub: true // Smoothly tie the animation to scroll
+        scrub: true, // Smoothly tie the animation to scroll
         // markers: true,
-      }
+      },
     });
   });
 
@@ -1046,9 +922,9 @@ function animationArt() {
         trigger: imageR,
         start: "top bottom",
         end: "bottom top",
-        scrub: true
+        scrub: true,
         // markers: true,
-      }
+      },
     });
   });
 }
@@ -1064,7 +940,7 @@ function headerMenu() {
     y: 20,
     stagger: 0.1,
     duration: 0.3,
-    ease: "power2.out"
+    ease: "power2.out",
   });
 
   // console.log($(".header-sub-menu .sub-menu-container .sub-menu > ul > li"));
@@ -1076,7 +952,7 @@ function headerMenu() {
       y: 20,
       stagger: 0.1,
       duration: 0.3,
-      ease: "power2.out"
+      ease: "power2.out",
     }
   );
 
@@ -1213,7 +1089,7 @@ function modalBooking() {
       } catch (error) {
         console.error("Error in Lightpick onSelect:", error);
       }
-    }
+    },
   });
 
   // Form submission handler
@@ -1228,20 +1104,20 @@ function modalBooking() {
     const requiredFields = [
       {
         name: "booking-startday",
-        errorField: "#modalBooking .field.date .field-border-bottom"
+        errorField: "#modalBooking .field.date .field-border-bottom",
       },
       {
         name: "booking-adult",
-        errorField: "#modalBooking .adult.field-border-bottom"
+        errorField: "#modalBooking .adult.field-border-bottom",
       },
       {
         name: "booking-name",
-        errorField: "#modalBooking .name.field-border-bottom"
+        errorField: "#modalBooking .name.field-border-bottom",
       },
       {
         name: "booking-phone",
-        errorField: "#modalBooking .phone.field-border-bottom"
-      }
+        errorField: "#modalBooking .phone.field-border-bottom",
+      },
     ];
 
     requiredFields.forEach((field) => {
@@ -1274,7 +1150,7 @@ function modalBooking() {
         booking_email: form.find('[name="booking-email"]').val(),
         booking_message: form.find('[name="booking-message"]').val(),
         data_id: form.find('[name="data-id"]').val(),
-        data_posttype: form.find('[name="data-posttype"]').val()
+        data_posttype: form.find('[name="data-posttype"]').val(),
       };
 
       $.ajax({
@@ -1298,7 +1174,7 @@ function modalBooking() {
         },
         error: function (xhr, status, error) {
           console.error("Lỗi AJAX:", status, error);
-        }
+        },
       });
 
       $(".error").removeClass("error");
@@ -1328,7 +1204,7 @@ function magicCursor() {
 
   gsap.set(circle, {
     xPercent: -50,
-    yPercent: -50
+    yPercent: -50,
   });
 
   let mouseX = 0,
@@ -1342,7 +1218,7 @@ function magicCursor() {
     gsap.to(circle, {
       x: mouseX,
       y: mouseY,
-      duration: 0.1 // Không có độ trễ
+      duration: 0.1, // Không có độ trễ
     });
   });
 
@@ -1399,7 +1275,7 @@ function loading() {
 function fadeTextFooter() {
   gsap.set("data-text-footer", {
     opacity: 0,
-    y: 20
+    y: 20,
   });
   let tlf = gsap.timeline({ paused: true });
 
@@ -1407,14 +1283,14 @@ function fadeTextFooter() {
     "[data-text-footer]",
     {
       opacity: 0,
-      y: 20
+      y: 20,
     },
     {
       opacity: 1,
       y: 0,
       stagger: 0.05,
       duration: 0.6,
-      ease: "power2.out"
+      ease: "power2.out",
     }
   );
   ScrollTrigger.create({
@@ -1422,7 +1298,7 @@ function fadeTextFooter() {
     start: "top 80%",
     // markers: true,
     animation: tlf,
-    toggleActions: "play none none none"
+    toggleActions: "play none none none",
   });
 
   return tlf;
@@ -1444,14 +1320,14 @@ function fadeTextPageDetail() {
           {
             "will-change": "opacity, transform",
             opacity: 0,
-            y: 20
+            y: 20,
           },
           {
             opacity: 1,
             y: 0,
             stagger: 0.05,
             duration: 0.3,
-            ease: "sine.out"
+            ease: "sine.out",
           }
         );
       });
@@ -1463,18 +1339,18 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           scrollTrigger: {
             trigger: element,
             start: "top 75%",
-            end: "bottom 75%"
+            end: "bottom 75%",
           },
           opacity: 1,
           y: 0,
           duration: 0.5,
-          ease: "sine.out"
+          ease: "sine.out",
         }
       );
     });
@@ -1491,14 +1367,14 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           opacity: 1,
           y: 0,
           duration: 0.5,
           ease: "sine.out",
-          delay: delay
+          delay: delay,
         }
       );
     });
@@ -1515,7 +1391,7 @@ function fadeTextPageDetail() {
       let myDesc = new SplitType(element, {
         types: "lines, words",
         lineClass: "split-line",
-        wordClass: "split-word"
+        wordClass: "split-word",
       });
 
       // Tạo timeline GSAP
@@ -1526,13 +1402,13 @@ function fadeTextPageDetail() {
         element.querySelectorAll(".split-word"),
         {
           y: "100%",
-          opacity: 0
+          opacity: 0,
         },
         {
           y: "0%",
           opacity: 1,
           duration: 0.5,
-          ease: "none"
+          ease: "none",
         }
       );
       setTimeout(() => {
@@ -1550,13 +1426,13 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           opacity: 1,
           y: 0,
           duration: 0.2,
-          ease: "none"
+          ease: "none",
         }
       );
     });
@@ -1571,14 +1447,14 @@ function fadeTextPageDetail() {
         {
           "will-change": "opacity, transform",
           opacity: 0,
-          y: 20
+          y: 20,
         },
         {
           opacity: 1,
           y: 0,
           duration: 0.5,
           ease: "sine.out",
-          stagger: 0.1
+          stagger: 0.1,
         }
       );
     });
@@ -1589,7 +1465,7 @@ function zoomInBanner() {
   gsap.registerPlugin(ScrollTrigger);
   let img = document.querySelector(".section-banner__wrapper picture img");
   gsap.set(img, {
-    scale: 1.2
+    scale: 1.2,
   });
   gsap.to(img, {
     scale: 1,
@@ -1599,9 +1475,9 @@ function zoomInBanner() {
       trigger: ".section-banner",
       start: "top top",
       end: "bottom top",
-      scrub: 1
+      scrub: 1,
       // markers: true,
-    }
+    },
   });
 }
 
