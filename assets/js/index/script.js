@@ -1002,8 +1002,21 @@ function swiperRestaurant() {
 }
 function swiperAct() {
   if (!document.querySelector(".act-slider")) return;
+
   const container = document.querySelector(".act-slider");
+  const swiperButton = container.querySelector(".swiper-btn-act");
   const swiperActContent = document.querySelector(".swiper-act-content");
+
+  // Kiểm tra xem các phần tử có tồn tại không
+  if (!container || !swiperButton || !swiperActContent) {
+    console.error("Missing required elements:", {
+      container,
+      swiperButton,
+      swiperActContent,
+    });
+    return;
+  }
+
   const swiperActC = new Swiper(".swiper-act-content", {
     slidesPerView: 1,
     watchSlidesProgress: true,
@@ -1039,11 +1052,12 @@ function swiperAct() {
       clickable: true,
       type: "progressbar",
     },
-    navigation: {
-      nextEl: ".section-act__slider--main .swiper-button-next",
-      prevEl: ".section-act__slider--main .swiper-button-prev",
-    },
-
+    navigation: isMobile
+      ? {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        }
+      : false,
     thumbs: {
       swiper: swiperActC,
     },
@@ -1085,6 +1099,116 @@ function swiperAct() {
   $(".swiper-button-next-mobile").on("click", function () {
     swiperAct.slideNext();
   });
+  function handleSwiperDirection() {
+    // if (window.innerWidth >= 991) {
+    //   swiperAct.changeLanguageDirection("rtl");
+    // } else {
+    //   swiperAct.changeLanguageDirection("ltr"); // Optional: Reset to LTR for smaller screens
+    // }
+  }
+
+  // Run on page load
+  handleSwiperDirection();
+
+  // Update on window resize
+  window.addEventListener("resize", handleSwiperDirection);
+
+  // Hover effect và click cho desktop
+  if (!isMobile) {
+    let lastMouseX = 0;
+
+    container.addEventListener("mousemove", (e) => {
+      const rect = container.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+      const halfWidth = rect.width / 2;
+      const buttonWidth = swiperButton.offsetWidth;
+      const buttonHeight = swiperButton.offsetHeight;
+
+      // Cập nhật lastMouseX
+      lastMouseX = mouseX;
+
+      // Hiển thị nút
+      swiperButton.style.opacity = "1";
+      swiperButton.style.transform = "scale(1)";
+
+      // Tính toán vị trí
+      let buttonPosX = mouseX - buttonWidth / 2;
+      let buttonPosY = mouseY - buttonHeight / 2;
+
+      // Xác định góc xoay dựa trên vị trí chuột
+      const transitionZone = 50;
+      const zone = 0;
+      let rotateDeg;
+
+      if (mouseX <= halfWidth - transitionZone) {
+        // Nửa trái: prev, mũi tên hướng trái (180deg)
+        rotateDeg = 180;
+        buttonPosX = Math.max(
+          -zone,
+          Math.min(halfWidth - buttonWidth, buttonPosX)
+        );
+      } else if (mouseX >= halfWidth + transitionZone) {
+        // Nửa phải: next, mũi tên hướng phải (0deg)
+        rotateDeg = 0;
+        buttonPosX = Math.max(
+          halfWidth,
+          Math.min(rect.width - buttonWidth + zone, buttonPosX)
+        );
+      } else {
+        // Vùng chuyển tiếp: xoay từ 180deg qua 90deg đến 0deg (lên trên)
+        const progress =
+          (mouseX - (halfWidth - transitionZone)) / (transitionZone * 2);
+        rotateDeg = 180 - progress * 90; // Từ 180deg -> 90deg -> 0deg
+        buttonPosX = Math.max(
+          -zone,
+          Math.min(rect.width - buttonWidth + zone, buttonPosX)
+        );
+      }
+
+      // Giới hạn vị trí Y
+      buttonPosY = Math.max(
+        -zone,
+        Math.min(rect.height - buttonHeight + zone, buttonPosY)
+      );
+
+      // Áp dụng vị trí và xoay
+      swiperButton.style.left = `${buttonPosX}px`;
+      swiperButton.style.top = `${buttonPosY}px`;
+      swiperButton.style.transform = `scale(1) rotate(${rotateDeg}deg)`;
+    });
+
+    container.addEventListener("mouseleave", () => {
+      swiperButton.style.opacity = "0";
+      swiperButton.style.transform = "scale(0)";
+    });
+
+    // Click handler
+    swiperButton.addEventListener("click", () => {
+      const rect = container.getBoundingClientRect();
+      const halfWidth = rect.width / 2;
+      const currentIndex = swiperAct.activeIndex;
+      const totalSlides = swiperAct.slides.length;
+
+      if (lastMouseX <= halfWidth) {
+        // Nửa trái: gọi slidePrev nếu không ở slide đầu
+        if (currentIndex > 0) {
+          swiperAct.slidePrev();
+          console.log("slidePrev called");
+        } else {
+          console.log("Cannot slidePrev: at first slide");
+        }
+      } else {
+        // Nửa phải: gọi slideNext nếu không ở slide cuối
+        if (currentIndex < totalSlides - 1) {
+          swiperAct.slideNext();
+          console.log("slideNext called");
+        } else {
+          console.log("Cannot slideNext: at last slide");
+        }
+      }
+    });
+  }
 }
 
 function swiperOffer() {
