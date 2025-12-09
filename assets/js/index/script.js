@@ -2505,15 +2505,31 @@ function accomodationnFilter() {
     });
   }
 }
+// function zoomInBanner() {
+//   gsap.registerPlugin(ScrollTrigger);
+//   let img = document.querySelector(".section-banner__wrapper picture img");
+//   gsap.set(img, {
+//     scale: 1.2,
+//   });
+//   gsap.to(img, {
+//     scale: 1,
+//     duration: 1,
+//     ease: "none",
+//     scrollTrigger: {
+//       trigger: ".section-banner",
+//       start: "top top",
+//       end: "bottom top",
+//       scrub: 1,
+//       // markers: true,
+//     },
+//   });
+// }
 function zoomInBanner() {
   gsap.registerPlugin(ScrollTrigger);
   let img = document.querySelector(".section-banner__wrapper picture img");
-  gsap.set(img, {
-    scale: 1.2,
-  });
+
   gsap.to(img, {
-    scale: 1,
-    duration: 1,
+    yPercent: -20, // Parallax: ảnh di chuyển chậm hơn scroll
     ease: "none",
     scrollTrigger: {
       trigger: ".section-banner",
@@ -2524,22 +2540,19 @@ function zoomInBanner() {
     },
   });
 }
-
 function animation() {
   document.querySelectorAll(".image-zoom-in").forEach((section) => {
     const img = section.querySelector("img");
 
     if (!img) return;
 
-    gsap.set(img, { scale: 1.5 });
-
     gsap.to(img, {
-      scale: 1,
+      yPercent: -30, // Move up as you scroll down
       ease: "none",
       scrollTrigger: {
         trigger: section,
-        start: "top 80%",
-        end: "bottom top",
+        start: "top bottom", // Start when section enters viewport
+        end: "bottom top", // End when section leaves viewport
         scrub: true,
       },
     });
