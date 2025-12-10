@@ -2529,7 +2529,7 @@ function zoomInBanner() {
   let img = document.querySelector(".section-banner__wrapper picture img");
 
   gsap.to(img, {
-    yPercent: -20, // Parallax: ảnh di chuyển chậm hơn scroll
+    yPercent: -8,
     ease: "none",
     scrollTrigger: {
       trigger: ".section-banner",
@@ -2547,12 +2547,12 @@ function animation() {
     if (!img) return;
 
     gsap.to(img, {
-      yPercent: -30, // Move up as you scroll down
+      yPercent: -15,
       ease: "none",
       scrollTrigger: {
         trigger: section,
-        start: "top bottom", // Start when section enters viewport
-        end: "bottom top", // End when section leaves viewport
+        start: "top bottom",
+        end: "bottom top",
         scrub: true,
       },
     });

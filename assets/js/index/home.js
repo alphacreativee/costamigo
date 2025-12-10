@@ -1588,12 +1588,9 @@ function fadeTextPageDetail() {
 function zoomInBanner() {
   gsap.registerPlugin(ScrollTrigger);
   let img = document.querySelector(".section-banner__wrapper picture img");
-  gsap.set(img, {
-    scale: 1.2,
-  });
+
   gsap.to(img, {
-    scale: 1,
-    duration: 1,
+    yPercent: -8,
     ease: "none",
     scrollTrigger: {
       trigger: ".section-banner",
