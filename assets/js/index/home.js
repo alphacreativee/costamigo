@@ -65,82 +65,6 @@ function sectionSlider() {
   if ($(".section-slider").length < 1) return;
   const sections = document.querySelectorAll(".tab-content .tab-pane");
 
-  // Function để animate content của slide đầu tiên
-  function animateInitialSlide(section) {
-    gsap.set(
-      section.querySelectorAll(
-        ".slider-swiper-content h4, .slider-swiper-content .desc, .slider-swiper-content .btn-wrapper"
-      ),
-      { y: 20, opacity: 0 }
-    );
-    const initialTl = gsap.timeline();
-    initialTl
-      .fromTo(
-        section.querySelector(
-          `.slider-swiper-content .swiper-slide:nth-child(1) h4`
-        ),
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.75 }
-      )
-      .fromTo(
-        section.querySelector(
-          `.slider-swiper-content .swiper-slide:nth-child(1) .desc`
-        ),
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.75 },
-        "-=0.5"
-      )
-      .fromTo(
-        section.querySelector(
-          `.slider-swiper-content .swiper-slide:nth-child(1) .btn-wrapper`
-        ),
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5 },
-        "-=0.5"
-      );
-  }
-
-  // Function để animate content khi slide change
-  function animateSlideContent(section, activeIndex) {
-    // Hide tất cả content trước
-    gsap.set(
-      section.querySelectorAll(
-        ".slider-swiper-content h4, .slider-swiper-content .desc, .slider-swiper-content .btn-wrapper"
-      ),
-      { y: 20, opacity: 0 }
-    );
-
-    // Animate content của slide active
-    const tl = gsap.timeline();
-    tl.fromTo(
-      section.querySelector(
-        `.slider-swiper-content .swiper-slide:nth-child(${activeIndex + 1}) h4`
-      ),
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.75 }
-    )
-      .fromTo(
-        section.querySelector(
-          `.slider-swiper-content .swiper-slide:nth-child(${
-            activeIndex + 1
-          }) .desc`
-        ),
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.75 },
-        "-=0.5"
-      )
-      .fromTo(
-        section.querySelector(
-          `.slider-swiper-content .swiper-slide:nth-child(${
-            activeIndex + 1
-          }) .btn-wrapper`
-        ),
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5 },
-        "-=0.5"
-      );
-  }
-
   sections.forEach((section) => {
     const contentSwiperEl = section.querySelector(".slider-swiper-content");
     const mainSwiperEl = section.querySelector(".main-slider");
@@ -163,6 +87,9 @@ function sectionSlider() {
     const swiperContent = new Swiper(contentSwiperEl, {
       loop: false,
       effect: "fade",
+      fadeEffect: {
+        crossFade: true,
+      },
       allowTouchMove: true,
       slidesPerView: 1,
       breakpoints: {
@@ -182,6 +109,9 @@ function sectionSlider() {
 
     const swiperMain = new Swiper(mainSwiperEl, {
       effect: "fade",
+      fadeEffect: {
+        crossFade: true,
+      },
       loop: false,
       slidesPerView: 1,
       pagination: {
@@ -215,9 +145,6 @@ function sectionSlider() {
           if (swiperContent && this.activeIndex !== swiperContent.activeIndex) {
             swiperContent.slideTo(this.activeIndex, 300, false);
           }
-        },
-        slideChangeTransitionEnd: function () {
-          animateSlideContent(section, this.activeIndex);
         },
       },
     });
@@ -305,59 +232,7 @@ function sectionSlider() {
         swiperButton.style.transform = "scale(0)";
       });
     }
-
-    // Animate slide đầu tiên khi khởi tạo
-    animateInitialSlide(section);
   });
-
-  // Thêm event listener cho tab change để animate content
-  $(document).on("shown.bs.tab", ".tab-content .nav-link", function (e) {
-    const targetTab = $(
-      e.target.getAttribute("href") || e.target.dataset.target
-    );
-    const section = targetTab[0];
-
-    if (section && section.querySelector(".slider-swiper-content")) {
-      // Delay nhỏ để đảm bảo tab đã hiển thị hoàn toàn
-      setTimeout(() => {
-        // Tìm swiper instance trong section này
-        const mainSwiperEl = section.querySelector(".main-slider");
-        if (mainSwiperEl && mainSwiperEl.swiper) {
-          const activeIndex = mainSwiperEl.swiper.activeIndex;
-          animateSlideContent(section, activeIndex);
-        } else {
-          // Nếu chưa có swiper, animate slide đầu tiên
-          animateInitialSlide(section);
-        }
-      }, 100);
-    }
-  });
-
-  // Thêm support cho các framework tab khác (nếu không dùng Bootstrap)
-  $(document).on(
-    "click",
-    ".nav-tabs .nav-link, .nav-pills .nav-link",
-    function (e) {
-      const target = this.getAttribute("href") || this.dataset.target;
-      if (target) {
-        const targetTab = $(target);
-        const section = targetTab[0];
-
-        if (section && section.querySelector(".slider-swiper-content")) {
-          // Delay để đảm bảo tab transition hoàn thành
-          setTimeout(() => {
-            const mainSwiperEl = section.querySelector(".main-slider");
-            if (mainSwiperEl && mainSwiperEl.swiper) {
-              const activeIndex = mainSwiperEl.swiper.activeIndex;
-              animateSlideContent(section, activeIndex);
-            } else {
-              animateInitialSlide(section);
-            }
-          }, 150);
-        }
-      }
-    }
-  );
 }
 
 function imgWithText() {
@@ -765,6 +640,7 @@ function swiperAct() {
   let interleaveOffset = 0.9;
   const swiperAct = new Swiper(".act-slider", {
     slidesPerView: 1,
+    effect: "fade",
     watchSlidesProgress: true,
     breakpoints: {
       991: {
@@ -793,35 +669,34 @@ function swiperAct() {
       swiper: swiperActC,
     },
     on: {
-      progress(swiper) {
-        swiper.slides.forEach((slide) => {
-          const slideProgress = slide.progress || 0;
-          const innerOffset = swiper.width * interleaveOffset;
-          const innerTranslate = slideProgress * innerOffset;
-
-          if (!isNaN(innerTranslate)) {
-            const slideInner = slide.querySelector(".swiper-box-img");
-            if (slideInner) {
-              slideInner.style.transform = `translate3d(${innerTranslate}px, 0, 0)`;
-            }
-          }
-        });
-      },
-      touchStart(swiper) {
-        swiper.slides.forEach((slide) => {
-          slide.style.transition = "";
-        });
-      },
-      setTransition(swiper, speed) {
-        const easing = "cubic-bezier(0.25, 0.1, 0.25, 1)";
-        swiper.slides.forEach((slide) => {
-          slide.style.transition = `${speed}ms ${easing}`;
-          const slideInner = slide.querySelector(".swiper-box-img");
-          if (slideInner) {
-            slideInner.style.transition = `${speed}ms ${easing}`;
-          }
-        });
-      },
+      // progress(swiper) {
+      //   swiper.slides.forEach((slide) => {
+      //     const slideProgress = slide.progress || 0;
+      //     const innerOffset = swiper.width * interleaveOffset;
+      //     const innerTranslate = slideProgress * innerOffset;
+      //     if (!isNaN(innerTranslate)) {
+      //       const slideInner = slide.querySelector(".swiper-box-img");
+      //       if (slideInner) {
+      //         slideInner.style.transform = `translate3d(${innerTranslate}px, 0, 0)`;
+      //       }
+      //     }
+      //   });
+      // },
+      // touchStart(swiper) {
+      //   swiper.slides.forEach((slide) => {
+      //     slide.style.transition = "";
+      //   });
+      // },
+      // setTransition(swiper, speed) {
+      //   const easing = "cubic-bezier(0.25, 0.1, 0.25, 1)";
+      //   swiper.slides.forEach((slide) => {
+      //     slide.style.transition = `${speed}ms ${easing}`;
+      //     const slideInner = slide.querySelector(".swiper-box-img");
+      //     if (slideInner) {
+      //       slideInner.style.transition = `${speed}ms ${easing}`;
+      //     }
+      //   });
+      // },
     },
   });
   $(".swiper-button-prev-mobile").on("click", function () {
