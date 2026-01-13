@@ -388,6 +388,7 @@ function sectionSlider() {
       fadeEffect: {
         crossFade: true,
       },
+      speed: 600,
       allowTouchMove: true,
       slidesPerView: 1,
       breakpoints: {
@@ -402,6 +403,27 @@ function sectionSlider() {
             swiperMain.slideTo(this.activeIndex, 300, false);
           }
         },
+        slideChangeTransitionStart: function () {
+          // Reset animation cho tất cả slides
+          const allLinks =
+            contentSwiperEl.querySelectorAll(".accomodation-link");
+          allLinks.forEach((link) => {
+            link.style.opacity = "0";
+            link.style.transform = "translateY(30px)";
+          });
+        },
+        slideChangeTransitionEnd: function () {
+          // Animate slide active
+          const activeLink = contentSwiperEl.querySelector(
+            ".swiper-slide-active .accomodation-link"
+          );
+          if (activeLink) {
+            setTimeout(() => {
+              activeLink.style.opacity = "1";
+              activeLink.style.transform = "translateY(0)";
+            }, 50);
+          }
+        },
       },
     });
 
@@ -410,6 +432,7 @@ function sectionSlider() {
       fadeEffect: {
         crossFade: true,
       },
+      speed: 600,
       loop: false,
       slidesPerView: 1,
       pagination: {
@@ -530,6 +553,17 @@ function sectionSlider() {
         swiperButton.style.transform = "scale(0)";
       });
     }
+
+    // Animate slide đầu tiên khi load
+    setTimeout(() => {
+      const firstLink = contentSwiperEl.querySelector(
+        ".swiper-slide-active .accomodation-link"
+      );
+      if (firstLink) {
+        firstLink.style.opacity = "1";
+        firstLink.style.transform = "translateY(0)";
+      }
+    }, 100);
   });
 }
 
