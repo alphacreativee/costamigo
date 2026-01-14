@@ -45,6 +45,15 @@
       ul {
         list-style: none;
       }
+
+      a {
+        color: var(--color-primary);
+        transition: all 0.4s ease;
+
+        &:hover {
+          color: var(--color-secondary);
+        }
+      }
     }
   }
 }

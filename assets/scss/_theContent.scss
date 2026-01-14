@@ -16,6 +16,7 @@
   padding-bottom: 120px;
   position: relative;
   text-align: justify;
+  overflow: hidden;
 
   @media (max-width: 991px) {
     padding-bottom: 0px;
@@ -85,6 +86,15 @@
 
     li {
       margin-top: 4px;
+    }
+  }
+
+  a {
+    color: var(--color-primary);
+    transition: all 0.4s ease;
+
+    &:hover {
+      color: var(--color-secondary);
     }
   }
 

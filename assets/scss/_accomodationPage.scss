@@ -3,6 +3,8 @@
   z-index: 3;
   // padding-bottom: 80px;
   @media (max-width: 991px) {
+    overflow: hidden;
+
     .accomodation-wrapper {
       .nav {
         flex-wrap: nowrap;
@@ -54,6 +56,11 @@
         right: 0;
         top: 60%;
         width: 150px !important;
+
+        img {
+          object-fit: contain;
+          object-position: right;
+        }
       }
       &:last-child {
         top: unset;

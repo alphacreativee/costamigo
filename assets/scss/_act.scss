@@ -114,7 +114,7 @@
       .section-act__slider--tag {
         transform: translateY(30px);
         opacity: 0;
-        transition: all 0.4s ease;
+        // transition: all 0.4s ease;
         @media (max-width: 991px) {
           text-align: center;
         }
@@ -127,11 +127,11 @@
           .section-act__slider--tag {
             transform: translate(0);
             opacity: 1;
-            transition: all 0.8s ease;
+            // transition: all 0.8s ease;
           }
 
           .section-act__slider--desc {
-            transition-delay: 0.2s;
+            // transition-delay: 0.2s;
           }
         }
       }
