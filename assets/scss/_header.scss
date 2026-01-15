@@ -261,13 +261,15 @@
           gap: 24px;
 
           @media (max-width: 991px) {
-            gap: 24px;
+            gap: 18px;
           }
 
           li {
             a {
               @media (max-width: 480px) {
                 white-space: nowrap;
+                font-size: 20px;
+                line-height: 30px;
               }
 
               &:hover {
@@ -278,6 +280,10 @@
                 height: 1px;
                 bottom: -4px;
                 mask-size: 100% auto;
+
+                @media (max-width: 480px) {
+                  bottom: -2px;
+                }
               }
             }
 
