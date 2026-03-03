@@ -1,968 +1,662 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Offer</title>
-    <!-- import favicon -->
-    <link rel="icon" href="./assets/images/logo.ico" type="image/x-icon" />
-    <!-- meta -->
-    <meta property="og:url" content="" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:image" content="" />
-    <!-- meta -->
-    <link rel="stylesheet" href="./assets/libs/bootstrap.min.css" />
-    <link rel="stylesheet" href="./assets/libs/splitting.min.css" />
-    <link rel="stylesheet" href="./assets/libs/lenis.css" />
-    <link rel="stylesheet" href="./assets/libs/swiper-bundle.min.css" />
-    <!-- end meta -->
-    <!-- link custom css page -->
-    <link rel="stylesheet" href="./assets/font/helloSerattine/stylesheet.css" />
-    <link rel="stylesheet" href="./assets/font/averta/stylesheet.css" />
-    <link rel="stylesheet" href="./assets/main/css/style.min.css" />
-    <!-- end link custom css page -->
-  </head>
-  <body class="page-offer">
-    <!-- svg container -->
-    <div class="svg-container d-none">
-      <svg
-        width="1402"
-        height="5989"
-        viewBox="0 0 1402 5989"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <mask id="revealMask">
-            <rect
-              id="maskRect"
-              x="0"
-              y="0"
-              width="100%"
-              height="0"
-              fill="white"
-            />
-          </mask>
-        </defs>
 
-        <path
-          d="M635.5 5988C275.5 5525.5 436.5 5458.5 1101.5 5231C1297.36 5163.99 1389 4792 809 4607.5C338.413 4457.8 889.501 4141.02 1246.79 3703.5C1546.16 3336.9 1711.5 2881.08 1007 2997C28.4999 3158 -129.5 2140.18 119 1999C335.5 1876 819.5 1921.5 1004.5 1642.5C1134.62 1446.26 1454 801.581 1050.5 710.999C767.501 647.469 1 939.765 1 750.5C1 650 29.8 353 501 179C529.5 168 689.5 138 680.5 1"
-          stroke-width="1.2"
-          stroke-linecap="round"
-          stroke-dasharray="8 8"
-          id="svgPath"
-        />
-      </svg>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offer</title>
+  <!-- import favicon -->
+  <link rel="icon" href="./assets/images/logo.ico" type="image/x-icon" />
+  <!-- meta -->
+  <meta property="og:url" content="" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="" />
+  <!-- meta -->
+  <link rel="stylesheet" href="./assets/libs/bootstrap.min.css" />
+  <link rel="stylesheet" href="./assets/libs/splitting.min.css" />
+  <link rel="stylesheet" href="./assets/libs/lenis.css" />
+  <link rel="stylesheet" href="./assets/libs/swiper-bundle.min.css" />
+  <!-- end meta -->
+  <!-- link custom css page -->
+  <link rel="stylesheet" href="./assets/font/helloSerattine/stylesheet.css" />
+  <link rel="stylesheet" href="./assets/font/averta/stylesheet.css" />
+  <link rel="stylesheet" href="./assets/main/css/style.min.css" />
+  <!-- end link custom css page -->
+</head>
+
+<body class="page-offer">
+  <!-- svg container -->
+  <div class="svg-container d-none">
+    <svg width="1402" height="5989" viewBox="0 0 1402 5989" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <mask id="revealMask">
+          <rect id="maskRect" x="0" y="0" width="100%" height="0" fill="white" />
+        </mask>
+      </defs>
+
+      <path
+        d="M635.5 5988C275.5 5525.5 436.5 5458.5 1101.5 5231C1297.36 5163.99 1389 4792 809 4607.5C338.413 4457.8 889.501 4141.02 1246.79 3703.5C1546.16 3336.9 1711.5 2881.08 1007 2997C28.4999 3158 -129.5 2140.18 119 1999C335.5 1876 819.5 1921.5 1004.5 1642.5C1134.62 1446.26 1454 801.581 1050.5 710.999C767.501 647.469 1 939.765 1 750.5C1 650 29.8 353 501 179C529.5 168 689.5 138 680.5 1"
+        stroke-width="1.2" stroke-linecap="round" stroke-dasharray="8 8" id="svgPath" />
+    </svg>
+  </div>
+  <!-- svg container -->
+  <!-- magic cursor -->
+  <div class="magic-cursor">
+    <div class="cursor">
+      <div class="text"></div>
     </div>
-    <!-- svg container -->
-    <!-- magic cursor -->
-    <div class="magic-cursor">
-      <div class="cursor">
-        <div class="text"></div>
+  </div>
+  <!-- cta -->
+  <div class="cta-group">
+    <div class="cta-group__container">
+      <div class="cta-item mess">
+        <img src="./assets/images/ic-mess.svg" alt="" />
+      </div>
+      <div class="cta-item phone">
+        <img src="./assets/images/ic-phone.svg" alt="" />
       </div>
     </div>
-    <!-- cta -->
-    <div class="cta-group">
-      <div class="cta-group__container">
-        <div class="cta-item mess">
-          <img src="./assets/images/ic-mess.svg" alt="" />
-        </div>
-        <div class="cta-item phone">
-          <img src="./assets/images/ic-phone.svg" alt="" />
-        </div>
-      </div>
-    </div>
-    <!-- end cta -->
-    <!-- layout -->
-    <!-- layout -->
-    <header class="header">
-      <div class="container-fluid p-0">
-        <div class="header-wrapper">
-          <div class="header-menu left">
-            <button type="button" class="btn-hamburger b2-font">
-              <div class="group-ic">
-                <div class="ic ic-default">
-                  <span></span>
-                  <span></span>
-                </div>
+  </div>
+  <!-- end cta -->
+  <!-- layout -->
+  <!-- layout -->
+  <header class="header">
+    <div class="container-fluid p-0">
+      <div class="header-wrapper">
+        <div class="header-menu left">
+          <button type="button" class="btn-hamburger b2-font">
+            <div class="group-ic">
+              <div class="ic ic-default">
+                <span></span>
+                <span></span>
               </div>
-            </button>
-            <ul class="menu d-none d-lg-flex">
-              <li class="menu-item-has-children d-flex align-items-center">
-                <a href="./accomodation.html" class="animation-text-v2"
-                  >Phòng nghỉ</a
-                >
+            </div>
+          </button>
+          <ul class="menu d-none d-lg-flex">
+            <li class="menu-item-has-children d-flex align-items-center">
+              <a href="./accomodation.html" class="animation-text-v2">Phòng nghỉ</a>
 
+              <img src="./assets/images/ic-arrow-down.svg" alt="" />
+
+              <ul class="sub-menu">
+                <li>
+                  <a href="#" class="b1-font color-primary animation-text-v3">Premier Ocean Villa</a>
+                </li>
+                <li>
+                  <a href="#" class="b1-font color-primary animation-text-v3">Premier Pool Villa</a>
+                </li>
+                <li>
+                  <a href="#" class="b1-font color-primary animation-text-v3">Premier Grand Pool Villa</a>
+                </li>
+                <li>
+                  <a href="#" class="b1-font color-primary animation-text-v3">Premier Grand Suite Villa</a>
+                </li>
+                <li>
+                  <a href="#" class="b1-font color-primary animation-text-v3">Premier Presidential Suite Villa</a>
+                </li>
+                <li>
+                  <a href="#" class="b1-font color-primary animation-text-v3">Premier Deluxe - Double</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="./restaurant.html" class="animation-text-v2">Ẩm thực</a>
+            </li>
+            <li>
+              <a href="./facilities.html" class="animation-text-v2">Tiện ích</a>
+            </li>
+            <li>
+              <a href="./offer.html" class="animation-text-v2">Ưu đãi</a>
+            </li>
+          </ul>
+        </div>
+        <div class="header-logo">
+          <a href="./index.html">
+            <img src="./assets/images/logo-header.svg" alt="" />
+          </a>
+        </div>
+        <div class="header-menu right">
+          <ul class="menu d-none d-lg-flex">
+            <li>
+              <a href="#" class="animation-text-v2">360 Virtual</a>
+            </li>
+            <li>
+              <a href="#" class="animation-text-v2"> Đặt phòng </a>
+            </li>
+          </ul>
+          <div class="lang d-none d-lg-flex">
+            <div class="dropdown-custom">
+              <div class="dropdown-custom__btn">
+                <div class="value-select dropdown-custom__text b2-font color-white">
+                  VI
+                </div>
                 <img src="./assets/images/ic-arrow-down.svg" alt="" />
+              </div>
+              <div class="dropdown-custom__menu">
+                <div class="dropdown-custom__item language__item b2-font color-primary animation-text-v3">
+                  EN
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn-music pause">
+            <svg width="13" height="17" viewBox="0 0 13 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="4.70044" cy="14" r="3" fill="white" />
+              <path
+                d="M7 13L5.59353 0.810581C5.58 0.693369 5.76781 0.643843 5.81777 0.750735C6.46733 2.14056 7.66394 4 9 4C11 4 12 7.5 12 8"
+                stroke="white" stroke-linecap="round" />
+              <path d="M1 4L12 15" stroke="white" stroke-linecap="round" class="line-muted" />
+            </svg>
 
-                <ul class="sub-menu">
-                  <li>
-                    <a href="#" class="b1-font color-primary animation-text-v3"
-                      >Premier Ocean Villa</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="b1-font color-primary animation-text-v3"
-                      >Premier Pool Villa</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="b1-font color-primary animation-text-v3"
-                      >Premier Grand Pool Villa</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="b1-font color-primary animation-text-v3"
-                      >Premier Grand Suite Villa</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="b1-font color-primary animation-text-v3"
-                      >Premier Presidential Suite Villa</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="b1-font color-primary animation-text-v3"
-                      >Premier Deluxe - Double</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="./restaurant.html" class="animation-text-v2"
-                  >Ẩm thực</a
-                >
-              </li>
-              <li>
-                <a href="./facilities.html" class="animation-text-v2"
-                  >Tiện ích</a
-                >
-              </li>
-              <li>
-                <a href="./offer.html" class="animation-text-v2">Ưu đãi</a>
-              </li>
-            </ul>
-          </div>
-          <div class="header-logo">
-            <a href="./index.html">
-              <img src="./assets/images/logo-header.svg" alt="" />
-            </a>
-          </div>
-          <div class="header-menu right">
-            <ul class="menu d-none d-lg-flex">
-              <li>
-                <a href="#" class="animation-text-v2">360 Virtual</a>
-              </li>
-              <li>
-                <a href="#" class="animation-text-v2"> Đặt phòng </a>
-              </li>
-            </ul>
-            <div class="lang d-none d-lg-flex">
-              <div class="dropdown-custom">
-                <div class="dropdown-custom__btn">
-                  <div
-                    class="value-select dropdown-custom__text b2-font color-white"
-                  >
-                    VI
-                  </div>
-                  <img src="./assets/images/ic-arrow-down.svg" alt="" />
-                </div>
-                <div class="dropdown-custom__menu">
-                  <div
-                    class="dropdown-custom__item language__item b2-font color-primary animation-text-v3"
-                  >
-                    EN
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button type="button" class="btn-music pause">
-              <svg
-                width="13"
-                height="17"
-                viewBox="0 0 13 17"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="4.70044" cy="14" r="3" fill="white" />
-                <path
-                  d="M7 13L5.59353 0.810581C5.58 0.693369 5.76781 0.643843 5.81777 0.750735C6.46733 2.14056 7.66394 4 9 4C11 4 12 7.5 12 8"
-                  stroke="white"
-                  stroke-linecap="round"
-                />
-                <path
-                  d="M1 4L12 15"
-                  stroke="white"
-                  stroke-linecap="round"
-                  class="line-muted"
-                />
-              </svg>
-
-              <audio
-                autoplay
-                loop
-                muted
-                id="player"
-                src="./assets/audio/beach-sound.mp3"
-                type="audio/mpeg"
-              ></audio>
-            </button>
-          </div>
-        </div>
-        <div class="header-sub-menu desktop d-none d-lg-block">
-          <div class="header-sub-menu__container">
-            <div class="sub-menu-container">
-              <div class="sub-menu">
-                <ul>
-                  <li>
-                    <a
-                      href="./wellness-spa.html"
-                      class="h1-font font-heading color-white animation-text-v3"
-                      >Costamigo Wellness Spa</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="./event.html"
-                      class="h1-font font-heading color-white animation-text-v3"
-                      >Hội nghị & tiệc cưới</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="./destination.html"
-                      class="h1-font font-heading color-white animation-text-v3"
-                      >Điểm đến</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="./gallery.html"
-                      class="h1-font font-heading color-white animation-text-v3"
-                      >Thư viện</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="./news.html"
-                      class="h1-font font-heading color-white animation-text-v3"
-                      >Tin tức & Giải thưởng</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="./contact.html"
-                      class="h1-font font-heading color-white animation-text-v3"
-                      >Liên hệ</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="sub-menu-overlay d-none d-lg-flex"></div>
-          </div>
-        </div>
-        <div class="header-sub-menu mobile d-block d-lg-none">
-          <div class="header-sub-menu__container">
-            <div class="sub-menu-container">
-              <div class="sub-menu">
-                <ul>
-                  <li>
-                    <a
-                      href="./accomodation.html"
-                      class="h1-font-md font-heading color-white animation-text-v3"
-                      >Phòng nghỉ</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="./restaurant.html"
-                      class="h1-font-md font-heading color-white animation-text-v3"
-                      >Ẩm thực</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="./facilities.html"
-                      class="h1-font-md font-heading color-white animation-text-v3"
-                      >Tiện ích</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="./offer.html"
-                      class="h1-font-md font-heading color-white animation-text-v3"
-                      >Ưu đãi</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="./wellness-spa.html"
-                      class="h1-font-md font-heading color-white animation-text-v3"
-                      >Costamigo Wellness Spa</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="./event.html"
-                      class="h1-font font-heading color-white animation-text-v3"
-                      >Hội nghị & tiệc cưới</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="./destination.html"
-                      class="h1-font-md font-heading color-white animation-text-v3"
-                      >Điểm đến</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="./gallery.html"
-                      class="h1-font-md font-heading color-white animation-text-v3"
-                      >Thư viện</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="./news.html"
-                      class="h1-font-md font-heading color-white animation-text-v3"
-                      >Tin tức & Giải thưởng</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="./contact.html"
-                      class="h1-font-md font-heading color-white animation-text-v3"
-                      >Liên hệ</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="header-sub-menu__bottom">
-              <div class="bottom-wrapper">
-                <div class="lang">
-                  <div class="dropdown-custom">
-                    <div class="dropdown-custom__btn">
-                      <div
-                        class="value-select dropdown-custom__text b2-font color-white"
-                      >
-                        VI
-                      </div>
-                      <img src="./assets/images/ic-arrow-down.svg" alt="" />
-                    </div>
-                    <div class="dropdown-custom__menu">
-                      <div
-                        class="dropdown-custom__item language__item b2-font color-primary animation-text-v3"
-                      >
-                        EN
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="virtual-link">
-                  <a href="" class="b2-font color-white d-inline-block">
-                    360 Virtual
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+            <audio autoplay loop muted id="player" src="./assets/audio/beach-sound.mp3" type="audio/mpeg"></audio>
+          </button>
         </div>
       </div>
-    </header>
-    <!-- toolbar mobile -->
-    <div class="toolbar-mobile d-block d-lg-none">
-      <div class="toolbar-wrapper">
-        <a href="#" class="b2-font color-white">Đặt phòng</a>
+      <div class="header-sub-menu desktop d-none d-lg-block">
+        <div class="header-sub-menu__container">
+          <div class="sub-menu-container">
+            <div class="sub-menu">
+              <ul>
+                <li>
+                  <a href="./wellness-spa.html" class="h1-font font-heading color-white animation-text-v3">Costamigo
+                    Wellness Spa</a>
+                </li>
+                <li>
+                  <a href="./event.html" class="h1-font font-heading color-white animation-text-v3">Hội nghị & tiệc
+                    cưới</a>
+                </li>
+                <li>
+                  <a href="./destination.html" class="h1-font font-heading color-white animation-text-v3">Điểm đến</a>
+                </li>
+                <li>
+                  <a href="./gallery.html" class="h1-font font-heading color-white animation-text-v3">Thư viện</a>
+                </li>
+                <li>
+                  <a href="./news.html" class="h1-font font-heading color-white animation-text-v3">Tin tức & Giải
+                    thưởng</a>
+                </li>
+                <li>
+                  <a href="./contact.html" class="h1-font font-heading color-white animation-text-v3">Liên hệ</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="sub-menu-overlay d-none d-lg-flex"></div>
+        </div>
+      </div>
+      <div class="header-sub-menu mobile d-block d-lg-none">
+        <div class="header-sub-menu__container">
+          <div class="sub-menu-container">
+            <div class="sub-menu">
+              <ul>
+                <li>
+                  <a href="./accomodation.html" class="h1-font-md font-heading color-white animation-text-v3">Phòng
+                    nghỉ</a>
+                </li>
+                <li>
+                  <a href="./restaurant.html" class="h1-font-md font-heading color-white animation-text-v3">Ẩm thực</a>
+                </li>
+                <li>
+                  <a href="./facilities.html" class="h1-font-md font-heading color-white animation-text-v3">Tiện ích</a>
+                </li>
+                <li>
+                  <a href="./offer.html" class="h1-font-md font-heading color-white animation-text-v3">Ưu đãi</a>
+                </li>
+                <li>
+                  <a href="./wellness-spa.html" class="h1-font-md font-heading color-white animation-text-v3">Costamigo
+                    Wellness Spa</a>
+                </li>
+                <li>
+                  <a href="./event.html" class="h1-font font-heading color-white animation-text-v3">Hội nghị & tiệc
+                    cưới</a>
+                </li>
+                <li>
+                  <a href="./destination.html" class="h1-font-md font-heading color-white animation-text-v3">Điểm
+                    đến</a>
+                </li>
+                <li>
+                  <a href="./gallery.html" class="h1-font-md font-heading color-white animation-text-v3">Thư viện</a>
+                </li>
+                <li>
+                  <a href="./news.html" class="h1-font-md font-heading color-white animation-text-v3">Tin tức & Giải
+                    thưởng</a>
+                </li>
+                <li>
+                  <a href="./contact.html" class="h1-font-md font-heading color-white animation-text-v3">Liên hệ</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="header-sub-menu__bottom">
+            <div class="bottom-wrapper">
+              <div class="lang">
+                <div class="dropdown-custom">
+                  <div class="dropdown-custom__btn">
+                    <div class="value-select dropdown-custom__text b2-font color-white">
+                      VI
+                    </div>
+                    <img src="./assets/images/ic-arrow-down.svg" alt="" />
+                  </div>
+                  <div class="dropdown-custom__menu">
+                    <div class="dropdown-custom__item language__item b2-font color-primary animation-text-v3">
+                      EN
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="virtual-link">
+                <a href="" class="b2-font color-white d-inline-block">
+                  360 Virtual
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- end toolbar mobile -->
-    <main>
-      <section class="section-banner">
-        <div class="container-fluid p-0">
-          <div class="section-banner__container animation-image-banner show">
-            <div class="section-banner__wrapper">
-              <!-- <video autoplay loop muted>
-                <source src="./assets/images/costa.mp4" type="video/mp4" />
-              </video> -->
-              <!-- <picture>
-                <img src="./assets/images/banner-room.png" alt="" />
-              </picture> -->
-              <!-- option slider -->
-              <div class="swiper banner-slider">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide overflow-hidden">
-                    <div class="banner-slider-img">
-                      <img src="./assets/images/img-room-2.png" alt="" />
-                    </div>
-                  </div>
-                  <div class="swiper-slide overflow-hidden">
-                    <div class="banner-slider-img">
-                      <img src="./assets/images/img-room-1.png" alt="" />
-                    </div>
-                  </div>
-                  <div class="swiper-slide overflow-hidden">
-                    <div class="banner-slider-img">
-                      <img src="./assets/images/img-room-2.png" alt="" />
-                    </div>
+  </header>
+  <!-- toolbar mobile -->
+  <div class="toolbar-mobile d-block d-lg-none">
+    <div class="toolbar-wrapper">
+      <a href="#" class="b2-font color-white">Đặt phòng</a>
+    </div>
+  </div>
+  <!-- end toolbar mobile -->
+  <main>
+    <section class="section-banner">
+      <div class="container-fluid p-0">
+        <div class="section-banner__container animation-image-banner show">
+          <div class="section-banner__wrapper">
+
+            <div class="swiper banner-slider">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide overflow-hidden">
+                  <div class="banner-slider-img">
+                    <img src="./assets/images/img-room-2.png" alt="" />
                   </div>
                 </div>
-                <div class="swiper-pagination-wrapper">
-                  <div
-                    class="swiper-button-prev swiper-btn-custom swiper-button"
-                  >
-                    <svg
-                      width="7"
-                      height="12"
-                      viewBox="0 0 7 12"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M1 11L6.41861 6.07399C6.46225 6.03432 6.46225 5.96568 6.41861 5.92601L1 1"
-                        stroke="#0e6261"
-                        stroke-linecap="round"
-                      />
-                    </svg>
+                <div class="swiper-slide overflow-hidden">
+                  <div class="banner-slider-img">
+                    <img src="./assets/images/img-room-1.png" alt="" />
                   </div>
-                  <div
-                    class="swiper-button-next swiper-btn-custom swiper-button"
-                  >
-                    <svg
-                      width="7"
-                      height="12"
-                      viewBox="0 0 7 12"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M1 11L6.41861 6.07399C6.46225 6.03432 6.46225 5.96568 6.41861 5.92601L1 1"
-                        stroke="#0e6261"
-                        stroke-linecap="round"
-                      />
-                    </svg>
+                </div>
+                <div class="swiper-slide overflow-hidden">
+                  <div class="banner-slider-img">
+                    <img src="./assets/images/img-room-2.png" alt="" />
                   </div>
                 </div>
               </div>
-              <!-- end option slider -->
+              <div class="swiper-pagination-wrapper">
+                <div class="swiper-button-prev swiper-btn-custom swiper-button">
+                  <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 11L6.41861 6.07399C6.46225 6.03432 6.46225 5.96568 6.41861 5.92601L1 1" stroke="#0e6261"
+                      stroke-linecap="round" />
+                  </svg>
+                </div>
+                <div class="swiper-button-next swiper-btn-custom swiper-button">
+                  <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 11L6.41861 6.07399C6.46225 6.03432 6.46225 5.96568 6.41861 5.92601L1 1" stroke="#0e6261"
+                      stroke-linecap="round" />
+                  </svg>
+                </div>
+              </div>
             </div>
+            <!-- end option slider -->
           </div>
         </div>
-      </section>
-      <div class="spacing-180"></div>
-      <section class="section-story">
-        <div class="container-fluid p-0">
-          <div class="row g-0">
-            <div class="col-lg-6 offset-lg-3">
-              <div class="section-story__content">
-                <h2
-                  class="section-story__title font-heading color-secondary h0-font"
-                  data-splitting
-                  data-effect-two
-                >
-                  Đặc quyền dành riêng cho bạn
-                </h2>
-                <div
-                  class="section-story__description h5-font color-primary"
-                  data-fade-desc
-                >
-                  Trải nghiệm những ưu đãi độc quyền cùng các gói nghỉ dưỡng
-                  được thiết kế riêng biệt, giúp bạn tận hưởng kỳ nghỉ trọn vẹn
-                  với dịch vụ cao cấp, không gian riêng tư và tiện ích đẳng cấp.
-                </div>
+      </div>
+    </section>
+    <div class="spacing-180"></div>
+    <section class="section-story">
+      <div class="container-fluid p-0">
+        <div class="row g-0">
+          <div class="col-lg-6 offset-lg-3">
+            <div class="section-story__content">
+              <h2 class="section-story__title font-heading color-secondary h0-font" data-splitting data-effect-two>
+                Đặc quyền dành riêng cho bạn
+              </h2>
+              <div class="section-story__description h5-font color-primary" data-fade-desc>
+                Trải nghiệm những ưu đãi độc quyền cùng các gói nghỉ dưỡng
+                được thiết kế riêng biệt, giúp bạn tận hưởng kỳ nghỉ trọn vẹn
+                với dịch vụ cao cấp, không gian riêng tư và tiện ích đẳng cấp.
               </div>
             </div>
           </div>
         </div>
-      </section>
-      <div class="spacing-120"></div>
-      <section class="accomodation-list overflow-hidden">
-        <div class="container-fluid p-0">
-          <div class="row g-0">
-            <div class="col-lg-10 offset-lg-1">
-              <div class="accomodation-wrapper">
-                <ul class="nav nav-tabs justify-content-center" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link active"
-                      id="slider-tab-1"
-                      data-bs-toggle="tab"
-                      data-bs-target="#slider-content-1"
-                      type="button"
-                      role="tab"
-                      aria-controls="slider-content-1"
-                      aria-selected="true"
-                    >
-                      <div
-                        class="fx-title b2-font color-primary animation-text-v3"
-                      >
-                        Tất cả
-                      </div>
-                    </button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link"
-                      id="slider-tab-2"
-                      data-bs-toggle="tab"
-                      data-bs-target="#slider-content-2"
-                      type="button"
-                      role="tab"
-                      aria-controls="slider-content-2"
-                      aria-selected="false"
-                    >
-                      <div
-                        class="fx-title b2-font color-primary animation-text-v3"
-                      >
-                        Khu Villas
-                      </div>
-                    </button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link"
-                      id="slider-tab-3"
-                      data-bs-toggle="tab"
-                      data-bs-target="#slider-content-3"
-                      type="button"
-                      role="tab"
-                      aria-controls="slider-content-3"
-                      aria-selected="false"
-                    >
-                      <div
-                        class="fx-title b2-font color-primary animation-text-v3"
-                      >
-                        Khu Costa
-                      </div>
-                    </button>
-                  </li>
-                </ul>
-                <div class="tab-content">
-                  <div
-                    class="tab-pane fade show active"
-                    id="slider-content-1"
-                    role="tabpanel"
-                    aria-labelledby="slider-tab-1"
-                  >
-                    <div class="accomodation-list__wrapper">
-                      <div class="accomodation-card">
-                        <a
-                          href="#"
-                          class="card-top animation-image-clip"
-                          data-cursor-text="Chi tiết"
-                        >
-                          <img src="./assets/images/banner-room-1.png" alt="" />
+      </div>
+    </section>
+    <div class="spacing-120"></div>
+    <section class="accomodation-list overflow-hidden">
+      <div class="container-fluid p-0">
+        <div class="row g-0">
+          <div class="col-lg-10 offset-lg-1">
+            <div class="accomodation-wrapper">
+              <ul class="nav nav-tabs justify-content-center" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="slider-tab-1" data-bs-toggle="tab"
+                    data-bs-target="#slider-content-1" type="button" role="tab" aria-controls="slider-content-1"
+                    aria-selected="true">
+                    <div class="fx-title b2-font color-primary animation-text-v3">
+                      Tất cả
+                    </div>
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="slider-tab-2" data-bs-toggle="tab" data-bs-target="#slider-content-2"
+                    type="button" role="tab" aria-controls="slider-content-2" aria-selected="false">
+                    <div class="fx-title b2-font color-primary animation-text-v3">
+                      Khu Villas
+                    </div>
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="slider-tab-3" data-bs-toggle="tab" data-bs-target="#slider-content-3"
+                    type="button" role="tab" aria-controls="slider-content-3" aria-selected="false">
+                    <div class="fx-title b2-font color-primary animation-text-v3">
+                      Khu Costa
+                    </div>
+                  </button>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="slider-content-1" role="tabpanel"
+                  aria-labelledby="slider-tab-1">
+                  <div class="accomodation-list__wrapper">
+                    <div class="accomodation-card">
+                      <a href="#" class="card-top animation-image-clip" data-cursor-text="Chi tiết">
+                        <img src="./assets/images/banner-room-1.png" alt="" />
+                      </a>
+                      <div class="card-bottom">
+                        <a href="#" class="card-title h2-font color-primary" data-cursor-text="Chi tiết">
+                          Ưu đãi nhóm
                         </a>
-                        <div class="card-bottom">
-                          <a
-                            href="#"
-                            class="card-title h2-font color-primary"
-                            data-cursor-text="Chi tiết"
-                          >
-                            Ưu đãi nhóm
-                          </a>
 
-                          <div
-                            class="card-desc text-center b1-font color-primary"
-                          >
-                            Càng đông, càng vui, càng tiết kiệm! Dành riêng cho
-                            các nhóm bạn bè, gia đình hoặc đồng nghiệp, gói ưu
-                            đãi mang đến nhiều quyền lợi như giá phòng ưu đãi
-                          </div>
-                          <div class="card-cta">
-                            <a href="#" class="btn-general">Đặt gói</a>
-                          </div>
+                        <div class="card-desc text-center b1-font color-primary">
+                          Càng đông, càng vui, càng tiết kiệm! Dành riêng cho
+                          các nhóm bạn bè, gia đình hoặc đồng nghiệp, gói ưu
+                          đãi mang đến nhiều quyền lợi như giá phòng ưu đãi
+                        </div>
+                        <div class="card-cta">
+                          <a href="#" class="btn-general">Đặt gói</a>
                         </div>
                       </div>
-                      <div class="accomodation-card">
-                        <a
-                          href="#"
-                          class="card-top animation-image-clip"
-                          data-cursor-text="Chi tiết"
-                        >
-                          <img src="./assets/images/banner-room-1.png" alt="" />
+                    </div>
+                    <div class="accomodation-card">
+                      <a href="#" class="card-top animation-image-clip" data-cursor-text="Chi tiết">
+                        <img src="./assets/images/banner-room-1.png" alt="" />
+                      </a>
+                      <div class="card-bottom">
+                        <a href="#" class="card-title h2-font color-primary" data-cursor-text="Chi tiết">
+                          Ưu đãi nhóm
                         </a>
-                        <div class="card-bottom">
-                          <a
-                            href="#"
-                            class="card-title h2-font color-primary"
-                            data-cursor-text="Chi tiết"
-                          >
-                            Ưu đãi nhóm
-                          </a>
 
-                          <div
-                            class="card-desc text-center b1-font color-primary"
-                          >
-                            Càng đông, càng vui, càng tiết kiệm! Dành riêng cho
-                            các nhóm bạn bè, gia đình hoặc đồng nghiệp, gói ưu
-                            đãi mang đến nhiều quyền lợi như giá phòng ưu đãi
-                          </div>
-                          <div class="card-cta">
-                            <a href="#" class="btn-general">Đặt gói</a>
-                          </div>
+                        <div class="card-desc text-center b1-font color-primary">
+                          Càng đông, càng vui, càng tiết kiệm! Dành riêng cho
+                          các nhóm bạn bè, gia đình hoặc đồng nghiệp, gói ưu
+                          đãi mang đến nhiều quyền lợi như giá phòng ưu đãi
+                        </div>
+                        <div class="card-cta">
+                          <a href="#" class="btn-general">Đặt gói</a>
                         </div>
                       </div>
-                      <div class="accomodation-card">
-                        <a
-                          href="#"
-                          class="card-top animation-image-clip"
-                          data-cursor-text="Chi tiết"
-                        >
-                          <img src="./assets/images/banner-room-1.png" alt="" />
+                    </div>
+                    <div class="accomodation-card">
+                      <a href="#" class="card-top animation-image-clip" data-cursor-text="Chi tiết">
+                        <img src="./assets/images/banner-room-1.png" alt="" />
+                      </a>
+                      <div class="card-bottom">
+                        <a href="#" class="card-title h2-font color-primary" data-cursor-text="Chi tiết">
+                          Ưu đãi nhóm
                         </a>
-                        <div class="card-bottom">
-                          <a
-                            href="#"
-                            class="card-title h2-font color-primary"
-                            data-cursor-text="Chi tiết"
-                          >
-                            Ưu đãi nhóm
-                          </a>
 
-                          <div
-                            class="card-desc text-center b1-font color-primary"
-                          >
-                            Càng đông, càng vui, càng tiết kiệm! Dành riêng cho
-                            các nhóm bạn bè, gia đình hoặc đồng nghiệp, gói ưu
-                            đãi mang đến nhiều quyền lợi như giá phòng ưu đãi
-                          </div>
-                          <div class="card-cta">
-                            <a href="#" class="btn-general">Đặt gói</a>
-                          </div>
+                        <div class="card-desc text-center b1-font color-primary">
+                          Càng đông, càng vui, càng tiết kiệm! Dành riêng cho
+                          các nhóm bạn bè, gia đình hoặc đồng nghiệp, gói ưu
+                          đãi mang đến nhiều quyền lợi như giá phòng ưu đãi
+                        </div>
+                        <div class="card-cta">
+                          <a href="#" class="btn-general">Đặt gói</a>
                         </div>
                       </div>
-                      <div class="accomodation-card">
-                        <a
-                          href="#"
-                          class="card-top animation-image-clip"
-                          data-cursor-text="Chi tiết"
-                        >
-                          <img src="./assets/images/banner-room-1.png" alt="" />
+                    </div>
+                    <div class="accomodation-card">
+                      <a href="#" class="card-top animation-image-clip" data-cursor-text="Chi tiết">
+                        <img src="./assets/images/banner-room-1.png" alt="" />
+                      </a>
+                      <div class="card-bottom">
+                        <a href="#" class="card-title h2-font color-primary" data-cursor-text="Chi tiết">
+                          Ưu đãi nhóm
                         </a>
-                        <div class="card-bottom">
-                          <a
-                            href="#"
-                            class="card-title h2-font color-primary"
-                            data-cursor-text="Chi tiết"
-                          >
-                            Ưu đãi nhóm
-                          </a>
 
-                          <div
-                            class="card-desc text-center b1-font color-primary"
-                          >
-                            Càng đông, càng vui, càng tiết kiệm! Dành riêng cho
-                            các nhóm bạn bè, gia đình hoặc đồng nghiệp, gói ưu
-                            đãi mang đến nhiều quyền lợi như giá phòng ưu đãi
-                          </div>
-                          <div class="card-cta">
-                            <a href="#" class="btn-general">Đặt gói</a>
-                          </div>
+                        <div class="card-desc text-center b1-font color-primary">
+                          Càng đông, càng vui, càng tiết kiệm! Dành riêng cho
+                          các nhóm bạn bè, gia đình hoặc đồng nghiệp, gói ưu
+                          đãi mang đến nhiều quyền lợi như giá phòng ưu đãi
+                        </div>
+                        <div class="card-cta">
+                          <a href="#" class="btn-general">Đặt gói</a>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div
-                    class="tab-pane fade"
-                    id="slider-content-2"
-                    role="tabpanel"
-                    aria-labelledby="slider-tab-2"
-                  >
-                    <div class="accomodation-list__wrapper">
-                      <div class="accomodation-card">
-                        <a
-                          href="#"
-                          class="card-top animation-image-clip"
-                          data-cursor-text="Chi tiết"
-                        >
-                          <img src="./assets/images/banner-room-1.png" alt="" />
-                        </a>
-                        <div class="card-bottom">
-                          <a
-                            href="#"
-                            class="card-title h2-font color-primary"
-                            data-cursor-text="Chi tiết"
-                          >
-                            Ưu đãi nhóm
-                          </a>
-
-                          <div
-                            class="card-desc text-center b1-font color-primary"
-                          >
-                            Càng đông, càng vui, càng tiết kiệm! Dành riêng cho
-                            các nhóm bạn bè, gia đình hoặc đồng nghiệp, gói ưu
-                            đãi mang đến nhiều quyền lợi như giá phòng ưu đãi
-                          </div>
-                          <div class="card-cta">
-                            <a href="#" class="btn-general">Đặt gói</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="accomodation-card">
-                        <a
-                          href="#"
-                          class="card-top animation-image-clip"
-                          data-cursor-text="Chi tiết"
-                        >
-                          <img src="./assets/images/banner-room-1.png" alt="" />
-                        </a>
-                        <div class="card-bottom">
-                          <a
-                            href="#"
-                            class="card-title h2-font color-primary"
-                            data-cursor-text="Chi tiết"
-                          >
-                            Ưu đãi nhóm
-                          </a>
-
-                          <div
-                            class="card-desc text-center b1-font color-primary"
-                          >
-                            Càng đông, càng vui, càng tiết kiệm! Dành riêng cho
-                            các nhóm bạn bè, gia đình hoặc đồng nghiệp, gói ưu
-                            đãi mang đến nhiều quyền lợi như giá phòng ưu đãi
-                          </div>
-                          <div class="card-cta">
-                            <a href="#" class="btn-general">Đặt gói</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="accomodation-card">
-                        <a
-                          href="#"
-                          class="card-top animation-image-clip"
-                          data-cursor-text="Chi tiết"
-                        >
-                          <img src="./assets/images/banner-room-1.png" alt="" />
-                        </a>
-                        <div class="card-bottom">
-                          <a
-                            href="#"
-                            class="card-title h2-font color-primary"
-                            data-cursor-text="Chi tiết"
-                          >
-                            Ưu đãi nhóm
-                          </a>
-
-                          <div
-                            class="card-desc text-center b1-font color-primary"
-                          >
-                            Càng đông, càng vui, càng tiết kiệm! Dành riêng cho
-                            các nhóm bạn bè, gia đình hoặc đồng nghiệp, gói ưu
-                            đãi mang đến nhiều quyền lợi như giá phòng ưu đãi
-                          </div>
-                          <div class="card-cta">
-                            <a href="#" class="btn-general">Đặt gói</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="tab-pane fade"
-                    id="slider-content-3"
-                    role="tabpanel"
-                    aria-labelledby="slider-tab-3"
-                  ></div>
                 </div>
+                <div class="tab-pane fade" id="slider-content-2" role="tabpanel" aria-labelledby="slider-tab-2">
+                  <div class="accomodation-list__wrapper">
+                    <div class="accomodation-card">
+                      <a href="#" class="card-top animation-image-clip" data-cursor-text="Chi tiết">
+                        <img src="./assets/images/banner-room-1.png" alt="" />
+                      </a>
+                      <div class="card-bottom">
+                        <a href="#" class="card-title h2-font color-primary" data-cursor-text="Chi tiết">
+                          Ưu đãi nhóm
+                        </a>
+
+                        <div class="card-desc text-center b1-font color-primary">
+                          Càng đông, càng vui, càng tiết kiệm! Dành riêng cho
+                          các nhóm bạn bè, gia đình hoặc đồng nghiệp, gói ưu
+                          đãi mang đến nhiều quyền lợi như giá phòng ưu đãi
+                        </div>
+                        <div class="card-cta">
+                          <a href="#" class="btn-general">Đặt gói</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accomodation-card">
+                      <a href="#" class="card-top animation-image-clip" data-cursor-text="Chi tiết">
+                        <img src="./assets/images/banner-room-1.png" alt="" />
+                      </a>
+                      <div class="card-bottom">
+                        <a href="#" class="card-title h2-font color-primary" data-cursor-text="Chi tiết">
+                          Ưu đãi nhóm
+                        </a>
+
+                        <div class="card-desc text-center b1-font color-primary">
+                          Càng đông, càng vui, càng tiết kiệm! Dành riêng cho
+                          các nhóm bạn bè, gia đình hoặc đồng nghiệp, gói ưu
+                          đãi mang đến nhiều quyền lợi như giá phòng ưu đãi
+                        </div>
+                        <div class="card-cta">
+                          <a href="#" class="btn-general">Đặt gói</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accomodation-card">
+                      <a href="#" class="card-top animation-image-clip" data-cursor-text="Chi tiết">
+                        <img src="./assets/images/banner-room-1.png" alt="" />
+                      </a>
+                      <div class="card-bottom">
+                        <a href="#" class="card-title h2-font color-primary" data-cursor-text="Chi tiết">
+                          Ưu đãi nhóm
+                        </a>
+
+                        <div class="card-desc text-center b1-font color-primary">
+                          Càng đông, càng vui, càng tiết kiệm! Dành riêng cho
+                          các nhóm bạn bè, gia đình hoặc đồng nghiệp, gói ưu
+                          đãi mang đến nhiều quyền lợi như giá phòng ưu đãi
+                        </div>
+                        <div class="card-cta">
+                          <a href="#" class="btn-general">Đặt gói</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="slider-content-3" role="tabpanel" aria-labelledby="slider-tab-3"></div>
               </div>
             </div>
           </div>
         </div>
-        <div class="accomodation-bg animation-art-reverse">
-          <img src="./assets/images/img-flower-4.png" alt="" />
-        </div>
-      </section>
-      <div class="spacing-120"></div>
-    </main>
-    <!-- <audio id="backgroundMusic" autoplay loop>
+      </div>
+      <div class="accomodation-bg animation-art-reverse">
+        <img src="./assets/images/img-flower-4.png" alt="" />
+      </div>
+    </section>
+    <div class="spacing-120"></div>
+  </main>
+  <!-- <audio id="backgroundMusic" autoplay loop>
       <source src="./assets/images/music.mp3" type="audio/mpeg" />
     </audio> -->
 
-    <footer>
-      <div class="container-fluid p-0">
-        <div class="footer-top">
-          <div class="row g-0">
-            <div class="col-lg-3">
-              <a class="footer-logo" href="#">
-                <img src="./assets/images/logo-footer.svg" alt="" />
-              </a>
-            </div>
-            <div class="col-lg-9">
-              <div class="footer-main">
-                <div class="footer-location">
+  <footer>
+    <div class="container-fluid p-0">
+      <div class="footer-top">
+        <div class="row g-0">
+          <div class="col-lg-3">
+            <a class="footer-logo" href="#">
+              <img src="./assets/images/logo-footer.svg" alt="" />
+            </a>
+          </div>
+          <div class="col-lg-9">
+            <div class="footer-main">
+              <div class="footer-location">
+                <p class="title b2-font color-primary" data-text-footer>
+                  Costamigo Best Western Phan Thiết
+                </p>
+                <p class="b2-font-md color-primary" data-text-footer>
+                  DT719B – Lạc Long Quân trục đường ven biển xã Tiến Thành,
+                  Tp. Phan Thiết, Bình Thuận
+                </p>
+                <a href="#" class="b2-font-md color-primary animation-text-v3" data-text-footer>
+                  (+84) 0252 3682 999
+                </a>
+              </div>
+              <div class="footer-menu">
+                <p class="title b2-font color-primary" data-text-footer>
+                  Thông tin
+                </p>
+                <ul class="menu">
+                  <li data-text-footer>
+                    <a href="#" class="animation-text-v3">Điểm đến</a>
+                  </li>
+                  <li data-text-footer>
+                    <a href="#" class="animation-text-v3">Thư viện</a>
+                  </li>
+                  <li data-text-footer>
+                    <a href="#" class="animation-text-v3">Tin tức & Giải thưởng</a>
+                  </li>
+                  <li data-text-footer>
+                    <a href="#" class="animation-text-v3">Liên hệ</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="footer-contact">
+                <div class="form">
                   <p class="title b2-font color-primary" data-text-footer>
-                    Costamigo Best Western Phan Thiết
+                    Đăng ký nhận bản tin
                   </p>
-                  <p class="b2-font-md color-primary" data-text-footer>
-                    DT719B – Lạc Long Quân trục đường ven biển xã Tiến Thành,
-                    Tp. Phan Thiết, Bình Thuận
-                  </p>
-                  <a
-                    href="#"
-                    class="b2-font-md color-primary animation-text-v3"
-                    data-text-footer
-                  >
-                    (+84) 0252 3682 999
-                  </a>
+                  <form action="" data-text-footer>
+                    <div class="field">
+                      <input type="email" placeholder="Email" autocomplete="off" />
+                    </div>
+                    <button type="submit">
+                      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M33.0456 17.0396L20.6079 28.3465V34L24 30.6079M14.9545 24.3891L33.0456 17L29.8796 33.4347L14.9545 24.3891Z"
+                          stroke="#0e6261" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </form>
                 </div>
-                <div class="footer-menu">
+                <div class="social">
                   <p class="title b2-font color-primary" data-text-footer>
-                    Thông tin
+                    Theo dõi
                   </p>
-                  <ul class="menu">
+                  <ul class="d-flex align-items-center">
                     <li data-text-footer>
-                      <a href="#" class="animation-text-v3">Điểm đến</a>
+                      <a href="#" class="b2-font-md color-primary animation-text-v3">Facebook</a>
                     </li>
                     <li data-text-footer>
-                      <a href="#" class="animation-text-v3">Thư viện</a>
+                      <a href="#" class="b2-font-md color-primary animation-text-v3">Tiktok</a>
                     </li>
                     <li data-text-footer>
-                      <a href="#" class="animation-text-v3"
-                        >Tin tức & Giải thưởng</a
-                      >
+                      <a href="#" class="b2-font-md color-primary animation-text-v3">Instagram</a>
                     </li>
                     <li data-text-footer>
-                      <a href="#" class="animation-text-v3">Liên hệ</a>
+                      <a href="#" class="b2-font-md color-primary animation-text-v3">Zalo</a>
                     </li>
                   </ul>
                 </div>
-                <div class="footer-contact">
-                  <div class="form">
-                    <p class="title b2-font color-primary" data-text-footer>
-                      Đăng ký nhận bản tin
-                    </p>
-                    <form action="" data-text-footer>
-                      <div class="field">
-                        <input
-                          type="email"
-                          placeholder="Email"
-                          autocomplete="off"
-                        />
-                      </div>
-                      <button type="submit">
-                        <svg
-                          width="50"
-                          height="50"
-                          viewBox="0 0 50 50"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M33.0456 17.0396L20.6079 28.3465V34L24 30.6079M14.9545 24.3891L33.0456 17L29.8796 33.4347L14.9545 24.3891Z"
-                            stroke="#0e6261"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
-                      </button>
-                    </form>
-                  </div>
-                  <div class="social">
-                    <p class="title b2-font color-primary" data-text-footer>
-                      Theo dõi
-                    </p>
-                    <ul class="d-flex align-items-center">
-                      <li data-text-footer>
-                        <a
-                          href="#"
-                          class="b2-font-md color-primary animation-text-v3"
-                          >Facebook</a
-                        >
-                      </li>
-                      <li data-text-footer>
-                        <a
-                          href="#"
-                          class="b2-font-md color-primary animation-text-v3"
-                          >Tiktok</a
-                        >
-                      </li>
-                      <li data-text-footer>
-                        <a
-                          href="#"
-                          class="b2-font-md color-primary animation-text-v3"
-                          >Instagram</a
-                        >
-                      </li>
-                      <li data-text-footer>
-                        <a
-                          href="#"
-                          class="b2-font-md color-primary animation-text-v3"
-                          >Zalo</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
               </div>
-              <div class="footer-headquarter">
-                <div class="info b2-font-md color-primary" data-text-footer>
-                  <p>
-                    Tên trụ sở chính: CÔNG TY TNHH BIỂN QUÊ HƯƠNG - PHAN THIẾT.
-                    Địa chỉ trụ sở chính: 123 Nguyễn Tương, P. Phú Thủy, Tp.
-                    Phan Thiết, Tỉnh Bình Thuận, Việt Nam. Số GPKD: 3401139808
-                    do Sở KHĐT Tỉnh Bình Thuận cấp ngày 15/12/2016.
-                  </p>
-                </div>
-                <div class="logo-bct">
-                  <img src="./assets/images/footer-bct.png" alt="" />
-                </div>
+            </div>
+            <div class="footer-headquarter">
+              <div class="info b2-font-md color-primary" data-text-footer>
+                <p>
+                  Tên trụ sở chính: CÔNG TY TNHH BIỂN QUÊ HƯƠNG - PHAN THIẾT.
+                  Địa chỉ trụ sở chính: 123 Nguyễn Tương, P. Phú Thủy, Tp.
+                  Phan Thiết, Tỉnh Bình Thuận, Việt Nam. Số GPKD: 3401139808
+                  do Sở KHĐT Tỉnh Bình Thuận cấp ngày 15/12/2016.
+                </p>
+              </div>
+              <div class="logo-bct">
+                <img src="./assets/images/footer-bct.png" alt="" />
               </div>
             </div>
           </div>
         </div>
-        <div class="footer-bottom">
-          <div
-            class="footer-copyright b2-font-md color-primary"
-            data-text-footer
-          >
-            ©2025 Costamigo Best Western Phan Thiết
-          </div>
-          <ul class="menu">
-            <li data-text-footer>
-              <a href="#" class="animation-text-v3">Quy định chung</a>
-            </li>
-            <li data-text-footer>
-              <a href="#" class="animation-text-v3">Chính sách bảo mật</a>
-            </li>
-            <li data-text-footer>
-              <a href="#" class="animation-text-v3">Phương thức thanh toán</a>
-            </li>
-          </ul>
-          <div class="footer-alpha" data-text-footer>
-            <a
-              href="#"
-              target="_blank"
-              class="b2-font-md color-primary animation-text-v3"
-              >Digital Experience Alpha Creative</a
-            >
-          </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copyright b2-font-md color-primary" data-text-footer>
+          ©2025 Costamigo Best Western Phan Thiết
+        </div>
+        <ul class="menu">
+          <li data-text-footer>
+            <a href="#" class="animation-text-v3">Quy định chung</a>
+          </li>
+          <li data-text-footer>
+            <a href="#" class="animation-text-v3">Chính sách bảo mật</a>
+          </li>
+          <li data-text-footer>
+            <a href="#" class="animation-text-v3">Phương thức thanh toán</a>
+          </li>
+        </ul>
+        <div class="footer-alpha" data-text-footer>
+          <a href="#" target="_blank" class="b2-font-md color-primary animation-text-v3">Digital Experience Alpha
+            Creative</a>
         </div>
       </div>
-      <div class="footer__bg">
-        <img src="./assets/images/img-flower-f.png" alt="" />
-      </div>
-    </footer>
-    <!-- end layout -->
-    <script src="./assets/libs/jquery-3.7.1.js"></script>
-    <script src="./assets/libs/lenis.min.js"></script>
-    <script src="./assets/libs/gsap.min.js"></script>
-    <script src="./assets/libs/ScrollTrigger.min.js"></script>
-    <script src="./assets/libs/splitting.min.js"></script>
-    <script src="./assets/libs/splitType.min.js"></script>
-    <script src="./assets/libs/bootstrap.bundle.min.js"></script>
-    <script src="./assets/libs/imagesloaded.pkgd.min.js"></script>
-    <script src="./assets/libs/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/MotionPathPlugin.min.js"></script>
-    <!-- import custom js -->
-    <script type="module" src="./assets/main/js/script.min.js"></script>
+    </div>
+    <div class="footer__bg">
+      <img src="./assets/images/img-flower-f.png" alt="" />
+    </div>
+  </footer>
+  <!-- end layout -->
+  <script src="./assets/libs/jquery-3.7.1.js"></script>
+  <script src="./assets/libs/lenis.min.js"></script>
+  <script src="./assets/libs/gsap.min.js"></script>
+  <script src="./assets/libs/ScrollTrigger.min.js"></script>
+  <script src="./assets/libs/splitting.min.js"></script>
+  <script src="./assets/libs/splitType.min.js"></script>
+  <script src="./assets/libs/bootstrap.bundle.min.js"></script>
+  <script src="./assets/libs/imagesloaded.pkgd.min.js"></script>
+  <script src="./assets/libs/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/MotionPathPlugin.min.js"></script>
+  <!-- import custom js -->
+  <script type="module" src="./assets/main/js/script.min.js"></script>
 
-    <!-- end import custom js -->
-  </body>
+  <!-- end import custom js -->
+</body>
+
 </html>
 <!-- https://gsap.com/community/forums/topic/30338-circular-carouselslider/ -->

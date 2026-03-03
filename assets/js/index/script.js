@@ -2331,19 +2331,17 @@ function swiperBanner() {
   let interleaveOffset = 0.9;
   const container = document.querySelector(".banner-slider");
   const bannerSwiper = new Swiper(".banner-slider", {
-    loop: false,
+    loop: true,
     speed: 1500,
     watchSlidesProgress: true,
     mousewheel: false,
     keyboard: false,
     allowTouchMove: true,
-    autoplay: true,
 
-    breakpoints: {
-      991: {
-        allowTouchMove: false,
-        autoplay: false,
-      },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false, // Tiếp tục sau khi user vuốt
+      pauseOnMouseEnter: true, // Dừng khi hover (desktop)
     },
     // Loại bỏ navigation vì không dùng nút mặc định
     on: {
