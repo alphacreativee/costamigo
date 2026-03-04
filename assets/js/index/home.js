@@ -1,4 +1,4 @@
-import { preloadImages } from "../../libs/utils.js";
+// import { preloadImages } from "../../libs/utils.js";
 
 ("use strict");
 $ = jQuery;
@@ -323,8 +323,25 @@ function imgWithText() {
 }
 function swiperBanner() {
   if ($(".banner-slider").length < 1) return;
+
   let interleaveOffset = 0.9;
   const container = document.querySelector(".banner-slider");
+
+  function applyParallax(swiper) {
+    swiper.slides.forEach((slide) => {
+      const slideProgress = slide.progress || 0;
+      const innerOffset = swiper.width * interleaveOffset;
+      const innerTranslate = slideProgress * innerOffset;
+
+      if (!isNaN(innerTranslate)) {
+        const slideInner = slide.querySelector(".banner-slider-img");
+        if (slideInner) {
+          slideInner.style.transform = `translate3d(${innerTranslate}px, 0, 0)`;
+        }
+      }
+    });
+  }
+
   const bannerSwiper = new Swiper(".banner-slider", {
     loop: true,
     speed: 1500,
@@ -334,31 +351,26 @@ function swiperBanner() {
     allowTouchMove: true,
 
     autoplay: {
-      delay: 2000,
-      disableOnInteraction: false, // Tiếp tục sau khi user vuốt
-      pauseOnMouseEnter: true, // Dừng khi hover (desktop)
+      delay: 4000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
     },
-    // Loại bỏ navigation vì không dùng nút mặc định
-    on: {
-      progress(swiper) {
-        swiper.slides.forEach((slide) => {
-          const slideProgress = slide.progress || 0;
-          const innerOffset = swiper.width * interleaveOffset;
-          const innerTranslate = slideProgress * innerOffset;
 
-          if (!isNaN(innerTranslate)) {
-            const slideInner = slide.querySelector(".banner-slider-img");
-            if (slideInner) {
-              slideInner.style.transform = `translate3d(${innerTranslate}px, 0, 0)`;
-            }
-          }
-        });
+    on: {
+      init(swiper) {
+        applyParallax(swiper);
       },
+
+      setTranslate(swiper) {
+        applyParallax(swiper);
+      },
+
       touchStart(swiper) {
         swiper.slides.forEach((slide) => {
           slide.style.transition = "";
         });
       },
+
       setTransition(swiper, speed) {
         const easing = "cubic-bezier(0.25, 0.1, 0.25, 1)";
         swiper.slides.forEach((slide) => {
@@ -371,41 +383,34 @@ function swiperBanner() {
       },
     },
   });
+
+  if ($(".banner-slider .swiper-btn-custom").length < 1) return;
+
   const swiperButton = document.querySelector(
     ".banner-slider .swiper-btn-custom",
   );
-  const parentContainer = document.querySelector(".banner-slider");
   let lastMouseX = null;
-  // Xử lý sự kiện mousemove trên .image-with-text
-  parentContainer.addEventListener("mousemove", (e) => {
-    const rect = container.getBoundingClientRect();
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
+  let ticking = false;
+
+  function updateButtonPosition(mouseX, mouseY, rect) {
     const halfWidth = rect.width / 2;
     const buttonWidth = swiperButton.offsetWidth;
     const buttonHeight = swiperButton.offsetHeight;
-    const offset = 40; // Khoảng cách 40px từ cả bốn cạnh
+    const offset = 40;
+    const transitionZone = 20;
 
-    lastMouseX = mouseX;
-
-    // Hiển thị nút
-    swiperButton.style.opacity = "1";
-    swiperButton.style.transition = "opacity 0.3s, transform 0.3s";
-
-    // Tính toán vị trí
     let buttonPosX = mouseX - buttonWidth / 2;
     let buttonPosY = mouseY - buttonHeight / 2;
-    const transitionZone = 20;
     let rotateDeg;
 
     if (mouseX <= halfWidth - transitionZone) {
-      rotateDeg = 180; // Nửa trái: prev
+      rotateDeg = 180;
       buttonPosX = Math.max(
         offset,
         Math.min(halfWidth - buttonWidth, buttonPosX),
       );
     } else if (mouseX >= halfWidth + transitionZone) {
-      rotateDeg = 0; // Nửa phải: next
+      rotateDeg = 0;
       buttonPosX = Math.max(
         halfWidth,
         Math.min(rect.width - buttonWidth - offset, buttonPosX),
@@ -413,58 +418,57 @@ function swiperBanner() {
     } else {
       const progress =
         (mouseX - (halfWidth - transitionZone)) / (transitionZone * 2);
-      rotateDeg = 180 - progress * 180; // Vùng chuyển tiếp
+      rotateDeg = 180 - progress * 180;
       buttonPosX = Math.max(
         offset,
         Math.min(rect.width - buttonWidth - offset, buttonPosX),
       );
     }
 
-    // Giới hạn vị trí Y với offset 40px
     buttonPosY = Math.max(
       offset,
       Math.min(rect.height - buttonHeight - offset, buttonPosY),
     );
 
-    // Áp dụng transform
     swiperButton.style.left = `${buttonPosX}px`;
     swiperButton.style.top = `${buttonPosY}px`;
     swiperButton.style.transform = `scale(1) rotate(${rotateDeg}deg)`;
-    swiperButton.style.transition = " transform 0.3s";
+  }
+
+  container.addEventListener("mousemove", (e) => {
+    const rect = container.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    lastMouseX = mouseX;
+    swiperButton.style.opacity = "1";
+    swiperButton.style.transition = "opacity 0.3s";
+
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateButtonPosition(mouseX, mouseY, rect);
+        ticking = false;
+      });
+      ticking = true;
+    }
   });
 
-  // Xử lý sự kiện mouseleave
-  parentContainer.addEventListener("mouseleave", () => {
+  container.addEventListener("mouseleave", () => {
     swiperButton.style.opacity = "0";
     swiperButton.style.transform = "scale(0)";
     swiperButton.style.transition = "opacity 0.3s, transform 0.3s";
     lastMouseX = null;
   });
 
-  // Xử lý sự kiện click
   swiperButton.addEventListener("click", (e) => {
     const rect = container.getBoundingClientRect();
     const halfWidth = rect.width / 2;
-    const currentIndex = bannerSwiper.activeIndex;
-    const totalSlides = bannerSwiper.slides.length;
-
-    // Lấy vị trí chuột tại thời điểm click
     const mouseX = lastMouseX !== null ? lastMouseX : e.clientX - rect.left;
 
     if (mouseX <= halfWidth) {
-      if (currentIndex > 0) {
-        bannerSwiper.slidePrev();
-        console.log("slidePrev called");
-      } else {
-        console.log("Cannot slidePrev: at first slide");
-      }
+      bannerSwiper.slidePrev();
     } else {
-      if (currentIndex < totalSlides - 1) {
-        bannerSwiper.slideNext();
-        console.log("slideNext called");
-      } else {
-        console.log("Cannot slideNext: at last slide");
-      }
+      bannerSwiper.slideNext();
     }
   });
 }
@@ -1679,9 +1683,11 @@ const init = () => {
 };
 togglePlayMusic();
 
-preloadImages("img").then(() => {
-  // Once images are preloaded, remove the 'loading' indicator/class from the body
+// preloadImages("img").then(() => {
+//   // Once images are preloaded, remove the 'loading' indicator/class from the body
 
+// });
+document.addEventListener("DOMContentLoaded", () => {
   init();
 });
 

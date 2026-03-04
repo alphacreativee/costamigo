@@ -2376,6 +2376,7 @@ function swiperBanner() {
       },
     },
   });
+  if ($(".banner-slider .swiper-btn-custom").length < 1) return;
   const swiperButton = document.querySelector(
     ".banner-slider .swiper-btn-custom",
   );
